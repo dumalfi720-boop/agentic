@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Módulo 4.10 — Protocolo A2A | Trilha 4</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 4.10 — A2A Protocol | Track 4</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -18,7 +18,7 @@
       }
     }
   </script>
-  <style>
+<style data-notranslate="True">
     html:not(.dark) body { background: #f8f7f0; color: #1a1a1a; }
     html:not(.dark) .bg-dark-900 { background: #f8f7f0; }
     html:not(.dark) .bg-dark-800 { background: #f0efe8; }
@@ -38,281 +38,239 @@
   </style>
 </head>
 <body class="bg-dark-900 text-gray-300 min-h-screen">
-
-  <!-- NAV -->
-  <nav class="bg-dark-800 border-b border-gray-700 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-6">
-        <span class="text-xl font-bold text-amber-400">AEM</span>
-        <div class="hidden md:flex gap-4 text-sm">
-          <a href="../../index.html" class="text-gray-400 hover:text-white transition-colors">Início</a>
-          <a href="../trilha1/index.html" class="text-gray-400 hover:text-emerald-400 transition-colors">T1</a>
-          <a href="../trilha2/index.html" class="text-gray-400 hover:text-blue-400 transition-colors">T2</a>
-          <a href="../trilha3/index.html" class="text-gray-400 hover:text-purple-400 transition-colors">T3</a>
-          <a href="../trilha4/index.html" class="text-amber-400 font-semibold">T4</a>
-          <a href="../trilha5/index.html" class="text-gray-400 hover:text-teal-400 transition-colors">T5</a>
-          <a href="../trilha6/index.html" class="text-gray-400 hover:text-rose-400 transition-colors">T6</a>
-        </div>
-      </div>
-      <div class="flex items-center gap-3">
-        <button onclick="toggleTheme()" class="text-gray-400 hover:text-amber-400 transition-colors text-sm px-3 py-1 border border-gray-700 rounded-lg">
-          Tema
-        </button>
-        <a href="index.html" class="text-sm text-amber-400 hover:text-amber-300 transition-colors">
-          Trilha 4
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- BREADCRUMB -->
-  <div class="max-w-7xl mx-auto px-4 py-3">
-    <div class="flex items-center gap-2 text-sm text-gray-500">
-      <a href="../../index.html" class="hover:text-amber-400 transition-colors">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-amber-400 transition-colors">Trilha 4 — Multi-Agentes</a>
-      <span>/</span>
-      <span class="text-amber-400">Módulo 4.10 — Protocolo A2A</span>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="max-w-7xl mx-auto px-4 py-10">
-    <div class="bg-dark-700 border border-amber-500/30 rounded-2xl p-8 bg-gradient-to-br from-amber-900/30 to-dark-700">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-2xl font-bold text-amber-400">
+NAV
+<nav class="bg-dark-800 border-b border-gray-700 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<span class="text-xl font-bold text-amber-400">AEM</span>
+<div class="hidden md:flex gap-4 text-sm">
+<a class="text-gray-400 hover:text-white transition-colors" href="../../index.html">Start</a>
+<a class="text-gray-400 hover:text-emerald-400 transition-colors" href="../trilha1/index.html">T1</a>
+<a class="text-gray-400 hover:text-blue-400 transition-colors" href="../trilha2/index.html">T2</a>
+<a class="text-gray-400 hover:text-purple-400 transition-colors" href="../trilha3/index.html">T3</a>
+<a class="text-amber-400 font-semibold" href="../trilha4/index.html">T4</a>
+<a class="text-gray-400 hover:text-teal-400 transition-colors" href="../trilha5/index.html">T5</a>
+<a class="text-gray-400 hover:text-rose-400 transition-colors" href="../trilha6/index.html">T6</a>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-gray-400 hover:text-amber-400 transition-colors text-sm px-3 py-1 border border-gray-700 rounded-lg" onclick="toggleTheme()">Theme</button>
+<a class="text-sm text-amber-400 hover:text-amber-300 transition-colors" href="index.html">Track 4</a>
+</div>
+</div>
+</nav>
+BREADCRUMB
+<div class="max-w-7xl mx-auto px-4 py-3">
+<div class="flex items-center gap-2 text-sm text-gray-500">
+<a class="hover:text-amber-400 transition-colors" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-amber-400 transition-colors" href="index.html">Track 4 — Multi-Agents</a>
+<span>/</span>
+<span class="text-amber-400">Module 4.10 — A2A Protocol</span>
+</div>
+</div>
+HERO
+<header class="max-w-7xl mx-auto px-4 py-10">
+<div class="bg-dark-700 border border-amber-500/30 rounded-2xl p-8 bg-gradient-to-br from-amber-900/30 to-dark-700">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-2xl font-bold text-amber-400">
           10
         </div>
-        <div>
-          <p class="text-amber-400 text-sm font-medium uppercase tracking-widest">Trilha 4 · Módulo 10 · Final</p>
-          <h1 class="text-3xl font-bold text-white">Protocolo A2A</h1>
-        </div>
-      </div>
-      <p class="text-gray-300 text-lg max-w-3xl">
-        O protocolo Agent-to-Agent (A2A) do Google define como agentes de diferentes sistemas,
-        empresas e frameworks se comunicam de forma padronizada. O fim dos silos de agentes — um
-        padrão aberto para interoperabilidade universal.
-      </p>
-      <div class="flex flex-wrap gap-3 mt-6">
-        <span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">6 tópicos</span>
-        <span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">~50 min</span>
-        <span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">Avançado</span>
-        <span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">Módulo Final</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="max-w-7xl mx-auto px-4 pb-16 grid grid-cols-1 lg:grid-cols-4 gap-8">
-
-    <!-- SIDEBAR -->
-    <aside class="lg:col-span-1">
-      <div class="bg-dark-700 border border-gray-700 rounded-xl p-4 sticky top-20">
-        <h3 class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4">Tópicos</h3>
-        <div class="flex flex-col gap-2">
-          <button onclick="showTopic(1)" id="btn-1" class="topic-btn active text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">1</span>
-            Por que A2A surgiu
-          </button>
-          <button onclick="showTopic(2)" id="btn-2" class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">2</span>
-            Arquitetura A2A
-          </button>
-          <button onclick="showTopic(3)" id="btn-3" class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">3</span>
-            Agent Card
-          </button>
-          <button onclick="showTopic(4)" id="btn-4" class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">4</span>
-            Task Protocol
-          </button>
-          <button onclick="showTopic(5)" id="btn-5" class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">5</span>
-            Implementando em Python
-          </button>
-          <button onclick="showTopic(6)" id="btn-6" class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex">
-            <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">6</span>
-            A2A vs MCP vs direto
-          </button>
-        </div>
-
-        <div class="mt-6 pt-4 border-t border-gray-700">
-          <p class="text-xs text-gray-500 mb-2">Módulo</p>
-          <div class="w-full bg-dark-600 rounded-full h-2">
-            <div id="progress-bar" class="bg-amber-500 h-2 rounded-full transition-all duration-300" style="width:16.7%"></div>
-          </div>
-          <p id="progress-text" class="text-xs text-gray-500 mt-1">1 / 6 tópicos</p>
-        </div>
-      </div>
-    </aside>
-
-    <!-- CONTENT -->
-    <div class="lg:col-span-3 flex flex-col gap-6">
-
-      <!-- TOPIC 1 -->
-      <div id="topic-1" class="topic-content active bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">1</div>
-          <h2 class="text-xl font-bold text-white">Por que o A2A Surgiu</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          Em 2025, o ecossistema de agentes explodiu. LangChain, CrewAI, AutoGen, Vertex AI, LlamaIndex —
-          cada framework criou sua própria forma de agentes se comunicarem internamente. O problema:
-          um agente LangChain não falava com um agente CrewAI sem código customizado de integração.
-        </p>
-
-        <div class="bg-dark-600 border border-red-500/20 rounded-lg p-4 mb-6">
-          <h4 class="text-red-400 font-semibold mb-3">O Problema que A2A Resolve</h4>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <p class="text-white font-medium mb-2">Antes do A2A:</p>
-              <ul class="text-gray-300 space-y-1">
-                <li>Cada framework tem protocolo proprietário</li>
-                <li>Integração entre sistemas requer código customizado</li>
-                <li>Agentes não se descobrem dinamicamente</li>
-                <li>Sem padrão de capacidades, auth ou schema</li>
-                <li>Multi-cloud multi-vendor impossível sem wrapper</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-white font-medium mb-2">Com A2A:</p>
-              <ul class="text-gray-300 space-y-1">
-                <li>Protocolo HTTP padrão, JSON-RPC 2.0</li>
-                <li>Qualquer agente descobre e chama qualquer outro</li>
-                <li>Agent Card autodescritivo (como OpenAPI)</li>
-                <li>Autenticação padronizada via OAuth 2.0</li>
-                <li>Interoperabilidade cross-vendor nativa</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-600 rounded-lg p-4 mb-4">
-          <h4 class="text-amber-400 font-semibold mb-3">Linha do Tempo A2A</h4>
-          <div class="space-y-3">
-            <div class="flex gap-4">
-              <div class="flex flex-col items-center">
-                <div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
-                <div class="w-0.5 bg-gray-600 flex-1 mt-1"></div>
-              </div>
-              <div class="pb-3">
-                <p class="text-white text-sm font-medium">Abril 2025 — Lançamento</p>
-                <p class="text-gray-400 text-xs">Google anuncia A2A com suporte de 50+ parceiros (Salesforce, SAP, Atlassian, Deloitte)</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="flex flex-col items-center">
-                <div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
-                <div class="w-0.5 bg-gray-600 flex-1 mt-1"></div>
-              </div>
-              <div class="pb-3">
-                <p class="text-white text-sm font-medium">Junho 2025 — Spec v1.0</p>
-                <p class="text-gray-400 text-xs">Especificação estabilizada com suporte a streaming, push notifications e artifacts</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="flex flex-col items-center">
-                <div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
-              </div>
-              <div>
-                <p class="text-white text-sm font-medium">2026 — Adoção enterprise</p>
-                <p class="text-gray-400 text-xs">Principais cloud providers oferecem suporte nativo; frameworks open-source adotam como padrão</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-          <p class="text-amber-400 font-semibold mb-1">A2A é complementar ao MCP</p>
-          <p class="text-sm text-gray-300">
-            MCP (Model Context Protocol da Anthropic) define como agentes se conectam a ferramentas e dados.
-            A2A define como agentes se conectam entre si. Não competem — são camadas diferentes de um mesmo ecossistema.
-          </p>
-        </div>
-      </div>
-
-      <!-- TOPIC 2 -->
-      <div id="topic-2" class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">2</div>
-          <h2 class="text-xl font-bold text-white">Arquitetura A2A</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          A2A usa HTTP como transporte e JSON-RPC 2.0 como protocolo de mensagens.
-          Cada agente expõe um endpoint — o "A2A Server" — que responde requisições de outros agentes (A2A Clients).
-        </p>
-
-        <div class="bg-dark-600 rounded-lg p-5 mb-6">
-          <h4 class="text-amber-400 font-semibold mb-4 text-center">Diagrama de Componentes</h4>
-          <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-            <div class="bg-dark-700 border border-blue-500/30 rounded-lg p-4 text-center w-full md:w-36">
-              <p class="text-blue-400 font-semibold text-sm">Orquestrador</p>
-              <p class="text-xs text-gray-400 mt-1">A2A Client</p>
-            </div>
-            <div class="flex flex-col items-center gap-1 text-gray-500 text-xs">
-              <span>HTTP POST</span>
-              <span>/tasks/send</span>
-            </div>
-            <div class="bg-dark-700 border border-amber-500/30 rounded-lg p-4 text-center w-full md:w-36">
-              <p class="text-amber-400 font-semibold text-sm">Agente Remoto</p>
-              <p class="text-xs text-gray-400 mt-1">A2A Server</p>
-            </div>
-          </div>
-          <div class="mt-4 text-center text-xs text-gray-500">
-            Agente remoto expõe Agent Card em <code class="text-amber-400">/.well-known/agent.json</code>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
-            <h4 class="text-amber-400 font-semibold mb-2">Endpoints Padrão A2A</h4>
-            <div class="space-y-2 text-sm font-mono">
-              <div class="flex gap-2">
-                <span class="text-green-400">GET</span>
-                <span class="text-gray-300">/.well-known/agent.json</span>
-              </div>
-              <div class="flex gap-2">
-                <span class="text-blue-400">POST</span>
-                <span class="text-gray-300">/tasks/send</span>
-              </div>
-              <div class="flex gap-2">
-                <span class="text-blue-400">POST</span>
-                <span class="text-gray-300">/tasks/sendSubscribe</span>
-              </div>
-              <div class="flex gap-2">
-                <span class="text-blue-400">GET</span>
-                <span class="text-gray-300">/tasks/{'{'}id{'}'}/status</span>
-              </div>
-              <div class="flex gap-2">
-                <span class="text-yellow-400">POST</span>
-                <span class="text-gray-300">/tasks/{'{'}id{'}'}/cancel</span>
-              </div>
-            </div>
-          </div>
-          <div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
-            <h4 class="text-amber-400 font-semibold mb-2">Modos de Comunicação</h4>
-            <div class="space-y-3 text-sm">
-              <div>
-                <p class="text-white font-medium">Síncrono</p>
-                <p class="text-gray-400">/tasks/send — aguarda resultado completo</p>
-              </div>
-              <div>
-                <p class="text-white font-medium">Streaming (SSE)</p>
-                <p class="text-gray-400">/tasks/sendSubscribe — recebe atualizações em tempo real via Server-Sent Events</p>
-              </div>
-              <div>
-                <p class="text-white font-medium">Push (Webhook)</p>
-                <p class="text-gray-400">Agente notifica URL configurada quando task completa</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-600 rounded-lg p-4 overflow-x-auto">
-          <p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON-RPC — Estrutura de Requisição A2A</p>
-          <pre class="text-sm text-green-300"><code>{
+<div>
+<p class="text-amber-400 text-sm font-medium uppercase tracking-widest">Track 4 · Module 10 · Final</p>
+<h1 class="text-3xl font-bold text-white">A2A Protocol</h1>
+</div>
+</div>
+<p class="text-gray-300 text-lg max-w-3xl">Google's Agent-to-Agent (A2A) protocol defines how agents from different systems,
+        companies and frameworks communicate in a standardized way. The end of agent silos — a
+        open standard for universal interoperability.</p>
+<div class="flex flex-wrap gap-3 mt-6">
+<span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">6 topics</span>
+<span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">~50 min</span>
+<span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">Advanced</span>
+<span class="bg-amber-500/20 border border-amber-500/30 text-amber-400 px-3 py-1 rounded-full text-xs">Final Module</span>
+</div>
+</div>
+</header>
+MAIN
+<main class="max-w-7xl mx-auto px-4 pb-16 grid grid-cols-1 lg:grid-cols-4 gap-8">
+SIDEBAR
+<aside class="lg:col-span-1">
+<div class="bg-dark-700 border border-gray-700 rounded-xl p-4 sticky top-20">
+<h3 class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4">Topics</h3>
+<div class="flex flex-col gap-2">
+<button class="topic-btn active text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-1" onclick="showTopic(1)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">1</span>Why A2A came about</button>
+<button class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-2" onclick="showTopic(2)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">2</span>A2A architecture</button>
+<button class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-3" onclick="showTopic(3)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">3</span>Agent Card</button>
+<button class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-4" onclick="showTopic(4)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">4</span>Task Protocol</button>
+<button class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-5" onclick="showTopic(5)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">5</span>Implementing in Python</button>
+<button class="topic-btn text-left w-full px-3 py-2 rounded-lg border border-transparent text-sm text-gray-300 hover:text-white hover:bg-amber-500/10 transition-all justify-start flex" id="btn-6" onclick="showTopic(6)">
+<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center mr-2 shrink-0">6</span>A2A vs MCP vs direct</button>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-700">
+<p class="text-xs text-gray-500 mb-2">Module</p>
+<div class="w-full bg-dark-600 rounded-full h-2">
+<div class="bg-amber-500 h-2 rounded-full transition-all duration-300" id="progress-bar" style="width:16.7%"></div>
+</div>
+<p class="text-xs text-gray-500 mt-1" id="progress-text">1 / 6 topics</p>
+</div>
+</div>
+</aside>
+CONTENT
+<div class="lg:col-span-3 flex flex-col gap-6">
+TOPIC 1
+<div class="topic-content active bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-1">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">1</div>
+<h2 class="text-xl font-bold text-white">Why A2A Came About</h2>
+</div>
+<p class="text-gray-300 mb-4">In 2025, the agent ecosystem exploded. LangChain, CrewAI, AutoGen, Vertex AI, LlamaIndex —
+          each framework created its own way for agents to communicate internally. The problem:
+          a LangChain agent would not talk to a CrewAI agent without custom integration code.</p>
+<div class="bg-dark-600 border border-red-500/20 rounded-lg p-4 mb-6">
+<h4 class="text-red-400 font-semibold mb-3">The Problem A2A Solves</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+<div>
+<p class="text-white font-medium mb-2">Before A2A:</p>
+<ul class="text-gray-300 space-y-1">
+<li>Each framework has proprietary protocol</li>
+<li>Integration between systems requires custom code</li>
+<li>Agents do not discover themselves dynamically</li>
+<li>No capabilities, auth or schema standards</li>
+<li>Multi-cloud multi-vendor impossible without wrapper</li>
+</ul>
+</div>
+<div>
+<p class="text-white font-medium mb-2">With A2A:</p>
+<ul class="text-gray-300 space-y-1">
+<li>Standard HTTP protocol, JSON-RPC 2.0</li>
+<li>Any agent discovers and calls any other</li>
+<li>Self-describing Agent Card (like OpenAPI)</li>
+<li>Standardized authentication via OAuth 2.0</li>
+<li>Native cross-vendor interoperability</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-dark-600 rounded-lg p-4 mb-4">
+<h4 class="text-amber-400 font-semibold mb-3">A2A Timeline</h4>
+<div class="space-y-3">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
+<div class="w-0.5 bg-gray-600 flex-1 mt-1"></div>
+</div>
+<div class="pb-3">
+<p class="text-white text-sm font-medium">April 2025 — Launch</p>
+<p class="text-gray-400 text-xs">Google announces A2A with support from 50+ partners (Salesforce, SAP, Atlassian, Deloitte)</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
+<div class="w-0.5 bg-gray-600 flex-1 mt-1"></div>
+</div>
+<div class="pb-3">
+<p class="text-white text-sm font-medium">June 2025 — Spec v1.0</p>
+<p class="text-gray-400 text-xs">Stabilized specification with support for streaming, push notifications and artifacts</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-amber-500 shrink-0"></div>
+</div>
+<div>
+<p class="text-white text-sm font-medium">2026 — Enterprise adoption</p>
+<p class="text-gray-400 text-xs">Leading cloud providers offer native support; open-source frameworks adopt as standard</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+<p class="text-amber-400 font-semibold mb-1">A2A is complementary to MCP</p>
+<p class="text-sm text-gray-300">MCP (Anthropic's Model Context Protocol) defines how agents connect to tools and data.
+            A2A defines how agents connect to each other. They don’t compete — they are different layers of the same ecosystem.</p>
+</div>
+</div>
+TOPIC 2
+<div class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">2</div>
+<h2 class="text-xl font-bold text-white">A2A architecture</h2>
+</div>
+<p class="text-gray-300 mb-4">A2A uses HTTP as transport and JSON-RPC 2.0 as messaging protocol.
+          Each agent exposes an endpoint — the "A2A Server" — that responds to requests from other agents (A2A Clients).</p>
+<div class="bg-dark-600 rounded-lg p-5 mb-6">
+<h4 class="text-amber-400 font-semibold mb-4 text-center">Component Diagram</h4>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<div class="bg-dark-700 border border-blue-500/30 rounded-lg p-4 text-center w-full md:w-36">
+<p class="text-blue-400 font-semibold text-sm">Orchestrator</p>
+<p class="text-xs text-gray-400 mt-1">A2A Client</p>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-500 text-xs">
+<span>HTTPPOST</span>
+<span>/tasks/send</span>
+</div>
+<div class="bg-dark-700 border border-amber-500/30 rounded-lg p-4 text-center w-full md:w-36">
+<p class="text-amber-400 font-semibold text-sm">Remote Agent</p>
+<p class="text-xs text-gray-400 mt-1">A2A Server</p>
+</div>
+</div>
+<div class="mt-4 text-center text-xs text-gray-500">Remote agent exposes Agent Card on<code class="text-amber-400" data-notranslate="True">/.well-known/agent.json</code>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
+<h4 class="text-amber-400 font-semibold mb-2">A2A Standard Endpoints</h4>
+<div class="space-y-2 text-sm font-mono">
+<div class="flex gap-2">
+<span class="text-green-400">GET</span>
+<span class="text-gray-300">/.well-known/agent.json</span>
+</div>
+<div class="flex gap-2">
+<span class="text-blue-400">POST</span>
+<span class="text-gray-300">/tasks/send</span>
+</div>
+<div class="flex gap-2">
+<span class="text-blue-400">POST</span>
+<span class="text-gray-300">/tasks/sendSubscribe</span>
+</div>
+<div class="flex gap-2">
+<span class="text-blue-400">GET</span>
+<span class="text-gray-300">/tasks/{'{'}id{'}'}/status</span>
+</div>
+<div class="flex gap-2">
+<span class="text-yellow-400">POST</span>
+<span class="text-gray-300">/tasks/{'{'}id{'}'}/cancel</span>
+</div>
+</div>
+</div>
+<div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
+<h4 class="text-amber-400 font-semibold mb-2">Communication Modes</h4>
+<div class="space-y-3 text-sm">
+<div>
+<p class="text-white font-medium">Synchronous</p>
+<p class="text-gray-400">/tasks/send — waits for full result</p>
+</div>
+<div>
+<p class="text-white font-medium">Streaming (SSE)</p>
+<p class="text-gray-400">/tasks/sendSubscribe — receives real-time updates via Server-Sent Events</p>
+</div>
+<div>
+<p class="text-white font-medium">Push (Webhook)</p>
+<p class="text-gray-400">Agent notifies configured URL when task completes</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-dark-600 rounded-lg p-4 overflow-x-auto">
+<p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON-RPC — A2A Request Structure</p>
+<pre class="text-sm text-green-300" data-notranslate="True"><code data-notranslate="True">{
   "jsonrpc": "2.0",
   "id": "req-abc123",
   "method": "tasks/send",
@@ -340,26 +298,20 @@
   }
 }
   </code></pre>
-        </div>
-      </div>
-
-      <!-- TOPIC 3 -->
-      <div id="topic-3" class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">3</div>
-          <h2 class="text-xl font-bold text-white">Agent Card</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          O Agent Card é o "cartão de visita" do agente — um JSON autodescritivo servido em
-          <code class="text-amber-400 bg-dark-600 px-1 rounded">/.well-known/agent.json</code> que declara
-          o que o agente sabe fazer, como se autenticar, quais formatos aceita e quais skills possui.
-          É para agentes o que o OpenAPI é para APIs REST.
-        </p>
-
-        <div class="bg-dark-600 rounded-lg p-4 mb-6 overflow-x-auto">
-          <p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON — Agent Card Completo</p>
-          <pre class="text-sm text-green-300"><code>{
+</div>
+</div>
+TOPIC 3
+<div class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-3">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">3</div>
+<h2 class="text-xl font-bold text-white">Agent Card</h2>
+</div>
+<p class="text-gray-300 mb-4">The Agent Card is the agent's "business card" — a self-describing JSON served in<code class="text-amber-400 bg-dark-600 px-1 rounded" data-notranslate="True">/.well-known/agent.json</code>which declares
+          what the agent knows how to do, how to authenticate, what formats it accepts and what skills it has.
+          It is to agents what OpenAPI is to REST APIs.</p>
+<div class="bg-dark-600 rounded-lg p-4 mb-6 overflow-x-auto">
+<p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON — Full Agent Card</p>
+<pre class="text-sm text-green-300" data-notranslate="True"><code data-notranslate="True">{
   "name": "Analista Financeiro IA",
   "description": "Especialista em análise de demonstrativos financeiros, KPIs e forecasting",
   "version": "2.1.0",
@@ -410,66 +362,57 @@
   ]
 }
   </code></pre>
-        </div>
-
-        <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-          <p class="text-amber-400 font-semibold mb-1">Descoberta Dinâmica de Agentes</p>
-          <p class="text-sm text-gray-300">
-            O orquestrador pode buscar agentes em um registro (agent registry) filtrado por tags.
-            Ex: <code class="text-amber-300">registry.find(tags=["financial", "kpi"])</code> retorna todos os agentes
-            registrados com essas capacidades — sem precisar hardcodar URLs.
-          </p>
-        </div>
-      </div>
-
-      <!-- TOPIC 4 -->
-      <div id="topic-4" class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">4</div>
-          <h2 class="text-xl font-bold text-white">Task Protocol</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          O Task Protocol define o ciclo de vida de uma tarefa no A2A: estados, transições e formato de resposta.
-          Uma task tem um ID único, passa por estados bem definidos e pode retornar artefatos (artifacts) como resultado.
-        </p>
-
-        <div class="bg-dark-600 rounded-lg p-4 mb-6">
-          <h4 class="text-amber-400 font-semibold mb-4 text-center">Ciclo de Vida de uma Task A2A</h4>
-          <div class="flex flex-wrap justify-center gap-2 items-center">
-            <div class="bg-dark-700 border border-gray-600 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-white font-semibold">submitted</p>
-              <p class="text-gray-500">Recebida</p>
-            </div>
-            <span class="text-amber-500 text-xs">→</span>
-            <div class="bg-dark-700 border border-amber-500/30 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-amber-400 font-semibold">working</p>
-              <p class="text-gray-500">Executando</p>
-            </div>
-            <span class="text-amber-500 text-xs">→</span>
-            <div class="bg-dark-700 border border-yellow-500/30 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-yellow-400 font-semibold">input-required</p>
-              <p class="text-gray-500">Aguardando</p>
-            </div>
-            <span class="text-amber-500 text-xs">→</span>
-            <div class="bg-dark-700 border border-green-500/30 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-green-400 font-semibold">completed</p>
-              <p class="text-gray-500">Concluída</p>
-            </div>
-          </div>
-          <div class="flex justify-center gap-4 mt-3">
-            <div class="bg-dark-700 border border-red-500/30 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-red-400 font-semibold">failed</p>
-            </div>
-            <div class="bg-dark-700 border border-gray-600 rounded-lg px-3 py-2 text-xs text-center">
-              <p class="text-gray-400 font-semibold">canceled</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-600 rounded-lg p-4 mb-4 overflow-x-auto">
-          <p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON — Resposta de Task Concluída</p>
-          <pre class="text-sm text-green-300"><code>{
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+<p class="text-amber-400 font-semibold mb-1">Dynamic Agent Discovery</p>
+<p class="text-sm text-gray-300">The orchestrator can search for agents in an agent registry filtered by tags.
+            Ex:<code class="text-amber-300" data-notranslate="True">registry.find(tags=["financial", "kpi"])</code>returns all agents
+            registered with these capabilities — without having to hardcode URLs.</p>
+</div>
+</div>
+TOPIC 4
+<div class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-4">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">4</div>
+<h2 class="text-xl font-bold text-white">Task Protocol</h2>
+</div>
+<p class="text-gray-300 mb-4">The Task Protocol defines the lifecycle of a task in A2A: states, transitions and response format.
+          A task has a unique ID, goes through well-defined states and can return artifacts as a result.</p>
+<div class="bg-dark-600 rounded-lg p-4 mb-6">
+<h4 class="text-amber-400 font-semibold mb-4 text-center">Lifecycle of an A2A Task</h4>
+<div class="flex flex-wrap justify-center gap-2 items-center">
+<div class="bg-dark-700 border border-gray-600 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-white font-semibold">submitted</p>
+<p class="text-gray-500">Received</p>
+</div>
+<span class="text-amber-500 text-xs">→</span>
+<div class="bg-dark-700 border border-amber-500/30 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-amber-400 font-semibold">working</p>
+<p class="text-gray-500">Running</p>
+</div>
+<span class="text-amber-500 text-xs">→</span>
+<div class="bg-dark-700 border border-yellow-500/30 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-yellow-400 font-semibold">input-required</p>
+<p class="text-gray-500">Waiting</p>
+</div>
+<span class="text-amber-500 text-xs">→</span>
+<div class="bg-dark-700 border border-green-500/30 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-green-400 font-semibold">completed</p>
+<p class="text-gray-500">Completed</p>
+</div>
+</div>
+<div class="flex justify-center gap-4 mt-3">
+<div class="bg-dark-700 border border-red-500/30 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-red-400 font-semibold">failed</p>
+</div>
+<div class="bg-dark-700 border border-gray-600 rounded-lg px-3 py-2 text-xs text-center">
+<p class="text-gray-400 font-semibold">canceled</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-600 rounded-lg p-4 mb-4 overflow-x-auto">
+<p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">JSON — Task Completed Response</p>
+<pre class="text-sm text-green-300" data-notranslate="True"><code data-notranslate="True">{
   "id": "task-uuid-456",
   "sessionId": "session-789",
   "status": {
@@ -512,34 +455,24 @@
   ]
 }
   </code></pre>
-        </div>
-
-        <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-          <p class="text-amber-400 font-semibold mb-1">Estado input-required</p>
-          <p class="text-sm text-gray-300">
-            Quando o agente precisa de mais informação para continuar, transita para
-            <code class="text-amber-300">input-required</code> e aguarda o client enviar
-            <code class="text-amber-300">/tasks/{'{'}id{'}'}/send</code> com os dados adicionais.
-            Isso permite diálogos multi-turno entre agentes.
-          </p>
-        </div>
-      </div>
-
-      <!-- TOPIC 5 -->
-      <div id="topic-5" class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">5</div>
-          <h2 class="text-xl font-bold text-white">Implementando em Python</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          Como criar um servidor A2A (agente que outros podem chamar) e um cliente A2A
-          (orquestrador que chama outros agentes) usando Python com FastAPI e httpx.
-        </p>
-
-        <div class="bg-dark-600 rounded-lg p-4 mb-6 overflow-x-auto">
-          <p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">Python — Servidor A2A (Agente Remoto)</p>
-          <pre class="text-sm text-green-300"><code>from fastapi import FastAPI, HTTPException
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+<p class="text-amber-400 font-semibold mb-1">input-required state</p>
+<p class="text-sm text-gray-300">When the agent needs more information to continue, it moves to<code class="text-amber-300" data-notranslate="True">input-required</code>and waits for the client to send<code class="text-amber-300" data-notranslate="True">/tasks/{'{'}id{'}'}/send</code>with additional data.
+            This allows for multi-turn dialogues between agents.</p>
+</div>
+</div>
+TOPIC 5
+<div class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-5">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">5</div>
+<h2 class="text-xl font-bold text-white">Implementing in Python</h2>
+</div>
+<p class="text-gray-300 mb-4">How to create an A2A server (agent that others can call) and an A2A client
+          (orchestrator that calls other agents) using Python with FastAPI and httpx.</p>
+<div class="bg-dark-600 rounded-lg p-4 mb-6 overflow-x-auto">
+<p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">Python — A2A Server (Remote Agent)</p>
+<pre class="text-sm text-green-300" data-notranslate="True"><code data-notranslate="True">from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 import uuid, json, asyncio
 from pydantic import BaseModel
@@ -612,11 +545,10 @@ async def process_task(task_id: str, message: dict):
         }]
     }
   </code></pre>
-        </div>
-
-        <div class="bg-dark-600 rounded-lg p-4 overflow-x-auto">
-          <p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">Python — Cliente A2A (Orquestrador)</p>
-          <pre class="text-sm text-green-300"><code>import httpx
+</div>
+<div class="bg-dark-600 rounded-lg p-4 overflow-x-auto">
+<p class="text-xs text-amber-400 mb-2 uppercase tracking-widest">Python — A2A Client (Orchestrator)</p>
+<pre class="text-sm text-green-300" data-notranslate="True"><code data-notranslate="True">import httpx
 import asyncio
 from typing import Optional
 
@@ -625,7 +557,7 @@ class A2AClient:
         self.agent_url = agent_url.rstrip("/")
         self.headers = {"Authorization": f"Bearer {token}"} if token else {}
 
-    async def get_agent_card(self) -> dict:
+    async def get_agent_card(self) -&gt; dict:
         async with httpx.AsyncClient() as client:
             resp = await client.get(
                 f"{self.agent_url}/.well-known/agent.json",
@@ -633,7 +565,7 @@ class A2AClient:
             )
             return resp.json()
 
-    async def send_task(self, message: str, task_id: str = None) -> dict:
+    async def send_task(self, message: str, task_id: str = None) -&gt; dict:
         payload = {
             "jsonrpc": "2.0",
             "id": "req-1",
@@ -659,12 +591,12 @@ class A2AClient:
         task_id: str,
         poll_interval: float = 0.5,
         timeout: float = 120.0
-    ) -> dict:
+    ) -&gt; dict:
         """Polling até task completar."""
         import time
         start = time.time()
 
-        while time.time() - start < timeout:
+        while time.time() - start &lt; timeout:
             async with httpx.AsyncClient() as client:
                 resp = await client.get(
                     f"{self.agent_url}/tasks/{task_id}/status",
@@ -698,173 +630,152 @@ async def orchestrate():
     summary = final["artifacts"][0]["parts"][0]["text"]
     print(f"Resumo: {summary}")
   </code></pre>
-        </div>
-      </div>
-
-      <!-- TOPIC 6 -->
-      <div id="topic-6" class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">6</div>
-          <h2 class="text-xl font-bold text-white">A2A vs MCP vs Chamada Direta</h2>
-        </div>
-
-        <p class="text-gray-300 mb-4">
-          Três abordagens para integração entre agentes — cada uma com trade-offs claros de complexidade,
-          flexibilidade e interoperabilidade. Escolher a certa depende do contexto.
-        </p>
-
-        <div class="overflow-x-auto mb-6">
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="bg-dark-600 text-amber-400">
-                <th class="text-left p-3 border border-gray-700">Critério</th>
-                <th class="text-left p-3 border border-gray-700">Chamada Direta</th>
-                <th class="text-left p-3 border border-gray-700">MCP</th>
-                <th class="text-left p-3 border border-gray-700">A2A</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-700">
-              <tr class="bg-dark-700">
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Complexidade</td>
-                <td class="p-3 border border-gray-700 text-green-400">Baixa</td>
-                <td class="p-3 border border-gray-700 text-yellow-400">Média</td>
-                <td class="p-3 border border-gray-700 text-orange-400">Alta</td>
-              </tr>
-              <tr>
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Interoperabilidade</td>
-                <td class="p-3 border border-gray-700 text-red-400">Nenhuma</td>
-                <td class="p-3 border border-gray-700 text-yellow-400">Ferramentas</td>
-                <td class="p-3 border border-gray-700 text-green-400">Total</td>
-              </tr>
-              <tr class="bg-dark-700">
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Descoberta dinâmica</td>
-                <td class="p-3 border border-gray-700 text-red-400">Não</td>
-                <td class="p-3 border border-gray-700 text-yellow-400">Parcial</td>
-                <td class="p-3 border border-gray-700 text-green-400">Sim (Agent Card)</td>
-              </tr>
-              <tr>
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Autenticação padronizada</td>
-                <td class="p-3 border border-gray-700 text-red-400">Não</td>
-                <td class="p-3 border border-gray-700 text-yellow-400">Básica</td>
-                <td class="p-3 border border-gray-700 text-green-400">OAuth 2.0</td>
-              </tr>
-              <tr class="bg-dark-700">
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Streaming nativo</td>
-                <td class="p-3 border border-gray-700 text-red-400">Não</td>
-                <td class="p-3 border border-gray-700 text-yellow-400">Parcial</td>
-                <td class="p-3 border border-gray-700 text-green-400">SSE nativo</td>
-              </tr>
-              <tr>
-                <td class="p-3 border border-gray-700 text-gray-300 font-medium">Casos de uso</td>
-                <td class="p-3 border border-gray-700 text-gray-400">Agentes internos, mesmo framework</td>
-                <td class="p-3 border border-gray-700 text-gray-400">Agente + tools externas</td>
-                <td class="p-3 border border-gray-700 text-gray-400">Multi-empresa, cross-cloud, enterprise</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-dark-600 border border-green-500/20 rounded-lg p-4">
-            <h4 class="text-green-400 font-semibold mb-2">Use Chamada Direta quando...</h4>
-            <ul class="text-sm text-gray-300 space-y-1">
-              <li>Agentes no mesmo processo/framework</li>
-              <li>Equipe pequena, MVP rápido</li>
-              <li>Não precisa de interoperabilidade</li>
-              <li>Latência é crítica</li>
-            </ul>
-          </div>
-          <div class="bg-dark-600 border border-blue-500/20 rounded-lg p-4">
-            <h4 class="text-blue-400 font-semibold mb-2">Use MCP quando...</h4>
-            <ul class="text-sm text-gray-300 space-y-1">
-              <li>Agente precisa de tools externas padronizadas</li>
-              <li>Quer reusar servidores MCP existentes</li>
-              <li>Foco em agente + contexto + dados</li>
-              <li>Ecossistema Anthropic</li>
-            </ul>
-          </div>
-          <div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
-            <h4 class="text-amber-400 font-semibold mb-2">Use A2A quando...</h4>
-            <ul class="text-sm text-gray-300 space-y-1">
-              <li>Agentes de múltiplos vendors/times</li>
-              <li>Necessidade de descoberta dinâmica</li>
-              <li>Enterprise cross-cloud</li>
-              <li>Publicar agente como serviço</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
-          <p class="text-amber-400 font-semibold mb-2">Visão de Futuro: Ecossistema Unificado</p>
-          <p class="text-sm text-gray-300">
-            A convergência de A2A (agente-a-agente) + MCP (agente-a-ferramenta) + modelos cada vez mais capazes
-            cria um ecossistema onde qualquer agente pode colaborar com qualquer outro, usar qualquer ferramenta,
-            e ser descoberto por qualquer orquestrador — independente de vendor ou framework.
-            Quem dominar essa arquitetura hoje tem vantagem definitiva em 2026-2027.
-          </p>
-        </div>
-      </div>
-
-      <!-- RESUMO FINAL -->
-      <div class="bg-dark-700 border border-amber-500/30 rounded-xl p-6 bg-gradient-to-br from-amber-900/20 to-dark-700">
-        <h3 class="text-amber-400 font-bold text-lg mb-2">Resumo do Módulo</h3>
-        <p class="text-gray-400 text-sm mb-4">Módulo 10 de 10 da Trilha 4 — Multi-Agentes e Orquestração</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <h4 class="text-white font-semibold mb-2 text-sm">Conceitos centrais</h4>
-            <ul class="text-sm text-gray-300 space-y-1">
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> A2A resolve interoperabilidade cross-vendor de agentes</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> HTTP + JSON-RPC 2.0 como protocolo de transporte</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> Agent Card é o OpenAPI dos agentes</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> Task lifecycle: submitted → working → completed</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-white font-semibold mb-2 text-sm">Na prática</h4>
-            <ul class="text-sm text-gray-300 space-y-1">
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> FastAPI + httpx para servidor e cliente A2A</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> A2A e MCP são complementares, não concorrentes</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> Streaming nativo via SSE para tasks longas</li>
-              <li class="flex items-center gap-2"><span class="text-amber-400">→</span> Descoberta dinâmica via registry + tags</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONCLUSAO DA TRILHA -->
-      <div class="bg-dark-700 border border-amber-500/50 rounded-xl p-6 text-center bg-gradient-to-br from-amber-900/30 to-dark-700">
-        <div class="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-amber-400 text-3xl font-bold mx-auto mb-4">4</div>
-        <h3 class="text-white font-bold text-xl mb-2">Trilha 4 Concluida</h3>
-        <p class="text-gray-300 text-sm max-w-lg mx-auto mb-4">
-          Voce completou a Trilha 4 — Multi-Agentes e Orquestracao. Da arquitetura hierarquica ao protocolo A2A,
-          agora voce tem o repertorio completo para construir sistemas agênticos de producao.
-        </p>
-        <p class="text-amber-400 text-sm font-medium">Proximo passo: Trilha 5 — Memoria e Contexto</p>
-      </div>
-
-      <!-- NAV PREV/NEXT -->
-      <div class="flex justify-between items-center pt-4">
-        <a href="modulo-4-9.html" class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors text-sm">
-          <span class="w-7 h-7 rounded-full bg-dark-600 border border-gray-600 flex items-center justify-center text-xs">9</span>
-          Módulo anterior
-        </a>
-        <a href="../trilha5/index.html" class="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-sm font-medium">
-          Próxima Trilha — T5
-          <span class="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-xs">5</span>
-        </a>
-      </div>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-700 mt-8 py-6 text-center text-sm text-gray-500">
-    <p>Agentic Engineering Masterclass · Trilha 4 · Módulo 10 (Final)</p>
-    <p class="mt-1">
-      Conteúdo por <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 transition-colors">INEMA.CLUB</a>
-    </p>
-  </footer>
-
-  <script>
+</div>
+</div>
+TOPIC 6
+<div class="topic-content bg-dark-700 border border-gray-700 rounded-xl p-6" id="topic-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-sm">6</div>
+<h2 class="text-xl font-bold text-white">A2A vs MCP vs Direct Call</h2>
+</div>
+<p class="text-gray-300 mb-4">Three approaches to agent integration — each with clear complexity trade-offs,
+          flexibility and interoperability. Choosing the right one depends on the context.</p>
+<div class="overflow-x-auto mb-6">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="bg-dark-600 text-amber-400">
+<th class="text-left p-3 border border-gray-700">Criterion</th>
+<th class="text-left p-3 border border-gray-700">Direct Call</th>
+<th class="text-left p-3 border border-gray-700">MCP</th>
+<th class="text-left p-3 border border-gray-700">A2A</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-700">
+<tr class="bg-dark-700">
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Complexity</td>
+<td class="p-3 border border-gray-700 text-green-400">Low</td>
+<td class="p-3 border border-gray-700 text-yellow-400">Average</td>
+<td class="p-3 border border-gray-700 text-orange-400">High</td>
+</tr>
+<tr>
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Interoperability</td>
+<td class="p-3 border border-gray-700 text-red-400">None</td>
+<td class="p-3 border border-gray-700 text-yellow-400">Tools</td>
+<td class="p-3 border border-gray-700 text-green-400">Total</td>
+</tr>
+<tr class="bg-dark-700">
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Dynamic discovery</td>
+<td class="p-3 border border-gray-700 text-red-400">No</td>
+<td class="p-3 border border-gray-700 text-yellow-400">Partial</td>
+<td class="p-3 border border-gray-700 text-green-400">Yes (Agent Card)</td>
+</tr>
+<tr>
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Standardized authentication</td>
+<td class="p-3 border border-gray-700 text-red-400">No</td>
+<td class="p-3 border border-gray-700 text-yellow-400">Basic</td>
+<td class="p-3 border border-gray-700 text-green-400">OAuth 2.0</td>
+</tr>
+<tr class="bg-dark-700">
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Native Streaming</td>
+<td class="p-3 border border-gray-700 text-red-400">No</td>
+<td class="p-3 border border-gray-700 text-yellow-400">Partial</td>
+<td class="p-3 border border-gray-700 text-green-400">native SSE</td>
+</tr>
+<tr>
+<td class="p-3 border border-gray-700 text-gray-300 font-medium">Use cases</td>
+<td class="p-3 border border-gray-700 text-gray-400">Internal agents, same framework</td>
+<td class="p-3 border border-gray-700 text-gray-400">Agent + external tools</td>
+<td class="p-3 border border-gray-700 text-gray-400">Multi-company, cross-cloud, enterprise</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-600 border border-green-500/20 rounded-lg p-4">
+<h4 class="text-green-400 font-semibold mb-2">Use Direct Call when...</h4>
+<ul class="text-sm text-gray-300 space-y-1">
+<li>Agents in the same process/framework</li>
+<li>Small team, fast MVP</li>
+<li>No need for interoperability</li>
+<li>Latency is critical</li>
+</ul>
+</div>
+<div class="bg-dark-600 border border-blue-500/20 rounded-lg p-4">
+<h4 class="text-blue-400 font-semibold mb-2">Use MCP when...</h4>
+<ul class="text-sm text-gray-300 space-y-1">
+<li>Agent needs standardized external tools</li>
+<li>Want to reuse existing MCP servers</li>
+<li>Focus on agent + context + data</li>
+<li>Anthropic ecosystem</li>
+</ul>
+</div>
+<div class="bg-dark-600 border border-amber-500/20 rounded-lg p-4">
+<h4 class="text-amber-400 font-semibold mb-2">Use A2A when...</h4>
+<ul class="text-sm text-gray-300 space-y-1">
+<li>Agents from multiple vendors/teams</li>
+<li>Need for dynamic discovery</li>
+<li>Enterprise cross-cloud</li>
+<li>Publish agent as a service</li>
+</ul>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+<p class="text-amber-400 font-semibold mb-2">Future Vision: Unified Ecosystem</p>
+<p class="text-sm text-gray-300">The convergence of A2A (agent-to-agent) + MCP (agent-to-tool) + increasingly capable models
+            creates an ecosystem where any agent can collaborate with any other, use any tool,
+            and be discovered by any orchestrator — regardless of vendor or framework.
+            Whoever masters this architecture today has a definitive advantage in 2026-2027.</p>
+</div>
+</div>
+FINAL SUMMARY
+<div class="bg-dark-700 border border-amber-500/30 rounded-xl p-6 bg-gradient-to-br from-amber-900/20 to-dark-700">
+<h3 class="text-amber-400 font-bold text-lg mb-2">Module Summary</h3>
+<p class="text-gray-400 text-sm mb-4">Module 10 of 10 of Track 4 — Multi-Agents and Orchestration</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<h4 class="text-white font-semibold mb-2 text-sm">Core concepts</h4>
+<ul class="text-sm text-gray-300 space-y-1">
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>A2A solves cross-vendor agent interoperability</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>HTTP + JSON-RPC 2.0 as transport protocol</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>Agent Card is the OpenAPI of agents</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>Task lifecycle: submitted → working → completed</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-2 text-sm">In practice</h4>
+<ul class="text-sm text-gray-300 space-y-1">
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>FastAPI + httpx for A2A server and client</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>A2A and MCP are complementary, not competitors</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>Native streaming via SSE for long tasks</li>
+<li class="flex items-center gap-2"><span class="text-amber-400">→</span>Dynamic discovery via registry + tags</li>
+</ul>
+</div>
+</div>
+</div>
+COMPLETION OF THE TRAIL
+<div class="bg-dark-700 border border-amber-500/50 rounded-xl p-6 text-center bg-gradient-to-br from-amber-900/30 to-dark-700">
+<div class="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-amber-400 text-3xl font-bold mx-auto mb-4">4</div>
+<h3 class="text-white font-bold text-xl mb-2">Trail 4 Completed</h3>
+<p class="text-gray-300 text-sm max-w-lg mx-auto mb-4">You have completed Track 4 — Multi-Agents and Orchestration. From hierarchical architecture to A2A protocol,
+          Now you have the complete repertoire to build agentic production systems.</p>
+<p class="text-amber-400 text-sm font-medium">Next step: Track 5 — Memory and Context</p>
+</div>
+PREV/NEXT NAV
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors text-sm" href="modulo-4-9.html">
+<span class="w-7 h-7 rounded-full bg-dark-600 border border-gray-600 flex items-center justify-center text-xs">9</span>Previous module</a>
+<a class="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-sm font-medium" href="../trilha5/index.html">Next Trail — T5<span class="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-xs">5</span>
+</a>
+</div>
+</div>
+</main>
+FOOTER
+<footer class="border-t border-gray-700 mt-8 py-6 text-center text-sm text-gray-500">
+<p>Agentic Engineering Masterclass · Track 4 · Module 10 (Final)</p>
+<p class="mt-1">Content by<a class="text-sky-400 hover:text-sky-300 transition-colors" href="https://duclub" target="_blank">duclub</a>
+</p>
+</footer>
+<script data-notranslate="True">
     let currentTopic = 1;
     const totalTopics = 6;
 
