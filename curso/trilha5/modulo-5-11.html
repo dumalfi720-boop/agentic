@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.11 Projeto Final — Orquestrador de Análise Competitiva | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.11 Final Project — Competitive Analysis Orchestrator | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,91 +30,81 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400 transition-colors">Home</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400 transition-colors">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.11 — Projeto Final</span>
-    </nav>
-  </div>
-
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-dark-900 to-dark-800"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MÓDULO 5.11</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">PROJETO FINAL</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Trilha 5 — Conclusão</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">
-        🏗️ Projeto Final — Orquestrador de Análise Competitiva
-      </h1>
-      <p class="text-lg text-neutral-300 max-w-3xl mb-8">
-        Construção completa de um orquestrador de análise competitiva com todas as 6 camadas integradas: planejamento inteligente, roteamento multi-agente, controle de estado, supervisão, governança e observabilidade. Deploy em Docker.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">6</div>
-          <div class="text-xs text-neutral-400 mt-1">Camadas</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">~75min</div>
-          <div class="text-xs text-neutral-400 mt-1">Duração</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Produção</div>
-          <div class="text-xs text-neutral-400 mt-1">Nível</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Deploy</div>
-          <div class="text-xs text-neutral-400 mt-1">Docker</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-
-    <!-- Seção 1 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
-        <h2 class="text-xl font-bold text-neutral-100">Especificação do Projeto — O que Vamos Construir</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>O projeto final é um <strong class="text-neutral-100">orquestrador de análise competitiva</strong> que, dado uma empresa e seus competidores, produz um relatório executivo completo. É o caso de uso que une todas as 6 camadas.</p>
-
-        <div class="bg-dark-900 rounded-xl p-6 border border-teal-500/30">
-          <h3 class="font-bold text-teal-400 mb-4">Input → Output</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-            <div>
-              <div class="font-bold text-neutral-100 mb-2">INPUT</div>
-              <pre class="bg-dark-800 rounded-lg p-3 text-green-400 text-xs">POST /api/analyze
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400 transition-colors" href="../../index.html">Home</a>
+<span>/</span>
+<a class="hover:text-teal-400 transition-colors" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.11 — Final Project</span>
+</nav>
+</div>
+<header class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-dark-900 to-dark-800"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MODULE 5.11</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">FINAL PROJECT</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Track 5 — Conclusion</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">🏗️ Final Project — Competitive Analysis Orchestrator</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">Complete construction of a competitive analysis orchestrator with all 6 layers integrated: intelligent planning, multi-agent routing, state control, supervision, governance and observability. Deploy in Docker.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Layers</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">~75min</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Production</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Deploy</div>
+<div class="text-xs text-neutral-400 mt-1">Docker</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+Section 1
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
+<h2 class="text-xl font-bold text-neutral-100">Project Specification — What We Will Build</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The final project is a<strong class="text-neutral-100">competitive analysis orchestrator</strong>which, given a company and its competitors, produces a complete executive report. It is the use case that unites all 6 layers.</p>
+<div class="bg-dark-900 rounded-xl p-6 border border-teal-500/30">
+<h3 class="font-bold text-teal-400 mb-4">Input → Output</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+<div>
+<div class="font-bold text-neutral-100 mb-2">INPUT</div>
+<pre class="bg-dark-800 rounded-lg p-3 text-green-400 text-xs" data-notranslate="True">POST /api/analyze
 {
   "company": "Minha SaaS",
   "competitors": [
@@ -127,61 +117,59 @@
   "department": "product",
   "budget_usd": 5.00
 }</pre>
-            </div>
-            <div>
-              <div class="font-bold text-neutral-100 mb-2">OUTPUT (30-90 segundos depois)</div>
-              <div class="bg-dark-800 rounded-lg p-3 text-xs text-neutral-300 space-y-1">
-                <div class="text-teal-400 font-bold">Relatório Executivo (.md):</div>
-                <div>• Executive Summary (3 bullets)</div>
-                <div>• Mapa de posicionamento</div>
-                <div>• SWOT comparativo</div>
-                <div>• Top 5 gaps de produto</div>
-                <div>• Recomendações priorizadas</div>
-                <div>• Roadmap de 90 dias</div>
-                <div class="mt-2 text-neutral-400">Custo real: ~$0.80 (vs. $47 sem otimização)</div>
-                <div class="text-neutral-400">Tempo: ~45s (4 agentes paralelos)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C1 — Planejamento</div>
-            <div class="text-neutral-400">DAG com 12 tarefas em 4 waves paralelas</div>
-          </div>
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C2 — Roteamento</div>
-            <div class="text-neutral-400">4 agentes: researcher, analyst, writer, critic</div>
-          </div>
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C3 — Estado</div>
-            <div class="text-neutral-400">Redis para tasks + Postgres para audit</div>
-          </div>
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C4 — Supervisão</div>
-            <div class="text-neutral-400">Heartbeat + retry inteligente + replanejamento</div>
-          </div>
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C5 — Governança</div>
-            <div class="text-neutral-400">RBAC + audit trail + budget hard limit</div>
-          </div>
-          <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
-            <div class="text-teal-400 font-bold mb-1">C6 — Observabilidade</div>
-            <div class="text-neutral-400">Prometheus + OTel traces + Grafana</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 2 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
-        <h2 class="text-xl font-bold text-neutral-100">Estrutura do Projeto — Código Completo</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">competitive-intelligence-orchestrator/
+</div>
+<div>
+<div class="font-bold text-neutral-100 mb-2">OUTPUT (30-90 seconds later)</div>
+<div class="bg-dark-800 rounded-lg p-3 text-xs text-neutral-300 space-y-1">
+<div class="text-teal-400 font-bold">Executive Report (.md):</div>
+<div>• Executive Summary (3 bullets)</div>
+<div>• Positioning map</div>
+<div>• Comparative SWOT</div>
+<div>• Top 5 product gaps</div>
+<div>• Prioritized recommendations</div>
+<div>• 90-day roadmap</div>
+<div class="mt-2 text-neutral-400">Actual cost: ~$0.80 (vs. $47 without optimization)</div>
+<div class="text-neutral-400">Time: ~45s (4 parallel agents)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C1 — Planning</div>
+<div class="text-neutral-400">DAG with 12 tasks in 4 parallel waves</div>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C2 — Routing</div>
+<div class="text-neutral-400">4 agents: researcher, analyst, writer, critic</div>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C3 — State</div>
+<div class="text-neutral-400">Redis for tasks + Postgres for audit</div>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C4 — Supervision</div>
+<div class="text-neutral-400">Heartbeat + smart retry + replanning</div>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C5 — Governance</div>
+<div class="text-neutral-400">RBAC + audit trail + budget hard limit</div>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-xs">
+<div class="text-teal-400 font-bold mb-1">C6 — Observability</div>
+<div class="text-neutral-400">Prometheus + OTel traces + Grafana</div>
+</div>
+</div>
+</div>
+</section>
+Section 2
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
+<h2 class="text-xl font-bold text-neutral-100">Project Structure — Complete Code</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">competitive-intelligence-orchestrator/
 ├── src/
 │   ├── core/                      # Domain — sem dependências externas
 │   │   ├── __init__.py
@@ -240,8 +228,7 @@
 ├── Dockerfile.worker
 ├── pyproject.toml
 └── .env.example</code></pre>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pyproject.toml — Dependências do projeto
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pyproject.toml — Dependências do projeto
 
 [build-system]
 requires = ["hatchling"]
@@ -250,60 +237,59 @@ build-backend = "hatchling.build"
 [project]
 name = "competitive-intelligence-orchestrator"
 version = "1.0.0"
-requires-python = ">=3.11"
+requires-python = "&gt;=3.11"
 dependencies = [
     # Core AI
-    "anthropic>=0.34.0",
-    "langgraph>=0.2.0",
-    "crewai>=0.67.0",
-    "crewai-tools>=0.12.0",
+    "anthropic&gt;=0.34.0",
+    "langgraph&gt;=0.2.0",
+    "crewai&gt;=0.67.0",
+    "crewai-tools&gt;=0.12.0",
 
     # API
-    "fastapi>=0.115.0",
-    "uvicorn[standard]>=0.32.0",
-    "pydantic>=2.9.0",
-    "websockets>=13.0",
+    "fastapi&gt;=0.115.0",
+    "uvicorn[standard]&gt;=0.32.0",
+    "pydantic&gt;=2.9.0",
+    "websockets&gt;=13.0",
 
     # Storage
-    "redis[asyncio]>=5.2.0",
-    "asyncpg>=0.30.0",
-    "sqlalchemy[asyncio]>=2.0.0",
+    "redis[asyncio]&gt;=5.2.0",
+    "asyncpg&gt;=0.30.0",
+    "sqlalchemy[asyncio]&gt;=2.0.0",
 
     # Observability
-    "prometheus-client>=0.21.0",
-    "opentelemetry-api>=1.28.0",
-    "opentelemetry-sdk>=1.28.0",
-    "opentelemetry-exporter-otlp>=1.28.0",
-    "opentelemetry-instrumentation-fastapi>=0.49b0",
-    "opentelemetry-instrumentation-httpx>=0.49b0",
+    "prometheus-client&gt;=0.21.0",
+    "opentelemetry-api&gt;=1.28.0",
+    "opentelemetry-sdk&gt;=1.28.0",
+    "opentelemetry-exporter-otlp&gt;=1.28.0",
+    "opentelemetry-instrumentation-fastapi&gt;=0.49b0",
+    "opentelemetry-instrumentation-httpx&gt;=0.49b0",
 
     # HTTP
-    "httpx>=0.28.0",
+    "httpx&gt;=0.28.0",
 
     # Utils
-    "pydantic-settings>=2.6.0",
-    "structlog>=24.4.0",
+    "pydantic-settings&gt;=2.6.0",
+    "structlog&gt;=24.4.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.3.0",
-    "pytest-asyncio>=0.24.0",
-    "pytest-cov>=6.0.0",
-    "ruff>=0.8.0",
-    "mypy>=1.13.0",
+    "pytest&gt;=8.3.0",
+    "pytest-asyncio&gt;=0.24.0",
+    "pytest-cov&gt;=6.0.0",
+    "ruff&gt;=0.8.0",
+    "mypy&gt;=1.13.0",
 ]</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 3 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
-        <h2 class="text-xl font-bold text-neutral-100">Orquestrador Principal — Integrando as 6 Camadas</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># src/core/orchestrator.py — Núcleo que une todas as camadas
+</div>
+</section>
+Section 3
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
+<h2 class="text-xl font-bold text-neutral-100">Main Orchestrator — Integrating the 6 Layers</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># src/core/orchestrator.py — Núcleo que une todas as camadas
 
 from dataclasses import dataclass, field
 from typing import List, Optional
@@ -398,7 +384,7 @@ class CompetitiveIntelligenceOrchestrator:
         company: str,
         competitors: List[str],
         objective: str
-    ) -> OrchestratorResult:
+    ) -&gt; OrchestratorResult:
         """
         Ponto de entrada principal.
         Integra todas as 6 camadas sequencialmente.
@@ -585,7 +571,7 @@ class CompetitiveIntelligenceOrchestrator:
 
     async def _execute_with_supervision(
         self, task: "Task", session_id: str, context: dict
-    ) -> dict:
+    ) -&gt; dict:
         """Executa tarefa com monitoramento de saúde e retry inteligente."""
         with tracer.start_as_current_span(
             "agent.execute",
@@ -633,7 +619,7 @@ Produza apenas o resultado, sem explicações."""
                     return {"output": result, "cost": cost, "model": classification.model}
 
                 except Exception as e:
-                    if attempt >= self.config.max_retries:
+                    if attempt &gt;= self.config.max_retries:
                         raise
 
                     # Camada 4: Retry inteligente (escala modelo se necessário)
@@ -649,7 +635,7 @@ Produza apenas o resultado, sem explicações."""
         competitors: List[str],
         task_results: dict,
         session_id: str,
-    ) -> str:
+    ) -&gt; str:
         """Síntese final usando modelo mais poderoso."""
         results_text = "\n\n".join([
             f"### {task_id}\n{result}"
@@ -692,17 +678,16 @@ Formato obrigatório (Markdown):
             max_tokens=4096
         )
         return report</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 4 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
-        <h2 class="text-xl font-bold text-neutral-100">Testes — Unit, Integration e E2E</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># tests/unit/test_orchestrator.py — Testes sem infraestrutura
+</div>
+</section>
+Section 4
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
+<h2 class="text-xl font-bold text-neutral-100">Tests — Unit, Integration and E2E</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># tests/unit/test_orchestrator.py — Testes sem infraestrutura
 
 import pytest
 import asyncio
@@ -811,7 +796,7 @@ async def test_retry_on_llm_failure(orchestrator, mock_deps):
         objective="test"
     )
 
-    assert llm.complete.call_count >= 2
+    assert llm.complete.call_count &gt;= 2
 
 
 # ============================================================
@@ -845,17 +830,16 @@ async def test_session_survives_restart():
     import redis.asyncio as aioredis
     r = aioredis.from_url("redis://localhost:6379")
     await r.delete(f"session:{session_id}:task:meta")</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 5 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
-        <h2 class="text-xl font-bold text-neutral-100">Deploy em Produção — Dockerfile e CI/CD</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># Dockerfile — Build otimizado com multi-stage
+</div>
+</section>
+Section 5
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
+<h2 class="text-xl font-bold text-neutral-100">Deploy in Production — Dockerfile and CI/CD</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># Dockerfile — Build otimizado com multi-stage
 
 FROM python:3.11-slim AS builder
 WORKDIR /app
@@ -930,7 +914,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install uv && uv pip install --system -e ".[dev]"
+      - run: pip install uv &amp;&amp; uv pip install --system -e ".[dev]"
       - run: pytest tests/unit -v --cov=src --cov-report=xml
       - run: pytest tests/integration -v -m integration
         env:
@@ -970,149 +954,127 @@ jobs:
             docker compose up -d --remove-orphans
             docker compose exec orchestrator-api python -m pytest tests/e2e -v
             echo "Deploy concluído: $(date)"</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 6 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
-        <h2 class="text-xl font-bold text-neutral-100">Consolidação — O que Você Construiu na Trilha 5</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Ao concluir esta trilha, você dominou a construção de um orquestrador de IA de nível de produção. Cada módulo foi uma camada que se soma às anteriores, formando um sistema coeso e robusto.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="space-y-3">
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C1</span>
-                <span class="font-bold text-neutral-100">Planejamento Inteligente</span>
-              </div>
-              <p class="text-xs text-neutral-400">Transformou objetivos vagos em DAGs de tarefas com dependências, prioridades e waves de execução paralela.</p>
-            </div>
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C2</span>
-                <span class="font-bold text-neutral-100">Roteamento Multi-Agente</span>
-              </div>
-              <p class="text-xs text-neutral-400">StaticRouter → LLMRouter → AgentPool com load balancing e CostAwareRouter para roteamento por custo e complexidade.</p>
-            </div>
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C3</span>
-                <span class="font-bold text-neutral-100">Controle de Estado</span>
-              </div>
-              <p class="text-xs text-neutral-400">Redis para estado efêmero (HSET, ZADD, pub/sub), Postgres para persistência e SessionManager com checkpoint/resume.</p>
-            </div>
-          </div>
-          <div class="space-y-3">
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C4</span>
-                <span class="font-bold text-neutral-100">Supervisão e Replanejamento</span>
-              </div>
-              <p class="text-xs text-neutral-400">Heartbeat, SLA monitoring, stall detection com fingerprinting, retry inteligente com escalação de modelo e auto-replanejamento.</p>
-            </div>
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C5</span>
-                <span class="font-bold text-neutral-100">Governança</span>
-              </div>
-              <p class="text-xs text-neutral-400">Logs estruturados JSON, audit trail imutável com hash chains SHA-256, RBAC para agentes, budget monitoring com limites hard/soft.</p>
-            </div>
-            <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C6</span>
-                <span class="font-bold text-neutral-100">Observabilidade</span>
-              </div>
-              <p class="text-xs text-neutral-400">Prometheus + Grafana para métricas, SLIs/SLOs com error budgets, OpenTelemetry para distributed tracing, correlação logs/metrics/traces.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-6 mt-4">
-          <h3 class="font-bold text-teal-400 mb-4 text-lg">Números do que você construiu</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div>
-              <div class="text-3xl font-black text-teal-400">6</div>
-              <div class="text-xs text-neutral-400 mt-1">Camadas de orquestração</div>
-            </div>
-            <div>
-              <div class="text-3xl font-black text-teal-400">91%</div>
-              <div class="text-xs text-neutral-400 mt-1">Redução de custo vs. baseline</div>
-            </div>
-            <div>
-              <div class="text-3xl font-black text-teal-400">5</div>
-              <div class="text-xs text-neutral-400 mt-1">Adapters de infraestrutura</div>
-            </div>
-            <div>
-              <div class="text-3xl font-black text-teal-400">99.5%</div>
-              <div class="text-xs text-neutral-400 mt-1">SLO de disponibilidade</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-5 mt-4">
-          <h3 class="font-bold text-yellow-400 mb-3">Próximos Passos — Trilha 6</h3>
-          <p class="text-sm text-neutral-300 mb-3">
-            Na Trilha 6, você aprenderá como <strong>operacionalizar e escalar</strong> seu orquestrador: Kubernetes com auto-scaling baseado em fila, multi-tenancy, disaster recovery, compliance (SOC2, GDPR), e como construir um produto SaaS completo a partir do seu orquestrador.
-          </p>
-          <div class="flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Kubernetes</span>
-            <span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Multi-tenancy</span>
-            <span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Disaster Recovery</span>
-            <span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">SOC2 / GDPR</span>
-            <span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">SaaS Product</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegação Final -->
-    <div class="flex justify-between items-center pt-4">
-      <a href="modulo-5-10.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        <span class="text-sm font-medium">5.10 — Custo-Otimização</span>
-      </a>
-      <a href="../trilha6/index.html" class="flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/30 transition-all font-semibold">
-        <span class="text-sm">Trilha 6 — Operacionalização</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-
-    <!-- Conclusão da Trilha -->
-    <div class="bg-gradient-to-br from-teal-900/40 to-dark-800 rounded-2xl p-8 border border-teal-500/30 text-center">
-      <div class="text-4xl mb-4">🏗️</div>
-      <h2 class="text-2xl font-black text-neutral-100 mb-3">Trilha 5 Concluída!</h2>
-      <p class="text-neutral-300 max-w-2xl mx-auto mb-6">
-        Você dominou a construção de orquestradores de IA de nível de produção. Planejamento, roteamento, estado, supervisão, governança e observabilidade — as 6 camadas que transformam um script simples em um sistema resiliente, auditável e eficiente em custo.
-      </p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all text-sm font-semibold">
-          Ver Trilha 5
-        </a>
-        <a href="../../index.html" class="px-5 py-2.5 rounded-xl bg-dark-700 border border-dark-600 text-neutral-300 hover:text-neutral-100 transition-all text-sm font-semibold">
-          Voltar ao Início
-        </a>
-        <a href="https://inema.club" target="_blank" class="px-5 py-2.5 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-400 hover:bg-sky-500/30 transition-all text-sm font-semibold">
-          INEMA.CLUB
-        </a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="border-t border-dark-600 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        Agentic Engineering Masterclass •
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
-        • Módulo 5.11 — Projeto Final
-      </p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</section>
+Section 6
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
+<h2 class="text-xl font-bold text-neutral-100">Consolidation — What You Built on Track 5</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>By completing this track, you have mastered building a production-grade AI orchestrator. Each module was a layer that added to the previous ones, forming a cohesive and robust system.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-3">
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C1</span>
+<span class="font-bold text-neutral-100">Smart Planning</span>
+</div>
+<p class="text-xs text-neutral-400">Transformed vague objectives into task DAGs with dependencies, priorities and parallel execution waves.</p>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C2</span>
+<span class="font-bold text-neutral-100">Multi-Agent Routing</span>
+</div>
+<p class="text-xs text-neutral-400">StaticRouter → LLMRouter → AgentPool with load balancing and CostAwareRouter for routing by cost and complexity.</p>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C3</span>
+<span class="font-bold text-neutral-100">State Control</span>
+</div>
+<p class="text-xs text-neutral-400">Redis for ephemeral state (HSET, ZADD, pub/sub), Postgres for persistence and SessionManager with checkpoint/resume.</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C4</span>
+<span class="font-bold text-neutral-100">Supervision and Replanning</span>
+</div>
+<p class="text-xs text-neutral-400">Heartbeat, SLA monitoring, stall detection with fingerprinting, intelligent retry with model scaling and auto-replanning.</p>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C5</span>
+<span class="font-bold text-neutral-100">Governance</span>
+</div>
+<p class="text-xs text-neutral-400">JSON structured logs, immutable audit trail with SHA-256 hash chains, RBAC for agents, budget monitoring with hard/soft limits.</p>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-7 h-7 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">C6</span>
+<span class="font-bold text-neutral-100">Observability</span>
+</div>
+<p class="text-xs text-neutral-400">Prometheus + Grafana for metrics, SLIs/SLOs with error budgets, OpenTelemetry for distributed tracing, correlation logs/metrics/traces.</p>
+</div>
+</div>
+</div>
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-6 mt-4">
+<h3 class="font-bold text-teal-400 mb-4 text-lg">Numbers of what you built</h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+<div>
+<div class="text-3xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Orchestration layers</div>
+</div>
+<div>
+<div class="text-3xl font-black text-teal-400">91%</div>
+<div class="text-xs text-neutral-400 mt-1">Cost reduction vs. baseline</div>
+</div>
+<div>
+<div class="text-3xl font-black text-teal-400">5</div>
+<div class="text-xs text-neutral-400 mt-1">Infrastructure adapters</div>
+</div>
+<div>
+<div class="text-3xl font-black text-teal-400">99.5%</div>
+<div class="text-xs text-neutral-400 mt-1">Availability SLO</div>
+</div>
+</div>
+</div>
+<div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-5 mt-4">
+<h3 class="font-bold text-yellow-400 mb-3">Next Steps — Track 6</h3>
+<p class="text-sm text-neutral-300 mb-3">In Track 6, you will learn how<strong>operationalize and scale</strong>your orchestrator: Kubernetes with queue-based auto-scaling, multi-tenancy, disaster recovery, compliance (SOC2, GDPR), and how to build a complete SaaS product from your orchestrator.</p>
+<div class="flex flex-wrap gap-2 text-xs">
+<span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Kubernetes</span>
+<span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Multi-tenancy</span>
+<span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">Disaster Recovery</span>
+<span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">SOC2/GDPR</span>
+<span class="px-2 py-1 bg-dark-700 text-neutral-300 rounded">SaaS Product</span>
+</div>
+</div>
+</div>
+</section>
+Final Navigation
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all" href="modulo-5-10.html">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">5.10 — Cost-Optimization</span>
+</a>
+<a class="flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/30 transition-all font-semibold" href="../trilha6/index.html">
+<span class="text-sm">Track 6 — Operationalization</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+Trail Conclusion
+<div class="bg-gradient-to-br from-teal-900/40 to-dark-800 rounded-2xl p-8 border border-teal-500/30 text-center">
+<div class="text-4xl mb-4">🏗️</div>
+<h2 class="text-2xl font-black text-neutral-100 mb-3">Trail 5 Completed!</h2>
+<p class="text-neutral-300 max-w-2xl mx-auto mb-6">You've mastered building production-grade AI orchestrators. Planning, routing, state, oversight, governance, and observability — the 6 layers that transform a simple script into a resilient, auditable, and cost-efficient system.</p>
+<div class="flex flex-wrap justify-center gap-3">
+<a class="px-5 py-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all text-sm font-semibold" href="index.html">See Track 5</a>
+<a class="px-5 py-2.5 rounded-xl bg-dark-700 border border-dark-600 text-neutral-300 hover:text-neutral-100 transition-all text-sm font-semibold" href="../../index.html">Return to Top</a>
+<a class="px-5 py-2.5 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-400 hover:bg-sky-500/30 transition-all text-sm font-semibold" href="https://duclub" target="_blank">duclub</a>
+</div>
+</div>
+</main>
+<footer class="border-t border-dark-600 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 text-sm">Agentic Engineering Masterclass •<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>• Module 5.11 — Final Project</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const toggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
