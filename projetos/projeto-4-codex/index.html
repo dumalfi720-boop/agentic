@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto 4: Agentic com Codex CLI — INEMA.CLUB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project 4: Agentic with Codex CLI — duclub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -30,7 +30,7 @@
       }
     }
   </script>
-  <style>
+<style data-notranslate="True">
     /* Light mode overrides */
     html:not(.dark) body {
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
@@ -119,640 +119,529 @@
   </style>
 </head>
 <body class="min-h-screen text-neutral-100 font-sans antialiased">
+NAVIGATION
+<nav class="sticky top-0 z-50 bg-dark-900 border-b border-dark-600 backdrop-blur-md bg-opacity-90">
+<div class="max-w-5xl mx-auto px-4 sm:px-6">
+<div class="flex items-center justify-between h-14">
+Breadcrumb + Brand
+<div class="flex items-center gap-2 text-sm">
+<a class="text-sky-400 font-semibold hover:text-sky-300 transition-colors" href="#">duclub</a>
+<span class="text-neutral-500">/</span>
+<a class="text-neutral-400 hover:text-neutral-300 transition-colors" href="#">Practical Projects</a>
+<span class="text-neutral-500">/</span>
+<span class="text-indigo-400 font-medium">Codex CLI</span>
+</div>
+Right: theme toggle
+<button aria-label="Alternar tema" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-400 hover:text-neutral-200 hover:border-indigo-500/50 transition-all text-sm" id="themeToggle" onclick="toggleTheme()">
+<span id="themeIcon">
+Sun icon (shown in dark mode)
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<span class="hidden sm:inline" id="themeLabel">Theme</span>
+</button>
+</div>
+</div>
+</nav>
+HERO SECTION
+<section class="relative overflow-hidden">
+<div class="hero-glow absolute inset-0 pointer-events-none"></div>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 relative">
+<div class="flex flex-col items-start gap-4">
+badge
+<div class="flex items-start gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 badge-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>OPENAI CLI</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-dark-700 text-neutral-400 border border-dark-600">Project 4 of 6</span>
+</div>
+Title
+<h1 class="text-2xl font-bold sm:text-3xl lg:text-4xl text-neutral-100 leading-tight">Project 4: Agentic com<br/>
+<span class="text-indigo-400">OpenAI Codex CLI</span>
+</h1>
+<p class="text-neutral-400 text-base sm:text-lg max-w-2xl leading-relaxed">Learn how to use OpenAI's terminal agent for agentic development.
+          Configure the<code class="text-indigo-300 bg-indigo-500/10 px-1 rounded text-sm font-mono" data-notranslate="True">AGENTS.md</code>,
+          Master approval modes and automate your development flow with the Codex CLI.</p>
+Meta info
+<div class="flex flex-wrap items-center gap-4 text-sm text-neutral-500 mt-2">
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>6 topics</span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>~30 min reading</span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>TypeScript/Node.js</span>
+<span class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>April 2025 — Open Source</span>
+</div>
+Expand all button
+<div class="flex justify-start mt-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/30 hover:text-indigo-300 transition-all text-sm font-medium" id="expandAllBtn" onclick="toggleAll()">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>Expand all topics</button>
+</div>
+</div>
+</div>
+</section>
+DOWNLOAD
+<section class="max-w-5xl mx-auto px-4 sm:px-6 mb-8">
+<div class="bg-gradient-to-br from-indigo-900/20 to-dark-800 border border-indigo-500/30 rounded-2xl p-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+<div>
+<h2 class="text-base font-bold text-neutral-100 mb-1">Download Codex CLI Configuration</h2>
+<p class="text-xs text-neutral-400">AGENTS.md, config.toml and scripts ready for immediate use</p>
+</div>
+<a class="flex items-center gap-2 px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-bold rounded-xl transition-colors whitespace-nowrap" download="projeto-4-codex.zip" href="../projeto-4-codex.zip">↓ Download ZIP</a>
+</div>
+<div class="flex flex-wrap gap-2 mb-5">
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="AGENTS.md" href="AGENTS.md">📝 AGENTS.md</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="config.toml" href=".codex/config.toml">⚙️ config.toml</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="README.md" href="README.md">📄 README.md</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="ROTEIRO.md" href="ROTEIRO.md">🗺️ ROTEIRO.md</a>
+</div>
+<div class="border-t border-dark-600 pt-4">
+<h3 class="text-sm font-bold text-neutral-200 mb-3">⚡ Execute in 3 steps</h3>
+<ol class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Install Codex CLI</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono" data-notranslate="True">npm install -g @openai/codex</code>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Configure your OpenAI key</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono" data-notranslate="True">export OPENAI_API_KEY=sk-...  # ou coloque no .env</code>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Run the Codex</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono" data-notranslate="True">codex "o que você quer que o agente faça?"</code>
+</div>
+</li>
+</ol>
+<p class="mt-3 text-xs text-neutral-500">Do you need Node.js? Download at<a class="text-indigo-400 hover:text-indigo-300" href="https://nodejs.org" target="_blank">nodejs.org</a>. OpenAI Key on<a class="text-indigo-400 hover:text-indigo-300" href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a>.</p>
+</div>
+</div>
+</section>
+MAIN CONTENT
+<main class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
+TOPICS CONTAINER
+<div class="space-y-3" id="topicsContainer">
+ ====================================== 
+TOPIC 1: WHAT IS THE CODEX CLI
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(1)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">1</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">What is Codex CLI</h2>
+<p class="text-sm text-neutral-500 mt-0.5">Terminal agent from OpenAI, open-source, different from Claude Code</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-1">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+Subsection: What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What is it</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed mb-4">
+                O <strong class="text-indigo-400">OpenAI Codex CLI</strong>is a terminal agent launched by OpenAI in April 2025. It is an open-source tool written in TypeScript (with parts in Rust) that runs directly in your terminal and allows you to interact with OpenAI models — such as<code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">o4-mini</code>, <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">gpt-4o</code> e <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">o3</code>— to perform software development tasks autonomously.</p>
+<p class="text-neutral-300 leading-relaxed">Unlike tools like Copilot (which just completes code) or ChatGPT (which responds in a web interface), Codex CLI acts directly on your file system: reads files, writes code, runs shell commands, creates git branches, and navigates the project like a real developer sitting next to you.</p>
+</div>
+Subsection: Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Why use</h3>
+</div>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+<span><strong class="text-neutral-200">Native integration with OpenAI:</strong>direct access to reasoning models like o3 and o4-mini, especially good at programming and complex logic.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+<span><strong class="text-neutral-200">Open source:</strong>code available on GitHub, auditable, contributory and hostable on our own infrastructure.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+<span><strong class="text-neutral-200">Granular approval modes:</strong>you control exactly the agent's level of autonomy — from just suggestions to fully autonomous execution.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+<span><strong class="text-neutral-200">Ideal for CI/CD:</strong>mode<code class="text-indigo-300 bg-dark-800 px-1 rounded font-mono text-sm" data-notranslate="True">--headless</code>allows you to integrate Codex into automated pipelines without human intervention.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
+<span><strong class="text-neutral-200">Configurable sandbox:</strong>the agent can be restricted to only reading files, or freed to execute any shell commands as needed.</span>
+</li>
+</ul>
+</div>
+Subsection: How to configure (difference from Claude Code)
+<div>
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Codex CLI vs Claude Code — when to use each</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed mb-4">Both are endpoint agent tools, but each has distinct strengths. The choice depends on your ecosystem, preferred model and desired level of autonomy.</p>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-indigo-500/5 border border-indigo-500/20 rounded-lg p-4">
+<h4 class="font-semibold text-indigo-400 mb-2 flex items-center gap-2">
+<span class="text-lg">◆</span>Use Codex CLI when:</h4>
+<ul class="space-y-1.5 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span>Already using OpenAI API and want consistency</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span>Need o3/o4-mini for deep reasoning</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span>Want to control the tool's source code</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span>Automate CI/CD tasks with --headless</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span>Prefer configuration via TOML</li>
+</ul>
+</div>
+<div class="bg-sky-500/5 border border-sky-500/20 rounded-lg p-4">
+<h4 class="font-semibold text-sky-400 mb-2 flex items-center gap-2">
+<span class="text-lg">◆</span>Use Claude Code when:</h4>
+<ul class="space-y-1.5 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span>Want the best integrated UX experience</li>
+<li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span>Need very long window context</li>
+<li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span>Uses the Anthropic ecosystem (Claude Opus 4)</li>
+<li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span>Prefer CLAUDE.md for persistent context</li>
+<li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span>Works a lot with analyzing large files</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+ ====================================== 
+TOPIC 2: INSTALLATION AND SETUP
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(2)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">2</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">Installation and Setup</h2>
+<p class="text-sm text-neutral-500 mt-0.5">npm install, authentication, first run, basic structure</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-2">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What is the setup process</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed">Installing the Codex CLI is done via npm and only requires an OpenAI API key. The complete process takes less than 5 minutes: install the package globally, export the environment variable with the key and start the first session within the project directory.</p>
+</div>
+Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Why the setup is simple</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed">Because it is distributed as an npm package, Codex CLI does not require additional dependencies beyond Node.js 18+. Authentication is done via OpenAI's standard environment variable (<code class="text-indigo-300 bg-dark-800 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">OPENAI_API_KEY</code>), which means that any project that already uses the OpenAI API already has authentication configured.</p>
+</div>
+How to configure
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">How to install and configure</h3>
+</div>
+<div class="space-y-4">
+<div>
+<p class="text-sm text-neutral-400 mb-2 font-medium">1. Install globally via npm:</p>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">terminal</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-green-400">$</span> npm install -g @openai/codex
 
-  <!-- NAVIGATION -->
-  <nav class="sticky top-0 z-50 bg-dark-900 border-b border-dark-600 backdrop-blur-md bg-opacity-90">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="flex items-center justify-between h-14">
-
-        <!-- Breadcrumb + Brand -->
-        <div class="flex items-center gap-2 text-sm">
-          <a href="#" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">INEMA.CLUB</a>
-          <span class="text-neutral-500">/</span>
-          <a href="#" class="text-neutral-400 hover:text-neutral-300 transition-colors">Projetos Práticos</a>
-          <span class="text-neutral-500">/</span>
-          <span class="text-indigo-400 font-medium">Codex CLI</span>
-        </div>
-
-        <!-- Right: theme toggle -->
-        <button
-          id="themeToggle"
-          onclick="toggleTheme()"
-          class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-400 hover:text-neutral-200 hover:border-indigo-500/50 transition-all text-sm"
-          aria-label="Alternar tema"
-        >
-          <span id="themeIcon">
-            <!-- Sun icon (shown in dark mode) -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-          </span>
-          <span id="themeLabel" class="hidden sm:inline">Tema</span>
-        </button>
-
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <section class="relative overflow-hidden">
-    <div class="hero-glow absolute inset-0 pointer-events-none"></div>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 relative">
-      <div class="flex flex-col items-start gap-4">
-
-        <!-- Badge -->
-        <div class="flex items-start gap-3">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 badge-pulse">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-            OPENAI CLI
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-dark-700 text-neutral-400 border border-dark-600">
-            Projeto 4 de 6
-          </span>
-        </div>
-
-        <!-- Title -->
-        <h1 class="text-2xl font-bold sm:text-3xl lg:text-4xl text-neutral-100 leading-tight">
-          Projeto 4: Agentic com<br>
-          <span class="text-indigo-400">OpenAI Codex CLI</span>
-        </h1>
-
-        <p class="text-neutral-400 text-base sm:text-lg max-w-2xl leading-relaxed">
-          Aprenda a usar o terminal agent da OpenAI para desenvolvimento agentic.
-          Configure o <code class="text-indigo-300 bg-indigo-500/10 px-1 rounded text-sm font-mono">AGENTS.md</code>,
-          domine os modos de aprovação e automatize seu fluxo de desenvolvimento com o Codex CLI.
-        </p>
-
-        <!-- Meta info -->
-        <div class="flex flex-wrap items-center gap-4 text-sm text-neutral-500 mt-2">
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-            </svg>
-            6 tópicos
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            ~30 min de leitura
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            TypeScript / Node.js
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            Abril 2025 — Open Source
-          </span>
-        </div>
-
-        <!-- Expand all button -->
-        <div class="flex justify-start mt-2">
-          <button
-            onclick="toggleAll()"
-            id="expandAllBtn"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/30 hover:text-indigo-300 transition-all text-sm font-medium"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
-            </svg>
-            Expandir todos os tópicos
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DOWNLOAD -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-8">
-    <div class="bg-gradient-to-br from-indigo-900/20 to-dark-800 border border-indigo-500/30 rounded-2xl p-6">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
-        <div>
-          <h2 class="text-base font-bold text-neutral-100 mb-1">Baixar Configuração do Codex CLI</h2>
-          <p class="text-xs text-neutral-400">AGENTS.md, config.toml e scripts prontos para uso imediato</p>
-        </div>
-        <a href="../projeto-4-codex.zip" download="projeto-4-codex.zip" class="flex items-center gap-2 px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-sm font-bold rounded-xl transition-colors whitespace-nowrap">
-          ↓ Download ZIP
-        </a>
-      </div>
-      <div class="flex flex-wrap gap-2 mb-5">
-        <a href="AGENTS.md" download="AGENTS.md" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">📝 AGENTS.md</a>
-        <a href=".codex/config.toml" download="config.toml" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">⚙️ config.toml</a>
-        <a href="README.md" download="README.md" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">📄 README.md</a>
-        <a href="ROTEIRO.md" download="ROTEIRO.md" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">🗺️ ROTEIRO.md</a>
-      </div>
-      <div class="border-t border-dark-600 pt-4">
-        <h3 class="text-sm font-bold text-neutral-200 mb-3">⚡ Execute em 3 passos</h3>
-        <ol class="space-y-3">
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Instale o Codex CLI</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono">npm install -g @openai/codex</code>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Configure sua chave OpenAI</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono">export OPENAI_API_KEY=sk-...  # ou coloque no .env</code>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Execute o Codex</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-indigo-300 font-mono">codex "o que você quer que o agente faça?"</code>
-            </div>
-          </li>
-        </ol>
-        <p class="mt-3 text-xs text-neutral-500">Precisa de Node.js? Baixe em <a href="https://nodejs.org" target="_blank" class="text-indigo-400 hover:text-indigo-300">nodejs.org</a>. Chave OpenAI em <a href="https://platform.openai.com/api-keys" target="_blank" class="text-indigo-400 hover:text-indigo-300">platform.openai.com</a>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
-
-    <!-- TOPICS CONTAINER -->
-    <div class="space-y-3" id="topicsContainer">
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 1: O QUE É O CODEX CLI          -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(1)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">1</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">O que é o Codex CLI</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">Terminal agent da OpenAI, open-source, diferença de Claude Code</p>
-            </div>
-          </div>
-          <svg
-            class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0"
-            fill="none" viewBox="0 0 24 24" stroke="currentColor"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-1" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- Subsection: O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que é</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed mb-4">
-                O <strong class="text-indigo-400">OpenAI Codex CLI</strong> é um agente de terminal lançado pela OpenAI em abril de 2025. Trata-se de uma ferramenta open-source escrita em TypeScript (com partes em Rust) que roda diretamente no seu terminal e permite interagir com modelos da OpenAI — como o <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">o4-mini</code>, <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">gpt-4o</code> e <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">o3</code> — para executar tarefas de desenvolvimento de software de forma autônoma.
-              </p>
-              <p class="text-neutral-300 leading-relaxed">
-                Ao contrário de ferramentas como Copilot (que apenas completa código) ou ChatGPT (que responde em uma interface web), o Codex CLI age diretamente no seu sistema de arquivos: lê arquivos, escreve código, executa comandos shell, cria branches git e navega pelo projeto como um desenvolvedor real sentado ao seu lado.
-              </p>
-            </div>
-
-            <!-- Subsection: Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Por que usar</h3>
-              </div>
-              <ul class="space-y-2 text-neutral-300">
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
-                  <span><strong class="text-neutral-200">Integração nativa com OpenAI:</strong> acesso direto aos modelos de raciocínio como o3 e o4-mini, especialmente bons em programação e lógica complexa.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
-                  <span><strong class="text-neutral-200">Open-source:</strong> código disponível no GitHub, auditável, contribuível e hospedável em infraestrutura própria.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
-                  <span><strong class="text-neutral-200">Modos de aprovação granulares:</strong> você controla exatamente o nível de autonomia do agente — de apenas sugestões até execução totalmente autônoma.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
-                  <span><strong class="text-neutral-200">Ideal para CI/CD:</strong> modo <code class="text-indigo-300 bg-dark-800 px-1 rounded font-mono text-sm">--headless</code> permite integrar o Codex em pipelines automatizados sem intervenção humana.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 mt-1 flex-shrink-0">▸</span>
-                  <span><strong class="text-neutral-200">Sandbox configurável:</strong> o agente pode ser restrito a apenas ler arquivos, ou liberado para executar qualquer comando shell conforme necessário.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Subsection: Como configurar (diferença de Claude Code) -->
-            <div>
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Codex CLI vs Claude Code — quando usar cada um</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed mb-4">
-                Ambas são ferramentas de agentes de terminal, mas cada uma tem pontos fortes distintos. A escolha depende do seu ecossistema, modelo preferido e nível de autonomia desejado.
-              </p>
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div class="bg-indigo-500/5 border border-indigo-500/20 rounded-lg p-4">
-                  <h4 class="font-semibold text-indigo-400 mb-2 flex items-center gap-2">
-                    <span class="text-lg">◆</span> Use Codex CLI quando:
-                  </h4>
-                  <ul class="space-y-1.5 text-sm text-neutral-300">
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span> Já usa OpenAI API e quer consistência</li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span> Precisa do o3/o4-mini para raciocínio profundo</li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span> Quer controlar o código-fonte da ferramenta</li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span> Automatiza tarefas em CI/CD com --headless</li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">·</span> Prefere configuração via TOML</li>
-                  </ul>
-                </div>
-                <div class="bg-sky-500/5 border border-sky-500/20 rounded-lg p-4">
-                  <h4 class="font-semibold text-sky-400 mb-2 flex items-center gap-2">
-                    <span class="text-lg">◆</span> Use Claude Code quando:
-                  </h4>
-                  <ul class="space-y-1.5 text-sm text-neutral-300">
-                    <li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span> Quer a melhor experiência de UX integrada</li>
-                    <li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span> Precisa de contexto de janela muito longo</li>
-                    <li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span> Usa o ecossistema Anthropic (Claude Opus 4)</li>
-                    <li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span> Prefere CLAUDE.md para contexto persistente</li>
-                    <li class="flex items-start gap-2"><span class="text-sky-400 flex-shrink-0">·</span> Trabalha muito com análise de arquivos grandes</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 2: INSTALAÇÃO E SETUP           -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(2)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">2</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">Instalação e Setup</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">npm install, autenticação, primeira execução, estrutura básica</p>
-            </div>
-          </div>
-          <svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-2" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que é o processo de setup</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed">
-                A instalação do Codex CLI é feita via npm e requer apenas uma chave de API da OpenAI. O processo completo leva menos de 5 minutos: instalar o pacote globalmente, exportar a variável de ambiente com a chave e iniciar a primeira sessão dentro do diretório do projeto.
-              </p>
-            </div>
-
-            <!-- Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Por que o setup é simples</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed">
-                Por ser distribuído como pacote npm, o Codex CLI não requer dependências adicionais além do Node.js 18+. A autenticação é feita por variável de ambiente padrão da OpenAI (<code class="text-indigo-300 bg-dark-800 px-1.5 py-0.5 rounded font-mono text-sm">OPENAI_API_KEY</code>), o que significa que qualquer projeto que já usa a API da OpenAI já tem a autenticação configurada.
-              </p>
-            </div>
-
-            <!-- Como configurar -->
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Como instalar e configurar</h3>
-              </div>
-
-              <div class="space-y-4">
-                <div>
-                  <p class="text-sm text-neutral-400 mb-2 font-medium">1. Instalar globalmente via npm:</p>
-                  <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                    <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                      <span class="text-xs text-neutral-500 font-mono">terminal</span>
-                      <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                    </div>
-                    <pre class="p-4 text-neutral-300"><span class="text-green-400">$</span> npm install -g @openai/codex
-
-<span class="text-neutral-500"># Verificar instalação</span>
+<span class="text-neutral-500"># Check installation</span>
 <span class="text-green-400">$</span> codex --version
 <span class="text-indigo-400">1.0.0</span></pre>
-                  </div>
-                </div>
-
-                <div>
-                  <p class="text-sm text-neutral-400 mb-2 font-medium">2. Configurar autenticação:</p>
-                  <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                    <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                      <span class="text-xs text-neutral-500 font-mono">~/.bashrc ou ~/.zshrc</span>
-                      <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                    </div>
-                    <pre class="p-4 text-neutral-300"><span class="text-neutral-500"># Adicionar ao seu arquivo de perfil do shell</span>
+</div>
+</div>
+<div>
+<p class="text-sm text-neutral-400 mb-2 font-medium">2. Configure authentication:</p>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">~/.bashrc or ~/.zshrc</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-neutral-500"># Add to your shell profile file</span>
 export OPENAI_API_KEY=<span class="text-yellow-300">"sk-proj-..."</span>
 
-<span class="text-neutral-500"># Recarregar o perfil</span>
+<span class="text-neutral-500"># Reload profile</span>
 <span class="text-green-400">$</span> source ~/.bashrc</pre>
-                  </div>
-                </div>
-
-                <div>
-                  <p class="text-sm text-neutral-400 mb-2 font-medium">3. Primeira execução (modo interativo):</p>
-                  <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                    <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                      <span class="text-xs text-neutral-500 font-mono">terminal</span>
-                      <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                    </div>
-                    <pre class="p-4 text-neutral-300"><span class="text-neutral-500"># Entrar no diretório do projeto</span>
+</div>
+</div>
+<div>
+<p class="text-sm text-neutral-400 mb-2 font-medium">3. First run (interactive mode):</p>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">terminal</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-neutral-500"># Enter project directory</span>
 <span class="text-green-400">$</span> cd meu-projeto
 
-<span class="text-neutral-500"># Iniciar sessão interativa (modo padrão: suggest)</span>
+<span class="text-neutral-500"># Start interactive session (default mode: suggest)</span>
 <span class="text-green-400">$</span> codex
 
-<span class="text-neutral-500"># Ou passar uma tarefa diretamente</span>
-<span class="text-green-400">$</span> codex <span class="text-yellow-300">"adicione validação de email no endpoint POST /users"</span>
+<span class="text-neutral-500"># Or pass a task directly</span>
+<span class="text-green-400">$</span> codex <span class="text-yellow-300">"add email validation on POST /users endpoint"</span>
 
-<span class="text-neutral-500"># Com modo de aprovação específico</span>
-<span class="text-green-400">$</span> codex --approval-mode auto-edit <span class="text-yellow-300">"corrija os testes quebrados"</span></pre>
-                  </div>
-                </div>
-
-                <div>
-                  <p class="text-sm text-neutral-400 mb-2 font-medium">4. Estrutura mínima de um projeto com Codex:</p>
-                  <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                    <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                      <span class="text-xs text-neutral-500 font-mono">estrutura de arquivos</span>
-                      <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                    </div>
-                    <pre class="p-4 text-neutral-300">meu-projeto/
-├── <span class="text-indigo-400">AGENTS.md</span>          <span class="text-neutral-500"># Contexto persistente para o Codex</span>
+<span class="text-neutral-500"># With specific approval mode</span>
+<span class="text-green-400">$</span> codex --approval-mode auto-edit <span class="text-yellow-300">"fix broken tests"</span></pre>
+</div>
+</div>
+<div>
+<p class="text-sm text-neutral-400 mb-2 font-medium">4. Minimum structure of a project with Codex:</p>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">file structure</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True">meu-projeto/
+├── <span class="text-indigo-400">AGENTS.md</span>          <span class="text-neutral-500"># Persistent context for Codex</span>
 ├── <span class="text-indigo-400">.codex/</span>
-│   └── <span class="text-indigo-400">config.toml</span>   <span class="text-neutral-500"># Configuração do Codex CLI</span>
+│   └── <span class="text-indigo-400">config.toml</span>   <span class="text-neutral-500"># Codex CLI configuration</span>
 ├── src/
 ├── package.json
 └── README.md</pre>
-                  </div>
-                </div>
-              </div>
-            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+ ====================================== 
+TOPIC 3: AGENTS.MD
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(3)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">3</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">AGENTS.md — Persistent Context</h2>
+<p class="text-sm text-neutral-500 mt-0.5">How to write, difference from CLAUDE.md, mandatory sections</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-3">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What is AGENTS.md</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed mb-3">
+                O <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">AGENTS.md</code>is the Codex CLI persistent context file — automatically injected at the start of every session. It is the direct equivalent of<code class="text-sky-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">CLAUDE.md</code>from Claude Code, but with some important differences in semantics and recommended structure.</p>
+<p class="text-neutral-300 leading-relaxed">The file serves as a permanent "briefing": it describes the project, code conventions, available commands, rules of behavior and any context that the agent needs to work effectively without having to re-read the entire project every session.</p>
+</div>
+Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Why AGENTS.md is essential</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed mb-3">Without a well-written AGENTS.md, the agent needs to infer the project context each session, which increases token costs, reduces response accuracy, and can lead to inconsistent behavior. With a complete AGENTS.md:</p>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span>The agent immediately knows the conventions without having to analyze existing code</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span>Test and build commands are immediately available — the agent can run tests correctly</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span>Security rules (never modify X, always create branch Y) are respected from the beginning</li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span>The explained architecture prevents the agent from placing code in the wrong place</li>
+</ul>
+</div>
+How to configure
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Mandatory sections and how to write</h3>
+</div>
+<div class="grid sm:grid-cols-2 gap-3 mb-5">
+<div class="bg-dark-900 rounded-lg p-4 border border-dark-600">
+<h4 class="text-sm font-semibold text-indigo-400 mb-2">Mandatory sections</h4>
+<ul class="space-y-1.5 text-sm text-neutral-300">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Project context (what is it, stack)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Development commands</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Test commands</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Code conventions</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Rules of behavior</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>Folder architecture/structure</li>
+</ul>
+</div>
+<div class="bg-dark-900 rounded-lg p-4 border border-dark-600">
+<h4 class="text-sm font-semibold text-sky-400 mb-2">Differences: AGENTS.md vs CLAUDE.md</h4>
+<ul class="space-y-1.5 text-sm text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Name:</strong>AGENTS.md (Codex) vs CLAUDE.md (Claude Code)</span></li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Config:</strong>AGENTS.md referenced in config.toml</span></li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Scope:</strong>AGENTS.md allows multiple context files via extra_context</span></li>
+<li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Format:</strong>both use standard Markdown</span></li>
+</ul>
+</div>
+</div>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">AGENTS.md — recommended structure</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-indigo-400"># AGENTS.md — Context Guide for Codex CLI</span>
 
-          </div>
-        </div>
-      </article>
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 3: AGENTS.MD                    -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(3)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">3</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">AGENTS.md — Contexto Persistente</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">Como escrever, diferença de CLAUDE.md, seções obrigatórias</p>
-            </div>
-          </div>
-          <svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-3" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que é o AGENTS.md</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed mb-3">
-                O <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">AGENTS.md</code> é o arquivo de contexto persistente do Codex CLI — injetado automaticamente no início de toda sessão. É o equivalente direto do <code class="text-sky-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">CLAUDE.md</code> do Claude Code, mas com algumas diferenças importantes na semântica e estrutura recomendada.
-              </p>
-              <p class="text-neutral-300 leading-relaxed">
-                O arquivo serve como "briefing" permanente: descreve o projeto, as convenções de código, os comandos disponíveis, as regras de comportamento e qualquer contexto que o agente precisa para trabalhar de forma eficaz sem precisar reler o projeto inteiro a cada sessão.
-              </p>
-            </div>
-
-            <!-- Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Por que o AGENTS.md é essencial</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed mb-3">
-                Sem um AGENTS.md bem escrito, o agente precisa inferir o contexto do projeto a cada sessão, o que aumenta o custo de tokens, reduz a precisão das respostas e pode levar a comportamentos inconsistentes. Com um AGENTS.md completo:
-              </p>
-              <ul class="space-y-2 text-neutral-300">
-                <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span> O agente sabe imediatamente as convenções sem precisar analisar o código existente</li>
-                <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span> Comandos de teste e build ficam disponíveis imediatamente — o agente pode rodar testes corretamente</li>
-                <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span> Regras de segurança (nunca modificar X, sempre criar branch Y) são respeitadas desde o início</li>
-                <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0">▸</span> A arquitetura explicada evita que o agente coloque código no lugar errado</li>
-              </ul>
-            </div>
-
-            <!-- Como configurar -->
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Seções obrigatórias e como escrever</h3>
-              </div>
-
-              <div class="grid sm:grid-cols-2 gap-3 mb-5">
-                <div class="bg-dark-900 rounded-lg p-4 border border-dark-600">
-                  <h4 class="text-sm font-semibold text-indigo-400 mb-2">Seções obrigatórias</h4>
-                  <ul class="space-y-1.5 text-sm text-neutral-300">
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Contexto do projeto (o que é, stack)</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Comandos de desenvolvimento</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Comandos de teste</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Convenções de código</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Regras de comportamento</li>
-                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span> Arquitetura / estrutura de pastas</li>
-                  </ul>
-                </div>
-                <div class="bg-dark-900 rounded-lg p-4 border border-dark-600">
-                  <h4 class="text-sm font-semibold text-sky-400 mb-2">Diferenças: AGENTS.md vs CLAUDE.md</h4>
-                  <ul class="space-y-1.5 text-sm text-neutral-300">
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Nome:</strong> AGENTS.md (Codex) vs CLAUDE.md (Claude Code)</span></li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Config:</strong> AGENTS.md referenciado no config.toml</span></li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Escopo:</strong> AGENTS.md permite múltiplos arquivos de contexto via extra_context</span></li>
-                    <li class="flex items-start gap-2"><span class="text-indigo-400 flex-shrink-0 mt-0.5">·</span> <span><strong class="text-neutral-200">Formato:</strong> ambos usam Markdown padrão</span></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                  <span class="text-xs text-neutral-500 font-mono">AGENTS.md — estrutura recomendada</span>
-                  <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                </div>
-                <pre class="p-4 text-neutral-300"><span class="text-indigo-400"># AGENTS.md — Guia de Contexto para o Codex CLI</span>
-
-<span class="text-green-400">## 1. Contexto do Projeto</span>
-<span class="text-neutral-500">**Nome:** Nome do Projeto</span>
+<span class="text-green-400">## 1. Project Context</span>
+<span class="text-neutral-500">**Name:** Project Name</span>
 <span class="text-neutral-500">**Stack:** Node.js 20, Express, PostgreSQL, Redis</span>
-<span class="text-neutral-500">**Descrição:** O que o projeto faz e para quem</span>
+<span class="text-neutral-500">**Description:** What the project does and for whom</span>
 
-<span class="text-green-400">## 2. Comandos de Desenvolvimento</span>
+<span class="text-green-400">## 2. Development Commands</span>
 <span class="text-yellow-300">```bash</span>
-<span class="text-neutral-500">npm run dev    # Servidor em modo desenvolvimento</span>
-<span class="text-neutral-500">npm test       # Testes unitários</span>
-<span class="text-neutral-500">npm run lint   # Verificar estilo de código</span>
+<span class="text-neutral-500">npm run dev # Server in development mode</span>
+<span class="text-neutral-500">npm test # Unit tests</span>
+<span class="text-neutral-500">npm run lint # Check code style</span>
 <span class="text-yellow-300">```</span>
 
-<span class="text-green-400">## 3. Convenções de Código</span>
-<span class="text-neutral-500">- camelCase para variáveis e funções</span>
-<span class="text-neutral-500">- PascalCase para classes</span>
-<span class="text-neutral-500">- Sempre usar async/await (nunca callbacks)</span>
+<span class="text-green-400">## 3. Code Conventions</span>
+<span class="text-neutral-500">- camelCase for variables and functions</span>
+<span class="text-neutral-500">- PascalCase for classes</span>
+<span class="text-neutral-500">- Always use async/await (never callbacks)</span>
 
-<span class="text-green-400">## 4. Regras de Comportamento</span>
-<span class="text-neutral-500">### NUNCA faça:</span>
-<span class="text-neutral-500">- Modificar arquivos .env</span>
-<span class="text-neutral-500">- Alterar package.json sem aprovação</span>
+<span class="text-green-400">## 4. Rules of Behavior</span>
+<span class="text-neutral-500">### NEVER do:</span>
+<span class="text-neutral-500">- Modify .env files</span>
+<span class="text-neutral-500">- Change package.json without approval</span>
 
-<span class="text-green-400">## 5. Arquitetura</span>
+<span class="text-green-400">## 5. Architecture</span>
 <span class="text-neutral-500">src/modules/{modulo}/{modulo}.controller.js</span>
 <span class="text-neutral-500">src/modules/{modulo}/{modulo}.service.js</span></pre>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 4: CONFIG.TOML — MODOS          -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(4)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">4</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">config.toml — Modos de Aprovação</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">suggest vs auto-edit vs full-auto, sandbox modes, segurança</p>
-            </div>
-          </div>
-          <svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-4" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que é o config.toml</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed">
-                O arquivo <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">.codex/config.toml</code> é a configuração central do Codex CLI para o projeto. Define qual modelo usar, como o agente deve pedir aprovação antes de agir, quais comandos shell são permitidos e quais arquivos nunca devem ser modificados automaticamente.
-              </p>
-            </div>
-
-            <!-- Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Os três modos de aprovação</h3>
-              </div>
-              <div class="grid sm:grid-cols-3 gap-3">
-                <div class="bg-dark-800 rounded-lg p-4 border border-yellow-500/20">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                    <code class="text-yellow-400 font-mono text-sm font-semibold">suggest</code>
-                  </div>
-                  <p class="text-xs text-neutral-400 leading-relaxed">O agente apenas sugere mudanças. Você vê o diff e decide se aplica. Ideal para exploração e aprendizado. Mais lento, mais seguro.</p>
-                </div>
-                <div class="bg-dark-800 rounded-lg p-4 border border-indigo-500/30">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-                    <code class="text-indigo-400 font-mono text-sm font-semibold">auto-edit</code>
-                  </div>
-                  <p class="text-xs text-neutral-400 leading-relaxed">O agente edita arquivos automaticamente, mas pede aprovação antes de executar comandos shell. Equilíbrio entre velocidade e controle. <strong class="text-indigo-300">Recomendado para desenvolvimento diário.</strong></p>
-                </div>
-                <div class="bg-dark-800 rounded-lg p-4 border border-red-500/20">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                    <code class="text-red-400 font-mono text-sm font-semibold">full-auto</code>
-                  </div>
-                  <p class="text-xs text-neutral-400 leading-relaxed">O agente age sem pedir aprovação para nada. Ideal para CI/CD e automação headless. Use apenas com sandbox restrito e comandos bloqueados configurados.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Como configurar -->
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Como configurar — config.toml completo</h3>
-              </div>
-
-              <div class="mb-4">
-                <h4 class="text-sm font-semibold text-neutral-400 mb-2">Modos de sandbox de rede:</h4>
-                <div class="grid sm:grid-cols-3 gap-3 mb-5">
-                  <div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-center">
-                    <code class="text-green-400 font-mono text-sm">read-only</code>
-                    <p class="text-xs text-neutral-500 mt-1">Apenas lê arquivos. Não escreve, não executa nada.</p>
-                  </div>
-                  <div class="bg-dark-900 rounded-lg p-3 border border-indigo-500/20 text-center">
-                    <code class="text-indigo-400 font-mono text-sm">workspace-write</code>
-                    <p class="text-xs text-neutral-500 mt-1">Escreve apenas no workspace atual. Bloqueia acesso ao sistema.</p>
-                  </div>
-                  <div class="bg-dark-900 rounded-lg p-3 border border-red-500/20 text-center">
-                    <code class="text-red-400 font-mono text-sm">danger-full-access</code>
-                    <p class="text-xs text-neutral-500 mt-1">Acesso total ao sistema. Use apenas em containers isolados.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                  <span class="text-xs text-neutral-500 font-mono">.codex/config.toml</span>
-                  <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                </div>
-                <pre class="p-4 text-neutral-300"><span class="text-neutral-500"># Codex CLI — Configuração do Projeto</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+ ====================================== 
+TOPIC 4: CONFIG.TOML — MODES
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(4)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">4</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">config.toml — Approval Modes</h2>
+<p class="text-sm text-neutral-500 mt-0.5">suggest vs auto-edit vs full-auto, sandbox modes, security</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-4">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What is config.toml</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed">The file<code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">.codex/config.toml</code>is the core Codex CLI configuration for the project. Defines which template to use, how the agent should ask for approval before acting, which shell commands are allowed, and which files should never be automatically modified.</p>
+</div>
+Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">The three approval modes</h3>
+</div>
+<div class="grid sm:grid-cols-3 gap-3">
+<div class="bg-dark-800 rounded-lg p-4 border border-yellow-500/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+<code class="text-yellow-400 font-mono text-sm font-semibold" data-notranslate="True">suggest</code>
+</div>
+<p class="text-xs text-neutral-400 leading-relaxed">The agent only suggests changes. You see the diff and decide if it applies. Ideal for exploration and learning. Slower, safer.</p>
+</div>
+<div class="bg-dark-800 rounded-lg p-4 border border-indigo-500/30">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+<code class="text-indigo-400 font-mono text-sm font-semibold" data-notranslate="True">auto-edit</code>
+</div>
+<p class="text-xs text-neutral-400 leading-relaxed">The agent edits files automatically, but asks for approval before executing shell commands. Balance between speed and control.<strong class="text-indigo-300">Recommended for daily development.</strong></p>
+</div>
+<div class="bg-dark-800 rounded-lg p-4 border border-red-500/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-red-400"></span>
+<code class="text-red-400 font-mono text-sm font-semibold" data-notranslate="True">full-auto</code>
+</div>
+<p class="text-xs text-neutral-400 leading-relaxed">The agent acts without asking for approval for anything. Ideal for CI/CD and headless automation. Use only with restricted sandbox and blocked commands configured.</p>
+</div>
+</div>
+</div>
+How to configure
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">How to configure — complete config.toml</h3>
+</div>
+<div class="mb-4">
+<h4 class="text-sm font-semibold text-neutral-400 mb-2">Network sandbox modes:</h4>
+<div class="grid sm:grid-cols-3 gap-3 mb-5">
+<div class="bg-dark-900 rounded-lg p-3 border border-dark-600 text-center">
+<code class="text-green-400 font-mono text-sm" data-notranslate="True">read-only</code>
+<p class="text-xs text-neutral-500 mt-1">Only reads files. Doesn't write, doesn't execute anything.</p>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-indigo-500/20 text-center">
+<code class="text-indigo-400 font-mono text-sm" data-notranslate="True">workspace-write</code>
+<p class="text-xs text-neutral-500 mt-1">Writes only to the current workspace. Blocks access to the system.</p>
+</div>
+<div class="bg-dark-900 rounded-lg p-3 border border-red-500/20 text-center">
+<code class="text-red-400 font-mono text-sm" data-notranslate="True">danger-full-access</code>
+<p class="text-xs text-neutral-500 mt-1">Full access to the system. Use only in insulated containers.</p>
+</div>
+</div>
+</div>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">.codex/config.toml</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-neutral-500"># Codex CLI — Project Configuration</span>
 
 <span class="text-green-400">[model]</span>
 provider = <span class="text-yellow-300">"openai"</span>
-name = <span class="text-yellow-300">"o4-mini"</span>       <span class="text-neutral-500"># Alternativas: "gpt-4o", "o3"</span>
+name = <span class="text-yellow-300">"o4-mini"</span>       <span class="text-neutral-500"># Alternatives: "gpt-4o", "o3"</span>
 temperature = <span class="text-indigo-400">0.2</span>
 
 <span class="text-green-400">[approval]</span>
-mode = <span class="text-yellow-300">"auto-edit"</span>     <span class="text-neutral-500"># suggest | auto-edit | full-auto</span>
+mode = <span class="text-yellow-300">"auto-edit"</span>     <span class="text-neutral-500"># suggest | self-edit | full-auto</span>
 require_approval = [
   <span class="text-yellow-300">"*.env"</span>, <span class="text-yellow-300">".env.*"</span>,
   <span class="text-yellow-300">"package.json"</span>,
@@ -771,91 +660,76 @@ max_context_files = <span class="text-indigo-400">10</span>
 
 <span class="text-green-400">[telemetry]</span>
 enabled = <span class="text-red-400">false</span></pre>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 5: MODO HEADLESS E AUTOMAÇÃO    -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(5)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">5</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">Modo Headless e Automação</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">CI/CD com Codex, scripts automatizados, GitHub Actions</p>
-            </div>
-          </div>
-          <svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-5" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que é o modo headless</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed mb-3">
-                O modo headless do Codex CLI permite executar o agente sem interface interativa, recebendo a tarefa como argumento e retornando o resultado via stdout. É ativado com a flag <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">--headless</code> (ou <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">-H</code>) e combinado com <code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm">--approval-mode full-auto</code> para execução totalmente autônoma.
-              </p>
-              <p class="text-neutral-300 leading-relaxed">
-                Isso abre um leque enorme de possibilidades: o Codex pode ser invocado em pipelines de CI/CD para revisar código automaticamente, gerar changelogs, corrigir code style, criar documentação ou até abrir pull requests com base em issues do GitHub.
-              </p>
-            </div>
-
-            <!-- Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Por que usar automação com Codex</h3>
-              </div>
-              <ul class="space-y-2 text-neutral-300">
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
-                  <span><strong class="text-neutral-200">Code review automático:</strong> o Codex analisa cada PR e comenta problemas de qualidade, segurança e convenções antes de um humano revisar.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
-                  <span><strong class="text-neutral-200">Auto-fix de linting:</strong> em vez de apenas reportar erros, o agente pode corrigi-los automaticamente em um commit separado.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
-                  <span><strong class="text-neutral-200">Geração de testes:</strong> toda vez que um novo arquivo de feature é criado, um job de CI pode pedir ao Codex para gerar os testes correspondentes.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
-                  <span><strong class="text-neutral-200">Changelog automático:</strong> ao mergear uma branch, o Codex analisa os commits e gera uma entrada de changelog semântico.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Como configurar -->
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Como integrar com GitHub Actions</h3>
-              </div>
-
-              <div class="space-y-4">
-                <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                  <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                    <span class="text-xs text-neutral-500 font-mono">.github/workflows/codex-review.yml</span>
-                    <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                  </div>
-                  <pre class="p-4 text-neutral-300"><span class="text-green-400">name:</span> Codex Code Review
+</div>
+</div>
+</div>
+</div>
+</article>
+ ====================================== 
+TOPIC 5: HEADLESS MODE AND AUTOMATION
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(5)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">5</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">Headless Mode and Automation</h2>
+<p class="text-sm text-neutral-500 mt-0.5">CI/CD with Codex, automated scripts, GitHub Actions</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-5">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What is headless mode</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed mb-3">Codex CLI's headless mode allows you to run the agent without an interactive interface, receiving the task as an argument and returning the result via stdout. It is activated with the flag<code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">--headless</code>(or<code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">-H</code>) and combined with<code class="text-indigo-300 bg-dark-700 px-1.5 py-0.5 rounded font-mono text-sm" data-notranslate="True">--approval-mode full-auto</code>for fully autonomous execution.</p>
+<p class="text-neutral-300 leading-relaxed">This opens up a huge range of possibilities: Codex can be invoked in CI/CD pipelines to automatically review code, generate changelogs, correct code style, create documentation or even open pull requests based on GitHub issues.</p>
+</div>
+Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Why use automation with Codex</h3>
+</div>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
+<span><strong class="text-neutral-200">Automatic code review:</strong>Codex analyzes each PR and comments on quality, security, and convention issues before a human reviews it.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
+<span><strong class="text-neutral-200">Linting auto-fix:</strong>Instead of just reporting errors, the agent can automatically fix them in a separate commit.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
+<span><strong class="text-neutral-200">Test generation:</strong>Every time a new feature file is created, a CI job can ask Codex to generate the corresponding tests.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-indigo-400 flex-shrink-0 mt-1">▸</span>
+<span><strong class="text-neutral-200">Automatic changelog:</strong>When merging a branch, Codex analyzes the commits and generates a semantic changelog entry.</span>
+</li>
+</ul>
+</div>
+How to configure
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">How to integrate with GitHub Actions</h3>
+</div>
+<div class="space-y-4">
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">.github/workflows/codex-review.yml</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-green-400">name:</span> Codex Code Review
 
 <span class="text-green-400">on:</span>
   <span class="text-green-400">pull_request:</span>
@@ -882,11 +756,11 @@ enabled = <span class="text-red-400">false</span></pre>
         run: |
           codex --headless \
             --approval-mode full-auto \
-            <span class="text-yellow-300">"Revise as mudanças neste PR. Verifique: \
-             1) Convenções de código do AGENTS.md \
-             2) Possíveis bugs ou problemas de segurança \
-             3) Cobertura de testes adequada \
-             Crie o arquivo .codex-review.md com seu feedback."</span>
+            <span class="text-yellow-300">"Please review the changes to this PR. Check:\
+             1) AGENTS.md \ code conventions
+             2) Possible bugs or security issues \
+             3) Adequate test coverage \
+             Create the .codex-review.md file with your feedback."</span>
 
       - <span class="text-green-400">name:</span> Comentar review no PR
         uses: actions/github-script@v7
@@ -900,267 +774,244 @@ enabled = <span class="text-red-400">false</span></pre>
               issue_number: context.issue.number,
               body: review
             });</pre>
-                </div>
+</div>
+<div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
+<span class="text-xs text-neutral-500 font-mono">headless use via command line</span>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-4 text-neutral-300" data-notranslate="True"><span class="text-neutral-500"># Basic headless mode</span>
+<span class="text-green-400">$</span> codex --headless <span class="text-yellow-300">"list all endpoints without tests"</span>
 
-                <div class="code-block relative bg-dark-900 rounded-lg border border-dark-600 overflow-hidden">
-                  <div class="flex items-center justify-between px-4 py-2 border-b border-dark-600 bg-dark-800">
-                    <span class="text-xs text-neutral-500 font-mono">uso headless via linha de comando</span>
-                    <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-                  </div>
-                  <pre class="p-4 text-neutral-300"><span class="text-neutral-500"># Modo headless básico</span>
-<span class="text-green-400">$</span> codex --headless <span class="text-yellow-300">"liste todos os endpoints sem testes"</span>
-
-<span class="text-neutral-500"># Com full-auto (sem aprovação)</span>
+<span class="text-neutral-500"># With full-auto (without approval)</span>
 <span class="text-green-400">$</span> codex -H --approval-mode full-auto \
-  <span class="text-yellow-300">"corrija todos os erros de ESLint e faça commit"</span>
+  <span class="text-yellow-300">"fix all ESLint errors and commit"</span>
 
-<span class="text-neutral-500"># Com output para arquivo</span>
-<span class="text-green-400">$</span> codex -H <span class="text-yellow-300">"gere changelog dos últimos 10 commits"</span> \
-  > CHANGELOG_DRAFT.md
+<span class="text-neutral-500"># With output to file</span>
+<span class="text-green-400">$</span> codex -H <span class="text-yellow-300">"generate changelog of last 10 commits"</span> \
+  &gt; CHANGELOG_DRAFT.md
 
-<span class="text-neutral-500"># Em script de pre-commit</span>
+<span class="text-neutral-500"># In pre-commit script</span>
 <span class="text-green-400">$</span> codex -H --approval-mode suggest \
-  <span class="text-yellow-300">"verifique se este commit segue as convenções do AGENTS.md"</span></pre>
-                </div>
-              </div>
-            </div>
+  <span class="text-yellow-300">"check if this commit follows AGENTS.md conventions"</span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+ ====================================== 
+TOPIC 6: COMPARATIVE
+ ====================================== 
+<article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+<button aria-expanded="false" class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors" onclick="toggleTopic(6)">
+<div class="flex items-center gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">6</span>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">Claude Code vs Codex Comparison</h2>
+<p class="text-sm text-neutral-500 mt-0.5">When to use each one, advantages, disadvantages, decision table</p>
+</div>
+</div>
+<svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="topic-content" id="topic-6">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
+<h3 class="font-semibold text-neutral-100 text-lg">What are each tool</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed">Both are tools for<em>agentic coding</em>that run in the terminal, read and write files, execute commands and interact with your repository autonomously. The fundamental difference is in the model ecosystem: Claude Code uses Anthropic models (Claude Sonnet, Claude Opus), while Codex CLI uses OpenAI models (GPT-4o, o3, o4-mini). Each ecosystem has its strengths.</p>
+</div>
+Why use
+<div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
+<div class="flex items-center gap-3 mb-3">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Why comparing matters</h3>
+</div>
+<p class="text-neutral-300 leading-relaxed">Most projects can use both tools in a complementary way. Knowing the strengths of each one allows you to choose the right tool for each type of task. For example: using Codex CLI with o4-mini for complex refactorings that require deep thinking, and Claude Code for quick code analysis with a long context window.</p>
+</div>
+How to configure — table
+<div>
+<div class="flex items-center gap-3 mb-4">
+<span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
+<h3 class="font-semibold text-neutral-100 text-lg">Decision table</h3>
+</div>
+<div class="overflow-x-auto rounded-lg border border-dark-600">
+<table class="w-full text-sm">
+<thead class="bg-dark-700">
+<tr>
+<th class="text-left px-4 py-3 text-neutral-400 font-medium">Criterion</th>
+<th class="text-center px-4 py-3 text-sky-400 font-medium">Claude Code</th>
+<th class="text-center px-4 py-3 text-indigo-400 font-medium">Codex CLI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Context file</td>
+<td class="px-4 py-3 text-center"><code class="text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded font-mono" data-notranslate="True">CLAUDE.md</code></td>
+<td class="px-4 py-3 text-center"><code class="text-indigo-300 bg-indigo-500/10 px-1.5 py-0.5 rounded font-mono" data-notranslate="True">AGENTS.md</code></td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Settings</td>
+<td class="px-4 py-3 text-center text-neutral-400">CLAUDE.md + flags</td>
+<td class="px-4 py-3 text-center text-neutral-400">.codex/config.toml</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Available models</td>
+<td class="px-4 py-3 text-center text-neutral-400">Claude Sonnet, Opus</td>
+<td class="px-4 py-3 text-center text-neutral-400">GPT-4o, o3, o4-mini</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Context window</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">200k tokens</span>
+</td>
+<td class="px-4 py-3 text-center">
+<span class="text-yellow-400 font-semibold">128k tokens</span>
+</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Deep reasoning</td>
+<td class="px-4 py-3 text-center text-neutral-400">Claude Opus (strong)</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">o3/o4-mini (excellent)</span>
+</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Headless/CI mode</td>
+<td class="px-4 py-3 text-center text-neutral-400">Partial</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">Native and robust</span>
+</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Open-source</td>
+<td class="px-4 py-3 text-center text-neutral-400">No</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">Yes (GitHub)</span>
+</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Approval modes</td>
+<td class="px-4 py-3 text-center text-neutral-400">Basic</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">3 granular modes</span>
+</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">interactive UX</td>
+<td class="px-4 py-3 text-center">
+<span class="text-green-400 font-semibold">Excellent</span>
+</td>
+<td class="px-4 py-3 text-center text-neutral-400">Good</td>
+</tr>
+<tr class="table-row-alt border-t border-dark-600">
+<td class="px-4 py-3 text-neutral-300 font-medium">Cost per task</td>
+<td class="px-4 py-3 text-center text-neutral-400">Anthropic pricing</td>
+<td class="px-4 py-3 text-center text-neutral-400">OpenAI pricing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-lg">
+<p class="text-sm text-neutral-400 leading-relaxed">
+<strong class="text-indigo-400">Recommendation:</strong>Use<strong class="text-indigo-300">Codex CLI</strong>when you need deep code reasoning, CI/CD automation, or granular approval control. Use<strong class="text-sky-300">Claude Code</strong>for analyzing large codebases (larger context window) and for a more fluid day-to-day development experience.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+END TOPICS
+ ====================================== 
+AGENTS.MD EXAMPLE BLOCK
+ ====================================== 
+<section class="mt-10">
+<div class="flex items-center gap-3 mb-4">
+<h2 class="text-2xl font-bold text-neutral-100">Example: AGENTS.md for Node.js project</h2>
+<span class="px-2 py-0.5 text-xs rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">real example</span>
+</div>
+<p class="text-neutral-400 mb-4 text-sm">This is the AGENTS.md included in this project. Serves as a reference for Node.js/Express projects with PostgreSQL.</p>
+<div class="code-block relative bg-dark-900 rounded-xl border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 border-b border-dark-600 bg-dark-800">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+<span class="ml-2 text-xs text-neutral-500 font-mono">AGENTS.md</span>
+</div>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-5 text-neutral-300 text-xs leading-relaxed overflow-x-auto" data-notranslate="True"><span class="text-indigo-400 font-semibold"># AGENTS.md — Context Guide for Codex CLI</span>
 
-          </div>
-        </div>
-      </article>
-
-      <!-- ====================================== -->
-      <!-- TÓPICO 6: COMPARATIVO                  -->
-      <!-- ====================================== -->
-      <article class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
-        <button
-          class="topic-header w-full flex items-center justify-between p-5 text-left hover:bg-dark-700 transition-colors"
-          onclick="toggleTopic(6)"
-          aria-expanded="false"
-        >
-          <div class="flex items-center gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400">6</span>
-            <div>
-              <h2 class="text-2xl font-bold text-neutral-100">Comparativo Claude Code vs Codex</h2>
-              <p class="text-sm text-neutral-500 mt-0.5">Quando usar cada um, vantagens, desvantagens, tabela de decisão</p>
-            </div>
-          </div>
-          <svg class="topic-chevron w-5 h-5 text-neutral-500 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="topic-6" class="topic-content">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">A</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">O que são cada ferramenta</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed">
-                Ambas são ferramentas de <em>agentic coding</em> que rodam no terminal, leem e escrevem arquivos, executam comandos e interagem com o seu repositório de forma autônoma. A diferença fundamental está no ecossistema de modelos: Claude Code usa os modelos Anthropic (Claude Sonnet, Claude Opus), enquanto o Codex CLI usa os modelos OpenAI (GPT-4o, o3, o4-mini). Cada ecossistema tem suas forças.
-              </p>
-            </div>
-
-            <!-- Por que usar -->
-            <div class="bg-dark-700 rounded-lg p-5 border border-dark-600">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">B</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Por que comparar importa</h3>
-              </div>
-              <p class="text-neutral-300 leading-relaxed">
-                A maioria dos projetos pode usar ambas as ferramentas de forma complementar. Conhecer os pontos fortes de cada uma permite escolher a ferramenta certa para cada tipo de tarefa. Por exemplo: usar Codex CLI com o4-mini para refatorações complexas que precisam de raciocínio profundo, e Claude Code para análise rápida de código com janela de contexto longa.
-              </p>
-            </div>
-
-            <!-- Como configurar — tabela -->
-            <div>
-              <div class="flex items-center gap-3 mb-4">
-                <span class="step-number bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs">C</span>
-                <h3 class="font-semibold text-neutral-100 text-lg">Tabela de decisão</h3>
-              </div>
-              <div class="overflow-x-auto rounded-lg border border-dark-600">
-                <table class="w-full text-sm">
-                  <thead class="bg-dark-700">
-                    <tr>
-                      <th class="text-left px-4 py-3 text-neutral-400 font-medium">Critério</th>
-                      <th class="text-center px-4 py-3 text-sky-400 font-medium">Claude Code</th>
-                      <th class="text-center px-4 py-3 text-indigo-400 font-medium">Codex CLI</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Arquivo de contexto</td>
-                      <td class="px-4 py-3 text-center"><code class="text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded font-mono">CLAUDE.md</code></td>
-                      <td class="px-4 py-3 text-center"><code class="text-indigo-300 bg-indigo-500/10 px-1.5 py-0.5 rounded font-mono">AGENTS.md</code></td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Configuração</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">CLAUDE.md + flags</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">.codex/config.toml</td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Modelos disponíveis</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Claude Sonnet, Opus</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">GPT-4o, o3, o4-mini</td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Janela de contexto</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">200k tokens</span>
-                      </td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-yellow-400 font-semibold">128k tokens</span>
-                      </td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Raciocínio profundo</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Claude Opus (forte)</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">o3/o4-mini (excelente)</span>
-                      </td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Modo headless / CI</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Parcial</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">Nativo e robusto</span>
-                      </td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Open-source</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Não</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">Sim (GitHub)</span>
-                      </td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Modos de aprovação</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Básico</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">3 modos granulares</span>
-                      </td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">UX interativa</td>
-                      <td class="px-4 py-3 text-center">
-                        <span class="text-green-400 font-semibold">Excelente</span>
-                      </td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Boa</td>
-                    </tr>
-                    <tr class="table-row-alt border-t border-dark-600">
-                      <td class="px-4 py-3 text-neutral-300 font-medium">Custo por tarefa</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">Anthropic pricing</td>
-                      <td class="px-4 py-3 text-center text-neutral-400">OpenAI pricing</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="mt-4 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-lg">
-                <p class="text-sm text-neutral-400 leading-relaxed">
-                  <strong class="text-indigo-400">Recomendação:</strong> Use <strong class="text-indigo-300">Codex CLI</strong> quando precisar de raciocínio profundo em código, automação em CI/CD ou controle granular de aprovações. Use <strong class="text-sky-300">Claude Code</strong> para análise de bases de código grandes (maior janela de contexto) e para uma experiência de desenvolvimento mais fluída no dia a dia.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <!-- END TOPICS -->
-
-    <!-- ====================================== -->
-    <!-- AGENTS.MD EXAMPLE BLOCK               -->
-    <!-- ====================================== -->
-    <section class="mt-10">
-      <div class="flex items-center gap-3 mb-4">
-        <h2 class="text-2xl font-bold text-neutral-100">Exemplo: AGENTS.md para projeto Node.js</h2>
-        <span class="px-2 py-0.5 text-xs rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">exemplo real</span>
-      </div>
-      <p class="text-neutral-400 mb-4 text-sm">
-        Este é o AGENTS.md incluído neste projeto. Serve como referência para projetos Node.js/Express com PostgreSQL.
-      </p>
-      <div class="code-block relative bg-dark-900 rounded-xl border border-dark-600 overflow-hidden">
-        <div class="flex items-center justify-between px-4 py-3 border-b border-dark-600 bg-dark-800">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
-            <span class="ml-2 text-xs text-neutral-500 font-mono">AGENTS.md</span>
-          </div>
-          <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-        </div>
-        <pre class="p-5 text-neutral-300 text-xs leading-relaxed overflow-x-auto"><span class="text-indigo-400 font-semibold"># AGENTS.md — Guia de Contexto para o Codex CLI</span>
-
-<span class="text-green-400">## 1. Contexto do Projeto</span>
-<span class="text-neutral-400">**Nome:** API de Gerenciamento de Tarefas (Task Manager API)</span>
-<span class="text-neutral-400">**Stack:** Node.js 20, Express 4.18, PostgreSQL 15 (Prisma 5), Redis 7</span>
+<span class="text-green-400">## 1. Project Context</span>
+<span class="text-neutral-400">**Name:** Task Manager API</span>
+<span class="text-neutral-400">**Stack:** Node.js 20, Express 4.18, PostgreSQL 15 (Prisma 5), ​​Redis 7</span>
 <span class="text-neutral-400">**Auth:** JWT + Refresh Tokens</span>
 
-<span class="text-green-400">## 2. Comandos de Desenvolvimento</span>
+<span class="text-green-400">## 2. Development Commands</span>
 <span class="text-yellow-300">```bash</span>
-npm install          <span class="text-neutral-500"># Instalar dependências</span>
-npm run dev          <span class="text-neutral-500"># Servidor com hot reload (porta 3000)</span>
-npm run db:migrate   <span class="text-neutral-500"># Aplicar migrations pendentes</span>
-npm run db:seed      <span class="text-neutral-500"># Popular banco com dados de dev</span>
+npm install          <span class="text-neutral-500"># Install dependencies</span>
+npm run dev          <span class="text-neutral-500"># Server with hot reload (port 3000)</span>
+npm run db:migrate   <span class="text-neutral-500"># Apply pending migrations</span>
+npm run db:seed      <span class="text-neutral-500"># Popular database with dev data</span>
 <span class="text-yellow-300">```</span>
 
-<span class="text-green-400">## 3. Comandos de Teste</span>
+<span class="text-green-400">## 3. Test Commands</span>
 <span class="text-yellow-300">```bash</span>
-npm test             <span class="text-neutral-500"># Testes unitários (Jest)</span>
+npm test             <span class="text-neutral-500"># Unit tests (Jest)</span>
 npm run test:watch   <span class="text-neutral-500"># Watch mode</span>
-npm run e2e          <span class="text-neutral-500"># Testes E2E (Supertest)</span>
-npm run test:coverage <span class="text-neutral-500"># Cobertura (meta: 80%)</span>
+npm run e2e          <span class="text-neutral-500"># E2E tests (Supertest)</span>
+npm run test:coverage <span class="text-neutral-500"># Coverage (target: 80%)</span>
 <span class="text-yellow-300">```</span>
 
-<span class="text-green-400">## 4. Regras de Comportamento</span>
-<span class="text-neutral-400">### NUNCA faça sem aprovação:</span>
-<span class="text-neutral-400">- Modificar arquivos .env ou package.json</span>
-<span class="text-neutral-400">- Alterar migrations existentes (irreversível)</span>
-<span class="text-neutral-400">- Executar npm publish ou git push --force</span>
+<span class="text-green-400">## 4. Rules of Behavior</span>
+<span class="text-neutral-400">### NEVER do this without approval:</span>
+<span class="text-neutral-400">- Modify .env or package.json files</span>
+<span class="text-neutral-400">- Change existing migrations (irreversible)</span>
+<span class="text-neutral-400">- Run npm publish or git push --force</span>
 
-<span class="text-neutral-400">### SEMPRE faça:</span>
-<span class="text-neutral-400">- Criar branches com prefixo feature/ ou fix/</span>
-<span class="text-neutral-400">- Rodar npm run lint antes de commits</span>
-<span class="text-neutral-400">- Adicionar testes para código novo</span></pre>
-      </div>
-    </section>
-
-    <!-- ====================================== -->
-    <!-- CONFIG.TOML EXAMPLE BLOCK             -->
-    <!-- ====================================== -->
-    <section class="mt-8">
-      <div class="flex items-center gap-3 mb-4">
-        <h2 class="text-2xl font-bold text-neutral-100">Exemplo: .codex/config.toml comentado</h2>
-        <span class="px-2 py-0.5 text-xs rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">configuração completa</span>
-      </div>
-      <div class="code-block relative bg-dark-900 rounded-xl border border-dark-600 overflow-hidden">
-        <div class="flex items-center justify-between px-4 py-3 border-b border-dark-600 bg-dark-800">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
-            <span class="ml-2 text-xs text-neutral-500 font-mono">.codex/config.toml</span>
-          </div>
-          <button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copiar</button>
-        </div>
-        <pre class="p-5 text-neutral-300 text-xs leading-relaxed overflow-x-auto"><span class="text-neutral-500"># Codex CLI — Configuração do Projeto</span>
-<span class="text-neutral-500"># Documentação: https://github.com/openai/codex</span>
+<span class="text-neutral-400">### ALWAYS do:</span>
+<span class="text-neutral-400">- Create branches with prefix feature/ or fix/</span>
+<span class="text-neutral-400">- Run npm run lint before commits</span>
+<span class="text-neutral-400">- Add tests for new code</span></pre>
+</div>
+</section>
+ ====================================== 
+CONFIG.TOML EXAMPLE BLOCK
+ ====================================== 
+<section class="mt-8">
+<div class="flex items-center gap-3 mb-4">
+<h2 class="text-2xl font-bold text-neutral-100">Example: commented .codex/config.toml</h2>
+<span class="px-2 py-0.5 text-xs rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">complete configuration</span>
+</div>
+<div class="code-block relative bg-dark-900 rounded-xl border border-dark-600 overflow-hidden">
+<div class="flex items-center justify-between px-4 py-3 border-b border-dark-600 bg-dark-800">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+<span class="ml-2 text-xs text-neutral-500 font-mono">.codex/config.toml</span>
+</div>
+<button class="copy-btn text-xs text-neutral-500 hover:text-neutral-300 transition-colors" onclick="copyCode(this)">copy</button>
+</div>
+<pre class="p-5 text-neutral-300 text-xs leading-relaxed overflow-x-auto" data-notranslate="True"><span class="text-neutral-500"># Codex CLI — Project Configuration</span>
+<span class="text-neutral-500"># Documentation: https://github.com/openai/codex</span>
 
 <span class="text-green-400">[model]</span>
 provider = <span class="text-yellow-300">"openai"</span>
-name = <span class="text-yellow-300">"o4-mini"</span>             <span class="text-neutral-500"># Modelo principal</span>
-<span class="text-neutral-500"># Alternativas: "gpt-4o", "o3", "o4-mini"</span>
-temperature = <span class="text-indigo-400">0.2</span>                <span class="text-neutral-500"># Baixo = mais determinístico</span>
+name = <span class="text-yellow-300">"o4-mini"</span>             <span class="text-neutral-500"># Main model</span>
+<span class="text-neutral-500"># Alternatives: "gpt-4o", "o3", "o4-mini"</span>
+temperature = <span class="text-indigo-400">0.2</span>                <span class="text-neutral-500"># Low = more deterministic</span>
 
 <span class="text-green-400">[approval]</span>
-<span class="text-neutral-500"># Modos: "suggest" | "auto-edit" | "full-auto"</span>
+<span class="text-neutral-500"># Modes: "suggest" | "auto-edit" | "full-auto"</span>
 mode = <span class="text-yellow-300">"auto-edit"</span>
-<span class="text-neutral-500"># Arquivos que sempre precisam de aprovação manual</span>
+<span class="text-neutral-500"># Files that always need manual approval</span>
 require_approval = [
   <span class="text-yellow-300">"*.env"</span>, <span class="text-yellow-300">".env.*"</span>,
   <span class="text-yellow-300">"package.json"</span>, <span class="text-yellow-300">"package-lock.json"</span>,
@@ -1168,229 +1019,206 @@ require_approval = [
 ]
 
 <span class="text-green-400">[sandbox]</span>
-<span class="text-neutral-500"># Modos: "read-only" | "workspace-write" | "danger-full-access"</span>
+<span class="text-neutral-500"># Modes: "read-only" | "workspace-write" | "danger-full-access"</span>
 network = <span class="text-yellow-300">"workspace-write"</span>
-allow_shell = [             <span class="text-neutral-500"># Comandos permitidos sem aprovação</span>
+allow_shell = [             <span class="text-neutral-500"># Commands allowed without approval</span>
   <span class="text-yellow-300">"npm test"</span>, <span class="text-yellow-300">"npm run lint"</span>, <span class="text-yellow-300">"npm run build"</span>,
   <span class="text-yellow-300">"git status"</span>, <span class="text-yellow-300">"git diff"</span>, <span class="text-yellow-300">"git log --oneline -10"</span>
 ]
-deny_shell = [              <span class="text-neutral-500"># Comandos sempre bloqueados</span>
+deny_shell = [              <span class="text-neutral-500"># Commands always blocked</span>
   <span class="text-yellow-300">"npm publish"</span>, <span class="text-yellow-300">"git push --force"</span>,
   <span class="text-yellow-300">"rm -rf"</span>, <span class="text-yellow-300">"sudo"</span>
 ]
 
 <span class="text-green-400">[context]</span>
-agents_file = <span class="text-yellow-300">"AGENTS.md"</span>     <span class="text-neutral-500"># Contexto lido em toda sessão</span>
+agents_file = <span class="text-yellow-300">"AGENTS.md"</span>     <span class="text-neutral-500"># Context read in every session</span>
 extra_context = [
   <span class="text-yellow-300">"README.md"</span>, <span class="text-yellow-300">"ARCHITECTURE.md"</span>
 ]
 max_context_files = <span class="text-indigo-400">10</span>
 
 <span class="text-green-400">[telemetry]</span>
-enabled = <span class="text-red-400">false</span>              <span class="text-neutral-500"># Desabilitar envio de dados</span></pre>
-      </div>
-    </section>
-
-    <!-- ====================================== -->
-    <!-- COMPARISON TABLE                      -->
-    <!-- ====================================== -->
-    <section class="mt-8">
-      <h2 class="text-2xl font-bold text-neutral-100 mb-2">Tabela Comparativa Completa</h2>
-      <p class="text-neutral-400 text-sm mb-5">Comparação detalhada entre Claude Code e Codex CLI para ajudar na escolha da ferramenta certa.</p>
-
-      <div class="overflow-x-auto rounded-xl border border-dark-600">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-dark-700">
-              <th class="text-left px-5 py-4 text-neutral-400 font-semibold w-1/3">Feature</th>
-              <th class="text-center px-5 py-4 w-1/3">
-                <div class="flex flex-col items-center gap-1">
-                  <span class="text-sky-400 font-semibold">Claude Code</span>
-                  <span class="text-xs text-neutral-500">Anthropic</span>
-                </div>
-              </th>
-              <th class="text-center px-5 py-4 w-1/3">
-                <div class="flex flex-col items-center gap-1">
-                  <span class="text-indigo-400 font-semibold">Codex CLI</span>
-                  <span class="text-xs text-neutral-500">OpenAI</span>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-dark-600">
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Fonte / licença</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Proprietário</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">Open-source (MIT)</span></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Linguagem de implementação</td>
-              <td class="px-5 py-3 text-center text-neutral-400">TypeScript</td>
-              <td class="px-5 py-3 text-center text-neutral-400">TypeScript + Rust</td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Modelo padrão</td>
-              <td class="px-5 py-3 text-center text-neutral-400">claude-sonnet-4</td>
-              <td class="px-5 py-3 text-center text-neutral-400">o4-mini</td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Janela de contexto máxima</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400 font-semibold">200k tokens</span></td>
-              <td class="px-5 py-3 text-center text-neutral-400">128k tokens</td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Raciocínio profundo</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Claude Opus 4</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">o3 / o4-mini (nativo)</span></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Arquivo de contexto persistente</td>
-              <td class="px-5 py-3 text-center"><code class="text-sky-300 bg-sky-500/10 px-1.5 rounded font-mono text-xs">CLAUDE.md</code></td>
-              <td class="px-5 py-3 text-center"><code class="text-indigo-300 bg-indigo-500/10 px-1.5 rounded font-mono text-xs">AGENTS.md</code></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Arquivo de configuração</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Flags CLI / CLAUDE.md</td>
-              <td class="px-5 py-3 text-center"><code class="text-indigo-300 bg-dark-600 px-1.5 rounded font-mono text-xs">.codex/config.toml</code></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Modos de aprovação</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Básico</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">suggest / auto-edit / full-auto</span></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Modo headless para CI/CD</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Parcial</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">Nativo e completo</span></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Sandbox configurável</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Limitado</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">3 níveis + allow/deny lists</span></td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Análise de imagens/diagramas</td>
-              <td class="px-5 py-3 text-center"><span class="text-green-400">Excelente (multimodal)</span></td>
-              <td class="px-5 py-3 text-center text-neutral-400">GPT-4o (bom)</td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Ecossistema de integrações</td>
-              <td class="px-5 py-3 text-center text-neutral-400">Anthropic SDK</td>
-              <td class="px-5 py-3 text-center text-neutral-400">OpenAI SDK (maior base)</td>
-            </tr>
-            <tr class="table-row-alt">
-              <td class="px-5 py-3 text-neutral-300">Melhor para</td>
-              <td class="px-5 py-3 text-center text-neutral-400 text-xs">Análise de grandes codebases, UX diária</td>
-              <td class="px-5 py-3 text-center text-neutral-400 text-xs">CI/CD, automação, raciocínio complexo</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- ====================================== -->
-    <!-- PRÓXIMOS PASSOS                       -->
-    <!-- ====================================== -->
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold text-neutral-100 mb-2">Próximos Passos</h2>
-      <p class="text-neutral-400 text-sm mb-6">Continue sua jornada de desenvolvimento agentic com estas ações práticas.</p>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
-          <div class="flex items-start gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">1</span>
-            <div>
-              <h3 class="font-semibold text-neutral-100 mb-1">Instale e experimente</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed">Instale o Codex CLI em um projeto real seu. Comece com modo <code class="text-indigo-300 font-mono text-xs">suggest</code> para se familiarizar antes de aumentar a autonomia.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
-          <div class="flex items-start gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">2</span>
-            <div>
-              <h3 class="font-semibold text-neutral-100 mb-1">Escreva seu AGENTS.md</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed">Crie um AGENTS.md para um projeto existente. Use o exemplo deste projeto como base e adapte para sua stack e convenções.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
-          <div class="flex items-start gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">3</span>
-            <div>
-              <h3 class="font-semibold text-neutral-100 mb-1">Configure o config.toml</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed">Copie o <code class="text-indigo-300 font-mono text-xs">.codex/config.toml</code> deste projeto e ajuste os <code class="text-indigo-300 font-mono text-xs">allow_shell</code> e <code class="text-indigo-300 font-mono text-xs">deny_shell</code> para o seu projeto.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
-          <div class="flex items-start gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">4</span>
-            <div>
-              <h3 class="font-semibold text-neutral-100 mb-1">Automatize com GitHub Actions</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed">Implemente o workflow de code review automático do Tópico 5. Configure o secret <code class="text-indigo-300 font-mono text-xs">OPENAI_API_KEY</code> no repositório.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group sm:col-span-2">
-          <div class="flex items-start gap-4">
-            <span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">5</span>
-            <div>
-              <h3 class="font-semibold text-neutral-100 mb-1">Compare Claude Code vs Codex CLI no seu workflow</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed">Use as duas ferramentas para a mesma tarefa e compare os resultados. Identifique onde cada uma brilha no seu contexto específico de projeto e crie um workflow híbrido que usa o melhor de cada ecossistema.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- CTA -->
-      <div class="mt-6 flex justify-start">
-        <a
-          href="https://github.com/openai/codex"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/30 hover:text-indigo-300 transition-all font-medium text-sm"
-        >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          Ver Codex CLI no GitHub
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-dark-600 mt-10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-sky-400 font-semibold">INEMA.CLUB</span>
-            <span class="text-neutral-600">·</span>
-            <span class="text-neutral-500 text-sm">Projetos Práticos de IA</span>
-          </div>
-          <p class="text-neutral-600 text-xs">
-            Projeto 4 de 6 — OpenAI Codex CLI — Desenvolvimento Agentic
-          </p>
-        </div>
-        <div class="flex items-center gap-3 text-xs text-neutral-600">
-          <span>Atualizado: março 2026</span>
-          <span class="text-dark-600">·</span>
-          <span class="text-indigo-500/70">Codex CLI v1.x</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
+enabled = <span class="text-red-400">false</span>              <span class="text-neutral-500"># Disable data sending</span></pre>
+</div>
+</section>
+ ====================================== 
+COMPARISON TABLE
+ ====================================== 
+<section class="mt-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">Complete Comparison Table</h2>
+<p class="text-neutral-400 text-sm mb-5">Detailed comparison between Claude Code and Codex CLI to help you choose the right tool.</p>
+<div class="overflow-x-auto rounded-xl border border-dark-600">
+<table class="w-full text-sm">
+<thead>
+<tr class="bg-dark-700">
+<th class="text-left px-5 py-4 text-neutral-400 font-semibold w-1/3">Feature</th>
+<th class="text-center px-5 py-4 w-1/3">
+<div class="flex flex-col items-center gap-1">
+<span class="text-sky-400 font-semibold">Claude Code</span>
+<span class="text-xs text-neutral-500">Anthropic</span>
+</div>
+</th>
+<th class="text-center px-5 py-4 w-1/3">
+<div class="flex flex-col items-center gap-1">
+<span class="text-indigo-400 font-semibold">Codex CLI</span>
+<span class="text-xs text-neutral-500">OpenAI</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-dark-600">
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Source/license</td>
+<td class="px-5 py-3 text-center text-neutral-400">Owner</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">Open source (MIT)</span></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Implementation language</td>
+<td class="px-5 py-3 text-center text-neutral-400">TypeScript</td>
+<td class="px-5 py-3 text-center text-neutral-400">TypeScript + Rust</td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Standard model</td>
+<td class="px-5 py-3 text-center text-neutral-400">claude-sonnet-4</td>
+<td class="px-5 py-3 text-center text-neutral-400">o4-mini</td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Maximum context window</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400 font-semibold">200k tokens</span></td>
+<td class="px-5 py-3 text-center text-neutral-400">128k tokens</td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Deep reasoning</td>
+<td class="px-5 py-3 text-center text-neutral-400">Claude Opus 4</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">o3/o4-mini (native)</span></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Persistent context file</td>
+<td class="px-5 py-3 text-center"><code class="text-sky-300 bg-sky-500/10 px-1.5 rounded font-mono text-xs" data-notranslate="True">CLAUDE.md</code></td>
+<td class="px-5 py-3 text-center"><code class="text-indigo-300 bg-indigo-500/10 px-1.5 rounded font-mono text-xs" data-notranslate="True">AGENTS.md</code></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Configuration file</td>
+<td class="px-5 py-3 text-center text-neutral-400">CLI Flags/CLAUDE.md</td>
+<td class="px-5 py-3 text-center"><code class="text-indigo-300 bg-dark-600 px-1.5 rounded font-mono text-xs" data-notranslate="True">.codex/config.toml</code></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Approval modes</td>
+<td class="px-5 py-3 text-center text-neutral-400">Basic</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">suggest/auto-edit/full-auto</span></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Headless mode for CI/CD</td>
+<td class="px-5 py-3 text-center text-neutral-400">Partial</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">Native and complete</span></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Configurable sandbox</td>
+<td class="px-5 py-3 text-center text-neutral-400">Limited</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">3 levels + allow/deny lists</span></td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Image/diagram analysis</td>
+<td class="px-5 py-3 text-center"><span class="text-green-400">Excellent (multimodal)</span></td>
+<td class="px-5 py-3 text-center text-neutral-400">GPT-4o (good)</td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Integrations ecosystem</td>
+<td class="px-5 py-3 text-center text-neutral-400">Anthropic SDK</td>
+<td class="px-5 py-3 text-center text-neutral-400">OpenAI SDK (largest base)</td>
+</tr>
+<tr class="table-row-alt">
+<td class="px-5 py-3 text-neutral-300">Best for</td>
+<td class="px-5 py-3 text-center text-neutral-400 text-xs">Analysis of large codebases, daily UX</td>
+<td class="px-5 py-3 text-center text-neutral-400 text-xs">CI/CD, automation, complex reasoning</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+ ====================================== 
+NEXT STEPS
+ ====================================== 
+<section class="mt-10">
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">Next Steps</h2>
+<p class="text-neutral-400 text-sm mb-6">Continue your agentic development journey with these practical actions.</p>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
+<div class="flex items-start gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">1</span>
+<div>
+<h3 class="font-semibold text-neutral-100 mb-1">Install and try</h3>
+<p class="text-sm text-neutral-400 leading-relaxed">Install the Codex CLI in a real project of yours. Start with mode<code class="text-indigo-300 font-mono text-xs" data-notranslate="True">suggest</code>to familiarize yourself before increasing autonomy.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
+<div class="flex items-start gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">2</span>
+<div>
+<h3 class="font-semibold text-neutral-100 mb-1">Write your AGENTS.md</h3>
+<p class="text-sm text-neutral-400 leading-relaxed">Create an AGENTS.md for an existing project. Use the example of this project as a base and adapt it to your stack and conventions.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
+<div class="flex items-start gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">3</span>
+<div>
+<h3 class="font-semibold text-neutral-100 mb-1">Configure config.toml</h3>
+<p class="text-sm text-neutral-400 leading-relaxed">Copy the<code class="text-indigo-300 font-mono text-xs" data-notranslate="True">.codex/config.toml</code>of this project and adjust the<code class="text-indigo-300 font-mono text-xs" data-notranslate="True">allow_shell</code> e <code class="text-indigo-300 font-mono text-xs" data-notranslate="True">deny_shell</code>for your project.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group">
+<div class="flex items-start gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">4</span>
+<div>
+<h3 class="font-semibold text-neutral-100 mb-1">Automate with GitHub Actions</h3>
+<p class="text-sm text-neutral-400 leading-relaxed">Implement the automatic code review workflow from Topic 5. Configure the secret<code class="text-indigo-300 font-mono text-xs" data-notranslate="True">OPENAI_API_KEY</code>in the repository.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600 hover:border-indigo-500/30 transition-colors group sm:col-span-2">
+<div class="flex items-start gap-4">
+<span class="step-number bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex-shrink-0 group-hover:bg-indigo-500/30 transition-colors">5</span>
+<div>
+<h3 class="font-semibold text-neutral-100 mb-1">Compare Claude Code vs Codex CLI in your workflow</h3>
+<p class="text-sm text-neutral-400 leading-relaxed">Use both tools for the same task and compare the results. Identify where each shines in your specific project context and create a hybrid workflow that uses the best of each ecosystem.</p>
+</div>
+</div>
+</div>
+</div>
+CTA
+<div class="mt-6 flex justify-start">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/30 hover:text-indigo-300 transition-all font-medium text-sm" href="https://github.com/openai/codex" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path>
+</svg>View Codex CLI on GitHub</a>
+</div>
+</section>
+</main>
+FOOTER
+<footer class="border-t border-dark-600 mt-10">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-sky-400 font-semibold">duclub</span>
+<span class="text-neutral-600">·</span>
+<span class="text-neutral-500 text-sm">Practical AI Projects</span>
+</div>
+<p class="text-neutral-600 text-xs">Project 4 of 6 — OpenAI Codex CLI — Agentic Development</p>
+</div>
+<div class="flex items-center gap-3 text-xs text-neutral-600">
+<span>Updated: March 2026</span>
+<span class="text-dark-600">·</span>
+<span class="text-indigo-500/70">Codex CLI v1.x</span>
+</div>
+</div>
+</div>
+</footer>
+<script data-notranslate="True">
     // ==========================================
     // THEME TOGGLE
     // ==========================================
@@ -1528,6 +1356,5 @@ enabled = <span class="text-red-400">false</span>              <span class="text
       observer.observe(el);
     });
   </script>
-
 </body>
 </html>
