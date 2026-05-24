@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projetos Práticos — Agentic Engineering Masterclass</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practical Projects — Agentic Engineering Masterclass</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -26,7 +26,7 @@
       }
     }
   </script>
-  <style>
+<style data-notranslate="True">
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -125,664 +125,467 @@
   </style>
 </head>
 <body class="min-h-screen text-neutral-100">
-
-  <!-- ============================================================
+==========================================================================
        NAV
-  ============================================================ -->
-  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-dark-900/80 border-b border-dark-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-
-        <!-- Logo + Breadcrumb -->
-        <div class="flex items-center gap-4">
-          <a href="../index.html" class="flex items-center gap-2 group">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">
-              Agentic Engineering
-            </span>
-          </a>
-          <span class="text-dark-600 hidden sm:block">/</span>
-          <nav class="hidden sm:flex items-center gap-2 text-sm text-neutral-400" aria-label="Breadcrumb">
-            <a href="../index.html" class="hover:text-neutral-200 transition-colors">Início</a>
-            <span class="text-dark-600">›</span>
-            <span class="text-neutral-200 font-medium">Projetos Práticos</span>
-          </nav>
-        </div>
-
-        <!-- Right side -->
-        <div class="flex items-center gap-4">
-          <a
-            href="https://inema.club"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sky-400 font-semibold hover:text-sky-300 transition-colors text-sm hidden sm:block"
-          >
-            INEMA.CLUB
-          </a>
-
-          <!-- Theme toggle -->
-          <button
-            id="theme-toggle"
-            class="p-2 rounded-lg bg-dark-800 border border-dark-600 hover:border-dark-500 transition-all text-neutral-400 hover:text-neutral-200"
-            aria-label="Alternar tema"
-            title="Alternar entre modo claro e escuro"
-          >
-            <span id="theme-icon-dark" class="hidden">
-              <!-- Sun icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-              </svg>
-            </span>
-            <span id="theme-icon-light">
-              <!-- Moon icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            </span>
-          </button>
-        </div>
-
-      </div>
-    </div>
-  </nav>
-
-  <!-- ============================================================
+  ==========================================================================
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-dark-900/80 border-b border-dark-700">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+Logo + Breadcrumb
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group" href="../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">Agentic Engineering</span>
+</a>
+<span class="text-dark-600 hidden sm:block">/</span>
+<nav aria-label="Breadcrumb" class="hidden sm:flex items-center gap-2 text-sm text-neutral-400">
+<a class="hover:text-neutral-200 transition-colors" href="../index.html">Start</a>
+<span class="text-dark-600">›</span>
+<span class="text-neutral-200 font-medium">Practical Projects</span>
+</nav>
+</div>
+Right side
+<div class="flex items-center gap-4">
+<a class="text-sky-400 font-semibold hover:text-sky-300 transition-colors text-sm hidden sm:block" href="https://duclub" rel="noopener noreferrer" target="_blank">duclub</a>
+Theme toggle
+<button aria-label="Alternar tema" class="p-2 rounded-lg bg-dark-800 border border-dark-600 hover:border-dark-500 transition-all text-neutral-400 hover:text-neutral-200" id="theme-toggle" title="Alternar entre modo claro e escuro">
+<span class="hidden" id="theme-icon-dark">
+Sun icon
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line>
+</svg>
+</span>
+<span id="theme-icon-light">
+Moon icon
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+==========================================================================
        HERO
-  ============================================================ -->
-  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto text-center">
-
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 text-sm font-semibold tracking-widest mb-6 badge-pulse">
-        <span>⚙️</span>
-        <span>PROJETOS PRÁTICOS</span>
-      </div>
-
-      <!-- Título -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-        <span class="gradient-text">Construa na Prática</span>
-      </h1>
-
-      <!-- Subtítulo -->
-      <p class="text-lg sm:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-        4 projetos completos com código funcional e roteiro passo a passo.
-        Escolha a ferramenta e comece a construir.
-      </p>
-
-      <!-- Stats -->
-      <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-neutral-400 font-medium">
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
-          <span class="text-yellow-400">📦</span>
-          <span>4 projetos</span>
-        </div>
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
-          <span class="text-green-400">✅</span>
-          <span>Código completo</span>
-        </div>
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
-          <span class="text-sky-400">🗺️</span>
-          <span>Passo a passo</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       GRID DE PROJETOS
-  ============================================================ -->
-  <section class="pb-24 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-
-        <!-- ── CARD 1 — Agente do Zero ── -->
-        <a
-          href="projeto-1-agente-zero/index.html"
-          class="project-card project-card-orange block bg-dark-800 rounded-2xl border border-dark-700 p-8 group"
-        >
-          <div class="flex items-start justify-between mb-6">
-            <!-- Badge + Emoji -->
-            <div class="flex items-center gap-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-wider">
-                PROJETO 1
-              </span>
-            </div>
-            <div class="text-5xl select-none">🐍</div>
-          </div>
-
-          <!-- Nível -->
-          <div class="flex justify-start mb-4">
-            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-orange-400/80">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
-              Iniciante
-            </span>
-          </div>
-
-          <!-- Título -->
-          <h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-orange-400 transition-colors">
-            Agente do Zero
-          </h2>
-
-          <!-- Descrição -->
-          <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-            Construa um agente completo sem frameworks. Python puro + Anthropic API.
-            Entenda o loop agentic de dentro pra fora.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Python</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Anthropic API</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Function Calling</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Loop Agentic</span>
-          </div>
-
-          <!-- CTA -->
-          <div class="flex justify-start">
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 text-sm font-semibold group-hover:bg-orange-500/25 transition-all">
-              Acessar projeto
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- ── CARD 2 — Claude Code ── -->
-        <a
-          href="projeto-2-claude-code/index.html"
-          class="project-card project-card-sky block bg-dark-800 rounded-2xl border border-dark-700 p-8 group"
-        >
-          <div class="flex items-start justify-between mb-6">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-400 text-xs font-bold tracking-wider">
-                PROJETO 2
-              </span>
-            </div>
-            <div class="text-5xl select-none">🤖</div>
-          </div>
-
-          <!-- Nível -->
-          <div class="flex justify-start mb-4">
-            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-sky-400/80">
-              <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
-              Iniciante-Intermediário
-            </span>
-          </div>
-
-          <!-- Título -->
-          <h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-sky-400 transition-colors">
-            Agentic com Claude Code
-          </h2>
-
-          <!-- Descrição -->
-          <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-            Configure o CLI oficial da Anthropic para desenvolvimento agentic completo.
-            CLAUDE.md, hooks, skills, MCP e subagentes.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Claude Code</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">CLAUDE.md</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Hooks</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Skills</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">MCP</span>
-          </div>
-
-          <!-- CTA -->
-          <div class="flex justify-start">
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-400 text-sm font-semibold group-hover:bg-sky-500/25 transition-all">
-              Acessar projeto
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- ── CARD 3 — Antigravity ── -->
-        <a
-          href="projeto-3-antigravity/index.html"
-          class="project-card project-card-violet block bg-dark-800 rounded-2xl border border-dark-700 p-8 group"
-        >
-          <div class="flex items-start justify-between mb-6">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-400 text-xs font-bold tracking-wider">
-                PROJETO 3
-              </span>
-            </div>
-            <div class="text-5xl select-none">🚀</div>
-          </div>
-
-          <!-- Nível -->
-          <div class="flex justify-start mb-4">
-            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-violet-400/80">
-              <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
-              Intermediário
-            </span>
-          </div>
-
-          <!-- Título -->
-          <h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-violet-400 transition-colors">
-            Agentic com Antigravity
-          </h2>
-
-          <!-- Descrição -->
-          <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-            IDE agent-first do Google. O agente como operador principal do ambiente.
-            MCP, workflows Plan→Execute→Verify, Google Cloud integrado.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Antigravity</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Gemini</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">MCP</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Google Cloud</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Workspace</span>
-          </div>
-
-          <!-- CTA -->
-          <div class="flex justify-start">
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-violet-500/15 border border-violet-500/30 text-violet-400 text-sm font-semibold group-hover:bg-violet-500/25 transition-all">
-              Acessar projeto
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- ── CARD 4 — Codex CLI ── -->
-        <a
-          href="projeto-4-codex/index.html"
-          class="project-card project-card-indigo block bg-dark-800 rounded-2xl border border-dark-700 p-8 group"
-        >
-          <div class="flex items-start justify-between mb-6">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-xs font-bold tracking-wider">
-                PROJETO 4
-              </span>
-            </div>
-            <div class="text-5xl select-none">⚡</div>
-          </div>
-
-          <!-- Nível -->
-          <div class="flex justify-start mb-4">
-            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-400/80">
-              <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-              Intermediário
-            </span>
-          </div>
-
-          <!-- Título -->
-          <h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-indigo-400 transition-colors">
-            Agentic com Codex CLI
-          </h2>
-
-          <!-- Descrição -->
-          <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-            Terminal agent da OpenAI (open-source). AGENTS.md, modos de aprovação,
-            sandbox modes e comparativo com Claude Code.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Codex CLI</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">OpenAI</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">AGENTS.md</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Sandbox</span>
-            <span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">CI/CD</span>
-          </div>
-
-          <!-- CTA -->
-          <div class="flex justify-start">
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-sm font-semibold group-hover:bg-indigo-500/25 transition-all">
-              Acessar projeto
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SEÇÃO COMPARATIVA — TABELA
-  ============================================================ -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900/50">
-    <div class="max-w-6xl mx-auto">
-
-      <!-- Header da seção -->
-      <div class="text-center mb-12">
-        <span class="inline-block px-3 py-1 rounded-full bg-neutral-700/40 border border-dark-600 text-neutral-400 text-xs font-semibold tracking-wider mb-4">
-          COMPARATIVO
-        </span>
-        <h2 class="text-2xl font-bold text-neutral-100 mb-3">
-          Comparativo entre Projetos
-        </h2>
-        <p class="text-neutral-400 text-sm max-w-xl mx-auto">
-          Entenda as diferenças entre as ferramentas para escolher a melhor para o seu contexto.
-        </p>
-      </div>
-
-      <!-- Tabela -->
-      <div class="overflow-x-auto rounded-2xl border border-dark-700">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-dark-700/60">
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Ferramenta</th>
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Empresa</th>
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Modelo</th>
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Config File</th>
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Open Source</th>
-              <th class="text-left px-6 py-4 text-neutral-300 font-semibold">Melhor Para</th>
-            </tr>
-          </thead>
-          <tbody class="bg-dark-800 divide-y divide-dark-700">
-
-            <tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
-              <td class="px-6 py-4">
-                <div class="flex items-center gap-2">
-                  <span>🐍</span>
-                  <span class="text-orange-400 font-semibold">Python Puro</span>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-neutral-400">Anthropic</td>
-              <td class="px-6 py-4 text-neutral-400">Claude (API)</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-0.5 rounded text-xs bg-dark-700 text-neutral-400">—</span>
-              </td>
-              <td class="px-6 py-4">
-                <span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  Sim
-                </span>
-              </td>
-              <td class="px-6 py-4 text-neutral-400 text-xs">Aprender fundamentos</td>
-            </tr>
-
-            <tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
-              <td class="px-6 py-4">
-                <div class="flex items-center gap-2">
-                  <span>🤖</span>
-                  <span class="text-sky-400 font-semibold">Claude Code</span>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-neutral-400">Anthropic</td>
-              <td class="px-6 py-4 text-neutral-400">Claude (Opus/Sonnet)</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-0.5 rounded text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 font-mono">CLAUDE.md</span>
-              </td>
-              <td class="px-6 py-4">
-                <span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  Sim
-                </span>
-              </td>
-              <td class="px-6 py-4 text-neutral-400 text-xs">Workflow Anthropic / dev diário</td>
-            </tr>
-
-            <tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
-              <td class="px-6 py-4">
-                <div class="flex items-center gap-2">
-                  <span>🚀</span>
-                  <span class="text-violet-400 font-semibold">Antigravity</span>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-neutral-400">Google</td>
-              <td class="px-6 py-4 text-neutral-400">Gemini</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-0.5 rounded text-xs bg-violet-500/10 text-violet-400 border border-violet-500/20 font-mono">Workspace</span>
-              </td>
-              <td class="px-6 py-4">
-                <span class="inline-flex items-center gap-1 text-red-400 font-medium text-xs">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                  </svg>
-                  Não
-                </span>
-              </td>
-              <td class="px-6 py-4 text-neutral-400 text-xs">Ecossistema Google Cloud</td>
-            </tr>
-
-            <tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
-              <td class="px-6 py-4">
-                <div class="flex items-center gap-2">
-                  <span>⚡</span>
-                  <span class="text-indigo-400 font-semibold">Codex CLI</span>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-neutral-400">OpenAI</td>
-              <td class="px-6 py-4 text-neutral-400">GPT-4o / o3</td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-0.5 rounded text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">AGENTS.md</span>
-              </td>
-              <td class="px-6 py-4">
-                <span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                  </svg>
-                  Sim
-                </span>
-              </td>
-              <td class="px-6 py-4 text-neutral-400 text-xs">OpenAI / CI/CD pipelines</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SEÇÃO "QUAL PROJETO ESCOLHER?"
-  ============================================================ -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <span class="inline-block px-3 py-1 rounded-full bg-neutral-700/40 border border-dark-600 text-neutral-400 text-xs font-semibold tracking-wider mb-4">
-          GUIA DE ESCOLHA
-        </span>
-        <h2 class="text-2xl font-bold text-neutral-100 mb-3">
-          Qual projeto escolher?
-        </h2>
-        <p class="text-neutral-400 text-sm max-w-xl mx-auto">
-          Identifique o seu perfil e descubra por onde começar.
-        </p>
-      </div>
-
-      <!-- Cards de persona -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-        <!-- Persona 1 -->
-        <a href="projeto-1-agente-zero/index.html" class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-orange-500/40 transition-colors">
-          <div class="text-3xl mb-4">🐣</div>
-          <div class="text-xs font-bold text-orange-400 tracking-wider mb-2">PROJETO 1</div>
-          <h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-orange-400 transition-colors">
-            "Sou iniciante em Python"
-          </h3>
-          <p class="text-neutral-500 text-xs leading-relaxed mb-4">
-            Comece do zero sem frameworks. Você vai entender exatamente como um agente funciona por dentro.
-          </p>
-          <div class="flex justify-start">
-            <span class="text-orange-400 text-xs font-semibold group-hover:underline flex items-center gap-1">
-              Começar aqui
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- Persona 2 -->
-        <a href="projeto-2-claude-code/index.html" class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-sky-500/40 transition-colors">
-          <div class="text-3xl mb-4">💼</div>
-          <div class="text-xs font-bold text-sky-400 tracking-wider mb-2">PROJETO 2</div>
-          <h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-sky-400 transition-colors">
-            "Uso Claude e quero automatizar meu workflow"
-          </h3>
-          <p class="text-neutral-500 text-xs leading-relaxed mb-4">
-            Configure o CLI oficial da Anthropic com tudo: CLAUDE.md, hooks, skills e MCP para o dia a dia.
-          </p>
-          <div class="flex justify-start">
-            <span class="text-sky-400 text-xs font-semibold group-hover:underline flex items-center gap-1">
-              Começar aqui
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- Persona 3 -->
-        <a href="projeto-3-antigravity/index.html" class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-violet-500/40 transition-colors">
-          <div class="text-3xl mb-4">☁️</div>
-          <div class="text-xs font-bold text-violet-400 tracking-wider mb-2">PROJETO 3</div>
-          <h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-violet-400 transition-colors">
-            "Trabalho com Google Cloud"
-          </h3>
-          <p class="text-neutral-500 text-xs leading-relaxed mb-4">
-            Explore a IDE agent-first do Google com Gemini, integração nativa com GCP e Workspace.
-          </p>
-          <div class="flex justify-start">
-            <span class="text-violet-400 text-xs font-semibold group-hover:underline flex items-center gap-1">
-              Começar aqui
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- Persona 4 -->
-        <a href="projeto-4-codex/index.html" class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-indigo-500/40 transition-colors">
-          <div class="text-3xl mb-4">🔓</div>
-          <div class="text-xs font-bold text-indigo-400 tracking-wider mb-2">PROJETO 4</div>
-          <h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-indigo-400 transition-colors">
-            "Prefiro OpenAI e quero open-source"
-          </h3>
-          <p class="text-neutral-500 text-xs leading-relaxed mb-4">
-            Terminal agent open-source da OpenAI com controle total, sandbox modes e pipelines de CI/CD.
-          </p>
-          <div class="flex justify-start">
-            <span class="text-indigo-400 text-xs font-semibold group-hover:underline flex items-center gap-1">
-              Começar aqui
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SEÇÃO DE RETORNO AO CURSO
-  ============================================================ -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-900/50">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 mb-6 text-neutral-400 text-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-        </svg>
-        <span>Voltar para o conteúdo completo do curso</span>
-      </div>
-      <h2 class="text-2xl font-bold text-neutral-100 mb-4">
-        Quer ver todos os módulos?
-      </h2>
-      <p class="text-neutral-400 text-sm mb-8">
-        Acesse a página principal do curso com todos os módulos, aulas e materiais complementares.
-      </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-3">
-        <a
-          href="../index.html"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-400 text-dark-900 font-bold text-sm hover:bg-yellow-300 transition-colors shadow-lg shadow-yellow-400/20"
-        >
-          <span>🤖</span>
-          Ir para o Início do Curso
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a
-          href="prompts.html"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-dark-700 border border-yellow-500/30 text-yellow-400 font-bold text-sm hover:bg-dark-600 transition-colors"
-        >
-          ✨ Gerar Conteúdo para Meu Projeto
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
+  ==========================================================================
+<section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+<div class="max-w-4xl mx-auto text-center">
+badge
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-400 text-sm font-semibold tracking-widest mb-6 badge-pulse">
+<span>⚙️</span>
+<span>PRACTICAL PROJECTS</span>
+</div>
+Title
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+<span class="gradient-text">Build in Practice</span>
+</h1>
+Caption
+<p class="text-lg sm:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed">4 complete projects with working code and step-by-step script.
+        Choose the tool and start building.</p>
+Stats
+<div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-neutral-400 font-medium">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
+<span class="text-yellow-400">📦</span>
+<span>4 projects</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
+<span class="text-green-400">✅</span>
+<span>Complete code</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800 border border-dark-700">
+<span class="text-sky-400">🗺️</span>
+<span>Step by step</span>
+</div>
+</div>
+</div>
+</section>
+==========================================================================
+       PROJECT GRID
+  ==========================================================================
+<section class="pb-24 px-4 sm:px-6 lg:px-8">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+── CARD 1 — Agent of Zero ──
+<a class="project-card project-card-orange block bg-dark-800 rounded-2xl border border-dark-700 p-8 group" href="projeto-1-agente-zero/index.html">
+<div class="flex items-start justify-between mb-6">
+Badge + Emoji
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-wider">PROJECT 1</span>
+</div>
+<div class="text-5xl select-none">🐍</div>
+</div>
+Level
+<div class="flex justify-start mb-4">
+<span class="inline-flex items-center gap-1.5 text-xs font-medium text-orange-400/80">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>Beginner</span>
+</div>
+Title
+<h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-orange-400 transition-colors">Agent of Zero</h2>
+Description
+<p class="text-neutral-400 text-sm leading-relaxed mb-6">Build a complete agent without frameworks. Pure Python + Anthropic API.
+            Understand the agentic loop inside out.</p>
+Tags
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Python</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Anthropic API</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Function Calling</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Agentic Loop</span>
+</div>
+CTA
+<div class="flex justify-start">
+<span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-orange-500/15 border border-orange-500/30 text-orange-400 text-sm font-semibold group-hover:bg-orange-500/25 transition-all">Access project<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+── CARD 2 — Claude Code ──
+<a class="project-card project-card-sky block bg-dark-800 rounded-2xl border border-dark-700 p-8 group" href="projeto-2-claude-code/index.html">
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-400 text-xs font-bold tracking-wider">PROJECT 2</span>
+</div>
+<div class="text-5xl select-none">🤖</div>
+</div>
+Level
+<div class="flex justify-start mb-4">
+<span class="inline-flex items-center gap-1.5 text-xs font-medium text-sky-400/80">
+<span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>Beginner-Intermediate</span>
+</div>
+Title
+<h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-sky-400 transition-colors">Agentic with Claude Code</h2>
+Description
+<p class="text-neutral-400 text-sm leading-relaxed mb-6">Configure the official Anthropic CLI for full agentic development.
+            CLAUDE.md, hooks, skills, MCP and subagents.</p>
+Tags
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Claude Code</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">CLAUDE.md</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Hooks</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Skills</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">MCP</span>
+</div>
+CTA
+<div class="flex justify-start">
+<span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-400 text-sm font-semibold group-hover:bg-sky-500/25 transition-all">Access project<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+── CARD 3 — Antigravity ──
+<a class="project-card project-card-violet block bg-dark-800 rounded-2xl border border-dark-700 p-8 group" href="projeto-3-antigravity/index.html">
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-400 text-xs font-bold tracking-wider">PROJECT 3</span>
+</div>
+<div class="text-5xl select-none">🚀</div>
+</div>
+Level
+<div class="flex justify-start mb-4">
+<span class="inline-flex items-center gap-1.5 text-xs font-medium text-violet-400/80">
+<span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>Intermediary</span>
+</div>
+Title
+<h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-violet-400 transition-colors">Agentic with Antigravity</h2>
+Description
+<p class="text-neutral-400 text-sm leading-relaxed mb-6">Google's agent-first IDE. The agent as the main operator of the environment.
+            MCP, Plan→Execute→Verify workflows, integrated Google Cloud.</p>
+Tags
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Antigravity</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Gemini</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">MCP</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Google Cloud</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Workspace</span>
+</div>
+CTA
+<div class="flex justify-start">
+<span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-violet-500/15 border border-violet-500/30 text-violet-400 text-sm font-semibold group-hover:bg-violet-500/25 transition-all">Access project<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+── CARD 4 — Codex CLI ──
+<a class="project-card project-card-indigo block bg-dark-800 rounded-2xl border border-dark-700 p-8 group" href="projeto-4-codex/index.html">
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-xs font-bold tracking-wider">PROJECT 4</span>
+</div>
+<div class="text-5xl select-none">⚡</div>
+</div>
+Level
+<div class="flex justify-start mb-4">
+<span class="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-400/80">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>Intermediary</span>
+</div>
+Title
+<h2 class="text-2xl font-bold text-neutral-100 mb-3 group-hover:text-indigo-400 transition-colors">Agentic with Codex CLI</h2>
+Description
+<p class="text-neutral-400 text-sm leading-relaxed mb-6">OpenAI terminal agent (open-source). AGENTS.md, approval modes,
+            sandbox modes and comparison with Claude Code.</p>
+Tags
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Codex CLI</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">OpenAI</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">AGENTS.md</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">Sandbox</span>
+<span class="px-2.5 py-1 rounded-md bg-dark-700 text-neutral-400 text-xs font-medium">CI/CD</span>
+</div>
+CTA
+<div class="flex justify-start">
+<span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 text-sm font-semibold group-hover:bg-indigo-500/25 transition-all">Access project<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+==========================================================================
+       COMPARATIVE SECTION — TABLE
+  ==========================================================================
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900/50">
+<div class="max-w-6xl mx-auto">
+Section header
+<div class="text-center mb-12">
+<span class="inline-block px-3 py-1 rounded-full bg-neutral-700/40 border border-dark-600 text-neutral-400 text-xs font-semibold tracking-wider mb-4">COMPARATIVE</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-3">Comparison between Projects</h2>
+<p class="text-neutral-400 text-sm max-w-xl mx-auto">Understand the differences between the tools to choose the best one for your context.</p>
+</div>
+Table
+<div class="overflow-x-auto rounded-2xl border border-dark-700">
+<table class="w-full text-sm">
+<thead>
+<tr class="bg-dark-700/60">
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Tool</th>
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Enterprise</th>
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Model</th>
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Config File</th>
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Open Source</th>
+<th class="text-left px-6 py-4 text-neutral-300 font-semibold">Best for</th>
+</tr>
+</thead>
+<tbody class="bg-dark-800 divide-y divide-dark-700">
+<tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span>🐍</span>
+<span class="text-orange-400 font-semibold">Pure Python</span>
+</div>
+</td>
+<td class="px-6 py-4 text-neutral-400">Anthropic</td>
+<td class="px-6 py-4 text-neutral-400">Claude (API)</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-xs bg-dark-700 text-neutral-400">—</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>Yes</span>
+</td>
+<td class="px-6 py-4 text-neutral-400 text-xs">Learn fundamentals</td>
+</tr>
+<tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span>🤖</span>
+<span class="text-sky-400 font-semibold">Claude Code</span>
+</div>
+</td>
+<td class="px-6 py-4 text-neutral-400">Anthropic</td>
+<td class="px-6 py-4 text-neutral-400">Claude (Opus/Sonnet)</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 font-mono">CLAUDE.md</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>Yes</span>
+</td>
+<td class="px-6 py-4 text-neutral-400 text-xs">Anthropic workflow / daily dev</td>
+</tr>
+<tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span>🚀</span>
+<span class="text-violet-400 font-semibold">Antigravity</span>
+</div>
+</td>
+<td class="px-6 py-4 text-neutral-400">Google</td>
+<td class="px-6 py-4 text-neutral-400">Gemini</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-xs bg-violet-500/10 text-violet-400 border border-violet-500/20 font-mono">Workspace</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 text-red-400 font-medium text-xs">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>No</span>
+</td>
+<td class="px-6 py-4 text-neutral-400 text-xs">Google Cloud ecosystem</td>
+</tr>
+<tr class="table-row-alt hover:bg-dark-700/40 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span>⚡</span>
+<span class="text-indigo-400 font-semibold">Codex CLI</span>
+</div>
+</td>
+<td class="px-6 py-4 text-neutral-400">OpenAI</td>
+<td class="px-6 py-4 text-neutral-400">GPT-4o/o3</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 rounded text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-mono">AGENTS.md</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 text-green-400 font-medium text-xs">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>Yes</span>
+</td>
+<td class="px-6 py-4 text-neutral-400 text-xs">OpenAI/CI/CD pipelines</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+==========================================================================
+       SECTION "WHICH PROJECT TO CHOOSE?"
+  ==========================================================================
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+<div class="max-w-6xl mx-auto">
+Header
+<div class="text-center mb-12">
+<span class="inline-block px-3 py-1 rounded-full bg-neutral-700/40 border border-dark-600 text-neutral-400 text-xs font-semibold tracking-wider mb-4">CHOICE GUIDE</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-3">Which project to choose?</h2>
+<p class="text-neutral-400 text-sm max-w-xl mx-auto">Identify your profile and find out where to start.</p>
+</div>
+persona cards
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+Persona 1
+<a class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-orange-500/40 transition-colors" href="projeto-1-agente-zero/index.html">
+<div class="text-3xl mb-4">🐣</div>
+<div class="text-xs font-bold text-orange-400 tracking-wider mb-2">PROJECT 1</div>
+<h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-orange-400 transition-colors">"I'm a beginner in Python"</h3>
+<p class="text-neutral-500 text-xs leading-relaxed mb-4">Start from scratch without frameworks. You will understand exactly how an agent works from the inside.</p>
+<div class="flex justify-start">
+<span class="text-orange-400 text-xs font-semibold group-hover:underline flex items-center gap-1">Start here<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+Persona 2
+<a class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-sky-500/40 transition-colors" href="projeto-2-claude-code/index.html">
+<div class="text-3xl mb-4">💼</div>
+<div class="text-xs font-bold text-sky-400 tracking-wider mb-2">PROJECT 2</div>
+<h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-sky-400 transition-colors">"I use Claude and want to automate my workflow"</h3>
+<p class="text-neutral-500 text-xs leading-relaxed mb-4">Configure the official Anthropic CLI with everything: CLAUDE.md, hooks, skills and MCP for everyday life.</p>
+<div class="flex justify-start">
+<span class="text-sky-400 text-xs font-semibold group-hover:underline flex items-center gap-1">Start here<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+Persona 3
+<a class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-violet-500/40 transition-colors" href="projeto-3-antigravity/index.html">
+<div class="text-3xl mb-4">☁️</div>
+<div class="text-xs font-bold text-violet-400 tracking-wider mb-2">PROJECT 3</div>
+<h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-violet-400 transition-colors">"Working with Google Cloud"</h3>
+<p class="text-neutral-500 text-xs leading-relaxed mb-4">Explore Google's agent-first IDE with Gemini, native integration with GCP and Workspace.</p>
+<div class="flex justify-start">
+<span class="text-violet-400 text-xs font-semibold group-hover:underline flex items-center gap-1">Start here<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+Persona 4
+<a class="persona-card bg-dark-800 rounded-2xl border border-dark-700 p-6 group hover:border-indigo-500/40 transition-colors" href="projeto-4-codex/index.html">
+<div class="text-3xl mb-4">🔓</div>
+<div class="text-xs font-bold text-indigo-400 tracking-wider mb-2">PROJECT 4</div>
+<h3 class="text-neutral-100 font-semibold text-base mb-3 leading-snug group-hover:text-indigo-400 transition-colors">"I prefer OpenAI and I want open-source"</h3>
+<p class="text-neutral-500 text-xs leading-relaxed mb-4">OpenAI open-source terminal agent with full control, sandbox modes and CI/CD pipelines.</p>
+<div class="flex justify-start">
+<span class="text-indigo-400 text-xs font-semibold group-hover:underline flex items-center gap-1">Start here<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+==========================================================================
+       RETURN TO COURSE SECTION
+  ==========================================================================
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-dark-900/50">
+<div class="max-w-3xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 mb-6 text-neutral-400 text-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Back to full course content</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-4">Want to see all the modules?</h2>
+<p class="text-neutral-400 text-sm mb-8">Access the main course page with all modules, classes and complementary materials.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-3">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-yellow-400 text-dark-900 font-bold text-sm hover:bg-yellow-300 transition-colors shadow-lg shadow-yellow-400/20" href="../index.html">
+<span>🤖</span>Go to Start of Course<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-dark-700 border border-yellow-500/30 text-yellow-400 font-bold text-sm hover:bg-dark-600 transition-colors" href="prompts.html">✨ Generate Content for My Project</a>
+</div>
+</div>
+</section>
+==========================================================================
        FOOTER
-  ============================================================ -->
-  <footer class="bg-dark-900 border-t border-dark-700 py-10 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-
-        <!-- Logo + Copyright -->
-        <div class="flex items-center gap-3 text-neutral-400 text-sm">
-          <span class="text-xl">🤖</span>
-          <span>
-            Agentic Engineering Masterclass
-            <span class="mx-2 text-dark-600">·</span>
-            <a href="https://inema.club" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 transition-colors font-semibold">INEMA.CLUB</a>
-            <span class="mx-2 text-dark-600">·</span>
-            2026
-          </span>
-        </div>
-
-        <!-- Links rápidos -->
-        <div class="flex items-center gap-5 text-xs text-neutral-500">
-          <a href="projeto-1-agente-zero/index.html" class="hover:text-orange-400 transition-colors">Projeto 1</a>
-          <a href="projeto-2-claude-code/index.html" class="hover:text-sky-400 transition-colors">Projeto 2</a>
-          <a href="projeto-3-antigravity/index.html" class="hover:text-violet-400 transition-colors">Projeto 3</a>
-          <a href="projeto-4-codex/index.html" class="hover:text-indigo-400 transition-colors">Projeto 4</a>
-          <a href="prompts.html" class="hover:text-yellow-400 transition-colors">Gerar Prompts</a>
-        </div>
-
-      </div>
-
-      <!-- Linha separadora -->
-      <div class="mt-6 pt-6 border-t border-dark-800 text-center">
-        <p class="text-neutral-600 text-xs">
-          Todos os projetos incluem código funcional, roteiro passo a passo e material de referência.
-        </p>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- ============================================================
+  ==========================================================================
+<footer class="bg-dark-900 border-t border-dark-700 py-10 px-4 sm:px-6 lg:px-8">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+Logo + Copyright
+<div class="flex items-center gap-3 text-neutral-400 text-sm">
+<span class="text-xl">🤖</span>
+<span>Agentic Engineering Masterclass<span class="mx-2 text-dark-600">·</span>
+<a class="text-sky-400 hover:text-sky-300 transition-colors font-semibold" href="https://duclub" rel="noopener noreferrer" target="_blank">duclub</a>
+<span class="mx-2 text-dark-600">·</span>2026</span>
+</div>
+Quick Links
+<div class="flex items-center gap-5 text-xs text-neutral-500">
+<a class="hover:text-orange-400 transition-colors" href="projeto-1-agente-zero/index.html">Project 1</a>
+<a class="hover:text-sky-400 transition-colors" href="projeto-2-claude-code/index.html">Project 2</a>
+<a class="hover:text-violet-400 transition-colors" href="projeto-3-antigravity/index.html">Project 3</a>
+<a class="hover:text-indigo-400 transition-colors" href="projeto-4-codex/index.html">Project 4</a>
+<a class="hover:text-yellow-400 transition-colors" href="prompts.html">Generate Prompts</a>
+</div>
+</div>
+Separator line
+<div class="mt-6 pt-6 border-t border-dark-800 text-center">
+<p class="text-neutral-600 text-xs">All projects include working code, step-by-step script, and reference material.</p>
+</div>
+</div>
+</footer>
+==========================================================================
        JAVASCRIPT
-  ============================================================ -->
-  <script>
+  ==========================================================================
+<script data-notranslate="True">
     // ── Theme Toggle ──────────────────────────────────────────────
     const html = document.documentElement;
     const themeToggle = document.getElementById('theme-toggle');
@@ -853,6 +656,5 @@
       }
     });
   </script>
-
 </body>
 </html>
