@@ -116,7 +116,7 @@ def get_weather(cidade: str) -> str:
     return _fetch_simulated(cidade)
 
 
-# ─── PRIVATE HELPERS ──────────────────────────────────────────────────────────
+# ─── PRIVATE HELPERS ───────────────────────────── ─────────────────────────────
 
 def _fetch_from_api(cidade: str, api_key: str) -> str:
     """
