@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3.8 Observabilidade | Trilha 3 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3.8 Observability | Track 3 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -18,8 +18,8 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -38,138 +38,125 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span><span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Mentalidade</span></a>
-          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Construção</span></a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Frameworks</span></a>
-          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors hidden lg:block"><span>Multi-Agentes</span></a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-purple-400 transition-colors">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-purple-400 transition-colors">Trilha 3 — Frameworks e Ecossistema</a>
-      <span>/</span>
-      <span class="text-purple-400">Módulo 3.8</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MÓDULO 3.8</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 Observabilidade</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">LangSmith, Arize Phoenix e as métricas que realmente importam. Alertas proativos, dashboards executivos e avaliação automática de qualidade com LLM-as-judge. Monitoramento profissional para agentes em produção.</p>
-      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Produção</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TÓPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
-        <h2 class="text-2xl font-bold">👁️ Por que observabilidade é diferente de logging</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Logging captura eventos isolados. <strong class="text-purple-400">Observabilidade</strong> conecta esses eventos em uma visão coerente do sistema — traces que mostram o fluxo completo, spans que medem cada etapa, métricas que revelam padrões, e avaliação que julga a qualidade do output.
-      </p>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🔭</span> Os 4 pilares da observabilidade para agentes</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
-            <h4 class="font-semibold text-purple-400 mb-2">Traces</h4>
-            <p class="text-sm text-neutral-400">Fluxo completo de uma execução: do input até o output final, com todos os nós e tool calls intermediários. Responde: "O que exatamente aconteceu nessa run?"</p>
-          </div>
-          <div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
-            <h4 class="font-semibold text-purple-400 mb-2">Spans</h4>
-            <p class="text-sm text-neutral-400">Duração e dados de cada etapa individual. Onde o tempo foi gasto? Qual nó está lento? Qual tool está falhando mais? Responde: "Onde está o gargalo?"</p>
-          </div>
-          <div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
-            <h4 class="font-semibold text-purple-400 mb-2">Métricas</h4>
-            <p class="text-sm text-neutral-400">Agregações ao longo do tempo: taxa de erro, custo médio por run, latência P95. Responde: "O sistema está saudável? Está piorando?"</p>
-          </div>
-          <div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
-            <h4 class="font-semibold text-purple-400 mb-2">Avaliação</h4>
-            <p class="text-sm text-neutral-400">Qualidade do output: o agente respondeu corretamente? A resposta foi relevante? Usou as informações certas? Responde: "O sistema está fazendo o trabalho bem?"</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3"><span class="mr-2">⚠️</span> O custo de não ter observabilidade</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Você descobre problemas pelo usuário reclamando — não por alerta</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Debug de 4 horas que poderia ser de 10 minutos com um trace</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Custo de tokens crescendo sem que ninguém saiba por quê</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Regressão de qualidade após mudança de prompt não detectada por semanas</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- TÓPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
-        <h2 class="text-2xl font-bold">🔬 LangSmith avançado</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        LangSmith se integra com LangGraph em 3 linhas de configuração. Uma vez configurado, captura automaticamente traces completos de cada execução — sem código adicional — e expõe uma interface para debug, análise e comparação de runs.
-      </p>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">⚙️</span> Configuração e uso avançado</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
-          <pre class="text-sm text-neutral-300"><code><span class="text-purple-400"># Configuração mínima (3 variáveis de ambiente)</span>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span><span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Mentality</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Construction</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Frameworks</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors hidden lg:block" href="../trilha4/index.html"><span>Multi-Agents</span></a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-purple-400 transition-colors" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-purple-400 transition-colors" href="index.html">Track 3 — Frameworks and Ecosystem</a>
+<span>/</span>
+<span class="text-purple-400">Module 3.8</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MODULE 3.8</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 Observability</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">LangSmith, Arize Phoenix and the metrics that really matter. Proactive alerts, executive dashboards and automatic quality assessment with LLM-as-judge. Professional monitoring for agents in production.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Topics</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutes</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Advanced</div><div class="text-xs text-neutral-400">Level</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Production</div><div class="text-xs text-neutral-400">Type</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+TOPIC 1
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">1</span>
+<h2 class="text-2xl font-bold">👁️ Why observability is different from logging</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Logging captures isolated events.<strong class="text-purple-400">Observability</strong>connects these events into a coherent view of the system — traces that show the complete flow, spans that measure each step, metrics that reveal patterns, and evaluation that judges the quality of the output.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🔭</span>The 4 pillars of observability for agents</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
+<h4 class="font-semibold text-purple-400 mb-2">Traces</h4>
+<p class="text-sm text-neutral-400">Complete flow of an execution: from input to final output, with all intermediate nodes and tool calls. Answer: "What exactly happened in this run?"</p>
+</div>
+<div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
+<h4 class="font-semibold text-purple-400 mb-2">Spans</h4>
+<p class="text-sm text-neutral-400">Duration and data of each individual stage. Where was the time spent? Which node is slow? Which tool is failing the most? Answer: "Where is the bottleneck?"</p>
+</div>
+<div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
+<h4 class="font-semibold text-purple-400 mb-2">Metrics</h4>
+<p class="text-sm text-neutral-400">Aggregations over time: error rate, average cost per run, P95 latency. Responds: "Is the system healthy? Is it getting worse?"</p>
+</div>
+<div class="bg-dark-800/60 rounded-lg p-4 border border-purple-500/20">
+<h4 class="font-semibold text-purple-400 mb-2">Assessment</h4>
+<p class="text-sm text-neutral-400">Output quality: did the agent respond correctly? Was the answer relevant? Did you use the right information? Answer: "Is the system doing the job well?"</p>
+</div>
+</div>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3"><span class="mr-2">⚠️</span>The cost of not having observability</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>You discover problems by the user complaining — not by alerting</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>4 hour debug that could be 10 minutes with a trace</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Cost of tokens growing without anyone knowing why</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">•</span><span>Quality regression after prompt change undetected for weeks</span></li>
+</ul>
+</div>
+</section>
+TOPIC 2
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">2</span>
+<h2 class="text-2xl font-bold">🔬 Advanced LangSmith</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">LangSmith integrates with LangGraph in 3 configuration lines. Once configured, it automatically captures complete traces of each run — without additional code — and exposes an interface for debugging, analyzing and comparing runs.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">⚙️</span>Advanced Setup and Usage</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
+<pre class="text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True"><span class="text-purple-400"># Minimum configuration (3 environment variables)</span>
 import os
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGCHAIN_API_KEY"] = "ls__..."
 
-<span class="text-neutral-500"># Opcionalmente, defina o projeto</span>
+<span class="text-neutral-500"># Optionally define the project</span>
 os.environ["LANGCHAIN_PROJECT"] = "meu-agente-producao"
 
-<span class="text-purple-400"># Após isso, TODA execução LangGraph é trackeada automaticamente</span>
+<span class="text-purple-400"># After that, EVERY LangGraph execution is automatically tracked</span>
 resultado = app.invoke(input, config=config)
-<span class="text-neutral-500"># → Trace visível em smith.langchain.com imediatamente</span>
+<span class="text-neutral-500"># → Trace visible on smith.langchain.com immediately</span>
 
-<span class="text-purple-400"># Tags para filtrar runs no dashboard</span>
+<span class="text-purple-400"># Tags to filter runs on the dashboard</span>
 resultado = app.invoke(input, config={
     **config,
     "tags": ["producao", "usuario-premium", "analise-mercado"],
     "metadata": {"user_id": "u123", "version": "2.1.0"}
 })
 
-<span class="text-purple-400"># Criando datasets para regression testing</span>
+<span class="text-purple-400"># Creating datasets for regression testing</span>
 from langsmith import Client
 client = Client()
 
-<span class="text-neutral-500"># Cria dataset a partir de runs anteriores bem-sucedidas</span>
+<span class="text-neutral-500"># Create dataset from previous successful runs</span>
 dataset = client.create_dataset("golden-set-analise-mercado")
 runs = client.list_runs(
     project_name="meu-agente-producao",
@@ -182,7 +169,7 @@ for run in runs:
         dataset_id=dataset.id
     )
 
-<span class="text-purple-400"># Avaliação em batch no dataset</span>
+<span class="text-purple-400"># Batch evaluation on the dataset</span>
 from langsmith.evaluation import evaluate, LangChainStringEvaluator
 
 evaluator = LangChainStringEvaluator("criteria", config={
@@ -194,36 +181,31 @@ results = evaluate(
     evaluators=[evaluator],
     experiment_prefix="v2.1-vs-v2.0"
 )</code></pre>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3"><span class="mr-2">🔍</span> O que você vê no LangSmith</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Trace completo com cada nó do grafo, inputs e outputs</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Tempo gasto em cada etapa (identificar gargalos)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Custo de tokens por run e por nó</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Filtro por status (erro, sucesso), tags e metadados</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Comparação side-by-side entre duas runs</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Feedback de usuário anotado diretamente na run</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- TÓPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
-        <h2 class="text-2xl font-bold">🔆 Arize Phoenix: observabilidade open-source</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Arize Phoenix é a alternativa open-source ao LangSmith — roda localmente, usa OpenTelemetry como padrão, visualiza embeddings em 3D e permite avaliação de qualidade. Ideal para quem não pode usar SaaS por compliance ou custo.
-      </p>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🔆</span> Setup e uso do Phoenix</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
-          <pre class="text-sm text-neutral-300"><code><span class="text-neutral-500"># Instalação</span>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3"><span class="mr-2">🔍</span>What you see at LangSmith</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Complete trace with each graph node, inputs and outputs</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Time spent on each step (identify bottlenecks)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Token cost per run and per node</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Filter by status (error, success), tags and metadata</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Side-by-side comparison between two runs</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>User feedback noted directly in the run</span></li>
+</ul>
+</div>
+</section>
+TOPIC 3
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">3</span>
+<h2 class="text-2xl font-bold">🔆 Arize Phoenix: open-source observability</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Arize Phoenix is ​​the open-source alternative to LangSmith — it runs locally, uses OpenTelemetry as a standard, visualizes embeddings in 3D and allows quality assessment. Ideal for those who cannot use SaaS due to compliance or cost.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🔆</span>Setup and use of Phoenix</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
+<pre class="text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True"><span class="text-neutral-500"># Installation</span>
 <span class="text-neutral-500"># pip install arize-phoenix openinference-instrumentation-langchain</span>
 
 import phoenix as px
@@ -231,11 +213,11 @@ from openinference.instrumentation.langchain import LangChainInstrumentor
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
 
-<span class="text-purple-400"># 1. Inicia o Phoenix localmente</span>
+<span class="text-purple-400"># 1. Start Phoenix locally</span>
 session = px.launch_app()
-<span class="text-neutral-500"># → UI disponível em http://localhost:6006</span>
+<span class="text-neutral-500"># → UI available at http://localhost:6006</span>
 
-<span class="text-purple-400"># 2. Configura OpenTelemetry para exportar para Phoenix</span>
+<span class="text-purple-400"># 2. Configure OpenTelemetry to export to Phoenix</span>
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 
@@ -247,18 +229,18 @@ tracer_provider.add_span_processor(
 )
 trace.set_tracer_provider(tracer_provider)
 
-<span class="text-purple-400"># 3. Instrumenta automaticamente o LangChain/LangGraph</span>
+<span class="text-purple-400"># 3. Automatically instrument LangChain/LangGraph</span>
 LangChainInstrumentor().instrument()
 
-<span class="text-purple-400"># 4. A partir daqui, toda execução aparece no Phoenix!</span>
+<span class="text-purple-400">#4. From here on, every run appears in Phoenix!</span>
 resultado = app.invoke(input)
-<span class="text-neutral-500"># → Trace visível em http://localhost:6006</span>
+<span class="text-neutral-500"># → Trace visible at http://localhost:6006</span>
 
-<span class="text-purple-400"># Exportando para CSV para análise offline</span>
+<span class="text-purple-400"># Exporting to CSV for offline analysis</span>
 df = px.Client().get_spans_dataframe()
 df.to_csv("traces_export.csv", index=False)
 
-<span class="text-purple-400"># Avaliação de qualidade no Phoenix</span>
+<span class="text-purple-400"># Quality assessment in Phoenix</span>
 from phoenix.evals import (
     HallucinationEvaluator, QAEvaluator, run_evals
 )
@@ -273,100 +255,94 @@ results = run_evals(
     evaluators=[hallucination_evaluator, qa_evaluator],
     provide_explanation=True
 )</code></pre>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
-          <h4 class="font-semibold text-purple-400 mb-3">LangSmith</h4>
-          <ul class="space-y-1 text-sm text-neutral-400">
-            <li>• SaaS gerenciado, zero infra</li>
-            <li>• Integração nativa LangGraph</li>
-            <li>• Dataset e regression testing</li>
-            <li>• Plano free com limitações</li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
-          <h4 class="font-semibold text-purple-400 mb-3">Arize Phoenix</h4>
-          <ul class="space-y-1 text-sm text-neutral-400">
-            <li>• Open-source, self-hosted</li>
-            <li>• OpenTelemetry padrão aberto</li>
-            <li>• Visualização de embeddings</li>
-            <li>• Sem limitação de volume</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
-        <h2 class="text-2xl font-bold">💰 Métricas de negócio vs. técnicas</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Stakeholders técnicos querem latência e taxa de erro. Stakeholders de negócio querem ROI e satisfação do usuário. Você precisa monitorar <strong class="text-purple-400">ambos</strong> — e saber como traduzir um para o outro quando precisar justificar investimento.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
-          <h4 class="font-bold text-purple-400 mb-4">Métricas Técnicas</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2">
-              <span class="text-purple-400 mt-0.5">•</span>
-              <div><strong>Latência P50/P95/P99</strong><p class="text-neutral-500 mt-0.5">P95 &lt; 30s é aceitável. P99 revela casos extremos.</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-purple-400 mt-0.5">•</span>
-              <div><strong>Taxa de erro por tipo</strong><p class="text-neutral-500 mt-0.5">API timeout, context too long, guardrail triggered</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-purple-400 mt-0.5">•</span>
-              <div><strong>Tokens por run</strong><p class="text-neutral-500 mt-0.5">Input + output + cache hits. Custo direto.</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-purple-400 mt-0.5">•</span>
-              <div><strong>Nós mais lentos</strong><p class="text-neutral-500 mt-0.5">Onde o tempo é gasto dentro do grafo</p></div>
-            </li>
-          </ul>
-        </div>
-        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-          <h4 class="font-bold text-blue-400 mb-4">Métricas de Negócio</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2">
-              <span class="text-blue-400 mt-0.5">•</span>
-              <div><strong>Taxa de conclusão de objetivo</strong><p class="text-neutral-500 mt-0.5">% de runs que atingem o objetivo do usuário</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-blue-400 mt-0.5">•</span>
-              <div><strong>Custo por tarefa completada</strong><p class="text-neutral-500 mt-0.5">R$ em tokens / (runs bem-sucedidas)</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-blue-400 mt-0.5">•</span>
-              <div><strong>Tempo economizado vs. manual</strong><p class="text-neutral-500 mt-0.5">Horas humanas substituídas por execução</p></div>
-            </li>
-            <li class="flex items-start space-x-2">
-              <span class="text-blue-400 mt-0.5">•</span>
-              <div><strong>NPS do sistema agentic</strong><p class="text-neutral-500 mt-0.5">Usuários recomendam usar o agente?</p></div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📊</span> Implementando métricas customizadas</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
-          <pre class="text-sm text-neutral-300"><code>import time
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-purple-400 mb-3">LangSmith</h4>
+<ul class="space-y-1 text-sm text-neutral-400">
+<li>• Managed SaaS, zero infrastructure</li>
+<li>• Native LangGraph integration</li>
+<li>• Dataset and regression testing</li>
+<li>• Free plan with limitations</li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-purple-400 mb-3">Arize Phoenix</h4>
+<ul class="space-y-1 text-sm text-neutral-400">
+<li>• Open-source, self-hosted</li>
+<li>• Open standard OpenTelemetry</li>
+<li>• Embedding visualization</li>
+<li>• No volume limitation</li>
+</ul>
+</div>
+</div>
+</section>
+TOPIC 4
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">4</span>
+<h2 class="text-2xl font-bold">💰 Business metrics vs. techniques</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Technical stakeholders want latency and error rate. Business stakeholders want ROI and user satisfaction. You need to monitor<strong class="text-purple-400">both</strong>— and know how to translate one to the other when you need to justify investment.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+<h4 class="font-bold text-purple-400 mb-4">Technical Metrics</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2">
+<span class="text-purple-400 mt-0.5">•</span>
+<div><strong>Latency P50/P95/P99</strong><p class="text-neutral-500 mt-0.5">P95 &lt; 30s is acceptable. P99 reveals extreme cases.</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-purple-400 mt-0.5">•</span>
+<div><strong>Error rate by type</strong><p class="text-neutral-500 mt-0.5">API timeout, context too long, guardrail triggered</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-purple-400 mt-0.5">•</span>
+<div><strong>Tokens per run</strong><p class="text-neutral-500 mt-0.5">Input + output + cache hits. Direct cost.</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-purple-400 mt-0.5">•</span>
+<div><strong>We slower</strong><p class="text-neutral-500 mt-0.5">Where time is spent within the graph</p></div>
+</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-4">Business Metrics</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2">
+<span class="text-blue-400 mt-0.5">•</span>
+<div><strong>Objective Completion Rate</strong><p class="text-neutral-500 mt-0.5">% of runs that reach the user's goal</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-blue-400 mt-0.5">•</span>
+<div><strong>Cost per task completed</strong><p class="text-neutral-500 mt-0.5">R$ in tokens / (successful runs)</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-blue-400 mt-0.5">•</span>
+<div><strong>Time saved vs. manual</strong><p class="text-neutral-500 mt-0.5">Human hours replaced by execution</p></div>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-blue-400 mt-0.5">•</span>
+<div><strong>agentic system NPS</strong><p class="text-neutral-500 mt-0.5">Do users recommend using the agent?</p></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📊</span>Implementing custom metrics</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
+<pre class="text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">import time
 from dataclasses import dataclass
 from langsmith import Client
 
 client = Client()
 
-<span class="text-purple-400"># Rastreando métricas de negócio via feedback</span>
+<span class="text-purple-400"># Tracking business metrics via feedback</span>
 async def executar_com_metricas(input_data: dict, user_id: str):
     start_time = time.time()
 
-    <span class="text-neutral-500"># Executa o agente</span>
+    <span class="text-neutral-500"># Run the agent</span>
     resultado = await app.ainvoke(input_data, config={
         "configurable": {"thread_id": f"{user_id}_{int(start_time)}"},
         "metadata": {"user_id": user_id}
@@ -375,8 +351,8 @@ async def executar_com_metricas(input_data: dict, user_id: str):
     latencia = time.time() - start_time
     objetivo_atingido = verificar_objetivo(resultado, input_data)
 
-    <span class="text-purple-400"># Envia métricas para LangSmith como feedback</span>
-    run_id = resultado.get("run_id")  <span class="text-neutral-500"># ID do trace</span>
+    <span class="text-purple-400"># Send metrics to LangSmith as feedback</span>
+    run_id = resultado.get("run_id")  <span class="text-neutral-500"># trace ID</span>
     if run_id:
         client.create_feedback(
             run_id=run_id,
@@ -396,39 +372,35 @@ async def executar_com_metricas(input_data: dict, user_id: str):
 
     return resultado
 
-<span class="text-purple-400"># Query de métricas agregadas</span>
+<span class="text-purple-400"># Aggregated metrics query</span>
 runs = client.list_runs(
     project_name="producao",
     start_time=datetime.now() - timedelta(days=7)
 )
 taxa_sucesso = sum(r.feedback_stats.get("objetivo_atingido", {}).get("avg", 0)
                    for r in runs) / len(list(runs))</code></pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
-        <h2 class="text-2xl font-bold">🚨 Alertas e dashboards em produção</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Alertas proativos permitem que você corrija problemas antes que usuários sejam afetados. A regra de ouro: <strong class="text-purple-400">alerte em sintomas, não em causas</strong> — taxa de erro alta é sintoma, latência de uma tool específica é causa.
-      </p>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🚨</span> Sistema de alertas com threshold</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
-          <pre class="text-sm text-neutral-300"><code>import asyncio
+</div>
+</div>
+</section>
+TOPIC 5
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">5</span>
+<h2 class="text-2xl font-bold">🚨 Alerts and dashboards in production</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Proactive alerts allow you to fix issues before users are affected. The golden rule:<strong class="text-purple-400">alert on symptoms, not causes</strong>— high error rate is a symptom, latency of a specific tool is the cause.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🚨</span>Threshold alert system</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
+<pre class="text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">import asyncio
 from datetime import datetime, timedelta
 
-<span class="text-purple-400"># Thresholds de alerta</span>
+<span class="text-purple-400"># Alert Thresholds</span>
 ALERTAS = {
     "taxa_erro_pct": {"warning": 5.0, "critical": 15.0},
     "latencia_p95_seg": {"warning": 30.0, "critical": 60.0},
     "custo_hora_usd": {"warning": 10.0, "critical": 25.0},
-    "qualidade_score": {"warning": 3.5, "critical": 2.5},  <span class="text-neutral-500"># mínimo</span>
+    "qualidade_score": {"warning": 3.5, "critical": 2.5},  <span class="text-neutral-500"># minimum</span>
 }
 
 async def monitorar_metricas():
@@ -442,14 +414,14 @@ async def monitorar_metricas():
             if not threshold:
                 continue
 
-            if valor >= threshold.get("critical", float("inf")):
+            if valor &gt;= threshold.get("critical", float("inf")):
                 alertas_disparados.append({
                     "metrica": metrica,
                     "valor": valor,
                     "nivel": "CRITICAL",
                     "threshold": threshold["critical"]
                 })
-            elif valor >= threshold.get("warning", float("inf")):
+            elif valor &gt;= threshold.get("warning", float("inf")):
                 alertas_disparados.append({
                     "metrica": metrica,
                     "valor": valor,
@@ -460,7 +432,7 @@ async def monitorar_metricas():
         if alertas_disparados:
             await enviar_alerta(alertas_disparados)
 
-        await asyncio.sleep(300)  <span class="text-neutral-500"># 5 minutos</span>
+        await asyncio.sleep(300)  <span class="text-neutral-500"># 5 minutes</span>
 
 async def enviar_alerta(alertas: list):
     """Envia alerta para Slack e/ou PagerDuty."""
@@ -470,49 +442,44 @@ async def enviar_alerta(alertas: list):
         mensagem += f"{emoji} {alerta['metrica']}: {alerta['valor']:.2f} "
         mensagem += f"(threshold: {alerta['threshold']})\n"
 
-    <span class="text-neutral-500"># Slack</span>
+    <span class="text-neutral-500">#Slack</span>
     await slack_client.post(channel="#alertas-prod", text=mensagem)
 
-    <span class="text-neutral-500"># PagerDuty para críticos</span>
+    <span class="text-neutral-500"># PagerDuty for critics</span>
     if any(a["nivel"] == "CRITICAL" for a in alertas):
         await pagerduty.trigger(summary=mensagem, severity="critical")</code></pre>
-        </div>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Hysteresis: evite alerta flood</h3>
-        <p class="text-neutral-300">Configure hysteresis para evitar spam de alertas: só alerte quando o threshold for ultrapassado por 3 janelas consecutivas, e só resolva quando ficar abaixo por 2 janelas consecutivas. Um pico momentâneo não deve acordar o time às 3h da manhã.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">⚖️ Avaliação contínua com LLM-as-judge</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Avaliação manual de qualidade não escala para produção. Com <strong class="text-purple-400">LLM-as-judge</strong>, um segundo LLM avalia automaticamente a qualidade de cada resposta — pontuando relevância, completude e corretude — e você monitora o trending ao longo do tempo.
-      </p>
-
-      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">⚖️</span> LLM-as-judge em produção</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
-          <pre class="text-sm text-neutral-300"><code>from langchain_openai import ChatOpenAI
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span>Hysteresis: avoid flood alert</h3>
+<p class="text-neutral-300">Configure hysteresis to avoid alert spam: only alert when the threshold is exceeded for 3 consecutive windows, and only resolve when it falls below for 2 consecutive windows. A momentary spike shouldn't wake the team up at 3am.</p>
+</div>
+</section>
+TOPIC 6
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl flex-shrink-0">6</span>
+<h2 class="text-2xl font-bold">⚖️ Continuous assessment with LLM-as-judge</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Manual quality assessment does not scale to production. With<strong class="text-purple-400">LLM-as-judge</strong>, a second LLM automatically evaluates the quality of each answer — scoring relevance, completeness and correctness — and you monitor trends over time.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">⚖️</span>LLM-as-judge in production</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 border border-dark-600">
+<pre class="text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 import random
 
-<span class="text-purple-400"># Schema de avaliação</span>
+<span class="text-purple-400"># Evaluation scheme</span>
 class AvaliacaoQualidade(BaseModel):
-    relevancia: int        <span class="text-neutral-500"># 1-5: resposta atende ao objetivo?</span>
-    completude: int        <span class="text-neutral-500"># 1-5: cobre todos os aspectos?</span>
-    corretude: int         <span class="text-neutral-500"># 1-5: informações corretas?</span>
-    tom: int               <span class="text-neutral-500"># 1-5: tom apropriado para o contexto?</span>
-    score_geral: float     <span class="text-neutral-500"># média ponderada</span>
+    relevancia: int        <span class="text-neutral-500">#1-5: Answer meets the objective?</span>
+    completude: int        <span class="text-neutral-500">#1-5: Does it cover all aspects?</span>
+    corretude: int         <span class="text-neutral-500">#1-5: Correct information?</span>
+    tom: int               <span class="text-neutral-500">#1-5: Appropriate tone for the context?</span>
+    score_geral: float     <span class="text-neutral-500"># weighted average</span>
     justificativa: str
     pontos_melhoria: list[str]
 
-<span class="text-purple-400"># Judge LLM (modelo separado, mais barato)</span>
+<span class="text-purple-400"># Judge LLM (separate, cheaper model)</span>
 judge_llm = ChatOpenAI(model="gpt-4o-mini").with_structured_output(
     AvaliacaoQualidade
 )
@@ -547,7 +514,7 @@ async def avaliar_qualidade(
     pergunta: str,
     resposta: str,
     contexto: str = ""
-) -> AvaliacaoQualidade:
+) -&gt; AvaliacaoQualidade:
     """Avalia a qualidade de uma resposta usando LLM-as-judge."""
     prompt = RUBRICA_AVALIACAO.format(
         pergunta=pergunta,
@@ -555,7 +522,7 @@ async def avaliar_qualidade(
         contexto=contexto
     )
     avaliacao = await judge_llm.ainvoke(prompt)
-    <span class="text-neutral-500"># Calcula score ponderado</span>
+    <span class="text-neutral-500"># Calculate weighted score</span>
     avaliacao.score_geral = (
         avaliacao.relevancia * 0.35 +
         avaliacao.completude * 0.25 +
@@ -564,7 +531,7 @@ async def avaliar_qualidade(
     )
     return avaliacao
 
-<span class="text-purple-400"># Pipeline de avaliação contínua</span>
+<span class="text-purple-400"># Continuous evaluation pipeline</span>
 async def avaliar_amostra_producao(taxa_amostragem: float = 0.1):
     """
     Avalia 10% das execuções de produção automaticamente.
@@ -573,8 +540,8 @@ async def avaliar_amostra_producao(taxa_amostragem: float = 0.1):
     runs_recentes = await buscar_runs_sem_avaliacao(limite=100)
 
     for run in runs_recentes:
-        <span class="text-neutral-500"># Amostragem aleatória para controle de custo</span>
-        if random.random() > taxa_amostragem:
+        <span class="text-neutral-500"># Random sampling for cost control</span>
+        if random.random() &gt; taxa_amostragem:
             continue
 
         avaliacao = await avaliar_qualidade(
@@ -582,87 +549,78 @@ async def avaliar_amostra_producao(taxa_amostragem: float = 0.1):
             resposta=run["output"]
         )
 
-        <span class="text-neutral-500"># Registra no LangSmith para trending</span>
+        <span class="text-neutral-500"># Register with LangSmith for trending</span>
         client.create_feedback(
             run_id=run["id"],
             key="llm_judge_score",
-            score=avaliacao.score_geral / 5.0  <span class="text-neutral-500"># normaliza 0-1</span>
+            score=avaliacao.score_geral / 5.0  <span class="text-neutral-500"># normalize 0-1</span>
         )
 
-        <span class="text-neutral-500"># Alerta se qualidade abaixo do threshold</span>
-        if avaliacao.score_geral < 3.0:
+        <span class="text-neutral-500"># Alert if quality below threshold</span>
+        if avaliacao.score_geral &lt; 3.0:
             await notificar_qualidade_baixa(run, avaliacao)
             logger.warning(
                 f"Qualidade baixa detectada: run_id={run['id']}, "
                 f"score={avaliacao.score_geral:.2f}, "
                 f"melhorias={avaliacao.pontos_melhoria}"
             )</code></pre>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3"><span class="mr-2">📈</span> Usando o trending de qualidade</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Após cada mudança de prompt → compare score médio antes e depois</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Score caindo por 3 dias consecutivos → alerta automático para revisão</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Segmentar por tipo de pergunta → identificar onde o agente tem mais dificuldade</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Score médio abaixo de 3.5/5 por semana → gatilho para sprint de qualidade</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- RESUMO FINAL -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎯</span> Resumo do Módulo e da Trilha 3</h2>
-
-        <div class="mb-6">
-          <h3 class="text-lg font-semibold text-purple-400 mb-4">Módulo 3.8 — Observabilidade</h3>
-          <div class="space-y-3">
-            <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">4 pilares</strong><span class="text-neutral-400"> — traces, spans, métricas e avaliação formam observabilidade completa</span></div></div>
-            <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">LangSmith</strong><span class="text-neutral-400"> — 3 variáveis de ambiente e trace automático de todo LangGraph</span></div></div>
-            <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Arize Phoenix</strong><span class="text-neutral-400"> — open-source, self-hosted, OpenTelemetry como padrão</span></div></div>
-            <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Alertas com hysteresis</strong><span class="text-neutral-400"> — detecta problemas antes do usuário, evita spam de alertas</span></div></div>
-            <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">LLM-as-judge</strong><span class="text-neutral-400"> — avaliação automática de qualidade com amostragem controlada</span></div></div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800/50 rounded-lg p-6 mb-8 border border-purple-500/20">
-          <h3 class="font-semibold text-purple-400 mb-4">Trilha 3 Completa — Você aprendeu:</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-neutral-300">
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>LangGraph: StateGraph, nós, edges, ciclos e checkpoints</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>CrewAI: agents, tasks, process e output estruturado</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>AutoGen: conversação, code execution e reflexão</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>OpenAI SDK: handoffs, guardrails e padrão Swarm</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>MCP Avançado: servidor completo com auth e deploy</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>Comparativo: tabela de decisão e guia por cenário</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>LangGraph + CrewAI: padrões de integração</span></div>
-            <div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>Observabilidade: LangSmith, Phoenix e LLM-as-judge</span></div>
-          </div>
-        </div>
-
-        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-purple-400 mb-2">Próxima Trilha:</h3>
-          <p class="text-neutral-300">Trilha 4 — Multi-Agentes em Escala: coordenação avançada, paralelismo e sistemas de produção enterprise</p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-3-7.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← LangGraph + CrewAI</a>
-          <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Trilha 4: Multi-Agentes →</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>Agentic Engineering Masterclass — Módulo 3.8: Observabilidade</p>
-      <p class="mt-1"><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3"><span class="mr-2">📈</span>Using quality trending</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>After each prompt change → compare average score before and after</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Score falling for 3 consecutive days → automatic alert for review</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Segment by type of question → identify where the agent has the most difficulty</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Average score below 3.5/5 per week → trigger for quality sprint</span></li>
+</ul>
+</div>
+</section>
+FINAL SUMMARY
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎯</span>Module and Track 3 Summary</h2>
+<div class="mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4">Module 3.8 — Observability</h3>
+<div class="space-y-3">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">4 pillars</strong><span class="text-neutral-400">— traces, spans, metrics and evaluation form complete observability</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">LangSmith</strong><span class="text-neutral-400">— 3 environment variables and automatic tracing of the entire LangGraph</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Arize Phoenix</strong><span class="text-neutral-400">— open-source, self-hosted, OpenTelemetry as default</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Alerts with hysteresis</strong><span class="text-neutral-400">— detects problems before the user does, prevents alert spam</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">LLM-as-judge</strong><span class="text-neutral-400">— automatic quality assessment with controlled sampling</span></div></div>
+</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-6 mb-8 border border-purple-500/20">
+<h3 class="font-semibold text-purple-400 mb-4">Complete Track 3 — You learned:</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-neutral-300">
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>LangGraph: StateGraph, nodes, edges, cycles and checkpoints</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>CrewAI: agents, tasks, process and structured output</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>AutoGen: conversation, code execution and reflection</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>OpenAI SDK: handoffs, guardrails and Swarm pattern</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>Advanced MCP: complete server with auth and deploy</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>Comparison: decision table and guide by scenario</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>LangGraph + CrewAI: Integration Patterns</span></div>
+<div class="flex items-center space-x-2"><span class="text-purple-400">✓</span><span>Observability: LangSmith, Phoenix and LLM-as-judge</span></div>
+</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+<h3 class="font-semibold text-purple-400 mb-2">Next Trail:</h3>
+<p class="text-neutral-300">Track 4 — Multi-Agents at Scale: advanced coordination, parallelism and enterprise production systems</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-7.html">← LangGraph + CrewAI</a>
+<a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="../trilha4/index.html">Track 4: Multi-Agents →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>Agentic Engineering Masterclass — Module 3.8: Observability</p>
+<p class="mt-1"><a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a></p>
+</div>
+</footer>
+<script data-notranslate="True">
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
