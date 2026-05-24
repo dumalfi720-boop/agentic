@@ -1,83 +1,83 @@
-# Adendo 2026 --- O que é um Orquestrador Completo em Agentic Engineering
+# Addendum 2026 --- What is a Full Orchestrator in Agentic Engineering
 
-## 1. Definição
+## 1. Definition
 
-Um orquestrador completo é o sistema responsável por controlar todo o
-ciclo agentic, do objetivo inicial até a auditoria final.
+A complete orchestrator is the system responsible for controlling the entire
+agentic cycle, from the initial objective to the final audit.
 
-Ele não apenas roteia tarefas --- ele planeja, coordena, supervisiona,
-governa e monitora agentes.
-
-------------------------------------------------------------------------
-
-## 2. As 6 Camadas de um Orquestrador Completo
-
-### 1. Planejamento Inteligente
-
--   Recebe objetivo complexo
--   Quebra em subtarefas
--   Cria árvore de execução
--   Define dependências
-
-### 2. Roteamento Multi-Agente
-
--   Decide qual agente executa cada tarefa
--   Coordena execução paralela
--   Gerencia especialização
-
-### 3. Controle de Estado
-
--   Memória persistente
--   Histórico de execução
--   Atualização de contexto
-
-### 4. Supervisão e Replanejamento
-
--   Detecta falhas
--   Reexecuta automaticamente
--   Ajusta plano
--   Escala para humano quando necessário
-
-### 5. Governança
-
--   Logs auditáveis
--   Controle de permissões
--   Limite de ações
--   Controle de custo
-
-### 6. Observabilidade
-
--   Métricas
--   Performance
--   Rastreamento de decisões
--   Transparência operacional
+He doesn't just route tasks---he plans, coordinates, supervises,
+governs and monitors agents.
 
 ------------------------------------------------------------------------
 
-## 3. Situação do Mercado em 2026
+## 2. The 6 Layers of a Complete Orchestrator
 
-Nenhum produto único entrega 100% dessas camadas isoladamente.
+### 1. Smart Planning
 
-O que existe são combinações de:
+- Receives complex objective
+- Break into subtasks
+- Creates execution tree
+- Defines dependencies
 
--   Frameworks (LangGraph, AutoGen)
--   Plataformas enterprise (Azure AI Studio, Databricks)
--   Engines multi-agente (CrewAI)
--   Workflows visuais (n8n)
--   IDEs agentic (Antigravity)
+### 2. Multi-Agent Routing
 
-Orquestrador completo hoje geralmente é arquitetura composta, não
-produto isolado.
+- Decide which agent performs each task
+- Coordinates parallel execution
+- Manage specialization
+
+### 3. State Control
+
+- Persistent memory
+- Execution history
+- Context update
+
+### 4. Supervision and Replanning
+
+- Detects faults
+- Automatically reruns
+- Adjust plan
+- Scale to human when necessary
+
+### 5. Governance
+
+- Auditable logs
+- Permissions control
+- Share limit
+- Cost control
+
+### 6. Observability
+
+- Metrics
+- Performance
+- Decision tracking
+- Operational transparency
 
 ------------------------------------------------------------------------
 
-## 4. Conclusão Estratégica
+## 3. Market Situation in 2026
 
--   Orquestrador completo é infraestrutura avançada.
--   É camada enterprise.
--   Representa a fase 3 da evolução agentic (após Prompt e Agente).
--   Ainda existe espaço de mercado significativo nessa camada.
+No single product delivers 100% of these layers in isolation.
 
-O verdadeiro diferencial competitivo não está apenas no modelo de IA,
-mas na capacidade de coordenar agentes com segurança, controle e
-governança.
+What exists are combinations of:
+
+- Frameworks (LangGraph, AutoGen)
+- Enterprise platforms (Azure AI Studio, Databricks)
+- Multi-Agent Engines (CrewAI)
+- Visual workflows (n8n)
+- Agentic IDEs (Antigravity)
+
+Full orchestrator today is generally composite architecture, not
+isolated product.
+
+------------------------------------------------------------------------
+
+## 4. Strategic Conclusion
+
+- Full orchestrator is advanced infrastructure.
+- It is enterprise layer.
+- Represents phase 3 of agentic evolution (after Prompt and Agent).
+- There is still significant market space in this layer.
+
+The real competitive differentiator is not just in the AI model,
+but in the ability to coordinate agents with security, control and
+governance.
