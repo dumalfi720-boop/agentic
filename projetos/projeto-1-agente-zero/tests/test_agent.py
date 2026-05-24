@@ -12,7 +12,7 @@ pois o módulo é injetado via sys.modules antes do import de agent.py.
 
 Executar:
     python -m unittest tests/test_agent.py -v
-    # ou, a partir da raiz do projeto:
+    # or, from the project root:
     python3 -m unittest tests/test_agent.py -v
 """
 
@@ -21,20 +21,20 @@ import os
 import unittest
 from unittest.mock import MagicMock, patch
 
-# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 # Ensure the project root is on sys.path so we can import agent.py directly.
-# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 # Inject stub modules into sys.modules BEFORE importing agent.py.
 #
 # This allows the tests to run even if the 'anthropic' and 'dotenv' packages
 # are not installed in the current environment (e.g. outside a virtualenv).
 # The stubs only need to expose what agent.py uses at module-load time.
-# ---------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
 def _build_anthropic_stub() -> MagicMock:
     """Build a minimal stub for the 'anthropic' package."""
@@ -95,7 +95,7 @@ class TestDispatcher(unittest.TestCase):
         self.assertIn("Erro", resultado)
 
     # ------------------------------------------------------------------
-    # test_dispatch_salvar_nota
+    # test_dispatch_save_note
     # ------------------------------------------------------------------
     def test_dispatch_salvar_nota(self):
         """Ferramenta 'salvar_nota': deve salvar e confirmar a nota."""
@@ -126,7 +126,7 @@ class TestDispatcher(unittest.TestCase):
         self.assertEqual(agent.notas["nota2"], "conteudo2")
 
     # ------------------------------------------------------------------
-    # test_dispatch_ferramenta_invalida
+    # test_dispatch_tool_invalid
     # ------------------------------------------------------------------
     def test_dispatch_ferramenta_invalida(self):
         """Ferramenta inexistente deve retornar mensagem indicando 'nao encontrada'."""
@@ -165,7 +165,7 @@ class TestExecutarAgente(unittest.TestCase):
         agent.client = self.mock_client
 
     # ------------------------------------------------------------------
-    # Helper — build a mock response that simulates end_turn (final answer)
+    # Helper — build a mock response that simulates end_turn (final response)
     # ------------------------------------------------------------------
     def _make_end_turn_response(self, text: str) -> MagicMock:
         """
@@ -208,7 +208,7 @@ class TestExecutarAgente(unittest.TestCase):
         mock_tool_response.stop_reason = "tool_use"
         mock_tool_response.content = [mock_tool_block]
 
-        # --- Second response: final answer ---
+        # --- Second response: final response ---
         mock_final_response = self._make_end_turn_response(final_text)
 
         return mock_tool_response, mock_final_response
@@ -264,7 +264,7 @@ class TestExecutarAgente(unittest.TestCase):
         resultado = agent.executar_agente("Pergunta sem fim", max_iteracoes=3)
 
         self.assertEqual(resultado, "Máximo de iterações atingido.")
-        # Exactly max_iteracoes calls should have been made
+        # Exactly max_iteration calls should have been made
         self.assertEqual(self.mock_client.messages.create.call_count, 3)
 
     def test_agente_retorna_string(self):
