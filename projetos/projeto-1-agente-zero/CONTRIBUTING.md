@@ -1,49 +1,37 @@
-# Guia de Contribuição
+# Contribution Guide
 
-Obrigado pelo interesse em contribuir com o **Projeto 1 — Agente do Zero**! Este guia descreve o processo para reportar problemas, propor melhorias e adicionar novas funcionalidades.
-
----
-
-## Sumário
-
-- [Como fazer fork e abrir um PR](#como-fazer-fork-e-abrir-um-pr)
-- [Como adicionar uma nova ferramenta](#como-adicionar-uma-nova-ferramenta)
-- [Padrão de commit messages](#padrão-de-commit-messages)
-- [Como rodar os testes](#como-rodar-os-testes)
-- [Boas práticas gerais](#boas-práticas-gerais)
+Thank you for your interest in contributing to **Project 1 — Agent of Zero**! This guide describes the process for reporting issues, proposing improvements, and adding new features.
 
 ---
 
-## Como fazer fork e abrir um PR
+## Summary
 
-### 1. Faça o fork do repositório
+- [How to fork and open a PR](#how-to-fork-and-open-a-pr)
+- [How to add a new tool](#how-to-add-a-new-tool)
+- [Commit messages pattern](#commit-messages-pattern)
+- [How to run the tests](#how-to-run-the-tests)
+- [General good practices](#general-good-practices)
 
-Clique no botão **Fork** no GitHub para criar uma cópia do repositório na sua conta.
+---
 
-### 2. Clone o seu fork localmente
+## How to fork and open a PR
 
-```bash
+### 1. Fork the repository
+
+Click the **Fork** button on GitHub to create a copy of the repository in your account.
+
+### 2. Clone your fork locally```bash
 git clone https://github.com/SEU-USUARIO/agentic-masterclass.git
 cd agentic-masterclass/projetos/projeto-1-agente-zero
-```
-
-### 3. Configure o remote upstream (repositório original)
-
-```bash
-git remote add upstream https://github.com/INEMA-CLUB/agentic-masterclass.git
-```
-
-### 4. Mantenha seu fork atualizado antes de começar
-
-```bash
+```### 3. Configure the remote upstream (original repository)```bash
+git remote add upstream https://github.com/DUVIP-CLUB/agentic-masterclass.git
+```### 4. Keep your fork updated before you start```bash
 git fetch upstream
 git checkout main
 git merge upstream/main
-```
+```### 5. Create a branch with a descriptive name
 
-### 5. Crie uma branch com nome descritivo
-
-Use o padrão `tipo/descricao-curta`:
+Use the pattern`tipo/descricao-curta`:
 
 ```bash
 git checkout -b feat/ferramenta-traducao
@@ -51,43 +39,32 @@ git checkout -b feat/ferramenta-traducao
 git checkout -b fix/calcular-divisao-por-zero
 # ou
 git checkout -b docs/melhorar-readme
-```
+```### 6. Make your changes
 
-### 6. Faça suas alterações
-
-- Siga os padrões de código descritos neste guia
-- Adicione testes para qualquer nova funcionalidade
-- Verifique a sintaxe antes de commitar:
-  ```bash
+- Follow the code standards outlined in this guide
+- Add tests for any new functionality
+- Check the syntax before committing:```bash
   make lint
-  ```
+  ```### 7. Commit following the message pattern
 
-### 7. Commite seguindo o padrão de mensagens
+See the [Commit messages pattern](#commit-messages-pattern) section below.
 
-Veja a seção [Padrão de commit messages](#padrão-de-commit-messages) abaixo.
-
-### 8. Suba a branch para o seu fork
-
-```bash
+### 8. Upload the branch to your fork```bash
 git push origin feat/ferramenta-traducao
-```
+```### 9. Open the Pull Request
 
-### 9. Abra o Pull Request
+On GitHub, click **Compare & pull request**. Fill in:
+- Clear and objective **Title** (follow the commit pattern)
+- **Description** explaining what was done, why and how to test
+- Check if the PR resolves any issue with`Closes #123`---
 
-No GitHub, clique em **Compare & pull request**. Preencha:
-- **Título** claro e objetivo (siga o padrão de commits)
-- **Descrição** explicando o que foi feito, por que e como testar
-- Marque se o PR resolve alguma issue com `Closes #123`
+## How to add a new tool
 
----
+Adding a tool to the agent follows a structured process. Use the template below as a starting point.
 
-## Como adicionar uma nova ferramenta
+### Tool template
 
-Adicionar uma ferramenta ao agente segue um processo estruturado. Use o template abaixo como ponto de partida.
-
-### Template de ferramenta
-
-Crie um arquivo em `tools/nome_da_ferramenta.py`:
+Create a file in`tools/nome_da_ferramenta.py`:
 
 ```python
 """
@@ -145,11 +122,9 @@ def nome_da_ferramenta(parametro_obrigatorio: str, parametro_opcional: int = 10)
     """
     # TODO: implementar a lógica real aqui
     return f"Resultado para '{parametro_obrigatorio}' com opcao={parametro_opcional}"
-```
+```### Integration step by step
 
-### Passo a passo de integração
-
-**1. Registre a exportação em `tools/__init__.py`:**
+**1. Register the export in`tools/__init__.py`:**
 
 ```python
 from .weather_tool import get_weather_tool_schema, get_weather
@@ -159,9 +134,7 @@ __all__ = [
     "get_weather_tool_schema", "get_weather",
     "get_nome_da_ferramenta_schema", "nome_da_ferramenta",  # adicione
 ]
-```
-
-**2. Importe e registre o schema em `agent.py`:**
+```**2. Import and register the schema in`agent.py`:**
 
 ```python
 from tools import get_weather_tool_schema, get_weather
@@ -171,9 +144,7 @@ tools = [
     # ... ferramentas existentes ...
     get_nome_da_ferramenta_schema(),  # adicione
 ]
-```
-
-**3. Adicione o case no dispatcher de `agent.py`:**
+```**3. Add the case to the dispatcher`agent.py`:**
 
 ```python
 def executar_ferramenta(nome: str, inputs: dict) -> str:
@@ -186,9 +157,7 @@ def executar_ferramenta(nome: str, inputs: dict) -> str:
         )
 
     return f"Ferramenta '{nome}' não encontrada."
-```
-
-**4. Adicione testes em `tests/test_agent.py`:**
+```**4. Add tests in`tests/test_agent.py`:**
 
 ```python
 def test_dispatch_nome_da_ferramenta(self):
@@ -198,35 +167,27 @@ def test_dispatch_nome_da_ferramenta(self):
         {"parametro_obrigatorio": "valor de teste"}
     )
     self.assertIn("valor de teste", resultado)
-```
-
-**5. Documente no README.md** adicionando a ferramenta à árvore de arquivos e à seção de extensão.
+```**5. Document in README.md** by adding the tool to the file tree and extension section.
 
 ---
 
-## Padrão de commit messages
+## Commit message pattern
 
-Seguimos o padrão [Conventional Commits](https://www.conventionalcommits.org/). Cada mensagem deve ter o formato:
-
-```
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) standard. Each message must have the format:```
 tipo(escopo): descrição curta em minúsculo
-```
+```### Allowed types
 
-### Tipos permitidos
-
-| Tipo | Quando usar |
+| Type | When to use |
 |------|-------------|
-| `feat` | Nova funcionalidade ou ferramenta |
-| `fix` | Correção de bug |
-| `docs` | Alterações apenas em documentação |
-| `test` | Adição ou correção de testes |
-| `refactor` | Refatoração sem mudança de comportamento |
-| `chore` | Tarefas de manutenção (deps, CI, etc.) |
-| `style` | Formatação de código sem mudança lógica |
+|`feat`| New functionality or tool |
+|`fix`| Bug Fix |
+|`docs`| Changes to documentation only |
+|`test`| Addition or correction of tests |
+|`refactor`| Refactoring without changing behavior |
+|`chore`| Maintenance tasks (deps, CI, etc.) |
+|`style`| Code formatting without logical change |
 
-### Exemplos
-
-```bash
+### Examples```bash
 # Boa mensagem — clara, no padrão
 git commit -m "feat(tools): adicionar ferramenta de consulta de CEP"
 git commit -m "fix(dispatcher): tratar divisao por zero em calcular"
@@ -238,58 +199,30 @@ git commit -m "refactor(loop): extrair logica de impressao para funcao separada"
 git commit -m "fix"          # muito vago
 git commit -m "wip"          # nunca commite WIP na main
 git commit -m "Alterações"   # sem contexto
-```
+```### Commits with breaking changes
 
-### Commits com breaking change
-
-Se sua alteração quebra a compatibilidade com versões anteriores, adicione `!` após o tipo e explique no corpo da mensagem:
-
-```bash
+If your change breaks backwards compatibility, add`!`after the type and explain in the body of the message:```bash
 git commit -m "feat(agent)!: renomear executar_ferramenta para dispatch_tool
 
 BREAKING CHANGE: a funcao executar_ferramenta foi renomeada para dispatch_tool.
 Atualize todas as importacoes diretas."
-```
+```---
 
----
+## How to run the tests
 
-## Como rodar os testes
-
-### Rodar todos os testes
-
-```bash
+### Run all tests```bash
 python -m unittest tests/test_agent.py -v
-```
-
-### Rodar um teste específico
-
-```bash
+```### Run a specific test```bash
 python -m unittest tests.test_agent.TestDispatcher.test_dispatch_calcular -v
-```
-
-### Rodar todos os testes de uma classe
-
-```bash
+```### Run all tests in a class```bash
 python -m unittest tests.test_agent.TestDispatcher -v
-```
-
-### Via Makefile
-
-```bash
+```### Via Makefile```bash
 make test
-```
-
-### Verificar sintaxe
-
-```bash
+```### Check syntax```bash
 make lint
-```
+```### What to expect
 
-### O que esperar
-
-Todos os testes devem passar sem necessidade de chave de API configurada:
-
-```
+All tests must pass without the need for an API key configured:```
 test_dispatch_buscar_na_web ... ok
 test_dispatch_calcular ... ok
 test_dispatch_calcular_erro_sintaxe ... ok
@@ -308,16 +241,14 @@ test_agente_usa_ferramenta_e_responde ... ok
 Ran 13 tests in 0.003s
 
 OK
-```
+```---
 
----
+## General good practices
 
-## Boas práticas gerais
-
-- **Não commite o arquivo `.env`** — ele contém segredos e já está no `.gitignore`.
-- **Escreva docstrings** para todas as funções públicas. Siga o formato Google Style.
-- **Comentários em inglês** — padrão Python, facilita contribuições internacionais.
-- **Texto para o usuário em português** — mensagens exibidas no terminal e docstrings de alto nível.
-- **Uma ferramenta por arquivo** — mantenha cada ferramenta em seu próprio módulo em `tools/`.
-- **Não quebre a interface pública** — `executar_agente(mensagem, max_iteracoes)` é a interface estável. Ao refatorar, mantenha a assinatura compatível.
-- **Prefira `str` como retorno das ferramentas** — o agente insere o retorno diretamente no contexto da conversa; sempre retorne strings legíveis.
+- **Does not commit the file`.env`** — it contains secrets and is already in`.gitignore`.
+- **Write docstrings** for all public functions. Follow the Google Style format.
+- **Comments in English** — Python standard, facilitates international contributions.
+- **Text for the user in Portuguese** — messages displayed in the terminal and high-level docstrings.
+- **One tool per file** — keep each tool in its own module in`tools/`.
+- **Do not break the public interface** —`executar_agente(mensagem, max_iteracoes)`is the stable interface. When refactoring, keep the signature compatible.
+- **Prefer`str`as feedback from tools** — the agent inserts the feedback directly into the context of the conversation; always return readable strings.
