@@ -1,34 +1,28 @@
-# CLAUDE.md — API REST de Gerenciamento de Tarefas
+# CLAUDE.md — Task Management REST API
 
-Este arquivo configura o comportamento do Claude Code neste projeto. Leia com atenção antes de executar qualquer ação.
+This file configures the behavior of Claude Code in this project. Read carefully before taking any action.
 
 ---
 
-## Contexto do Projeto
+## Project Context
 
-Este projeto é uma **API REST** para gerenciamento de tarefas (to-do list) construída com **Python 3.11** e **FastAPI**. A API permite criar, listar, atualizar e deletar tarefas, com autenticação JWT, banco de dados PostgreSQL via SQLAlchemy e documentação automática via Swagger.
+This project is a **REST API** for task management (to-do list) built with **Python 3.11** and **FastAPI**. The API allows you to create, list, update and delete tasks, with JWT authentication, PostgreSQL database via SQLAlchemy and automatic documentation via Swagger.
 
-**Stack principal:**
-- Python 3.11
+**Main stack:**
+-Python 3.11
 - FastAPI 0.111
 - SQLAlchemy 2.0 (ORM)
 - PostgreSQL 15
 - Alembic (migrations)
-- Pydantic v2 (validação de dados)
-- pytest (testes)
-- Docker / Docker Compose
+- Pydantic v2 (data validation)
+- pytest (tests)
+- Docker/Docker Compose
 
-**Repositório:** `github.com/nmaldaner/task-api`
-**Branch principal:** `main`
-**Branch de desenvolvimento:** `develop`
+**Repository:**`github.com/nmaldaner/task-api`**Main branch:**`main`**Development branch:**`develop`---
 
----
+## Development Commands
 
-## Comandos de Desenvolvimento
-
-### Instalação
-
-```bash
+### Installation```bash
 # Clonar e entrar no projeto
 git clone https://github.com/nmaldaner/task-api.git
 cd task-api
@@ -41,11 +35,7 @@ source .venv/bin/activate  # Linux/macOS
 # Instalar dependências
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
-```
-
-### Rodar o Projeto
-
-```bash
+```### Run the Project```bash
 # Subir banco de dados com Docker
 docker compose up -d postgres
 
@@ -57,11 +47,7 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 # Iniciar com configurações de produção
 uvicorn app.main:app --workers 4 --host 0.0.0.0 --port 8000
-```
-
-### Testes
-
-```bash
+```### Tests```bash
 # Rodar todos os testes
 pytest
 
@@ -76,11 +62,7 @@ pytest -m unit
 
 # Rodar testes e parar no primeiro erro
 pytest -x
-```
-
-### Migrations
-
-```bash
+```### Migrations```bash
 # Criar nova migration
 alembic revision --autogenerate -m "descricao_da_mudanca"
 
@@ -92,11 +74,7 @@ alembic downgrade -1
 
 # Ver histórico de migrations
 alembic history
-```
-
-### Outros Comandos Úteis
-
-```bash
+```### Other Useful Commands```bash
 # Lint e formatação
 ruff check app/
 ruff format app/
@@ -107,25 +85,15 @@ mypy app/ --strict
 
 # Gerar requirements.txt atualizado
 pip freeze > requirements.txt
-```
+```---
 
----
+## Code Conventions
 
-## Convenções de Código
+### Nomenclature
 
-### Nomenclatura
+- **Variables and functions:**`snake_case`— e.g.:`get_user_tasks`, `task_id`- **Classes:**`PascalCase`— e.g.:`TaskCreate`, `UserResponse`- **Constants:**`UPPER_SNAKE_CASE`— e.g.:`MAX_TASKS_PER_PAGE`, `DEFAULT_TIMEOUT`- **Files:**`snake_case.py`— e.g.:`task_router.py`, `auth_service.py`- **Endpoints:** kebab-case in the URL — e.g.`/api/v1/user-tasks`### Type Hints
 
-- **Variáveis e funções:** `snake_case` — ex: `get_user_tasks`, `task_id`
-- **Classes:** `PascalCase` — ex: `TaskCreate`, `UserResponse`
-- **Constantes:** `UPPER_SNAKE_CASE` — ex: `MAX_TASKS_PER_PAGE`, `DEFAULT_TIMEOUT`
-- **Arquivos:** `snake_case.py` — ex: `task_router.py`, `auth_service.py`
-- **Endpoints:** kebab-case na URL — ex: `/api/v1/user-tasks`
-
-### Type Hints
-
-Todo o código DEVE usar type hints. Use o módulo `typing` quando necessário.
-
-```python
+All code MUST use type hints. Use the module`typing`when necessary.```python
 # CORRETO
 def get_task(task_id: int, db: Session) -> TaskResponse | None:
     ...
@@ -133,13 +101,9 @@ def get_task(task_id: int, db: Session) -> TaskResponse | None:
 # ERRADO — sem type hints
 def get_task(task_id, db):
     ...
-```
+```###Docstrings
 
-### Docstrings
-
-Use o formato Google Style para docstrings em todas as funções públicas:
-
-```python
+Use Google Style format for docstrings in all public functions:```python
 def create_task(task_data: TaskCreate, db: Session) -> TaskResponse:
     """Cria uma nova tarefa no banco de dados.
 
@@ -154,13 +118,9 @@ def create_task(task_data: TaskCreate, db: Session) -> TaskResponse:
         HTTPException: Se o usuário não tiver permissão ou os dados forem inválidos.
     """
     ...
-```
+```### Import Organization
 
-### Organização de Imports
-
-Siga a ordem: stdlib > third-party > local, separados por linha em branco:
-
-```python
+Follow the order: stdlib > third-party > local, separated by a blank line:```python
 # 1. Stdlib
 from datetime import datetime
 from typing import Optional
@@ -173,34 +133,24 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.task import Task
 from app.schemas.task import TaskCreate, TaskResponse
-```
+```### Error Handling
 
-### Tratamento de Erros
-
-Sempre use `HTTPException` do FastAPI com status codes semânticos:
-
-```python
+Always use`HTTPException`from FastAPI with semantic status codes:```python
 raise HTTPException(
     status_code=404,
     detail="Tarefa não encontrada"
 )
-```
+```---
 
----
+## Claude Code's Rules of Behavior
 
-## Regras de Comportamento do Claude Code
+### Git and Versioning
 
-### Git e Versionamento
+- **NEVER commit directly to`main` ou `develop`**
+- Always create a descriptive branch before making any changes:`feat/descricao`, `fix/descricao`, `refactor/descricao`- Commit messages in Portuguese, in the imperative: "Add listing endpoint", "Fix bug in date filter"
+- Always run tests before committing:`pytest`- Never use`git push --force`— if necessary, ask the user
 
-- **NUNCA commitar diretamente para `main` ou `develop`**
-- Sempre criar uma branch descritiva antes de qualquer mudança: `feat/descricao`, `fix/descricao`, `refactor/descricao`
-- Mensagens de commit em português, no imperativo: "Adiciona endpoint de listagem", "Corrige bug no filtro de datas"
-- Sempre rodar os testes antes de commitar: `pytest`
-- Nunca usar `git push --force` — se necessário, perguntar ao usuário
-
-### Criação de Branches
-
-```bash
+### Branch Creation```bash
 # Para novas features
 git checkout -b feat/nome-da-feature
 
@@ -209,36 +159,26 @@ git checkout -b fix/descricao-do-bug
 
 # Para refatorações
 git checkout -b refactor/descricao
-```
+```### When Modifying Code
 
-### Ao Modificar Código
+1. Always read the complete file before editing
+2. Do not remove existing comments without an explicit reason
+3. Maintain the code style already present in the file
+4. After editing any Python file, run:`ruff check app/`to check lint
+5. After modifying models or schemas, check if migrations need to be updated
 
-1. Sempre ler o arquivo completo antes de editar
-2. Não remover comentários existentes sem motivo explícito
-3. Manter o estilo de código já presente no arquivo
-4. Após editar qualquer arquivo Python, rodar: `ruff check app/` para verificar lint
-5. Após modificar modelos ou schemas, verificar se as migrations precisam ser atualizadas
+### When Creating New Files
 
-### Ao Criar Novos Arquivos
+- New routers must be registered at`app/main.py`- New models must inherit from`Base` em `app/database.py`- New schemas must follow the standard`NomeCreate`, `NomeUpdate`, `NomeResponse`- Every new file must have corresponding tests in`tests/`### Never Do
 
-- Novos routers devem ser registrados em `app/main.py`
-- Novos modelos devem herdar de `Base` em `app/database.py`
-- Novos schemas devem seguir o padrão `NomeCreate`, `NomeUpdate`, `NomeResponse`
-- Todo novo arquivo deve ter testes correspondentes em `tests/`
-
-### Nunca Fazer
-
-- Nunca expor a `SECRET_KEY` ou `DATABASE_URL` em código
-- Nunca remover arquivos de migration já aplicados
-- Nunca fazer `DROP TABLE` ou `DELETE FROM` sem confirmação explícita do usuário
-- Nunca instalar dependências sem adicionar ao `requirements.txt`
-- Nunca alterar arquivos de configuração de produção sem avisar o usuário
+- Never expose`SECRET_KEY` ou `DATABASE_URL`in code
+- Never remove already applied migration files
+- Never do`DROP TABLE` ou `DELETE FROM`without explicit user confirmation
+- Never install dependencies without adding to`requirements.txt`- Never change production configuration files without notifying the user
 
 ---
 
-## Arquitetura do Projeto
-
-```
+## Project Architecture```
 task-api/
 ├── app/
 │   ├── __init__.py
@@ -287,15 +227,11 @@ task-api/
 ├── requirements.txt
 ├── requirements-dev.txt
 └── CLAUDE.md                 # Este arquivo
-```
+```---
 
----
+## Environment Variables
 
-## Variáveis de Ambiente
-
-Copie `.env.example` para `.env` antes de rodar o projeto. O arquivo `.env` nunca deve ser commitado.
-
-```bash
+Copy`.env.example`to`.env`before running the project. The file`.env`should never be committed.```bash
 # Banco de dados
 DATABASE_URL=postgresql://user:password@localhost:5432/taskdb
 DATABASE_URL_TEST=postgresql://user:password@localhost:5432/taskdb_test
@@ -314,34 +250,30 @@ ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
 # Opcionais
 SENTRY_DSN=
 REDIS_URL=redis://localhost:6379/0
-```
+```---
 
----
+## Main URLs and Endpoints
 
-## URLs e Endpoints Principais
-
-**Documentação interativa (Swagger):** http://localhost:8000/docs
-**Documentação alternativa (ReDoc):** http://localhost:8000/redoc
+**Interactive documentation (Swagger):** http://localhost:8000/docs
+**Alternative documentation (ReDoc):** http://localhost:8000/redoc
 **Health check:** http://localhost:8000/health
 
-### Endpoints da API
+### API endpoints
 
-| Método | Endpoint                    | Descrição                          |
-|--------|-----------------------------|------------------------------------|
-| POST   | /api/v1/auth/register       | Registrar novo usuário             |
-| POST   | /api/v1/auth/login          | Autenticar e obter JWT             |
-| GET    | /api/v1/users/me            | Dados do usuário autenticado       |
-| GET    | /api/v1/tasks               | Listar tarefas do usuário          |
-| POST   | /api/v1/tasks               | Criar nova tarefa                  |
-| GET    | /api/v1/tasks/{id}          | Buscar tarefa por ID               |
-| PATCH  | /api/v1/tasks/{id}          | Atualizar tarefa parcialmente      |
-| DELETE | /api/v1/tasks/{id}          | Deletar tarefa                     |
-| PATCH  | /api/v1/tasks/{id}/complete | Marcar tarefa como concluída       |
+| Method | Endpoint | Description |
+|--------|-----------------------------|-----------------------------------|
+| POST | /api/v1/auth/register | Register new user |
+| POST | /api/v1/auth/login | Authenticate and obtain JWT |
+| GET | /api/v1/users/me | Authenticated user data |
+| GET | /api/v1/tasks | List user tasks |
+| POST | /api/v1/tasks | Create new task |
+| GET | /api/v1/tasks/{id} | Search task by ID |
+| PATCH | /api/v1/tasks/{id} | Partially update task |
+| DELETE | /api/v1/tasks/{id} | Delete task |
+| PATCH | /api/v1/tasks/{id}/complete | Mark task as completed |
 
-### Autenticação
+### Authentication
 
-Todos os endpoints (exceto `/auth/*` e `/health`) requerem o header:
-
-```
+All endpoints (except`/auth/*` e `/health`) require the header:```
 Authorization: Bearer <seu-jwt-token>
 ```
