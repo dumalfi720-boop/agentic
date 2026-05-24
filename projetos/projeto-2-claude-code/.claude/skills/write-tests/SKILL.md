@@ -1,22 +1,16 @@
 # Skill: write-tests
 
-## Descrição
+## Description
 
-A skill `write-tests` gera testes unitários automaticamente para um arquivo de código existente. Ao receber o caminho do arquivo, o Claude lê o código, identifica todas as funções e métodos públicos que ainda não têm testes, cria um arquivo de testes completo com cobertura adequada e valida os testes rodando o pytest — tudo de forma autônoma.
+The skill`write-tests`Automatically generates unit tests for an existing code file. Upon receiving the file path, Claude reads the code, identifies all public functions and methods that do not yet have tests, creates a complete test file with adequate coverage, and validates the tests by running pytest — all autonomously.
 
-Esta skill é ideal para aumentar a cobertura de testes em código legado, garantir que novas funcionalidades tenham testes desde o início e manter a qualidade do projeto.
+This skill is ideal for increasing test coverage in legacy code, ensuring that new features are tested from the beginning and maintaining project quality.
 
 ---
 
-## Como Usar
-
-```
+## How to Use```
 /write-tests <caminho/do/arquivo>
-```
-
-### Exemplos
-
-```bash
+```### Examples```bash
 # Gerar testes para um service
 /write-tests app/services/task_service.py
 
@@ -25,113 +19,88 @@ Esta skill é ideal para aumentar a cobertura de testes em código legado, garan
 
 # Gerar testes para um módulo utilitário
 /write-tests app/utils/validators.py
-```
+```---
 
----
+## Execution Steps
 
-## Passos de Execução
+Claude will **obligatorily** follow this sequence when executing the skill:
 
-O Claude seguirá **obrigatoriamente** esta sequência ao executar a skill:
+### Step 1 — Read the target file
 
-### Passo 1 — Ler o arquivo alvo
+Read the complete file to understand the entire code:
 
-Ler o arquivo completo para entender todo o código:
+Tool used:`Read`When reading the file, identify and document:
+- All public functions (do not start with`_`)
+- All public class methods
+- Input parameters: expected types, optional values, defaults
+- Return values: type and possible values
+- Exceptions that can be raised
+- External dependencies: database, APIs, services
 
-Ferramenta usada: `Read`
+### Step 2 — Check existing tests
 
-Ao ler o arquivo, identificar e documentar:
-- Todas as funções públicas (não começam com `_`)
-- Todos os métodos públicos de classes
-- Os parâmetros de entrada: tipos esperados, valores opcionais, defaults
-- Os valores de retorno: tipo e possíveis valores
-- As exceções que podem ser levantadas
-- As dependências externas: banco de dados, APIs, services
+Before creating any test, check if there are already tests for the file:
 
-### Passo 2 — Verificar testes existentes
-
-Antes de criar qualquer teste, verificar se já existem testes para o arquivo:
-
-Ferramenta usada: `Glob`, `Grep`
+Tool used:`Glob`, `Grep`
 
 ```python
 # Padrões de arquivos de teste a procurar:
 # tests/test_<modulo>.py
 # tests/<modulo>_test.py
 # <mesmo_diretorio>/test_<modulo>.py
-```
-
-Para cada função identificada no Passo 1, verificar se já há um teste correspondente:
-
-```bash
+```For each function identified in Step 1, check if there is already a corresponding test:```bash
 # Buscar por nome da função nos arquivos de teste
 grep -r "def test_<nome_da_funcao>" tests/
-```
+```Generate the list of:
+- Functions already tested (skip or supplement if coverage is poor)
+- Functions without any testing (maximum priority)
 
-Gerar a lista de:
-- Funções já testadas (pular ou complementar se a cobertura for fraca)
-- Funções sem nenhum teste (prioridade máxima)
+### Step 3 — Analyze existing fixtures and conftest
 
-### Passo 3 — Analisar os fixtures e conftest existentes
+Read the`conftest.py`to understand the available fixtures:
 
-Ler o `conftest.py` para entender os fixtures disponíveis:
-
-Ferramenta usada: `Glob`, `Read`
+Tool used:`Glob`, `Read`
 
 ```bash
 # Buscar conftest.py nos diretórios de teste
 find tests/ -name "conftest.py"
-```
+```Identify:
+- Database fixtures available (`db`, `session`, `client`)
+- Authenticated user fixtures (`auth_headers`, `user`)
+- Mocks and patches already configured
+- Test environment settings
 
-Identificar:
-- Fixtures de banco de dados disponíveis (`db`, `session`, `client`)
-- Fixtures de usuário autenticado (`auth_headers`, `user`)
-- Mocks e patches já configurados
-- Configurações de ambiente de teste
+### Step 4 — Plan the test cases
 
-### Passo 4 — Planejar os casos de teste
+For each untested function, plan the scenarios:
 
-Para cada função sem teste, planejar os cenários:
+**For each function, create tests for:**
 
-**Para cada função, criar testes para:**
+1. **Happy path** — valid input, expected output
+2. **Border Values** — zero, empty, None, empty string, empty list
+3. **Invalid entries** — wrong type, invalid format
+4. **Expected Exceptions** — verify that the correct exception is raised
+5. **Extreme states** — maximum, minimum value, very long list
 
-1. **Caminho feliz (happy path)** — entrada válida, saída esperada
-2. **Valores de borda** — zero, vazio, None, string vazia, lista vazia
-3. **Entradas inválidas** — tipo errado, formato inválido
-4. **Exceções esperadas** — verificar que a exceção correta é levantada
-5. **Estados extremos** — valor máximo, mínimo, lista muito grande
+**Example cases by type of function:**
 
-**Exemplos de casos por tipo de função:**
-
-Para funções de criação (create):
-```python
+For create functions:```python
 def test_create_task_sucesso()          # dados válidos → task criada
 def test_create_task_titulo_vazio()     # título vazio → ValidationError
 def test_create_task_usuario_invalido() # user_id inválido → HTTPException 404
-```
-
-Para funções de busca (get/list):
-```python
+```For search functions (get/list):```python
 def test_get_task_existente()           # ID válido → task retornada
 def test_get_task_nao_encontrada()      # ID inválido → HTTPException 404
 def test_list_tasks_pagina_vazia()      # sem tasks → lista vazia
 def test_list_tasks_paginacao()         # muitas tasks → respeita limit/offset
-```
-
-Para funções de atualização (update):
-```python
+```For update functions:```python
 def test_update_task_sucesso()          # dados parciais → task atualizada
 def test_update_task_sem_permissao()    # outro usuário → HTTPException 403
-```
+```### Step 5 — Create the test file
 
-### Passo 5 — Criar o arquivo de testes
+Create the test file following the project conventions:
 
-Criar o arquivo de testes seguindo as convenções do projeto:
-
-Ferramenta usada: `Write`
-
-**Estrutura padrão do arquivo de testes:**
-
-```python
+Tool used:`Write`**Standard test file structure:**```python
 """Testes para <nome_do_modulo>.
 
 Cobre as funções: <lista_de_funcoes>
@@ -180,20 +149,16 @@ class TestCreateTask:
 class TestGetTask:
     """Testes para a função get_task."""
     ...
-```
+```**Mandatory conventions:**
+- Group tests by function into classes`TestNomeDaFuncao`- Descriptive test names:`test_<cenario>_<resultado_esperado>`- Docstring in each test explaining what is being tested
+- Use`pytest.raises()`to test exceptions
+- Do not duplicate setup logic — use fixtures
 
-**Convenções obrigatórias:**
-- Agrupar testes por função em classes `TestNomeDaFuncao`
-- Nomes de testes descritivos: `test_<cenario>_<resultado_esperado>`
-- Docstring em cada teste explicando o que está sendo testado
-- Usar `pytest.raises()` para testar exceções
-- Não duplicar lógica de setup — usar fixtures
+### Step 6 — Validate the tests
 
-### Passo 6 — Validar os testes
+After creating the file, run the tests to ensure they pass:
 
-Após criar o arquivo, rodar os testes para garantir que passam:
-
-Ferramenta usada: `Bash`
+Tool used:`Bash`
 
 ```bash
 # Rodar apenas os testes recém-criados
@@ -204,68 +169,64 @@ pytest tests/test_<modulo>.py -v --tb=long
 
 # Verificar cobertura do módulo
 pytest tests/test_<modulo>.py --cov=app/<modulo> --cov-report=term-missing
-```
-
-Se algum teste falhar:
-1. Analisar o erro: é um problema no teste ou no código?
-2. Se for problema no teste: corrigir a lógica do teste
-3. Se for problema no código: informar ao usuário antes de alterar o código de produção
-4. Rodar novamente até todos passarem
-5. Se o código de produção tiver bugs expostos pelos testes, reportar sem corrigir automaticamente
+```If any test fails:
+1. Analyze the error: is it a problem in the test or in the code?
+2. If there is a problem with the test: correct the test logic
+3. If there is a problem in the code: inform the user before changing the production code
+4. Run again until everyone passes
+5. If production code has bugs exposed by testing, report without auto-fixing
 
 ---
 
-## Ferramentas Disponíveis
+## Available Tools
 
-| Ferramenta | Uso na Skill                                                         |
-|------------|----------------------------------------------------------------------|
-| `Read`     | Ler o arquivo alvo e o conftest.py                                   |
-| `Write`    | Criar o arquivo de testes gerado                                     |
-| `Bash`     | Rodar pytest para validar, buscar arquivos com find                  |
-| `Grep`     | Verificar testes existentes, buscar imports e fixtures               |
-| `Glob`     | Localizar arquivos de teste e conftest.py                            |
-| `Edit`     | Ajustar testes que precisam de correção após a primeira execução     |
-
----
-
-## Comportamento em Casos Especiais
-
-### Arquivo com muitas funções (>10 funções públicas)
-
-Se o arquivo tiver muitas funções:
-1. Informar ao usuário quantas funções foram encontradas
-2. Perguntar se deve gerar testes para todas ou para um subconjunto
-3. Priorizar funções críticas de negócio sobre funções utilitárias simples
-
-### Funções com dependências externas difíceis de mockar
-
-Se a função acessa banco de dados, APIs externas ou sistema de arquivos:
-1. Identificar as dependências
-2. Usar mocks/patches adequados
-3. Documentar no comentário do teste o que está sendo mockado e por quê
-
-### Testes existentes com baixa cobertura
-
-Se já existir um arquivo de testes mas a cobertura for baixa:
-1. Não sobrescrever o arquivo existente
-2. Identificar os casos de teste faltando
-3. Criar um arquivo `test_<modulo>_adicional.py` com os novos testes
-4. Ou perguntar ao usuário se deseja mesclar com o arquivo existente
-
-### Código sem type hints
-
-Se o arquivo não tiver type hints:
-1. Inferir os tipos a partir do código
-2. Avisar no resumo final que a falta de type hints dificultou a geração de testes precisos
-3. Sugerir adicionar type hints ao arquivo de produção
+| Tool | Use in Skill |
+|------------|---------------------------------------------------------------------|
+|`Read`| Read target file and conftest.py |
+|`Write`| Create the generated test file |
+|`Bash`| Run pytest to validate, search for files with find |
+|`Grep`| Check existing tests, search for imports and fixtures |
+|`Glob`| Find test files and conftest.py |
+|`Edit`| Adjust tests that need fixing after the first run |
 
 ---
 
-## Saída Esperada
+## Behavior in Special Cases
 
-Ao finalizar, o Claude deve apresentar um resumo:
+### File with many functions (>10 public functions)
 
-```
+If the file has many functions:
+1. Inform the user how many functions were found
+2. Ask whether to generate tests for all or a subset
+3. Prioritize critical business functions over simple utility functions
+
+### Functions with external dependencies that are difficult to mock
+
+If the function accesses the database, external APIs, or file system:
+1. Identify dependencies
+2. Use appropriate mocks/patches
+3. Document in the test comment what is being mocked and why
+
+### Existing tests with low coverage
+
+If a test file already exists but coverage is low:
+1. Do not overwrite the existing file
+2. Identify missing test cases
+3. Create a file`test_<modulo>_adicional.py`with the new tests
+4. Or ask the user if they want to merge with the existing file
+
+### Code without type hints
+
+If the file has no type hints:
+1. Infer types from code
+2. Warn in the final summary that the lack of type hints made it difficult to generate accurate tests
+3. Suggest adding type hints to the production file
+
+---
+
+## Expected Output
+
+At the end, Claude must present a summary:```
 Testes gerados para: app/services/task_service.py
 
 Arquivo criado: tests/test_task_service.py
