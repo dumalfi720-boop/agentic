@@ -1,6 +1,6 @@
 """
 Agente do Zero — Agentic Engineering Masterclass
-INEMA.CLUB — Projeto 1: Agente sem framework
+duclub — Projeto 1: Agente sem framework
 
 Demonstra o loop agentic manual com Anthropic API:
 - Tools (function calling)
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
-# ─── FERRAMENTAS ──────────────────────────────────────────────────────────────
+# ─── TOOLS ─────────────────────────────── ───────────────────────────────
 
 tools = [
     {
@@ -60,7 +60,7 @@ tools = [
     }
 ]
 
-# ─── DISPATCHER ───────────────────────────────────────────────────────────────
+# ─── DISPATCHER ─────────────────────────────── ────────────────────────────────
 
 notas = {}  # Memória simples em dicionário
 
@@ -68,7 +68,7 @@ def executar_ferramenta(nome: str, inputs: dict) -> str:
     """Despacha a ferramenta correta e retorna o resultado."""
 
     if nome == "buscar_na_web":
-        # Simulação de busca (substitua por requests + BeautifulSoup em produção)
+        # Search simulation (replace with requests + BeautifulSoup in production)
         query = inputs["query"]
         return f"[Resultado de busca para '{query}']: Encontrado 3 resultados relevantes. Artigo principal: informações sobre {query} publicadas em 2025. Fonte: web simulada."
 
@@ -85,7 +85,7 @@ def executar_ferramenta(nome: str, inputs: dict) -> str:
 
     return f"Ferramenta '{nome}' não encontrada."
 
-# ─── LOOP AGENTIC ─────────────────────────────────────────────────────────────
+# ─── LOOP AGENTIC ────────────────────────────── ───────────────────────────────
 
 def executar_agente(mensagem_usuario: str, max_iteracoes: int = 10) -> str:
     """
@@ -105,7 +105,7 @@ def executar_agente(mensagem_usuario: str, max_iteracoes: int = 10) -> str:
         iteracao += 1
         print(f"\n[Iteração {iteracao}] Pensando...")
 
-        # LLM pensa
+        # LLM thinks
         resposta = client.messages.create(
             model="claude-opus-4-6",
             max_tokens=4096,
@@ -114,7 +114,7 @@ def executar_agente(mensagem_usuario: str, max_iteracoes: int = 10) -> str:
             messages=mensagens
         )
 
-        # Sem uso de ferramentas = resposta final
+        # No use of tools = final answer
         if resposta.stop_reason == "end_turn":
             resposta_final = next(
                 (b.text for b in resposta.content if hasattr(b, "text")),
@@ -126,7 +126,7 @@ def executar_agente(mensagem_usuario: str, max_iteracoes: int = 10) -> str:
             print(resposta_final)
             return resposta_final
 
-        # Processa chamadas de ferramentas
+        # Process tool calls
         resultados_ferramentas = []
         for bloco in resposta.content:
             if bloco.type == "tool_use":
@@ -139,16 +139,16 @@ def executar_agente(mensagem_usuario: str, max_iteracoes: int = 10) -> str:
                     "content": resultado
                 })
 
-        # Adiciona ao histórico e continua o loop
+        # Adds to history and continues loop
         mensagens.append({"role": "assistant", "content": resposta.content})
         mensagens.append({"role": "user", "content": resultados_ferramentas})
 
     return "Máximo de iterações atingido."
 
-# ─── MAIN ─────────────────────────────────────────────────────────────────────
+# ─── MAIN ────────────────────────────────── ───────────────────────────────────
 
 if __name__ == "__main__":
-    print("Agente do Zero — INEMA.CLUB")
+    print("Agente do Zero — duclub")
     print("Pressione Ctrl+C para sair\n")
 
     while True:
