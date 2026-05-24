@@ -1,164 +1,164 @@
-# Orquestrador em Agentic Engineering --- Documento Consolidado (2026)
+# Orchestrator at Agentic Engineering --- Consolidated Document (2026)
 
-## 1. Pergunta Central
+## 1. Central Question
 
-É possível pensar em um orquestrador como produto?\
-Soluções como BMad seriam um orquestrador?\
-Por que grandes empresas não parecem focar nisso?
+Is it possible to think of an orchestrator as a product?\
+Would solutions like BMad be an orchestrator?\
+Why don't big companies seem to focus on this?
 
-Este documento consolida todas as respostas discutidas.
-
-------------------------------------------------------------------------
-
-## 2. O que é um Orquestrador (em Agentic Engineering)
-
-Orquestrador é o componente responsável por:
-
--   Decidir qual agente atua
--   Definir ordem de execução
--   Controlar fluxo de tarefas
--   Gerenciar memória
--   Aplicar regras de governança
--   Monitorar execução
--   Controlar erros
--   Registrar logs
--   Limitar custos e permissões
-
-Sem orquestrador, não existe sistema agentic escalável.
-
-Ele é infraestrutura.
+This document consolidates all the answers discussed.
 
 ------------------------------------------------------------------------
 
-## 3. Por que parece que grandes empresas não falam disso?
+## 2. What is an Orchestrator (in Agentic Engineering)
 
-Porque:
+Orchestrator is the component responsible for:
 
-1.  Orquestração é infraestrutura invisível.
-2.  Marketing vende "Copilot", "Assistant", "AI Studio".
-3.  Executivos compram resultado, não engine técnica.
-4.  O mercado ainda está amadurecendo.
+- Decide which agent acts
+- Define execution order
+- Control task flow
+- Manage memory
+- Apply governance rules
+- Monitor execution
+- Control errors
+- Record logs
+- Limit costs and permissions
 
-Mas, tecnicamente, todos os grandes players usam camadas de
-orquestração.
+Without an orchestrator, there is no scalable agentic system.
 
-------------------------------------------------------------------------
-
-## 4. Exemplos de Orquestração no Mercado
-
-Mesmo que não usem o nome "orquestrador":
-
--   Azure AI Studio
--   OpenAI Assistants API
--   Claude Enterprise Guardrails
--   CrewAI Enterprise
--   LangGraph
--   n8n avançado
--   Databricks AI Governance
-
-Todos possuem camadas de coordenação, roteamento e controle.
+It is infrastructure.
 
 ------------------------------------------------------------------------
 
-## 5. Quando Orquestrador vira Produto?
+## 3. Why does it seem like big companies don't talk about this?
 
-Ele vira produto quando entrega:
+Because:
 
-### Governança
+1. Orchestration is invisible infrastructure.
+2. Marketing sells "Copilot", "Assistant", "AI Studio".
+3. Executives buy results, not technical engines.
+4. The market is still maturing.
 
--   Logs centralizados
--   Auditoria
--   Controle de permissões
-
-### Controle de custo
-
--   Limite de uso de LLM
--   Monitoramento de chamadas
--   Otimização de modelo
-
-### Coordenação multi-agente
-
--   Planejador
--   Executor
--   Revisor
--   Validador
-
-### Padronização organizacional
-
--   Templates de workflow
--   Políticas internas
--   Integração com sistemas corporativos
-
-Nesse ponto, torna-se produto enterprise.
+But technically, all the big players use layers of
+orchestration.
 
 ------------------------------------------------------------------------
 
-## 6. O que é BMad?
+## 4. Examples of Market Orchestration
 
-BMad significa:
+Even if they don't use the name "orchestrator":
 
--   Breakdown (quebrar problema)
--   Manage (organizar)
--   Delegate (delegar)
+- Azure AI Studio
+- OpenAI Assistants API
+-Claude Enterprise Guardrails
+- CrewAI Enterprise
+-LangGraph
+- advanced n8n
+- Databricks AI Governance
 
-É um padrão de raciocínio arquitetural.
-
-------------------------------------------------------------------------
-
-## 7. BMad é um Orquestrador?
-
-Resposta direta:
-
-BMad NÃO é um orquestrador.
-
-BMad é um método.
-
-Orquestrador é sistema.
-
-Analogia:
-
-Orquestrador = Maestro real BMad = Método usado pelo maestro
+They all have layers of coordination, routing and control.
 
 ------------------------------------------------------------------------
 
-## 8. Quando BMad pode virar parte de um Orquestrador?
+## 5. When does an Orchestrator become a Product?
 
-Quando é implementado como engine automática:
+It becomes a product when delivered:
 
-Objetivo recebido\
+### Governance
+
+- Centralized logs
+- Audit
+- Permissions control
+
+### Cost control
+
+- LLM usage limit
+- Call monitoring
+- Model optimization
+
+### Multi-agent coordination
+
+- Planner
+- Executor
+- Reviewer
+- Validator
+
+### Organizational standardization
+
+- Workflow templates
+- Internal policies
+- Integration with corporate systems
+
+At this point, it becomes an enterprise product.
+
+------------------------------------------------------------------------
+
+## 6. What is BMad?
+
+BMad means:
+
+- Breakdown (break problem)
+- Manage (organize)
+- Delegate
+
+It is an architectural reasoning pattern.
+
+------------------------------------------------------------------------
+
+## 7. Is BMad an Orchestrator?
+
+Direct answer:
+
+BMad is NOT an orchestrator.
+
+BMad is a method.
+
+Orchestrator is system.
+
+Analogy:
+
+Orchestrator = Real conductor BMad = Method used by the conductor
+
+------------------------------------------------------------------------
+
+## 8. When can BMad become part of an Orchestrator?
+
+When implemented as an automatic engine:
+
+Objective received\
 ↓\
-Sistema de decomposição\
+Decomposition system\
 ↓\
-Árvore de tarefas\
+Task tree\
 ↓\
-Delegação automática\
+Automatic delegation\
 ↓\
-Monitoramento\
+Monitoring\
 ↓\
-Replanejamento
+Replanning
 
-Nesse caso, BMad vira lógica interna do orquestrador.
+In this case, BMad becomes the orchestrator's internal logic.
 
 ------------------------------------------------------------------------
 
-## 9. Camadas Estratégicas do Mercado (2026)
+## 9. Strategic Market Layers (2026)
 
-Fase 1: Prompt\
-Fase 2: Agente\
-Fase 3: Orquestração
+Phase 1: Prompt\
+Phase 2: Agent\
+Phase 3: Orchestration
 
-O valor econômico maior está na fase 3.
+The greatest economic value is in phase 3.
 
 ------------------------------------------------------------------------
 
-## 10. Conclusão Estratégica
+## 10. Strategic Conclusion
 
--   Orquestrador é núcleo da engenharia agentic.
--   É infraestrutura, por isso pouco destacado em marketing.
--   Pode sim virar produto enterprise.
--   BMad não é orquestrador, mas pode ser sua lógica interna.
--   Empresas que escalam IA escalam por arquitetura de orquestração, não
-    apenas por modelo melhor.
+- Orchestrator is the core of agentic engineering.
+- It is infrastructure, which is why it is not highlighted in marketing.
+- It can become an enterprise product.
+- BMad is not an orchestrator, but it can be its internal logic.
+- Companies that scale AI scale by orchestration architecture, not
+    just for better model.
 
-O verdadeiro diferencial competitivo em Agentic Engineering está na
-coordenação, controle e governança.
+The real competitive differentiator in Agentic Engineering is in
+coordination, control and governance.
