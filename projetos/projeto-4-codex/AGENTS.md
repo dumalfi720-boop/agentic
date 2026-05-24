@@ -1,38 +1,37 @@
-# AGENTS.md — Guia de Contexto para o Codex CLI
+# AGENTS.md — Context Guide for Codex CLI
 
-> Este arquivo é lido automaticamente pelo OpenAI Codex CLI em toda sessão.
-> Equivalente ao CLAUDE.md no ecossistema Anthropic.
-> Mantenha este arquivo atualizado à medida que o projeto evolui.
+> This file is automatically read by the OpenAI Codex CLI in every session.
+> Equivalent to CLAUDE.md in the Anthropic ecosystem.
+> Keep this file updated as the project evolves.
 
 ---
 
-## 1. Contexto do Projeto
+## 1. Project Context
 
-**Nome:** API de Gerenciamento de Tarefas (Task Manager API)
-**Versão:** 2.3.1
-**Tipo:** REST API — Backend de aplicação web
+**Name:** Task Manager API
+**Version:** 2.3.1
+**Type:** REST API — Web application backend
 
-### O que é este projeto
-Uma API RESTful construída com Node.js e Express para gerenciar tarefas, projetos e usuários. Utilizada por três frontends distintos: uma SPA em React, um app mobile em React Native e um cliente desktop em Electron. A API é a fonte de verdade de todos os dados.
+### What is this project
+A RESTful API built with Node.js and Express to manage tasks, projects and users. Used by three different frontends: a SPA in React, a mobile app in React Native and a desktop client in Electron. The API is the source of truth for all data.
 
-### Stack Tecnológica
+### Technology Stack
 - **Runtime:** Node.js 20 LTS
 - **Framework:** Express 4.18
-- **Banco de dados:** PostgreSQL 15 (ORM: Prisma 5)
+- **Database:** PostgreSQL 15 (ORM: Prisma 5)
 - **Cache:** Redis 7
-- **Autenticação:** JWT + Refresh Tokens
-- **Validação:** Zod
-- **Testes:** Jest + Supertest
+- **Authentication:** JWT + Refresh Tokens
+- **Validation:** Zod
+- **Tests:** Jest + Supertest
 - **Linting:** ESLint (config: airbnb-base) + Prettier
-- **Build:** sem build step (Node ESM nativo)
-- **Deploy:** Docker + docker-compose em VPS (produção), Railway (staging)
+- **Build:** without build step (native ESM Node)
+- **Deploy:** Docker + docker-compose on VPS (production), Railway (staging)
 
 ---
 
-## 2. Comandos de Desenvolvimento
+## 2. Development Commands
 
-### Instalação
-```bash
+### Installation```bash
 # Instalar dependências
 npm install
 
@@ -42,19 +41,13 @@ npm run db:seed
 
 # Verificar se tudo está funcionando
 npm run health-check
-```
-
-### Desenvolvimento
-```bash
+```### Development```bash
 # Rodar servidor em modo desenvolvimento (hot reload com nodemon)
 npm run dev
 
 # Servidor escuta em: http://localhost:3000
 # Documentação Swagger: http://localhost:3000/api-docs
-```
-
-### Build e Produção
-```bash
+```### Build and Production```bash
 # Verificar se o código está pronto para produção
 npm run lint
 npm run typecheck
@@ -62,10 +55,7 @@ npm test
 
 # Rodar em modo produção (não usar em dev)
 npm start
-```
-
-### Banco de Dados
-```bash
+```### Database```bash
 # Criar nova migration
 npm run db:migrate:create -- --name nome-da-migration
 
@@ -77,22 +67,15 @@ npm run db:reset
 
 # Abrir Prisma Studio (interface visual)
 npm run db:studio
-```
-
-### Cache e Utilitários
-```bash
+```### Cache and Utilities```bash
 # Limpar cache Redis
 npm run cache:flush
 
 # Gerar tipos TypeScript do Prisma
 npm run db:generate
-```
+```---
 
----
-
-## 3. Comandos de Teste
-
-```bash
+## 3. Test Commands```bash
 # Rodar todos os testes unitários
 npm test
 
@@ -113,29 +96,26 @@ npx jest src/modules/tasks/tasks.service.test.js
 
 # Rodar testes que correspondem a um padrão
 npx jest --testNamePattern="deve criar uma tarefa"
-```
-
-### Configuração de Teste
-- Banco de dados de teste: `task_manager_test` (configurado em `.env.test`)
-- Testes unitários usam mocks do Prisma Client
-- Testes de integração usam banco real com transações revertidas após cada teste
-- Testes E2E usam servidor completo em porta 3001
+```### Test Configuration
+- Test database:`task_manager_test`(configured in`.env.test`)
+- Unit tests use Prisma Client mocks
+- Integration tests use real banking with transactions rolled back after each test
+- E2E tests use full server on port 3001
 
 ---
 
-## 4. Convenções de Código
+## 4. Code Conventions
 
-### Nomenclatura
-- **Variáveis e funções:** camelCase (`getUserById`, `taskTitle`)
+### Nomenclature
+- **Variables and functions:** camelCase (`getUserById`, `taskTitle`)
 - **Classes:** PascalCase (`UserService`, `TaskRepository`)
-- **Constantes:** SCREAMING_SNAKE_CASE (`MAX_RETRY_ATTEMPTS`, `DEFAULT_PAGE_SIZE`)
-- **Arquivos:** kebab-case (`user-service.js`, `task-repository.js`)
-- **Pastas de módulo:** kebab-case (`user-management/`, `task-scheduler/`)
-- **Tabelas do banco:** snake_case plural (`users`, `task_assignments`)
-- **Colunas do banco:** snake_case (`created_at`, `user_id`)
+- **Constants:** SCREAMING_SNAKE_CASE (`MAX_RETRY_ATTEMPTS`, `DEFAULT_PAGE_SIZE`)
+- **Files:** kebab-case (`user-service.js`, `task-repository.js`)
+- **Module folders:** kebab-case (`user-management/`, `task-scheduler/`)
+- **Bank tables:** snake_case plural (`users`, `task_assignments`)
+- **Bank columns:** snake_case (`created_at`, `user_id`)
 
-### Imports
-```javascript
+### Imports```javascript
 // Ordem obrigatória de imports (ESLint enforces)
 // 1. Módulos nativos do Node
 import { readFile } from 'node:fs/promises';
@@ -152,10 +132,7 @@ import { logger } from '@/shared/logger.js';
 
 // Sempre usar extensão .js nos imports (Node ESM)
 // Sempre usar alias @/ para imports internos (configurado em jsconfig.json)
-```
-
-### ESLint — Regras Importantes
-```javascript
+```### ESLint — Important Rules```javascript
 // PROIBIDO — sem console.log em produção
 console.log('debug'); // Use logger.debug() em vez disso
 
@@ -175,10 +152,7 @@ app.get('/users', async (req, res, next) => {
     next(error);
   }
 });
-```
-
-### Tratamento de Erros
-```javascript
+```### Error Handling```javascript
 // Sempre usar AppError para erros esperados
 throw new AppError('Tarefa não encontrada', 404, 'TASK_NOT_FOUND');
 
@@ -187,10 +161,7 @@ throw new AppError('Tarefa não encontrada', 404, 'TASK_NOT_FOUND');
 
 // Sempre logar erros inesperados antes de propagar
 logger.error({ error, context: 'UserService.create' }, 'Erro inesperado ao criar usuário');
-```
-
-### Validação
-```javascript
+```### Validation```javascript
 // Sempre validar input com Zod nos controllers
 const createTaskSchema = z.object({
   title: z.string().min(1).max(200),
@@ -201,46 +172,32 @@ const createTaskSchema = z.object({
 
 // O middleware validateRequest em src/shared/middleware/validate-request.js
 // aplica o schema e retorna 400 automaticamente se inválido
-```
+```---
 
----
+## 5. Behavior Rules for the Agent
 
-## 5. Regras de Comportamento para o Agente
+### NEVER do this without explicit approval:
+- Modify files in`src/migrations/`(migrations are irreversible)
+- Change`package.json` ou `package-lock.json`- Modify any file`.env` ou `.env.*`- To execute`npm publish`, `git push --force`, or`docker push`- Modify production configuration files in`config/production/`- Delete database or backup files
+- Change Prisma schema definitions without creating corresponding migration
 
-### NUNCA faça sem aprovação explícita:
-- Modificar arquivos em `src/migrations/` (migrations são irreversíveis)
-- Alterar `package.json` ou `package-lock.json`
-- Modificar qualquer arquivo `.env` ou `.env.*`
-- Executar `npm publish`, `git push --force`, ou `docker push`
-- Modificar arquivos de configuração de produção em `config/production/`
-- Deletar arquivos de banco de dados ou de backup
-- Alterar as definições de schema do Prisma sem criar migration correspondente
+### ALWAYS do:
+- Create branches with prefix`feature/`, `fix/`, `chore/`, `refactor/`- Rotate`npm run lint`before any commit
+- Rotate`npm test`before proposing a PR
+- Add tests for any new code (minimum coverage: 80%)
+- Use the logger (`import { logger } from '@/shared/logger.js'`) instead of console
+- Check for a broken test before modifying existing code
+- Document public functions with JSDoc
 
-### SEMPRE faça:
-- Criar branches com prefixo `feature/`, `fix/`, `chore/`, `refactor/`
-- Rodar `npm run lint` antes de qualquer commit
-- Rodar `npm test` antes de propor um PR
-- Adicionar testes para qualquer código novo (cobertura mínima: 80%)
-- Usar o logger (`import { logger } from '@/shared/logger.js'`) em vez de console
-- Verificar se existe um teste quebrado antes de modificar código existente
-- Documentar funções públicas com JSDoc
+### When creating new endpoints:
+1. Create route in`src/modules/{modulo}/{modulo}.routes.js`2. Create controller in`src/modules/{modulo}/{modulo}.controller.js`3. Create service in`src/modules/{modulo}/{modulo}.service.js`4. Create repository in`src/modules/{modulo}/{modulo}.repository.js`5. Add Zod validation to the controller
+6. Write unit tests for the service
+7. Write integration tests for the endpoint
+8. Update Swagger documentation on`src/modules/{modulo}/{modulo}.swagger.js`---
 
-### Ao criar novos endpoints:
-1. Criar rota em `src/modules/{modulo}/{modulo}.routes.js`
-2. Criar controller em `src/modules/{modulo}/{modulo}.controller.js`
-3. Criar service em `src/modules/{modulo}/{modulo}.service.js`
-4. Criar repository em `src/modules/{modulo}/{modulo}.repository.js`
-5. Adicionar validação Zod no controller
-6. Escrever testes unitários para o service
-7. Escrever testes de integração para o endpoint
-8. Atualizar a documentação Swagger em `src/modules/{modulo}/{modulo}.swagger.js`
+## 6. Project Architecture
 
----
-
-## 6. Arquitetura do Projeto
-
-### Estrutura de Pastas
-```
+### Folder Structure```
 task-manager-api/
 ├── src/
 │   ├── modules/              # Módulos de domínio (feature folders)
@@ -288,27 +245,22 @@ task-manager-api/
 ├── AGENTS.md                 # Este arquivo
 ├── ARCHITECTURE.md           # Decisões arquiteturais detalhadas
 └── README.md                 # Documentação pública
-```
-
-### Padrão de Camadas
-```
+```### Layering Pattern```
 Request → Routes → Controller → Service → Repository → Database
                      ↓
                 Validação (Zod)
                      ↓
                 Middleware (Auth, RateLimit)
-```
-
-- **Routes:** apenas definição de rotas e middlewares aplicados
-- **Controller:** recebe request, valida input, chama service, retorna response
-- **Service:** lógica de negócio, orquestra repositories, não conhece HTTP
-- **Repository:** acesso ao banco via Prisma, sem lógica de negócio
+```- **Routes:** only definition of routes and applied middleware
+- **Controller:** receives request, validates input, calls service, returns response
+- **Service:** business logic, orchestrates repositories, does not know HTTP
+- **Repository:** access to the bank via Prisma, without business logic
 
 ---
 
-## 7. Ambiente e Variáveis de Ambiente
+## 7. Environment and Environment Variables
 
-### Variáveis Obrigatórias (ver `.env.example`)
+### Mandatory Variables (see`.env.example`)
 ```bash
 # Servidor
 NODE_ENV=development          # development | staging | production
@@ -338,20 +290,18 @@ SENTRY_DSN=https://...@sentry.io/...
 # Rate Limiting
 RATE_LIMIT_WINDOW_MS=900000   # 15 minutos
 RATE_LIMIT_MAX=100            # requisições por janela
-```
-
-### Regras de Variáveis de Ambiente
-- Nunca hardcodar valores de configuração no código
-- Sempre validar variáveis de ambiente na inicialização (ver `src/config/env.js`)
-- Variáveis não definidas devem causar falha na inicialização (fail fast)
-- Usar `.env.example` como documentação — sempre manter atualizado
-- Nunca comitar arquivos `.env` com valores reais
+```### Environment Variable Rules
+- Never hardcode configuration values into code
+- Always validate environment variables at startup (see`src/config/env.js`)
+- Undefined variables should cause fail fast
+- Use`.env.example`as documentation — always keep up to date
+- Never commit files`.env`with real values
 
 ---
 
-## 8. Endpoints Principais da API
+## 8. Main API Endpoints
 
-### Autenticação (`/api/auth`)
+### Authentication (`/api/auth`)
 ```
 POST   /api/auth/register          # Criar conta
 POST   /api/auth/login             # Login, retorna JWT + refresh token
@@ -359,18 +309,12 @@ POST   /api/auth/refresh           # Renovar access token
 POST   /api/auth/logout            # Invalidar refresh token
 POST   /api/auth/forgot-password   # Solicitar reset de senha
 POST   /api/auth/reset-password    # Confirmar reset de senha
-```
-
-### Usuários (`/api/users`) — requer auth
-```
+```### Users (`/api/users`) — requires auth```
 GET    /api/users/me               # Perfil do usuário autenticado
 PATCH  /api/users/me               # Atualizar perfil
 DELETE /api/users/me               # Deletar conta
 GET    /api/users/:id              # Perfil público de usuário
-```
-
-### Tarefas (`/api/tasks`) — requer auth
-```
+```### Tasks (`/api/tasks`) — requires auth```
 GET    /api/tasks                  # Listar tarefas (com filtros e paginação)
 POST   /api/tasks                  # Criar tarefa
 GET    /api/tasks/:id              # Detalhe de uma tarefa
@@ -378,10 +322,7 @@ PATCH  /api/tasks/:id              # Atualizar tarefa
 DELETE /api/tasks/:id              # Deletar tarefa
 POST   /api/tasks/:id/complete     # Marcar como concluída
 POST   /api/tasks/:id/assign       # Atribuir a usuário
-```
-
-### Projetos (`/api/projects`) — requer auth
-```
+```### Projects (`/api/projects`) — requires auth```
 GET    /api/projects               # Listar projetos do usuário
 POST   /api/projects               # Criar projeto
 GET    /api/projects/:id           # Detalhe do projeto
@@ -390,30 +331,21 @@ DELETE /api/projects/:id           # Arquivar projeto
 GET    /api/projects/:id/tasks     # Tarefas do projeto
 POST   /api/projects/:id/members   # Adicionar membro
 DELETE /api/projects/:id/members/:userId  # Remover membro
-```
-
-### Saúde e Monitoramento
-```
+```### Health and Monitoring```
 GET    /health                     # Health check básico (sem auth)
 GET    /health/detailed            # Status detalhado (requer admin)
 GET    /api-docs                   # Documentação Swagger UI
-```
-
-### Parâmetros de Query Comuns
-```
+```### Common Query Parameters```
 ?page=1&limit=20          # Paginação
 ?sort=createdAt:desc      # Ordenação
 ?filter[status]=pending   # Filtros
 ?search=texto             # Busca full-text
 ?include=project,assignee # Relações a incluir
-```
+```---
 
----
+## 9. Response Patterns
 
-## 9. Padrões de Response
-
-### Sucesso
-```json
+### Success```json
 {
   "success": true,
   "data": { ... },
@@ -424,10 +356,7 @@ GET    /api-docs                   # Documentação Swagger UI
     "totalPages": 8
   }
 }
-```
-
-### Erro
-```json
+```### Error```json
 {
   "success": false,
   "error": {
@@ -436,10 +365,7 @@ GET    /api-docs                   # Documentação Swagger UI
     "statusCode": 404
   }
 }
-```
-
-### Erro de Validação
-```json
+```### Validation Error```json
 {
   "success": false,
   "error": {
@@ -452,26 +378,22 @@ GET    /api-docs                   # Documentação Swagger UI
     ]
   }
 }
-```
+```---
 
----
+## 10. Additional Information for the Agent
 
-## 10. Informações Adicionais para o Agente
+### When the agent doesn't know something:
+- Consult`ARCHITECTURE.md`for architectural decisions
+- Consult the Prisma documentation at`prisma/schema.prisma`- Check existing tests to understand expected behavior
+- Don't assume — ask the developer
 
-### Quando o agente não souber algo:
-- Consultar `ARCHITECTURE.md` para decisões arquiteturais
-- Consultar a documentação do Prisma em `prisma/schema.prisma`
-- Verificar testes existentes para entender o comportamento esperado
-- Não assumir — perguntar ao desenvolvedor
+### Team Context:
+- Small team: 3 backend developers, 2 frontend
+- Mandatory code review for PRs that touch auth, billing or user data
+- Automatic deployment for staging with each merge`develop`- Deployment to production is manual and requires approval from 2 people
 
-### Contexto de Equipe:
-- Equipe pequena: 3 desenvolvedores backend, 2 frontend
-- Code review obrigatório para PRs que tocam auth, billing ou dados de usuário
-- Deploy automático para staging a cada merge em `develop`
-- Deploy para produção é manual e requer aprovação de 2 pessoas
-
-### Prioridades:
-1. Segurança (nunca sacrificar por conveniência)
-2. Confiabilidade (testes antes de features)
-3. Performance (monitorar com Sentry e logs)
-4. Manutenibilidade (código limpo e documentado)
+### Priorities:
+1. Security (never sacrifice for convenience)
+2. Reliability (tests before features)
+3. Performance (monitor with Sentry and logs)
+4. Maintainability (clean and documented code)
