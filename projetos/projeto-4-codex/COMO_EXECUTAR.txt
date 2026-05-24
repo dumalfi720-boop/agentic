@@ -1,285 +1,284 @@
-============================================================
-  COMO EXECUTAR O CODEX CLI — GUIA PARA INICIANTES
-  Projeto 4 — Agentic com Codex CLI
-============================================================
+==========================================================================
+  HOW TO RUN CODEX CLI — BEGINNERS GUIDE
+  Project 4 — Agentic with Codex CLI
+==========================================================================
 
-Bem-vindo! Este guia foi escrito para quem nunca usou
-terminal ou ferramentas de linha de comando. Vamos do
-zero ate rodar o seu primeiro agente de IA.
-
-------------------------------------------------------------
-O QUE E O CODEX CLI?
-------------------------------------------------------------
-
-O Codex CLI e uma ferramenta de linha de comando criada
-pela OpenAI que permite usar inteligencia artificial
-diretamente no seu projeto de software.
-
-Em linguagem simples: e um assistente de programacao que
-"ve" seu codigo e pode ajudar a:
-
-  - Explicar como o codigo funciona
-  - Encontrar bugs e sugerir correcoes
-  - Escrever testes automaticamente
-  - Refatorar codigo (melhorar sem mudar o que faz)
-  - Criar novos arquivos seguindo os padroes do projeto
-  - Revisar Pull Requests antes de fazer merge
-
-A diferenca para outros assistentes de IA (como o ChatGPT
-na web) e que o Codex CLI ACESSA seus arquivos diretamente.
-Ele ve o codigo real, nao uma copia que voce colou.
+Welcome! This guide was written for those who have never used
+terminal or command line tools. Let's go
+zero until you run your first AI agent.
 
 ------------------------------------------------------------
-PASSO 1 — ABRIR O TERMINAL
+WHAT IS CODEX CLI?
 ------------------------------------------------------------
 
-O terminal (tambem chamado de "prompt de comando" ou
-"console") e onde voce digita comandos de texto.
+The Codex CLI is a command line tool created
+by OpenAI that allows you to use artificial intelligence
+directly in your software project.
 
-No Linux:
-  - Pressione Ctrl+Alt+T
-  - Ou procure por "Terminal" no menu de aplicativos
+In simple language: it is a programming assistant that
+"see" your code and can help:
 
-No macOS:
-  - Pressione Cmd+Espaco e digite "Terminal"
-  - Ou va em Aplicativos > Utilitarios > Terminal
+  - Explain how the code works
+  - Find bugs and suggest fixes
+  - Automatically write tests
+  - Refactor code (improve without changing what it does)
+  - Create new files following project standards
+  - Review Pull Requests before merging
 
-No Windows:
-  - Pressione Win+R, digite "cmd" e pressione Enter
-  - Ou procure por "PowerShell" no menu Iniciar
-  - RECOMENDADO: Instale o Windows Terminal pela Microsoft Store
+The difference to other AI assistants (like ChatGPT
+on the web) and that the Codex CLI ACCESSES your files directly.
+It sees the actual code, not a copy you pasted.
 
 ------------------------------------------------------------
-PASSO 2 — INSTALAR O NODE.JS
+STEP 1 — OPEN THE TERMINAL
 ------------------------------------------------------------
 
-O Codex CLI precisa do Node.js para funcionar. O Node.js e
-um programa que permite rodar JavaScript fora do navegador.
+The terminal (also called the "command prompt" or
+"console") and where you enter text commands.
 
-Para verificar se ja esta instalado, abra o terminal e
-digite (depois pressione Enter):
+On Linux:
+  - Press Ctrl+Alt+T
+  - Or search for "Terminal" in the application menu
+
+On macOS:
+  - Press Cmd+Space and type "Terminal"
+  - Or go to Applications > Utilities > Terminal
+
+On Windows:
+  - Press Win+R, type "cmd" and press Enter
+  - Or search for "PowerShell" in the Start menu
+  - RECOMMENDED: Install Windows Terminal from the Microsoft Store
+
+------------------------------------------------------------
+STEP 2 — INSTALL NODE.JS
+------------------------------------------------------------
+
+The Codex CLI needs Node.js to work. Node.js and
+a program that allows you to run JavaScript outside the browser.
+
+To check if it is already installed, open the terminal and
+type (then press Enter):
 
   node --version
 
-Se aparecer algo como "v20.0.0", pule para o Passo 3.
+If something like "v20.0.0" appears, skip to Step 3.
 
-Se aparecer um erro, instale o Node.js:
+If an error appears, install Node.js:
 
-  No Linux (Ubuntu/Debian):
-    Copie e cole este comando no terminal:
+  On Linux (Ubuntu/Debian):
+    Copy and paste this command into the terminal:
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-    Depois feche e reabra o terminal, e execute:
+    Then close and reopen the terminal, and run:
 
     nvm install 20
     nvm use 20
 
-  No macOS:
-    Acesse https://nodejs.org
-    Baixe o instalador "LTS" (versao de suporte longo)
-    Execute o instalador como qualquer outro programa
+  On macOS:
+    Visit https://nodejs.org
+    Download the "LTS" installer (Long Support Version)
+    Run the installer like any other program
 
-  No Windows:
-    Acesse https://nodejs.org
-    Baixe o instalador ".msi" para Windows
-    Execute e siga as instrucoes (Next, Next, Install)
+  On Windows:
+    Visit https://nodejs.org
+    Download the ".msi" installer for Windows
+    Run and follow the instructions (Next, Next, Install)
 
-Verifique a instalacao:
+Check the installation:
   node --version
-  (Deve aparecer v18.0.0 ou superior)
+  (Must appear v18.0.0 or higher)
 
 ------------------------------------------------------------
-PASSO 3 — INSTALAR O CODEX CLI
+STEP 3 — INSTALL CODEX CLI
 ------------------------------------------------------------
 
-Com o Node.js instalado, instale o Codex CLI.
-Digite no terminal:
+With Node.js installed, install the Codex CLI.
+Type in the terminal:
 
   npm install -g @openai/codex
 
-O "-g" significa "global" — o Codex ficara disponivel em
-qualquer lugar no seu computador.
+The "-g" stands for "global" — the Codex will be available in
+anywhere on your computer.
 
-Para verificar se instalou corretamente:
+To check if you installed correctly:
 
   codex --version
 
 ------------------------------------------------------------
-PASSO 4 — OBTER A API KEY DA OPENAI
+STEP 4 — GET THE OPENAI API KEY
 ------------------------------------------------------------
 
-Para usar o Codex, voce precisa de uma conta na OpenAI e
-de uma "API key" (chave de acesso).
+To use Codex, you need an OpenAI account and
+of an "API key" (access key).
 
-1. Acesse: https://platform.openai.com
+1. Visit: https://platform.openai.com
 
-2. Crie uma conta (ou faca login se ja tiver)
+2. Create an account (or log in if you already have one)
 
-3. No menu lateral, clique em "API Keys"
-   (ou acesse diretamente: https://platform.openai.com/api-keys)
+3. In the side menu, click on "API Keys"
+   (or access directly: https://platform.openai.com/api-keys)
 
-4. Clique em "Create new secret key"
+4. Click on "Create new secret key"
 
-5. Coloque um nome para identificar (ex: "meu-computador")
+5. Enter a name to identify it (ex: "my-computer")
 
-6. Clique em "Create secret key"
+6. Click on "Create secret key"
 
-7. IMPORTANTE: Copie a chave que aparece!
-   Ela comeca com "sk-" e so aparece UMA VEZ.
-   Se fechar sem copiar, precisara criar outra.
+7. IMPORTANT: Copy the key that appears!
+   It starts with "sk-" and only appears ONCE.
+   If you close without copying, you will need to create another one.
 
-A chave se parece com isso:
+The key looks like this:
   sk-proj-AbCdEfGhIjKlMnOpQrStUvWxYz123456...
 
-AVISO: Trate sua API key como uma senha. Nunca compartilhe
-com ninguem nem coloque em lugares publicos (GitHub, etc).
+WARNING: Treat your API key like a password. Never share
+with anyone or put it in public places (GitHub, etc.).
 
-AVISO SOBRE CUSTOS: O uso da API OpenAI e pago por uso.
-Para uso casual e estudos, o custo e baixo (centavos por
-hora de uso). Voce pode definir limites de gastos em:
+COST NOTICE: Use of the OpenAI API is pay-per-use.
+For casual use and studies, the cost is low (cents per
+hour of use). You can set spending limits on:
   https://platform.openai.com/settings/organization/limits
-
 ------------------------------------------------------------
-PASSO 5 — CONFIGURAR A API KEY
+STEP 5 — CONFIGURE THE API KEY
 ------------------------------------------------------------
 
-Agora vamos dizer ao Codex qual e a sua chave.
+Now let's tell Codex what your key is.
 
-No Linux e macOS:
-  Digite no terminal (substitua sk-... pela sua chave real):
+On Linux and macOS:
+  Type in the terminal (replace sk-... with your real key):
 
   echo 'export OPENAI_API_KEY="sk-SUA_CHAVE_AQUI"' >> ~/.bashrc
   source ~/.bashrc
 
-  Se usar zsh (padrao no macOS moderno):
+  If using zsh (default on modern macOS):
 
   echo 'export OPENAI_API_KEY="sk-SUA_CHAVE_AQUI"' >> ~/.zshrc
   source ~/.zshrc
 
-No Windows (PowerShell):
+On Windows (PowerShell):
   [System.Environment]::SetEnvironmentVariable("OPENAI_API_KEY", "sk-SUA_CHAVE_AQUI", "User")
 
-Para verificar se funcionou:
+To check if it worked:
   Linux/macOS: echo $OPENAI_API_KEY
   Windows: echo %OPENAI_API_KEY%
 
-Se aparecer sua chave (ou parte dela), esta configurado!
+If your key (or part of it) appears, it is set!
 
 ------------------------------------------------------------
-PASSO 6 — RODAR OS PRIMEIROS COMANDOS
+STEP 6 — TURN THE FIRST CONTROLS
 ------------------------------------------------------------
 
-Navegue ate o diretorio do projeto:
+Navigate to the project directory:
 
   cd /home/nmaldaner/projetos/agentic/projetos/projeto-4-codex
 
-Inicie o Codex em modo interativo:
+Start Codex in interactive mode:
 
   codex
 
-O Codex vai abrir um prompt onde voce pode digitar
-perguntas e instrucoes. Tente estes exemplos:
+Codex will open a prompt where you can type
+questions and instructions. Try these examples:
 
-  "Quais arquivos existem neste projeto?"
+  "What files are in this project?"
 
-  "Explique o que e o arquivo AGENTS.md"
+  "Explain what the AGENTS.md file is"
 
-  "Que ferramentas eu preciso para trabalhar com isso?"
+  "What tools do I need to work with this?"
 
-Para sair do Codex interativo, pressione Ctrl+C.
+To exit the interactive Codex, press Ctrl+C.
 
 ------------------------------------------------------------
-EXEMPLOS DE COMANDOS UTEIS
+EXAMPLES OF USEFUL COMMANDS
 ------------------------------------------------------------
 
-Modo de revisao (so le, nao muda nada):
+Review mode (only reads, doesn't change anything):
 
-  codex --approval-mode suggest "liste os pontos de melhoria no codigo"
+  codex --approval-mode suggest "list the points for improvement in the code"
 
-Modo de edicao (pode criar/editar arquivos):
+Edit mode (can create/edit files):
 
-  codex --approval-mode auto-edit "adicione comentarios ao arquivo X"
+  codex --approval-mode auto-edit "add comments to file X"
 
-Rodar sem interacao (para automacao):
+Run without interaction (for automation):
 
-  bash scripts/run-headless.sh "sua instrucao aqui"
+  bash scripts/run-headless.sh "your instruction here"
 
-Setup automatico do ambiente:
+Automatic environment setup:
 
   bash scripts/setup.sh
 
 ------------------------------------------------------------
-O QUE FAZER SE ALGO DER ERRADO
+WHAT TO DO IF SOMETHING GOES WRONG
 ------------------------------------------------------------
 
-PROBLEMA: "command not found: codex"
-SOLUCAO: O Codex nao foi instalado ou o terminal nao foi
-         reiniciado. Tente fechar e reabrir o terminal,
-         e entao rodar: npm install -g @openai/codex
+PROBLEM: "command not found: codex"
+SOLUTION: Codex was not installed or the terminal was not
+         restarted. Try closing and reopening the terminal,
+         and then run: npm install -g @openai/codex
 
-PROBLEMA: "Error: OPENAI_API_KEY is not set"
-SOLUCAO: A API key nao esta configurada. Siga o Passo 5
-         novamente e certifique-se de rodar "source ~/.bashrc"
+PROBLEM: "Error: OPENAI_API_KEY is not set"
+SOLUTION: The API key is not configured. Follow Step 5
+         again and make sure to run "source ~/.bashrc"
 
-PROBLEMA: "Error: Insufficient quota"
-SOLUCAO: Sua conta OpenAI nao tem credito. Acesse
+PROBLEM: "Error: Insufficient quota"
+SOLUTION: Your OpenAI account has no credit. Access
          https://platform.openai.com/settings/billing
-         e adicione um metodo de pagamento.
+         and add a payment method.
 
-PROBLEMA: "Error: Rate limit exceeded"
-SOLUCAO: Voce fez muitas requisicoes rapido. Espere
-         alguns segundos e tente novamente.
+PROBLEM: "Error: Rate limit exceeded"
+SOLUTION: You made too many requests quickly. Wait
+         a few seconds and try again.
 
-PROBLEMA: "node: command not found"
-SOLUCAO: O Node.js nao esta instalado ou nao esta no PATH.
-         Repita o Passo 2.
+PROBLEM: "node: command not found"
+SOLUTION: Node.js is not installed or is not in the PATH.
+         Repeat Step 2.
 
-PROBLEMA: "Permission denied" ao instalar
-SOLUCAO: No Linux/macOS, tente:
+PROBLEM: "Permission denied" when installing
+SOLUTION: On Linux/macOS, try:
          sudo npm install -g @openai/codex
-         (vai pedir sua senha do computador)
+         (it will ask for your computer password)
 
-PROBLEMA: O Codex nao entende o projeto
-SOLUCAO: Abra o arquivo AGENTS.md e adicione mais contexto
-         sobre o seu projeto. Quanto mais detalhado, melhor.
-
-------------------------------------------------------------
-PROXIMOS PASSOS
-------------------------------------------------------------
-
-Depois de ter o Codex funcionando:
-
-1. Leia o arquivo ROTEIRO.md para um guia passo a passo
-   completo com exercicios praticos.
-
-2. Personalize o AGENTS.md para o seu proprio projeto.
-   Este arquivo da contexto ao agente sobre como seu
-   projeto funciona.
-
-3. Experimente os diferentes modos de aprovacao:
-   - suggest: so le e sugere (sem riscos)
-   - auto-edit: pode editar arquivos (revise depois)
-   - full-auto: autonomia total (use com cuidado)
-
-4. Explore o workflow do GitHub Actions em:
-   exemplos/github-actions.yml
-   para automatizar revisoes de codigo.
+PROBLEM: Codex does not understand the project
+SOLUTION: Open the AGENTS.md file and add more context
+         about your project. The more detailed, the better.
 
 ------------------------------------------------------------
-PRECISA DE AJUDA?
+NEXT STEPS
 ------------------------------------------------------------
 
-Documentacao oficial do Codex:
+Once you have the Codex working:
+
+1. Read the ROTEIRO.md file for a step-by-step guide
+   complete with practical exercises.
+
+2. Customize AGENTS.md for your own project.
+   This file gives the agent context about how its
+   project works.
+
+3. Try different approval modes:
+   - suggest: just read and suggest (without risks)
+   - auto-edit: can edit files (review later)
+   - full-auto: full autonomy (use with caution)
+
+4. Explore the GitHub Actions workflow at:
+   examples/github-actions.yml
+   to automate code reviews.
+
+------------------------------------------------------------
+NEED HELP?
+------------------------------------------------------------
+
+Official Codex documentation:
   https://github.com/openai/codex
 
-Documentacao da API OpenAI:
+OpenAI API documentation:
   https://platform.openai.com/docs
 
-Status dos servicos OpenAI (se algo nao funcionar):
+OpenAI services status (if something doesn't work):
   https://status.openai.com
 
 ------------------------------------------------------------
-  Bons estudos!
-  Projeto 4 de 8 — Curso de Desenvolvimento Agentico
-============================================================
+  Happy studying!
+  Project 4 of 8 — Agentic Development Course
+==========================================================================
