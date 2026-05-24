@@ -1,179 +1,141 @@
-# Roteiro de Estudo — Dominando o Claude Code
+# Study Guide — Mastering the Claude Code
 
-> Guia passo a passo para ir do zero ao desenvolvimento agentic avançado com o Claude Code. Cada passo tem duração estimada e exercícios práticos.
-
----
-
-## Visão Geral
-
-| Passo | Tema                              | Tempo Estimado |
-|-------|-----------------------------------|----------------|
-| 1     | Instalar e autenticar             | 10 min         |
-| 2     | Criar seu primeiro CLAUDE.md      | 30 min         |
-| 3     | Configurar permissões             | 20 min         |
-| 4     | Criar seu primeiro hook           | 15 min         |
-| 5     | Usar a skill /fix-issue           | 30 min         |
-| 6     | Criar sua própria skill           | 45 min         |
-| 7     | Configurar MCP servers            | 1h             |
-| 8     | Desafio multi-agente              | 3h             |
-| **Total** |                               | **~6h**        |
+> Step-by-step guide to go from scratch to advanced agentic development with Claude Code. Each step has an estimated duration and practical exercises.
 
 ---
 
-## Passo 1 — Instalar e autenticar o Claude Code
+## Overview
 
-**Tempo estimado: 10 minutos**
+| Step | Theme | Estimated Time |
+|-------|----------------------------------|----------------|
+| 1 | Install and authenticate | 10 min |
+| 2 | Create your first CLAUDE.md | 30 min |
+| 3 | Configure permissions | 20 min |
+| 4 | Create your first hook | 15 min |
+| 5 | Use the skill /fix-issue | 30 min |
+| 6 | Create your own skill | 45 min |
+| 7 | Configure MCP servers | 1h |
+| 8 | Multi-Agent Challenge | 3h |
+| **Total** |                               | **~6h** |
 
-### Objetivos
-- Ter o Claude Code instalado e funcionando
-- Autenticar com a Anthropic API
-- Executar seu primeiro comando
+---
 
-### Pré-requisitos
-- Node.js 18+ instalado
-- Conta na Anthropic com API key ativa
+## Step 1 — Install and authenticate Claude Code
 
-### Instruções
+**Estimated time: 10 minutes**
 
-**1.1. Instalar o Claude Code via npm:**
+### Objectives
+- Have Claude Code installed and working
+- Authenticate with the Anthropic API
+- Execute your first command
 
-```bash
+### Prerequisites
+- Node.js 18+ installed
+- Anthropic account with active API key
+
+### Instructions
+
+**1.1. Install Claude Code via npm:**```bash
 npm install -g @anthropic-ai/claude-code
-```
-
-Verificar se instalou corretamente:
-
-```bash
+```Check if it was installed correctly:```bash
 claude --version
-```
-
-**1.2. Configurar a API key:**
-
-```bash
+```**1.2. Configure the API key:**```bash
 # Exportar a variável de ambiente
 export ANTHROPIC_API_KEY="sk-ant-api..."
 
 # Para persistir entre sessões, adicione ao seu shell profile:
 echo 'export ANTHROPIC_API_KEY="sk-ant-api..."' >> ~/.bashrc
 source ~/.bashrc
-```
-
-**1.3. Iniciar o Claude Code em qualquer diretório:**
-
-```bash
+```**1.3. Start Claude Code in any directory:**```bash
 mkdir ~/meu-primeiro-projeto
 cd ~/meu-primeiro-projeto
 claude
-```
+```**1.4. Your first command:**
 
-**1.4. Seu primeiro comando:**
-
-Dentro do Claude Code, pergunte algo simples:
-```
+Inside Claude Code, ask something simple:```
 Crie um arquivo hello.py que imprime "Olá, Claude Code!" e mostre o conteúdo.
-```
-
-### Checkpoint
-- [ ] `claude --version` retorna a versão instalada
-- [ ] Claude Code abre e responde a comandos
-- [ ] Primeiro arquivo criado com sucesso
+```### Checkpoint
+- [ ]`claude --version`returns the installed version
+- [ ] Claude Code opens and responds to commands
+- [ ] First file created successfully
 
 ---
 
-## Passo 2 — Criar seu primeiro CLAUDE.md
+## Step 2 — Create your first CLAUDE.md
 
-**Tempo estimado: 30 minutos**
+**Estimated time: 30 minutes**
 
-### Objetivos
-- Entender a função e importância do CLAUDE.md
-- Criar um CLAUDE.md personalizado para um projeto real
-- Verificar que o Claude usa o contexto definido
+### Objectives
+- Understand the function and importance of CLAUDE.md
+- Create a customized CLAUDE.md for a real project
+- Check that Claude uses the defined context
 
-### O que é o CLAUDE.md
+### What is CLAUDE.md
 
-O CLAUDE.md é um arquivo Markdown na raiz do projeto que o Claude lê automaticamente ao iniciar. Ele funciona como um briefing: define o contexto, as regras e o comportamento esperado do Claude para aquele projeto específico.
+CLAUDE.md is a Markdown file in the root of the project that Claude automatically reads when starting. It works like a briefing: it defines the context, rules and behavior expected from Claude for that specific project.
 
-Sem o CLAUDE.md, o Claude trabalha "às cegas". Com ele, o Claude se comporta como um desenvolvedor experiente do seu time, conhecendo a stack, as convenções e as regras do projeto.
+Without CLAUDE.md, Claude works "blindly". With it, Claude behaves like an experienced developer on your team, knowing the stack, conventions and project rules.
 
-### Instruções
+### Instructions
 
-**2.1. Abrir um projeto real ou criar um novo:**
-
-```bash
+**2.1. Open a real project or create a new one:**```bash
 # Usando um projeto existente
 cd /caminho/do/seu/projeto
 
 # Ou criando um novo projeto de exemplo
 mkdir ~/projeto-estudo && cd ~/projeto-estudo
-```
-
-**2.2. Usar o template mínimo como ponto de partida:**
-
-```bash
+```**2.2. Use the minimal template as a starting point:**```bash
 # Copiar o template mínimo deste projeto
 cp exemplos/CLAUDE.md.minimal ~/projeto-estudo/CLAUDE.md
-```
+```**2.3. Edit CLAUDE.md to reflect YOUR project:**
 
-**2.3. Editar o CLAUDE.md para refletir SEU projeto:**
+Open the file and replace the placeholders:
+-`[Nome do Projeto]`→ real name of your project
+-`[linguagem/framework]`→ your stack (e.g. Python/FastAPI, Node/Express, Go)
+- Dev/test commands → the actual commands for your project
+- Rules of behavior → your team’s rules
 
-Abra o arquivo e substitua os placeholders:
-- `[Nome do Projeto]` → nome real do seu projeto
-- `[linguagem/framework]` → sua stack (ex: Python/FastAPI, Node/Express, Go)
-- Comandos de dev/test → os comandos reais do seu projeto
-- Regras de comportamento → as regras do seu time
+**2.4. Test whether Claude uses context:**
 
-**2.4. Testar se o Claude usa o contexto:**
-
-Inicie o Claude Code no diretório e pergunte:
-
-```
+Start Claude Code from the directory and ask:```
 Qual é a linguagem principal deste projeto e como eu rodo os testes?
-```
+```Claude should respond based on his CLAUDE.md.
 
-O Claude deve responder com base no seu CLAUDE.md.
+### Tips for an effective CLAUDE.md
 
-### Dicas para um CLAUDE.md eficaz
-
-- **Seja específico sobre comandos:** em vez de "rodar testes", escreva `pytest tests/ -v`
-- **Defina regras de negação:** "nunca fazer git push --force", "nunca deletar arquivos sem confirmar"
-- **Documente a arquitetura:** um diagrama de pastas ajuda muito
-- **Inclua exemplos de código:** show, don't tell — exemplos de como o código deve ser escrito
-- **Atualize regularmente:** o CLAUDE.md deve evoluir junto com o projeto
+- **Be specific about commands:** instead of "run tests", write`pytest tests/ -v`- **Define deny rules:** "never do git push --force", "never delete files without committing"
+- **Document the architecture:** a folder diagram helps a lot
+- **Include code examples:** show, don't tell — examples of how the code should be written
+- **Update regularly:** CLAUDE.md must evolve along with the project
 
 ### Checkpoint
-- [ ] CLAUDE.md criado com contexto real do projeto
-- [ ] Claude responde usando o contexto do CLAUDE.md
-- [ ] Claude usa os comandos corretos ao executar tarefas
+- [ ] CLAUDE.md created with real project context
+- [ ] Claude responds using the context of CLAUDE.md
+- [ ] Claude uses the correct commands when performing tasks
 
 ---
 
-## Passo 3 — Configurar permissões no settings.json
+## Step 3 — Configure permissions in settings.json
 
-**Tempo estimado: 20 minutos**
+**Estimated time: 20 minutes**
 
-### Objetivos
-- Entender o sistema de permissões do Claude Code
-- Configurar uma política de segurança para o projeto
-- Testar comportamentos de allow e deny
+### Objectives
+- Understand the Claude Code permissions system
+- Configure a security policy for the project
+- Test allow and deny behaviors
 
-### O que é o settings.json
+### What is settings.json
 
-O arquivo `.claude/settings.json` controla o que o Claude pode e não pode fazer no seu projeto. Ele define:
+The file`.claude/settings.json`controls what Claude can and cannot do in your project. It defines:
 
-- **`permissions.allow`** — comandos que o Claude executa sem pedir confirmação
-- **`permissions.deny`** — comandos que o Claude nunca executará, mesmo se solicitado
+- **`permissions.allow`** — commands that Claude executes without asking for confirmation
+- **`permissions.deny`** — commands that Claude will never execute, even if asked
 
-### Instruções
+### Instructions
 
-**3.1. Criar a estrutura .claude:**
-
-```bash
+**3.1. Create the .claude structure:**```bash
 mkdir -p .claude
-```
-
-**3.2. Criar o settings.json inicial:**
-
-```json
+```**3.2. Create the initial settings.json:**```json
 {
   "permissions": {
     "allow": [],
@@ -184,12 +146,9 @@ mkdir -p .claude
     ]
   }
 }
-```
+```**3.3. Add specific permissions to your stack:**
 
-**3.3. Adicionar permissões específicas para sua stack:**
-
-Para um projeto Python/pytest:
-```json
+For a Python/pytest project:```json
 {
   "permissions": {
     "allow": [
@@ -208,10 +167,7 @@ Para um projeto Python/pytest:
     ]
   }
 }
-```
-
-Para um projeto Node.js:
-```json
+```For a Node.js project:```json
 {
   "permissions": {
     "allow": [
@@ -221,60 +177,48 @@ Para um projeto Node.js:
     ]
   }
 }
-```
+```**3.4. Test permissions:**
 
-**3.4. Testar as permissões:**
-
-No Claude Code, tente executar um comando bloqueado:
-```
+In Claude Code, try running a blocked command:```
 Execute: rm -rf /tmp/teste
-```
+```Claude must refuse or ask for confirmation.
 
-O Claude deve recusar ou pedir confirmação.
-
-**3.5. Verificar com o script de checagem:**
-
-```bash
+**3.5. Check with the checking script:**```bash
 ./scripts/check-config.sh
-```
+```### Good security practices
 
-### Boas práticas de segurança
-
-- Use o princípio do menor privilégio: só adicione o que for necessário
-- Sempre bloqueie `rm -rf`, `sudo` e `git push --force`
-- Bloqueie comandos de banco que são destrutivos: `DROP`, `DELETE FROM` sem WHERE
-- Para projetos de produção, seja ainda mais restritivo
+- Use the principle of least privilege: only add what is necessary
+- Always block`rm -rf`, `sudo` e `git push --force`- Block bank commands that are destructive:`DROP`, `DELETE FROM`without WHERE
+- For production projects, be even more restrictive
 
 ### Checkpoint
-- [ ] `.claude/settings.json` criado com permissões configuradas
-- [ ] Claude recusa executar comandos bloqueados
-- [ ] Claude executa comandos permitidos sem pedir confirmação extra
+- [ ]`.claude/settings.json`created with configured permissions
+- [ ] Claude refuses to execute blocked commands
+- [ ] Claude executes allowed commands without asking for extra confirmation
 
 ---
 
-## Passo 4 — Criar seu primeiro hook
+## Step 4 — Create your first hook
 
-**Tempo estimado: 15 minutos**
+**Estimated time: 15 minutes**
 
-### Objetivos
-- Entender o sistema de hooks do Claude Code
-- Criar um hook PreToolUse e um PostToolUse
-- Ver hooks sendo executados em tempo real
+### Objectives
+- Understand Claude Code's hook system
+- Create a PreToolUse hook and a PostToolUse hook
+- See hooks being executed in real time
 
-### O que são hooks
+### What are hooks
 
-Hooks são scripts executados automaticamente em pontos específicos do ciclo de vida do Claude Code:
+Hooks are scripts that run automatically at specific points in the Claude Code lifecycle:
 
-- **`PreToolUse`** — executado ANTES de qualquer ferramenta (Bash, Edit, Write, Read, etc.)
-- **`PostToolUse`** — executado DEPOIS de qualquer ferramenta
+- **`PreToolUse`** — executed BEFORE any tool (Bash, Edit, Write, Read, etc.)
+- **`PostToolUse`** — run AFTER any tool
 
-Os hooks recebem informações sobre a ferramenta sendo usada via stdin como JSON.
+Hooks receive information about the tool being used via stdin as JSON.
 
-### Instruções
+### Instructions
 
-**4.1. Adicionar hooks ao settings.json:**
-
-```json
+**4.1. Add hooks to settings.json:**```json
 {
   "permissions": { ... },
   "hooks": {
@@ -302,11 +246,7 @@ Os hooks recebem informações sobre a ferramenta sendo usada via stdin como JSO
     ]
   }
 }
-```
-
-**4.2. Hook prático: rodar lint após editar arquivos Python:**
-
-```json
+```**4.2. Practical hook: run lint after editing Python files:**```json
 {
   "hooks": {
     "PostToolUse": [
@@ -322,20 +262,13 @@ Os hooks recebem informações sobre a ferramenta sendo usada via stdin como JSO
     ]
   }
 }
-```
+```**4.3. Test the hook:**
 
-**4.3. Testar o hook:**
-
-No Claude Code, peça para editar um arquivo:
-```
+In Claude Code, ask to edit a file:```
 Crie um arquivo teste.py com uma função simples
-```
+```Observe the hook output in the terminal.
 
-Observe o output do hook no terminal.
-
-**4.4. Hook para log de auditoria:**
-
-```json
+**4.4. Hook for audit log:**```json
 {
   "hooks": {
     "PreToolUse": [
@@ -351,119 +284,94 @@ Observe o output do hook no terminal.
     ]
   }
 }
-```
-
-### Checkpoint
-- [ ] Hook PreToolUse criado e funcionando
-- [ ] Hook PostToolUse criado e funcionando
-- [ ] Logs do hook aparecem no terminal
+```### Checkpoint
+- [ ] Hook PreToolUse created and working
+- [ ] Hook PostToolUse created and working
+- [ ] Hook logs appear in the terminal
 
 ---
 
-## Passo 5 — Usar a skill /fix-issue com uma issue real do GitHub
+## Step 5 — Use the /fix-issue skill with a real GitHub issue
 
-**Tempo estimado: 30 minutos**
+**Estimated time: 30 minutes**
 
-### Objetivos
-- Usar a skill fix-issue em um repositório real
-- Observar o Claude executando um fluxo agentic completo
-- Aprender com o comportamento do Claude durante a execução
+### Objectives
+- Use the fix-issue skill in a real repository
+- Observe Claude executing a complete agentic flow
+- Learn from Claude's behavior during execution
 
-### Pré-requisitos
-- GitHub CLI (`gh`) instalado e autenticado: `gh auth login`
-- Ter um repositório com pelo menos uma issue aberta
-- Estar no diretório do repositório
+### Prerequisites
+- GitHub CLI (`gh`) installed and authenticated:`gh auth login`- Have a repository with at least one open issue
+- Be in the repository directory
 
-### Instruções
+### Instructions
 
-**5.1. Verificar autenticação do GitHub CLI:**
-
-```bash
+**5.1. Verify GitHub CLI authentication:**```bash
 gh auth status
 gh repo view  # deve mostrar informações do repositório atual
-```
-
-**5.2. Listar issues abertas no repositório:**
-
-```bash
+```**5.2. List open issues in the repository:**```bash
 gh issue list
-```
+```Choose a simple issue to start with — misbehaving bugs or one-off improvements work better than major refactorings.
 
-Escolha uma issue simples para começar — bugs de comportamento incorreto ou melhorias pontuais funcionam melhor do que refatorações grandes.
+**5.3. Execute the skill:**
 
-**5.3. Executar a skill:**
-
-No Claude Code:
-```
+From Claude Code:```
 /fix-issue <numero-da-issue>
-```
+```**5.4. Observe the execution flow:**
 
-**5.4. Observar o fluxo de execução:**
+Pay attention to each step Claude takes:
+1. Search for the issue with`gh issue view`2. Analyze the code with Grep and Read
+3. Create a branch with correct naming
+4. Implement the fix
+5. Run the tests
+6. Commit with reference to the issue
 
-Preste atenção em cada passo que o Claude executa:
-1. Busca a issue com `gh issue view`
-2. Analisa o código com Grep e Read
-3. Cria uma branch com nomenclatura correta
-4. Implementa a correção
-5. Roda os testes
-6. Commita com referência à issue
-
-**5.5. Após a execução, verificar o resultado:**
-
-```bash
+**5.5. After execution, check the result:**```bash
 git log --oneline -5  # ver o commit criado
 git diff main...HEAD  # ver as mudanças
 pytest                # confirmar que os testes passam
-```
+```### What to observe and learn
 
-### O que observar e aprender
-
-- Como o Claude decide quais arquivos são relevantes para a issue
-- Como ele lida com ambiguidade quando a issue não está clara
-- Como ele estrutura as mensagens de commit
-- Como ele trata falhas nos testes
+- How Claude decides which files are relevant to the issue
+- How it handles ambiguity when the issue is unclear
+- How it structures commit messages
+- How it handles test failures
 
 ### Checkpoint
-- [ ] Skill /fix-issue executada com sucesso
-- [ ] Branch criada com nomenclatura correta
-- [ ] Commit feito com referência à issue
-- [ ] Testes passando após o fix
+- [ ] Skill /fix-issue executed successfully
+- [ ] Branch created with correct nomenclature
+- [ ] Commit made with reference to the issue
+- [ ] Tests passing after fix
 
 ---
 
-## Passo 6 — Criar sua própria skill customizada
+## Step 6 — Create your own custom skill
 
-**Tempo estimado: 45 minutos**
+**Estimated time: 45 minutes**
 
-### Objetivos
-- Entender a anatomia de uma skill
-- Criar uma skill do zero para um fluxo que você usa frequentemente
-- Testar e refinar a skill
+### Objectives
+- Understand the anatomy of a skill
+- Create a skill from scratch for a flow you use frequently
+- Test and refine the skill
 
-### Idéias de skills para criar
+### Skill ideas to create
 
-Escolha uma que faça sentido para seu projeto:
+Choose one that makes sense for your project:
 
-- `/deploy` — automatizar o deploy para staging
-- `/changelog` — gerar CHANGELOG.md a partir dos commits
-- `/migrate` — criar e aplicar migrations de banco de dados
-- `/seed` — popular o banco com dados de teste
-- `/perf-test` — rodar testes de performance e gerar relatório
-- `/doc-api` — gerar documentação dos endpoints a partir do código
-- `/security-scan` — verificar vulnerabilidades no código
+-`/deploy`— automate deployment for staging
+-`/changelog`— generate CHANGELOG.md from commits
+-`/migrate`— create and apply database migrations
+-`/seed`— populate the database with test data
+-`/perf-test`— run performance tests and generate reports
+-`/doc-api`— generate endpoint documentation from code
+-`/security-scan`— check for vulnerabilities in the code
 
-### Instruções
+### Instructions
 
-**6.1. Criar a estrutura da skill:**
-
-```bash
+**6.1. Create the skill structure:**```bash
 mkdir -p .claude/skills/minha-skill
 touch .claude/skills/minha-skill/SKILL.md
-```
-
-**6.2. Estrutura mínima do SKILL.md:**
-
-```markdown
+```**6.2. Minimum structure of SKILL.md:**```markdown
 # Skill: minha-skill
 
 ## Descrição
@@ -488,72 +396,57 @@ touch .claude/skills/minha-skill/SKILL.md
 
 ## Saída Esperada
 [O que o Claude deve apresentar ao final]
-```
+```**6.3. Tips for writing a good skill:**
 
-**6.3. Dicas para escrever uma boa skill:**
+- **Be prescriptive:** use imperative language. "Claude MUST do X before Y"
+- **Define the sequence:** number the steps and be explicit about the order
+- **Anticipate errors:** include a "Behavior in Special Cases" section
+- **Define output:** specify exactly what the user should see at the end
+- **Test iteratively:** execute the skill, observe where it deviates from expectations, refine
 
-- **Seja prescritivo:** use linguagem imperativa. "O Claude DEVE fazer X antes de Y"
-- **Defina a sequência:** numere os passos e seja explícito sobre a ordem
-- **Antecipe erros:** inclua uma seção "Comportamento em Casos Especiais"
-- **Defina a saída:** especifique exatamente o que o usuário deve ver ao final
-- **Teste iterativamente:** execute a skill, observe onde ela desvia do esperado, refine
-
-**6.4. Testar a skill:**
-
-```
+**6.4. Test the skill:**```
 /minha-skill
-```
+```Observe the behavior, identify where Claude deviated from the instructions, refine SKILL.md and test again.
 
-Observe o comportamento, identifique onde o Claude desviou das instruções, refine o SKILL.md e teste novamente.
-
-**6.5. Versionamento da skill:**
-
-```bash
+**6.5. Skill versioning:**```bash
 git add .claude/skills/minha-skill/SKILL.md
 git commit -m "Adiciona skill /minha-skill para [descricao]"
-```
-
-### Checkpoint
-- [ ] SKILL.md criado com estrutura completa
-- [ ] Skill executada pelo menos uma vez
-- [ ] Pelo menos uma iteração de refinamento feita
-- [ ] Skill commitada no repositório
+```### Checkpoint
+- [ ] SKILL.md created with complete structure
+- [ ] Skill performed at least once
+- [ ] At least one refinement iteration done
+- [ ] Skill committed to the repository
 
 ---
 
-## Passo 7 — Configurar MCP servers
+## Step 7 — Configure MCP servers
 
-**Tempo estimado: 1 hora**
+**Estimated time: 1 hour**
 
-### Objetivos
-- Entender o Model Context Protocol (MCP)
-- Configurar pelo menos 2 MCP servers
-- Usar ferramentas MCP dentro do Claude Code
+### Objectives
+- Understand the Model Context Protocol (MCP)
+- Configure at least 2 MCP servers
+- Use MCP tools within Claude Code
 
-### O que é MCP
+### What is MCP
 
-O Model Context Protocol (MCP) é um protocolo padronizado que permite ao Claude se conectar a ferramentas e fontes de dados externas. Com MCP servers, o Claude pode:
+The Model Context Protocol (MCP) is a standardized protocol that allows Claude to connect to external tools and data sources. With MCP servers, Claude can:
 
-- Ler e escrever arquivos (filesystem)
-- Interagir com o GitHub diretamente
-- Consultar bancos de dados
-- Buscar na web
-- Acessar APIs específicas do seu domínio
+- Read and write files (filesystem)
+- Interact with GitHub directly
+- Consult databases
+- Search the web
+- Access APIs specific to your domain
 
-### Instruções
+### Instructions
 
-**7.1. Entender a estrutura do mcp-config.json:**
+**7.1. Understand the structure of mcp-config.json:**
 
-Consulte o arquivo de exemplo:
-```bash
+See the example file:```bash
 cat exemplos/mcp-config.json
-```
+```**7.2. Configure the filesystem MCP server:**
 
-**7.2. Configurar o MCP server do filesystem:**
-
-O mais simples para começar — permite ao Claude trabalhar com arquivos de forma mais direta:
-
-```json
+The simplest to start with — allows Claude to work with files more directly:```json
 {
   "mcpServers": {
     "filesystem": {
@@ -566,159 +459,135 @@ O mais simples para começar — permite ao Claude trabalhar com arquivos de for
     }
   }
 }
-```
-
-Salvar em `.claude/mcp-config.json` e iniciar com:
-```bash
+```Save to`.claude/mcp-config.json`and start with:```bash
 claude --mcp-config .claude/mcp-config.json
-```
+```**7.3. Configure the GitHub MCP server:**
 
-**7.3. Configurar o MCP server do GitHub:**
-
-Requer um Personal Access Token do GitHub:
-
-```bash
+Requires a GitHub Personal Access Token:```bash
 # Gerar token em: https://github.com/settings/tokens
 # Permissões necessárias: repo, read:user
 export GITHUB_TOKEN="ghp_..."
-```
+```Add to mcp-config.json (see`exemplos/mcp-config.json`for full format).
 
-Adicionar ao mcp-config.json (veja `exemplos/mcp-config.json` para o formato completo).
+**7.4. Test MCP servers:**
 
-**7.4. Testar os MCP servers:**
-
-No Claude Code com MCP habilitado:
-```
+In Claude Code with MCP enabled:```
 Liste os 5 arquivos mais recentemente modificados neste projeto
 ```
 
 ```
 Busque as últimas 3 issues abertas no repositório atual
-```
+```**7.5. Explore other available MCP servers:**
 
-**7.5. Explorar outros MCP servers disponíveis:**
+-`@modelcontextprotocol/server-postgres`— access to PostgreSQL database
+-`@modelcontextprotocol/server-sqlite`— access to SQLite database
+-`@modelcontextprotocol/server-brave-search`— web search via Brave
+-`@modelcontextprotocol/server-puppeteer`— browser automation
 
-- `@modelcontextprotocol/server-postgres` — acesso a banco PostgreSQL
-- `@modelcontextprotocol/server-sqlite` — acesso a banco SQLite
-- `@modelcontextprotocol/server-brave-search` — busca na web via Brave
-- `@modelcontextprotocol/server-puppeteer` — automação de browser
-
-Instalar e testar pelo menos mais um server além do filesystem.
+Install and test at least one more server in addition to the filesystem.
 
 ### Checkpoint
-- [ ] mcp-config.json configurado com pelo menos 2 servers
-- [ ] MCP filesystem funcionando
-- [ ] MCP GitHub funcionando
-- [ ] Claude consegue usar ferramentas MCP em uma tarefa real
+- [ ] mcp-config.json configured with at least 2 servers
+- [ ] MCP filesystem working
+- [ ] MCP GitHub working
+- [ ] Claude can use MCP tools in a real task
 
 ---
 
-## Passo 8 — Desafio: criar um sistema multi-agente com subagentes
+## Step 8 — Challenge: create a multi-agent system with sub-agents
 
-**Tempo estimado: 3 horas**
+**Estimated time: 3 hours**
 
-### Objetivos
-- Entender o conceito de orquestração de agentes
-- Criar um agente orquestrador que delega tarefas para subagentes
-- Implementar um fluxo de trabalho agentic completo e útil
+### Objectives
+- Understand the concept of agent orchestration
+- Create an orchestrator agent that delegates tasks to subagents
+- Implement a complete and useful agentic workflow
 
-### O conceito de multi-agente
+### The concept of multi-agent
 
-No Claude Code, você pode criar workflows onde:
-- Um **agente orquestrador** recebe uma tarefa grande e a divide
-- **Subagentes** executam partes específicas de forma paralela ou sequencial
-- O orquestrador consolida os resultados
+In Claude Code, you can create workflows where:
+- An **orchestrator agent** receives a large task and divides it
+- **Subagents** execute specific parts in parallel or sequentially
+- The orchestrator consolidates the results
 
-### Desafio proposto
+### Challenge proposed
 
-Criar um sistema de **revisão automatizada de código** que funciona assim:
+Create an **automated code review** system that works like this:
 
-1. Recebe um PR ou um conjunto de arquivos modificados
-2. O orquestrador divide o trabalho em 3 análises paralelas:
-   - Subagente de Segurança: verifica vulnerabilidades
-   - Subagente de Qualidade: verifica complexidade, duplicação, legibilidade
-   - Subagente de Testes: verifica cobertura e qualidade dos testes
-3. O orquestrador consolida as análises em um relatório único
+1. Receives a PR or a set of modified files
+2. The orchestrator divides the work into 3 parallel analyses:
+   - Security Sub-Agent: checks for vulnerabilities
+   - Quality Subagent: checks complexity, duplication, readability
+   - Testing Sub-Agent: checks test coverage and quality
+3. Orchestrator consolidates analytics into a single report
 
-### Instruções
+### Instructions
 
-**8.1. Criar a skill do orquestrador:**
-
-```bash
+**8.1. Create the orchestrator skill:**```bash
 mkdir -p .claude/skills/code-audit
-```
+```The Orchestrator SKILL.md must define:
+- How to receive the list of files to be analyzed
+- How to delegate each analysis to a sub-agent (using the tool`Task`or multiple calls)
+- How to consolidate results
+- The format of the final report
 
-O SKILL.md do orquestrador deve definir:
-- Como receber a lista de arquivos a analisar
-- Como delegar cada análise para um subagente (usando a ferramenta `Task` ou múltiplas chamadas)
-- Como consolidar os resultados
-- O formato do relatório final
-
-**8.2. Criar as skills dos subagentes:**
-
-```bash
+**8.2. Create sub-agents skills:**```bash
 mkdir -p .claude/skills/audit-security
 mkdir -p .claude/skills/audit-quality
 mkdir -p .claude/skills/audit-tests
-```
+```Each sub-agent must have a SKILL.md focused on their specific responsibility.
 
-Cada subagente deve ter um SKILL.md focado em sua responsabilidade específica.
+**8.3. Implement and test:**
 
-**8.3. Implementar e testar:**
-
-Comece pequeno: faça o orquestrador chamar apenas um subagente, depois adicione os outros.
-
-```
+Start small: have the orchestrator call just one subagent, then add the others.```
 /code-audit app/services/task_service.py
-```
+```**8.4. Refine the system:**
 
-**8.4. Refinar o sistema:**
+After the first test:
+- Identify where subagents produced inconsistent results
+- Refine the prompts in each subagent's SKILL.md
+- Add validation in orchestrator
+- Test with more complex files
 
-Após o primeiro teste:
-- Identifique onde os subagentes produziram resultados inconsistentes
-- Refine os prompts nos SKILL.md de cada subagente
-- Adicione validação no orquestrador
-- Teste com arquivos mais complexos
+**8.5. Document the system:**
 
-**8.5. Documentar o sistema:**
+Create one`SKILL.md`in the skill root directory describing:
+- The architecture of the multi-agent system
+- How subagents communicate
+- How to add new subagents
+- Known limitations
 
-Crie um `SKILL.md` no diretório raiz da skill descrevendo:
-- A arquitetura do sistema multi-agente
-- Como os subagentes se comunicam
-- Como adicionar novos subagentes
-- Limitações conhecidas
+### Challenge variations
 
-### Variações do desafio
+If the main challenge is too easy, try one of these variations:
 
-Se o desafio principal for muito fácil, tente uma dessas variações:
+**Variation A:** Intelligent deployment system that analyzes changes, decides which environment to test first, runs the tests and only promotes to production if everything passes.
 
-**Variação A:** Sistema de deploy inteligente que analisa as mudanças, decide qual ambiente testar primeiro, executa os testes e só promove para produção se tudo passar.
+**Variation B:** Refactoring agent that analyzes the code, creates a refactoring plan, runs it in stages with tests between each stage and generates the PR automatically.
 
-**Variação B:** Agente de refatoração que analisa o código, cria um plano de refatoração, executa em etapas com testes entre cada etapa e gera o PR automaticamente.
-
-**Variação C:** Pipeline de dados agentic que lê dados de múltiplas fontes, transforma, valida a qualidade dos dados e carrega no destino — com tratamento de erros e retry automático.
+**Variation C:** Agentic data pipeline that reads data from multiple sources, transforms, validates data quality, and loads it to the destination — with error handling and automatic retry.
 
 ### Checkpoint
-- [ ] Sistema multi-agente funcional com pelo menos 2 subagentes
-- [ ] Orquestrador consolidando resultados corretamente
-- [ ] Pelo menos uma tarefa real executada com o sistema
-- [ ] Documentação do sistema criada
+- [ ] Functional multi-agent system with at least 2 sub-agents
+- [ ] Orchestrator consolidating results correctly
+- [ ] At least one real task performed with the system
+- [ ] System documentation created
 
 ---
 
-## Recursos adicionais para continuar aprendendo
+## Additional resources to keep learning
 
-### Documentação oficial
-- [Claude Code Docs](https://docs.anthropic.com/claude-code) — documentação completa
-- [MCP Specification](https://modelcontextprotocol.io) — especificação do protocolo
-- [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) — exemplos práticos
+### Official documentation
+- [Claude Code Docs](https://docs.anthropic.com/claude-code) — complete documentation
+- [MCP Specification](https://modelcontextprotocol.io) — protocol specification
+- [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) — practical examples
 
-### Comunidade
-- [Anthropic Discord](https://discord.gg/anthropic) — comunidade de desenvolvedores
-- [Claude Code GitHub](https://github.com/anthropics/claude-code) — issues e discussões
+### Community
+- [Anthropic Discord](https://discord.gg/anthropic) — developer community
+- [Claude Code GitHub](https://github.com/anthropics/claude-code) — issues and discussions
 
-### Próximos desafios sugeridos
-1. Integrar Claude Code ao seu pipeline de CI/CD
-2. Criar um agente de monitoramento que analisa logs e cria issues automaticamente
-3. Implementar um sistema de documentação automática que mantém o README atualizado
-4. Criar um agente de migração de banco de dados que verifica compatibilidade antes de aplicar
+### Suggested next challenges
+1. Integrate Claude Code into your CI/CD pipeline
+2. Create a monitoring agent that analyzes logs and automatically creates issues
+3. Implement an automatic documentation system that keeps the README up to date
+4. Create a database migration agent that checks compatibility before applying
