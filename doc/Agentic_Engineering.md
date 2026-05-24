@@ -1,105 +1,105 @@
 # 🤖 Agentic Engineering
 
-## O que é Agentic Engineering
+## What is Agentic Engineering
 
-Agentic Engineering é a prática de projetar e construir sistemas onde
-agentes de IA atuam de forma semi-autônoma, tomando decisões, executando
-tarefas em etapas e interagindo com ferramentas para atingir um
-objetivo.
+Agentic Engineering is the practice of designing and building systems where
+AI agents act semi-autonomously, making decisions, executing
+tasks in stages and interacting with tools to achieve a
+objective.
 
-Em vez de apenas responder perguntas, o agente:
+Instead of just answering questions, the agent:
 
-1.  Recebe um objetivo\
-2.  Planeja passos\
-3.  Executa ações\
-4.  Avalia resultados\
-5.  Ajusta a estratégia\
-6.  Entrega o resultado final
+1. Receive a goal\
+2. Plan steps\
+3. Perform actions\
+4. Evaluate results\
+5. Adjust the strategy\
+6. Deliver the end result
 
 ------------------------------------------------------------------------
 
-## 🧠 Diferença Simples
+## 🧠 Simple Difference
 
-  Modelo Tradicional         Agentic Engineering
+  Traditional Agentic Engineering Model
   -------------------------- -----------------------
-  IA responde uma pergunta   IA executa uma missão
-  Interação pontual          Processo contínuo
-  Sem memória longa          Pode manter contexto
-  Sem autonomia              Autonomia controlada
+  AI answers a question AI performs a mission
+  Punctual interaction Continuous process
+  No long memory Can maintain context
+  No autonomy Controlled autonomy
 
 ------------------------------------------------------------------------
 
-## 🔧 Componentes Principais
+## 🔧 Main Components
 
-Um sistema agentic normalmente tem:
+An agentic system typically has:
 
--   LLM (modelo de linguagem) → cérebro do agente\
--   Memória → guarda contexto e histórico\
--   Ferramentas (tools) → APIs, banco de dados, navegador, código\
--   Planejamento → quebra tarefas em etapas\
--   Loop de execução → pensar → agir → avaliar
-
-------------------------------------------------------------------------
-
-## 🚀 Exemplo Prático
-
-### Sem Agentic
-
-Você pede:\
-"Crie um site simples de vendas."
-
-A IA gera código e finaliza.
-
-### Com Agentic
-
-Você pede:\
-"Crie e publique um site de vendas."
-
-O agente pode:
-
-1.  Planejar estrutura do site\
-2.  Gerar código\
-3.  Criar banco de dados\
-4.  Configurar deploy\
-5.  Testar automaticamente\
-6.  Corrigir erros\
-7.  Publicar
+- LLM (language model) → agent brain\
+- Memory → stores context and history\
+- Tools → APIs, database, browser, code\
+- Planning → breaks tasks into steps\
+- Execution → think → act → evaluate loop
 
 ------------------------------------------------------------------------
 
-## 📌 Onde é usado em 2026
+## 🚀 Practical Example
 
--   Desenvolvimento de software automatizado\
--   Automação empresarial\
--   Atendimento inteligente\
--   Agentes que operam sistemas internos\
--   Criação automática de relatórios\
--   Times híbridos humano + IA
+### No Agentic
 
-------------------------------------------------------------------------
+You ask:\
+"Create a simple sales website."
 
-## 🏗 Relação com Vibe Coding
+AI generates code and finishes it.
 
--   Vibe Coding → você conversa e a IA gera código\
--   Agentic Engineering → você define objetivo e o agente executa um
-    processo completo
+### With Agentic
 
-Podemos dizer que Agentic Engineering é o nível avançado do vibe coding.
+You ask:\
+"Create and publish a sales website."
 
-------------------------------------------------------------------------
+The agent can:
 
-## 🎯 Para Leigo
-
-É como ter um assistente digital que não só responde, mas executa
-tarefas completas sozinho.
+1. Plan site structure\
+2. Generate code\
+3. Create database\
+4. Configure deploy\
+5. Test automatically\
+6. Fix errors\
+7. Publish
 
 ------------------------------------------------------------------------
 
-## 💼 Para Executivo
+## 📌 Where is it used in 2026
 
-Base estratégica para:
+- Automated software development\
+- Business automation\
+- Smart service\
+- Agents operating internal systems\
+- Automatic creation of reports\
+- Human + AI hybrid teams
 
--   Reduzir custo operacional\
--   Aumentar produtividade\
--   Automatizar fluxos complexos\
--   Criar vantagem competitiva com IA
+------------------------------------------------------------------------
+
+## 🏗 Relationship with Vibe Coding
+
+- Vibe Coding → you chat and the AI generates code\
+- Agentic Engineering → you define an objective and the agent executes a
+    complete process
+
+We can say that Agentic Engineering is the advanced level of vibe coding.
+
+------------------------------------------------------------------------
+
+## 🎯 For Dummies
+
+It's like having a digital assistant that not only responds, but executes
+Complete tasks alone.
+
+------------------------------------------------------------------------
+
+## 💼 For Executive
+
+Strategic basis for:
+
+- Reduce operational costs\
+- Increase productivity\
+- Automate complex flows\
+- Create competitive advantage with AI
