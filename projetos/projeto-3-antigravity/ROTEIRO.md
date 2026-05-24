@@ -1,14 +1,12 @@
-# ROTEIRO — Dominando o Antigravity
+# SCRIPT — Mastering Antigravity
 
-Guia passo a passo para configurar e usar o Antigravity em um projeto real de desenvolvimento agentic.
+Step-by-step guide to configuring and using Antigravity in a real agentic development project.
 
-**Tempo total estimado:** ~5h30min (em um unico dia ou dividido em sessoes)
+**Estimated total time:** ~5h30min (in a single day or divided into sessions)
 
 ---
 
-## Visao geral do roteiro
-
-```
+## Overview of the itinerary```
 Passo 1 → Acesso e instalacao          (15 min)
 Passo 2 → Workspace e configuracao     (10 min)
 Passo 3 → CONTEXT.md personalizado     (30 min)
@@ -16,31 +14,27 @@ Passo 4 → Servidores MCP               (20 min)
 Passo 5 → Primeiro workflow            (30 min)
 Passo 6 → Integracao Google Cloud      (1h)
 Passo 7 → Desafio Plan→Execute→Verify  (3h)
-```
+```---
 
----
+## Step 1 — Request beta access and install Antigravity
 
-## Passo 1 — Solicitar acesso beta e instalar o Antigravity
+**Estimated time: 15 minutes**
 
-**Tempo estimado: 15 minutos**
+### What is this step
 
-### O que e este passo
+Antigravity is still in closed beta. You will need to request access before you begin. While waiting for approval (it can take hours to days), prepare your environment.
 
-O Antigravity ainda esta em beta fechado. Voce precisara solicitar acesso antes de comecar. Enquanto aguarda a aprovacao (pode levar de horas a dias), prepare seu ambiente.
+### How to request access
 
-### Como solicitar acesso
+1. Visit [g.co/antigravity](https://g.co/antigravity) with your Google account
+2. Click on **"Request Access"** and fill out the form:
+   - Briefly describe how you intend to use Antigravity
+   - Mention previous experience with Claude Code, GitHub Copilot or similar tools — this increases the chances of quick approval
+3. You will receive a confirmation email in your Gmail when access is granted
 
-1. Acesse [g.co/antigravity](https://g.co/antigravity) com sua conta Google
-2. Clique em **"Request Access"** e preencha o formulario:
-   - Descreva brevemente como voce pretende usar o Antigravity
-   - Mencione experiencia anterior com Claude Code, GitHub Copilot ou ferramentas similares — isso aumenta as chances de aprovacao rapida
-3. Voce receberao email de confirmacao em seu Gmail quando o acesso for liberado
+### Prepare the environment while waiting
 
-### Preparar o ambiente enquanto aguarda
-
-Mesmo sem o Antigravity, instale as dependencias necessarias:
-
-```bash
+Even without Antigravity, install the necessary dependencies:```bash
 # Verificar versao do Node.js (precisa ser 20+)
 node --version
 
@@ -53,65 +47,58 @@ git --version
 # Instalar os servidores MCP (pode fazer agora)
 npm install -g @modelcontextprotocol/server-filesystem
 npm install -g @modelcontextprotocol/server-github
-```
+```### Install Antigravity (after receiving access)
 
-### Instalar o Antigravity (apos receber acesso)
+1. Open the approval email and click on the download link
+2. Download the installer for your operating system (Linux, macOS or Windows)
+3. Run the installer and follow the on-screen instructions
+4. On first run, authenticate with your Google account when prompted
 
-1. Abra o email de aprovacao e clique no link de download
-2. Baixe o instalador para o seu sistema operacional (Linux, macOS ou Windows)
-3. Execute o instalador e siga as instrucoes na tela
-4. Na primeira execucao, autentique com sua conta Google quando solicitado
+### Expected result
 
-### Resultado esperado
-
-- Acesso solicitado (ou concedido) ao Antigravity beta
-- Node.js 20+ instalado
-- Git configurado
-- Antigravity instalado e autenticado com conta Google
+- Requested (or granted) access to Antigravity beta
+- Node.js 20+ installed
+- Git configured
+- Antigravity installed and authenticated with Google account
 
 ---
 
-## Passo 2 — Criar workspace e importar workspace.json
+## Step 2 — Create workspace and import workspace.json
 
-**Tempo estimado: 10 minutos**
+**Estimated time: 10 minutes**
 
-### O que e este passo
+### What is this step
 
-O `workspace.json` e o arquivo de configuracao que diz ao Antigravity qual modelo usar, quais ferramentas ativar e quais workflows estao disponiveis. Voce vai importa-lo e criar seu primeiro workspace configurado.
+O`workspace.json`It's the configuration file that tells Antigravity which model to use, which tools to activate, and which workflows are available. You will import it and create your first configured workspace.
 
-### Criar um novo projeto
+### Create a new project
 
-1. Abra o Antigravity
-2. Clique em **File > New Project** (ou use `Ctrl+Shift+N`)
-3. Escolha um diretorio para o projeto — pode ser uma pasta existente com codigo ou uma pasta nova
-4. O Antigravity abrira o workspace vazio
+1. Open Antigravity
+2. Click **File > New Project** (or use`Ctrl+Shift+N`)
+3. Choose a directory for the project — it can be an existing folder with code or a new folder
+4. Antigravity will open the empty workspace
 
-### Importar o workspace.json
+### Import workspace.json
 
-**Opcao A — Importar pela interface:**
-1. Clique em **File > Import Workspace Configuration**
-2. Navegue ate o arquivo `workspace.json` deste projeto e selecione-o
-3. O Antigravity carregara todas as configuracoes automaticamente
+**Option A — Import through the interface:**
+1. Click **File > Import Workspace Configuration**
+2. Browse to the file`workspace.json`of this project and select it
+3. Antigravity will load all settings automatically
 
-**Opcao B — Copiar diretamente:**
-1. Copie o arquivo `workspace.json` para a raiz do seu projeto
-2. O Antigravity detecta e carrega automaticamente ao abrir a pasta
+**Option B — Copy directly:**
+1. Copy the file`workspace.json`to the root of your project
+2. Antigravity automatically detects and loads when opening the folder
 
-### Verificar a configuracao carregada
+### Check the loaded configuration
 
-No painel de configuracoes do Antigravity (icone de engrenagem), voce deve ver:
+In the Antigravity settings panel (gear icon), you should see:
 
-- **Modelo:** `gemini-2.0-flash-exp`
-- **Temperatura:** `0.2`
-- **Ferramentas ativas:** Filesystem MCP, GitHub MCP, Browser, Terminal
-- **Workflows disponibles:** `feature`, `bugfix`
-- **Permissoes:** file_write: ask, network: ask, shell_execute: ask
+- **Model:**`gemini-2.0-flash-exp`- **Temperature:**`0.2`- **Active tools:** Filesystem MCP, GitHub MCP, Browser, Terminal
+- **Available workflows:**`feature`, `bugfix`- **Permissions:** file_write: ask, network: ask, shell_execute: ask
 
-### Personalizacoes iniciais (opcional)
+### Initial customizations (optional)
 
-Edite o `workspace.json` para ajustar ao seu projeto:
-
-```json
+Edit the`workspace.json`to adjust to your project:```json
 {
   "name": "nome-do-seu-projeto",    // Altere para o nome real
   "agent": {
@@ -119,39 +106,31 @@ Edite o `workspace.json` para ajustar ao seu projeto:
     "max_iterations": 10            // Reduza para projetos simples
   }
 }
-```
+```### Expected result
 
-### Resultado esperado
-
-- Workspace criado no Antigravity
-- `workspace.json` importado com sucesso
-- Configuracoes visiveis no painel do Antigravity
+- Workspace created in Antigravity
+-`workspace.json`successfully imported
+- Settings visible in the Antigravity panel
 
 ---
 
-## Passo 3 — Configurar seu CONTEXT.md
+## Step 3 — Configure your CONTEXT.md
 
-**Tempo estimado: 30 minutos**
+**Estimated time: 30 minutes**
 
-### O que e este passo
+### What is this step
 
-O `CONTEXT.md` e o arquivo mais importante para o desenvolvimento agentic. Ele da ao agente Gemini o contexto necessario para tomar decisoes corretas sobre o SEU projeto especifico. Sem um bom CONTEXT.md, o agente vai gerar codigo generico que pode nao se encaixar no seu projeto.
+O`CONTEXT.md`and the most important file for agentic development. It gives the Gemini agent the context needed to make the right decisions about YOUR specific project. Without a good CONTEXT.md, the agent will generate generic code that may not fit into your project.
 
-### Usar o template do projeto
+### Use the project template
 
-Copie o `CONTEXT.md` deste projeto para a raiz do seu projeto:
-
-```bash
+Copy the`CONTEXT.md`from this project to the root of your project:```bash
 cp /caminho/para/projeto-3-antigravity/CONTEXT.md /caminho/para/seu-projeto/CONTEXT.md
-```
+```### Edit section by section
 
-### Editar secao por secao
+Open the`CONTEXT.md`in the editor and customize each section:
 
-Abra o `CONTEXT.md` no editor e personalize cada secao:
-
-#### Secao 1 — Identidade do Projeto (5 min)
-
-```markdown
+#### Section 1 — Project Identity (5 min)```markdown
 ## Identidade do Projeto
 
 **Nome:** nome-real-do-seu-projeto
@@ -160,15 +139,11 @@ Abra o `CONTEXT.md` no editor e personalize cada secao:
 **Repositorio:** https://github.com/seu-usuario/seu-repositorio
 **Ambiente:** Antigravity (Google Agent-First IDE)
 **Modelo primario:** gemini-2.0-flash-exp
-```
+```#### Section 2 — Technological Stack (10 min)
 
-#### Secao 2 — Stack Tecnologica (10 min)
+Only list what you actually use. Remove everything that does not apply to your project. If you use Vue instead of React, replace it. If you don't have a backend, remove this entire subsection.
 
-Liste apenas o que voce realmente usa. Remova tudo que nao se aplica ao seu projeto. Se voce usa Vue em vez de React, substitua. Se nao tem backend, remova essa subsecao inteira.
-
-Exemplo para um projeto frontend simples:
-
-```markdown
+Example for a simple frontend project:```markdown
 ### Frontend
 - **Framework:** Vue 3 com TypeScript
 - **Estilizacao:** CSS Modules
@@ -176,162 +151,121 @@ Exemplo para um projeto frontend simples:
 
 ### Infraestrutura
 - **Hospedagem:** Vercel
-```
+```#### Section 3 — Code Conventions (5 min)
 
-#### Secao 3 — Convencoes de Codigo (5 min)
+Adjust the conventions to what your team actually uses. If you use commits in Portuguese, change it. If you prefer`type`instead of`interface`, document this. The agent will follow exactly what is written here.
 
-Ajuste as convencoes para o que seu time realmente usa. Se voce usa commits em portugues, mude. Se prefere `type` em vez de `interface`, documente isso. O agente seguira exatamente o que estiver escrito aqui.
+#### Section 4 — Business Rules (10 min)
 
-#### Secao 4 — Regras de Negocio (10 min)
-
-Esta e a secao mais critica e a mais especifica para o seu projeto. Documente as regras que o agente precisa conhecer para nao quebrar o sistema:
-
-```markdown
+This is the most critical section and the most specific to your project. Document the rules that the agent needs to know in order not to break the system:```markdown
 ## Regras de Negocio Criticas
 1. [Regra mais importante do seu sistema]
 2. [Segunda regra mais importante]
 3. [...]
-```
+```If you don't know which rules to document, think about the questions a new developer would ask in their first week on the job.
 
-Se voce nao souber quais regras documentar, pense nas perguntas que um desenvolvedor novo faria na primeira semana de trabalho.
+#### Section 5 — Restrictions and Policies
 
-#### Secao 5 — Restricoes e Politicas
+Carefully review what the agent can do automatically. To start, keep the configuration conservative: the agent needs to ask permission for almost everything. You can loosen restrictions as you gain confidence.
 
-Revise cuidadosamente o que o agente pode fazer automaticamente. Para comecar, mantenha a configuracao conservadora: o agente precisa pedir permissao para quase tudo. Voce pode afrouxar as restricoes conforme ganhar confianca.
+### Check if CONTEXT.md was loaded
 
-### Verificar se o CONTEXT.md foi carregado
-
-Apos salvar o `CONTEXT.md`, inicie uma conversa com o agente no Antigravity e pergunte:
-
-```
+After saving the`CONTEXT.md`, start a conversation with the agent at Antigravity and ask:```
 Qual e a stack tecnologica do nosso projeto?
-```
+```If the agent responds correctly, the context has been loaded. If he doesn't know, check if the file is in the root of the project and if the`workspace.json`list`CONTEXT.md` em `context_files`.
 
-Se o agente responder corretamente, o contexto foi carregado. Se ele nao souber, verifique se o arquivo esta na raiz do projeto e se o `workspace.json` lista `CONTEXT.md` em `context_files`.
+### Expected result
 
-### Resultado esperado
-
-- `CONTEXT.md` personalizado para o seu projeto
-- Agente capaz de responder perguntas sobre a stack e convencoes do projeto
+-`CONTEXT.md`customized for your project
+- Agent capable of answering questions about the project stack and conventions
 
 ---
 
-## Passo 4 — Conectar servidores MCP
+## Step 4 — Connect MCP Servers
 
-**Tempo estimado: 20 minutos**
+**Estimated time: 20 minutes**
 
-### O que e este passo
+### What is this step
 
-Os servidores MCP (Model Context Protocol) sao processos que rodam localmente e dao ao agente acesso a ferramentas externas. Voce vai instalar e configurar os dois servidores MCP usados neste projeto: filesystem e GitHub.
+MCP (Model Context Protocol) servers are processes that run locally and give the agent access to external tools. You will install and configure the two MCP servers used in this project: filesystem and GitHub.
 
-### Instalar os servidores
+### Install the servers
 
-Execute o script de instalacao incluido neste projeto:
-
-```bash
+Run the installation script included in this project:```bash
 chmod +x scripts/setup-mcp.sh
 ./scripts/setup-mcp.sh
-```
-
-Ou instale manualmente:
-
-```bash
+```Or install manually:```bash
 npm install -g @modelcontextprotocol/server-filesystem
 npm install -g @modelcontextprotocol/server-github
-```
+```### Configure GitHub server
 
-### Configurar o servidor GitHub
+GitHub's MCP server needs a personal access token:
 
-O servidor MCP do GitHub precisa de um token de acesso pessoal:
-
-1. Acesse [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Clique em **"Generate new token (classic)"**
-3. Selecione as permissoes:
-   - `repo` — acesso completo a repositorios privados
-   - `read:user` — ler informacoes do perfil
-4. Gere o token e copie-o (ele sera mostrado apenas uma vez)
-5. Crie um arquivo `.env` na raiz do seu projeto:
-
-```bash
+1. Go to [github.com/settings/tokens](https://github.com/settings/tokens)
+2. Click on **"Generate new token (classic)"**
+3. Select permissions:
+   -`repo`— full access to private repositories
+   -`read:user`— read profile information
+4. Generate the token and copy it (it will only be shown once)
+5. Create a file`.env`in the root of your project:```bash
 GITHUB_TOKEN=ghp_seu_token_aqui
-```
-
-**Importante:** adicione `.env` ao seu `.gitignore` para nao commitar o token:
-
-```bash
+```**Important:** add`.env`to your`.gitignore`to not commit the token:```bash
 echo ".env" >> .gitignore
-```
+```### Check the MCP connection on Antigravity
 
-### Verificar a conexao MCP no Antigravity
+1. In Antigravity, go to **Settings > MCP Servers**
+2. You shall see`filesystem` e `github`listed
+3. Click **"Test Connection"** on each one to check
 
-1. No Antigravity, acesse **Settings > MCP Servers**
-2. Voce devera ver `filesystem` e `github` listados
-3. Clique em **"Test Connection"** em cada um para verificar
+If any server appears as disconnected:
+- Check that the`npm install -g`was executed successfully
+- Check if the`GITHUB_TOKEN`is defined in`.env`- Restart Antigravity
 
-Se algum servidor aparecer como desconectado:
-- Verifique se o `npm install -g` foi executado com sucesso
-- Confira se o `GITHUB_TOKEN` esta definido no `.env`
-- Reinicie o Antigravity
+### Test MCP servers
 
-### Testar os servidores MCP
-
-Inicie uma conversa com o agente e teste:
-
-```
+Start a conversation with the agent and test:```
 Liste os 5 arquivos mais recentemente modificados neste projeto.
-```
-
-O agente devera usar o servidor filesystem para responder. Se funcionar, o MCP de filesystem esta operacional.
-
-```
+```The agent must use the filesystem server to respond. If it works, the filesystem MCP is operational.```
 Qual e o numero de issues abertas no repositorio deste projeto?
-```
+```If the agent can fetch this information, GitHub's MCP is working.
 
-Se o agente conseguir buscar essa informacao, o MCP do GitHub esta funcionando.
+### Expected result
 
-### Resultado esperado
-
-- Servidores MCP filesystem e github instalados
-- Token GitHub configurado no `.env`
-- Ambos os servidores conectados e funcionando no Antigravity
+- MCP filesystem and github servers installed
+- GitHub token configured on`.env`- Both servers connected and running on Antigravity
 
 ---
 
-## Passo 5 — Executar primeiro workflow automatizado
+## Step 5 — Run first automated workflow
 
-**Tempo estimado: 30 minutos**
+**Estimated time: 30 minutes**
 
-### O que e este passo
+### What is this step
 
-Voce vai usar o workflow `feature` para implementar uma funcionalidade simples do zero. O objetivo e entender o ciclo completo: prompt → plano → aprovacao → execucao → resultado.
+You will use the workflow`feature`to implement a simple functionality from scratch. The objective is to understand the complete cycle: prompt → plan → approval → execution → result.
 
-### Escolher uma feature simples
+### Choose a simple feature
 
-Para este primeiro workflow, escolha algo pequeno e bem definido. Sugestoes:
+For this first workflow, choose something small and well-defined. Suggestions:
 
-- Adicionar um endpoint de health check (`GET /health`)
-- Criar um componente de botao reutilizavel
-- Adicionar validacao de email em um formulario existente
-- Criar uma funcao utilitaria com testes
+- Add a health check endpoint (`GET /health`)
+- Create a reusable button component
+- Add email validation to an existing form
+- Create a utility function with tests
 
-### Iniciar o workflow
+### Start the workflow
 
-No painel de chat do Antigravity, escreva:
-
-```
+In the Antigravity chat panel, type:```
 @agent implement feature: adicionar endpoint GET /api/health que retorna
 {"status": "ok", "version": "1.0.0", "timestamp": "<ISO timestamp>"}
-```
+```### Monitor the agent cycle
 
-### Acompanhar o ciclo do agente
+The agent will execute the workflow in 4 steps:
 
-O agente executara o workflow em 4 etapas:
+**Step 1 — Plan:**
+The agent will list the files it intends to create or modify. Read carefully. Ask if anything seems strange before approving.
 
-**Etapa 1 — Plan:**
-O agente listara os arquivos que pretende criar ou modificar. Leia com atencao. Pergunte se algo parecer estranho antes de aprovar.
-
-Exemplo de plano esperado:
-```
+Example of expected plan:```
 Plano para implementar GET /api/health:
 
 1. Criar src/backend/routes/health.ts
@@ -348,52 +282,45 @@ Plano para implementar GET /api/health:
 
 Nenhuma alteracao em banco de dados ou infraestrutura.
 Aprovacao necessaria? (s/n)
-```
+```Click **Approve** or write`s`to continue.
 
-Clique em **Aprovar** ou escreva `s` para continuar.
+**Step 2 — Implement:**
+The agent writes the code. You will see files being created in real time. Do not interrupt — wait for the step to finish.
 
-**Etapa 2 — Implement:**
-O agente escreve o codigo. Voce vera os arquivos sendo criados em tempo real. Nao interrompa — aguarde a etapa terminar.
+**Step 3 — Test:**
+The agent will run the created tests. Follow the exit from the terminal. If a test fails, the agent will automatically attempt to correct it (until`max_iterations`attempts).
 
-**Etapa 3 — Test:**
-O agente executara os testes criados. Acompanhe a saida do terminal. Se um teste falhar, o agente tentara corrigir automaticamente (ate `max_iterations` tentativas).
+**Step 4 — Review:**
+The agent presents a summary of what was done and awaits your final approval to commit.
 
-**Etapa 4 — Review:**
-O agente apresenta um resumo do que foi feito e aguarda sua aprovacao final para commitar.
+### Evaluate the result
 
-### Avaliar o resultado
+Review the generated code:
+- Does it follow the conventions defined in CONTEXT.md?
+- Do the tests make sense?
+- Is there anything you would change?
 
-Revise o codigo gerado:
-- Ele segue as convencoes definidas no CONTEXT.md?
-- Os testes fazem sentido?
-- Ha algo que voce mudaria?
-
-Se quiser ajustes, escreva no chat:
-```
+If you want adjustments, write in chat:```
 O endpoint precisa incluir tambem o campo "environment" com o valor de NODE_ENV.
 Faca essa alteracao.
-```
+```### Expected result
 
-### Resultado esperado
-
-- Feature implementada pelo agente
-- Testes criados e passando
-- Codigo revisado e aprovado
-- Primeiro workflow completo executado com sucesso
+- Feature implemented by the agent
+- Tests created and passing
+- Code reviewed and approved
+- First complete workflow successfully executed
 
 ---
 
-## Passo 6 — Integrar com Google Cloud
+## Step 6 — Integrate with Google Cloud
 
-**Tempo estimado: 1 hora**
+**Estimated time: 1 hour**
 
-### O que e este passo
+### What is this step
 
-Voce vai conectar o projeto ao Google Cloud para que o agente possa fazer deploys automatizados para Cloud Run e Firebase Hosting. Este passo requer uma conta Google Cloud com faturamento ativo.
+You will connect the project to Google Cloud so that the agent can make automated deployments to Cloud Run and Firebase Hosting. This step requires a Google Cloud account with active billing.
 
-### Pre-requisitos
-
-```bash
+### Prerequisites```bash
 # Instalar a Google Cloud CLI
 curl https://sdk.cloud.google.com | bash
 exec -l $SHELL
@@ -403,11 +330,7 @@ gcloud auth login
 
 # Configurar o projeto
 gcloud config set project SEU_PROJETO_ID
-```
-
-### Configurar Firebase
-
-```bash
+```### Configure Firebase```bash
 # Instalar Firebase CLI
 npm install -g firebase-tools
 
@@ -418,18 +341,14 @@ firebase login
 firebase init
 # Selecione: Hosting, Functions (se necessario)
 # Escolha o projeto criado no passo anterior
-```
+```### Configure Cloud Run
 
-### Configurar Cloud Run
+1. Enable the Cloud Run API in the Google Cloud Console:
+   - Access [console.cloud.google.com](https://console.cloud.google.com)
+   - Navigate to **APIs & Services > Library**
+   - Search for "Cloud Run" and click **Enable**
 
-1. Ative a API do Cloud Run no Console do Google Cloud:
-   - Acesse [console.cloud.google.com](https://console.cloud.google.com)
-   - Navegue para **APIs & Services > Library**
-   - Busque "Cloud Run" e clique em **Enable**
-
-2. Configure as permissoes de deploy:
-
-```bash
+2. Configure deployment permissions:```bash
 # Criar conta de servico para deploy
 gcloud iam service-accounts create antigravity-deploy \
   --display-name="Antigravity Deploy"
@@ -442,65 +361,54 @@ gcloud projects add-iam-policy-binding SEU_PROJETO_ID \
 # Gerar chave da conta de servico
 gcloud iam service-accounts keys create chave-deploy.json \
   --iam-account=antigravity-deploy@SEU_PROJETO_ID.iam.gserviceaccount.com
-```
-
-3. Adicione a chave ao `.env`:
+```3. Add the key to`.env`:
 
 ```bash
 GOOGLE_APPLICATION_CREDENTIALS=./chave-deploy.json
 GOOGLE_CLOUD_PROJECT=SEU_PROJETO_ID
-```
-
-### Testar o workflow de deploy
-
-```
+```### Test the deployment workflow```
 @agent deploy to staging
-```
+```The agent must:
+1. Build the application
+2. Run the tests
+3. Build the Docker image
+4. Push to Artifact Registry
+5. Deploy to Cloud Run
+6. Check the health check of the deployed service
 
-O agente devera:
-1. Fazer build da aplicacao
-2. Executar os testes
-3. Construir a imagem Docker
-4. Fazer push para o Artifact Registry
-5. Fazer deploy no Cloud Run
-6. Verificar o health check do servico deployado
+Follow each step and approve those that require confirmation.
 
-Acompanhe cada etapa e aprove as que requerem confirmacao.
+### Expected result
 
-### Resultado esperado
-
-- Google Cloud CLI configurada e autenticada
-- Firebase CLI configurada
-- Cloud Run habilitado e com permissoes corretas
-- Primeiro deploy realizado com sucesso pelo agente
+- Google Cloud CLI configured and authenticated
+- Firebase CLI configured
+- Cloud Run enabled and with correct permissions
+- First deployment successfully carried out by the agent
 
 ---
 
-## Passo 7 — Desafio: pipeline Plan→Execute→Verify completo
+## Step 7 — Challenge: Complete Plan→Execute→Verify pipeline
 
-**Tempo estimado: 3 horas**
+**Estimated time: 3 hours**
 
-### O que e este passo
+### What is this step
 
-Este e o desafio final — implementar uma feature completa usando o ciclo agentic pleno, com revisao humana em cada fase critica. O objetivo e praticar a colaboracao efetiva com o agente: nem delegar tudo cegamente, nem microgerenciar cada linha de codigo.
+This is the final challenge — implementing a complete feature using the full agentic cycle, with human review at each critical phase. The goal is to practice effective collaboration with the agent: neither blindly delegating everything, nor micromanaging every line of code.
 
-### A feature do desafio
+### The challenge feature
 
-Implemente um sistema de autenticacao completo com as seguintes caracteristicas:
+Implement a complete authentication system with the following features:
 
-- Endpoint `POST /api/auth/login` com Google OAuth
-- Endpoint `POST /api/auth/logout`
-- Endpoint `GET /api/auth/me` (retorna usuario autenticado)
-- Middleware de autenticacao para rotas protegidas
-- Testes unitarios para cada endpoint
-- Testes de integracao para o fluxo completo
-- Documentacao dos endpoints
+- Endpoint`POST /api/auth/login`with Google OAuth
+- Endpoint`POST /api/auth/logout`- Endpoint`GET /api/auth/me`(returns authenticated user)
+- Authentication middleware for protected routes
+- Unit tests for each endpoint
+- Integration tests for the complete flow
+- Documentation of endpoints
 
-### Fase 1 — Plan (30 min)
+### Phase 1 — Plan (30 min)
 
-Inicie com um prompt detalhado:
-
-```
+Start with a detailed prompt:```
 @agent implement feature: sistema de autenticacao com Google OAuth.
 
 Requisitos:
@@ -514,98 +422,75 @@ Restricoes:
 - Nunca armazenar o Google token no banco
 - JWT deve conter apenas userId e email (sem dados sensiveis)
 - Erros de autenticacao retornam 401, nao 403
-```
+```**Your task at this stage:** Review the generated plan. Verify that the agent:
+- Mapped all files that need to be created/modified
+- Identified the necessary dependencies (e.g. JWT validation library)
+- Planned the tests correctly
+- Didn't plan to change anything that shouldn't
 
-**Sua tarefa nesta fase:** Revisar o plano gerado. Verificar se o agente:
-- Mapeou todos os arquivos que precisam ser criados/modificados
-- Identificou as dependencias necessarias (ex: biblioteca de validacao JWT)
-- Planejou os testes corretamente
-- Nao planejou alterar nada que nao deveria
-
-Faca perguntas e corrija o plano antes de aprovar. Exemplo:
-```
+Ask questions and correct the plan before approving. Example:```
 No plano, voce nao mencionou como vai armazenar a blacklist de tokens no Redis.
 Qual e a estrategia?
-```
+```### Phase 2 — Execute (1h30min)
 
-### Fase 2 — Execute (1h30min)
+Approve the plan and monitor its execution. During this phase:
 
-Aprove o plano e acompanhe a execucao. Durante esta fase:
+- **Intervene when** the agent appears to be heading in the wrong direction
+- **Do not intervene** for aesthetic or style adjustments — let the agent finish and make adjustments later
+- **Document** decisions that the agent makes and that you find relevant
 
-- **Intervenha quando** o agente parecer estar indo para uma direcao errada
-- **Nao intervenha** para ajustes esteticos ou de estilo — deixe o agente terminar e faca ajustes depois
-- **Documente** decisoes que o agente tomar e que voce achar relevantes
-
-Se o agente travar em um erro apos multiplas tentativas:
-```
+If the agent gets stuck on an error after multiple attempts:```
 O problema que voce esta tentando resolver e [descricao do problema].
 Uma abordagem alternativa seria [sua sugestao]. Tente por esse caminho.
-```
+```### Phase 3 — Verify (1h)
 
-### Fase 3 — Verify (1h)
+After the agent finishes the implementation:
 
-Apos o agente terminar a implementacao:
-
-1. **Execute os testes manualmente:**
-```bash
+1. **Run the tests manually:**```bash
 npm run test
 npm run test:e2e
-```
-
-2. **Teste os endpoints manualmente com curl ou Postman:**
-```bash
+```2. **Test endpoints manually with curl or Postman:**```bash
 # Obtenha um Google ID Token de teste primeiro
 curl -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"idToken": "seu_google_id_token"}'
-```
-
-3. **Revise o codigo com o agente:**
-```
+```3. **Review the code with the agent:**```
 Revise a implementacao do middleware authRequired e identifique
 possiveis vulnerabilidades de seguranca.
-```
-
-4. **Faca o deploy para staging:**
-```
+```4. **Deploy for staging:**```
 @agent deploy to staging
-```
-
-5. **Verifique em staging:**
-```
+```5. **Check in staging:**```
 @agent verify deployment: teste os endpoints de autenticacao em staging
 e confirme que estao funcionando corretamente
-```
+```### Completion criteria
 
-### Criterios de conclusao
+The challenge is complete when:
 
-O desafio esta completo quando:
+- [ ] All unit tests pass
+- [ ] All integration tests pass
+- [ ] Endpoints work in a local environment
+- [ ] The deployment for staging was carried out successfully
+- [ ] Endpoints work in staging
+- [ ] Can you explain each decision the agent made
 
-- [ ] Todos os testes unitarios passam
-- [ ] Todos os testes de integracao passam
-- [ ] Os endpoints funcionam em ambiente local
-- [ ] O deploy para staging foi realizado com sucesso
-- [ ] Os endpoints funcionam em staging
-- [ ] Voce consegue explicar cada decisao que o agente tomou
+### Post-challenge reflection
 
-### Reflexao pos-desafio
+After completing, answer these questions to consolidate your learning:
 
-Apos completar, responda a estas perguntas para consolidar o aprendizado:
+1. When did you intervene and why?
+2. Did the agent make any decisions that you would not have made? Was it a better or worse decision?
+3. How long do you estimate it would take to implement the same feature manually?
+4. What would you change about CONTEXT.md based on what you learned in this challenge?
 
-1. Em que momentos voce interveio e por que?
-2. O agente tomou alguma decisao que voce nao teria tomado? Foi uma decisao melhor ou pior?
-3. Quanto tempo voce estima que levaria para implementar a mesma feature manualmente?
-4. O que voce mudaria no CONTEXT.md baseado no que aprendeu neste desafio?
+### Expected result
 
-### Resultado esperado
-
-- Sistema de autenticacao completo implementado pelo agente
-- Testes passando (unitarios e integracao)
-- Deploy realizado com sucesso em staging
-- Entendimento profundo do ciclo agentic e de como colaborar efetivamente com o agente
+- Complete authentication system implemented by the agent
+- Tests passing (unitary and integration)
+- Deployment carried out successfully in staging
+- Deep understanding of the agentic cycle and how to effectively collaborate with the agent
 
 ---
 
-*Conclusao do roteiro: voce agora tem experiencia pratica com o ciclo completo de desenvolvimento agentic usando o Antigravity.*
+*Roadmap Conclusion: You now have hands-on experience with the full cycle of agentic development using Antigravity.*
 
-*Ultima atualizacao: 2026-03-03*
+*Last update: 2026-03-03*
