@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2.3 Memória Longo Prazo e RAG | Trilha 2 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2.3 Long Term Memory and RAG | Track 2 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -29,382 +29,356 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span><span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Mentalidade</span></a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Construção</span></a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:block">Frameworks</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400 transition-colors">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-blue-400 transition-colors">Trilha 2 — Construção de Agentes</a>
-      <span>/</span>
-      <span class="text-blue-400">Módulo 2.3</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MÓDULO 2.3</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🗄️ Memória Longo Prazo e RAG</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Embeddings sem matemática pesada, bancos vetoriais FAISS e Chroma na prática, pipeline RAG completo e como debugar quando o retrieval retorna resultados irrelevantes.</p>
-      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Intermediário</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TÓPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
-        <h2 class="text-2xl font-bold">🧠 O problema da amnésia</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Memória curta (buffer) existe dentro de uma sessão. Quando a sessão termina, o agente <strong class="text-blue-400">esquece tudo</strong>. Para um agente de suporte ao cliente, isso significa perguntar o mesmo problema toda vez. Para um agente de pesquisa, significa refazer o trabalho já feito. Memória longo prazo resolve isso.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <p class="text-2xl mb-2">📚</p>
-          <h4 class="font-semibold text-neutral-300 mb-2">Memória Episódica</h4>
-          <p class="text-sm text-neutral-400">O que aconteceu em interações passadas. "Semana passada o usuário reportou bug X e foi resolvido assim..."</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <p class="text-2xl mb-2">🗂️</p>
-          <h4 class="font-semibold text-neutral-300 mb-2">Memória Semântica</h4>
-          <p class="text-sm text-neutral-400">Conhecimento geral e especializado. "A documentação da API diz que o endpoint /orders aceita estes parâmetros..."</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <p class="text-2xl mb-2">⚙️</p>
-          <h4 class="font-semibold text-neutral-300 mb-2">Memória Procedural</h4>
-          <p class="text-sm text-neutral-400">Como fazer coisas. "O processo de onboarding segue estes 7 passos na ordem correta..."</p>
-        </div>
-      </div>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3">RAG vs. Fine-tuning: quando usar cada um</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p class="text-blue-400 font-semibold text-sm mb-2">Use RAG quando:</p>
-            <ul class="space-y-1 text-sm text-neutral-300">
-              <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Dados mudam frequentemente (documentos, preços, casos)</span></li>
-              <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Você precisa citar a fonte da informação</span></li>
-              <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Volume de dados é grande (GB de documentos)</span></li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-neutral-400 font-semibold text-sm mb-2">Use Fine-tuning quando:</p>
-            <ul class="space-y-1 text-sm text-neutral-300">
-              <li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>Você quer mudar o estilo/tom do LLM</span></li>
-              <li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>Conhecimento é estável e não muda</span></li>
-              <li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>Você tem milhares de exemplos de Q&A curados</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
-        <h2 class="text-2xl font-bold">🗃️ Bancos vetoriais: FAISS e Chroma</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Bancos vetoriais são especializados em armazenar e buscar <strong class="text-blue-400">vetores de alta dimensão</strong> (embeddings). Em vez de busca por palavra-chave exata, eles encontram documentos semanticamente similares à sua query em milissegundos.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
-          <h4 class="font-semibold text-blue-400 mb-3">FAISS (Meta)</h4>
-          <ul class="space-y-2 text-sm text-neutral-300 mb-4">
-            <li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Extremamente rápido (busca em milhões de vetores em ms)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Roda localmente, sem servidor, sem custo de API</span></li>
-            <li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Suporta GPU para escala enorme</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Sem metadata filtering nativo</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Interface de baixo nível — mais código para usar</span></li>
-          </ul>
-          <p class="text-xs text-neutral-500">Melhor para: prototipagem local, datasets grandes, sem dependência de servidor</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-semibold text-neutral-300 mb-3">Chroma</h4>
-          <ul class="space-y-2 text-sm text-neutral-300 mb-4">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>API simples e pythônica — menor curva de aprendizado</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>Metadata filtering nativo — busque por data, categoria, etc.</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>Persistência automática em SQLite</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Mais lento que FAISS em datasets muito grandes</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Escalabilidade limitada sem Chroma Cloud</span></li>
-          </ul>
-          <p class="text-xs text-neutral-500">Melhor para: projetos menores/médios, necessidade de filtering por metadata, início de projeto</p>
-        </div>
-      </div>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-lg font-semibold text-neutral-300 mb-4">💻 Criando um vectorstore com Chroma (5 linhas)</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 font-mono text-sm">
-          <p class="text-blue-400">from langchain_chroma import Chroma</p>
-          <p class="text-blue-400">from langchain_openai import OpenAIEmbeddings</p>
-          <p class="text-neutral-300 mt-2">embeddings = OpenAIEmbeddings(model="text-embedding-3-small")</p>
-          <p class="text-neutral-300">vectorstore = Chroma(</p>
-          <p class="text-neutral-300 ml-4">persist_directory="./meu_banco",</p>
-          <p class="text-neutral-300 ml-4">embedding_function=embeddings</p>
-          <p class="text-neutral-300">)</p>
-          <p class="text-neutral-500 mt-2"># Adicionar documentos</p>
-          <p class="text-neutral-300">vectorstore.add_texts(texts=["doc1...", "doc2..."])</p>
-          <p class="text-neutral-500"># Buscar similaridade</p>
-          <p class="text-neutral-300">resultados = vectorstore.similarity_search("minha query", k=3)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
-        <h2 class="text-2xl font-bold">🔢 Embeddings na prática</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Embeddings transformam texto em vetores numéricos onde <strong class="text-blue-400">textos com significado similar ficam próximos no espaço</strong>. "Cachorro" e "cão" ficam perto; "cachorro" e "avião" ficam distantes. Não é magia — é geometria aplicada ao significado.
-      </p>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">🗺️ Intuição sem matemática</h3>
-        <p class="text-neutral-300 text-sm mb-4">Imagine um mapa onde cada palavra/frase tem uma posição (coordenadas). O modelo de embedding aprendeu a colocar textos similares perto uns dos outros:</p>
-        <div class="grid grid-cols-3 gap-3">
-          <div class="bg-blue-900/30 rounded-lg p-3 text-center border border-blue-500/20">
-            <p class="text-blue-400 font-semibold text-sm">Região "Finanças"</p>
-            <p class="text-xs text-neutral-400 mt-1">ação, dividendo, bolsa, investimento, rendimento</p>
-          </div>
-          <div class="bg-emerald-900/30 rounded-lg p-3 text-center border border-emerald-500/20">
-            <p class="text-emerald-400 font-semibold text-sm">Região "Animais"</p>
-            <p class="text-xs text-neutral-400 mt-1">cachorro, gato, cão, felino, canino</p>
-          </div>
-          <div class="bg-purple-900/30 rounded-lg p-3 text-center border border-purple-500/20">
-            <p class="text-purple-400 font-semibold text-sm">Região "Código"</p>
-            <p class="text-xs text-neutral-400 mt-1">função, loop, variável, debugar, compilar</p>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-blue-400 mb-3">Modelos de embedding em 2026</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li><strong>text-embedding-3-small</strong> — 1536 dims, $0.02/1M tokens, ótimo custo-benefício</li>
-            <li><strong>text-embedding-3-large</strong> — 3072 dims, $0.13/1M tokens, mais preciso</li>
-            <li><strong>voyage-3</strong> (Anthropic) — excelente para código e documentação técnica</li>
-            <li><strong>nomic-embed</strong> — open-source, self-hosted, gratuito</li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-neutral-300 mb-3">Parâmetros críticos de chunking</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li><strong>chunk_size:</strong> tamanho de cada pedaço de texto (256-1024 tokens)</li>
-            <li><strong>chunk_overlap:</strong> sobreposição entre chunks (10-20% do chunk_size)</li>
-            <li><strong>separators:</strong> onde cortar — parágrafo, frase ou palavra</li>
-            <li><strong>Regra:</strong> chunk menor = mais preciso, chunk maior = mais contexto</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
-        <h2 class="text-2xl font-bold">🔄 Pipeline RAG completo</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        RAG (Retrieval-Augmented Generation) é a técnica de dar ao LLM acesso a uma base de conhecimento externa no momento da geração. O pipeline tem <strong class="text-blue-400">4 fases distintas</strong>: indexar, recuperar, injetar e gerar.
-      </p>
-      <div class="space-y-4 mb-6">
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold text-blue-400 mb-2">Indexação (feita uma vez)</h4>
-            <p class="text-sm text-neutral-400">Carrega documentos → divide em chunks → gera embedding de cada chunk → armazena no vector database. Pago uma vez, benefício permanente até os documentos mudarem.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold text-blue-400 mb-2">Recuperação (a cada query)</h4>
-            <p class="text-sm text-neutral-400">Recebe a pergunta do usuário → gera embedding da pergunta → busca os K chunks mais similares no vector database por similaridade cosseno.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold text-blue-400 mb-2">Injeção de contexto</h4>
-            <p class="text-sm text-neutral-400">Os chunks recuperados são adicionados ao prompt como contexto: "Com base nos seguintes documentos: [chunks]. Responda: [pergunta do usuário]".</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
-            <h4 class="font-semibold text-blue-400 mb-2">Geração</h4>
-            <p class="text-sm text-neutral-400">O LLM responde usando o contexto injetado. Ele pode citar fontes, ser mais preciso e não "alucinar" sobre informações que estão explicitamente nos documentos.</p>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-lg font-semibold text-neutral-300 mb-4">💻 RAG completo em LangChain (código funcional)</h3>
-        <div class="bg-dark-900/50 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-          <p class="text-blue-400">from langchain.chains import RetrievalQA</p>
-          <p class="text-blue-400">from langchain_chroma import Chroma</p>
-          <p class="text-blue-400">from langchain_openai import OpenAIEmbeddings, ChatOpenAI</p>
-          <p class="text-blue-400">from langchain.text_splitter import RecursiveCharacterTextSplitter</p>
-          <p class="text-blue-400">from langchain_community.document_loaders import TextLoader</p>
-          <p class="text-neutral-300 mt-3"># 1. Indexação</p>
-          <p class="text-neutral-300">loader = TextLoader("documentacao.txt")</p>
-          <p class="text-neutral-300">docs = loader.load()</p>
-          <p class="text-neutral-300">splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)</p>
-          <p class="text-neutral-300">chunks = splitter.split_documents(docs)</p>
-          <p class="text-neutral-300">vectorstore = Chroma.from_documents(chunks, OpenAIEmbeddings())</p>
-          <p class="text-neutral-300 mt-2"># 2-4. Recuperação + Injeção + Geração</p>
-          <p class="text-neutral-300">qa = RetrievalQA.from_chain_type(</p>
-          <p class="text-neutral-300 ml-4">llm=ChatOpenAI(model="gpt-4o-mini"),</p>
-          <p class="text-neutral-300 ml-4">retriever=vectorstore.as_retriever(search_kwargs=&#123;"k": 3&#125;)</p>
-          <p class="text-neutral-300">)</p>
-          <p class="text-neutral-300">resposta = qa.invoke("O que é a política de devolução?")</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
-        <h2 class="text-2xl font-bold">🐛 Debug de retrieval ruim</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        "O RAG não funciona" é o bug mais comum em projetos com LLM. Mas <strong class="text-blue-400">qual parte falhou?</strong> Pode ser chunk muito pequeno, top-k insuficiente, threshold errado, ou embedding de baixa qualidade para o domínio. Cada causa tem solução específica.
-      </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-800 rounded-xl border border-amber-500/20 p-5">
-          <h4 class="font-semibold text-amber-400 mb-2">🟡 Problema: chunks muito pequenos (256 tokens)</h4>
-          <p class="text-sm text-neutral-400 mb-2"><strong>Sintoma:</strong> O chunk contém a palavra-chave mas falta contexto para ser útil ao LLM.</p>
-          <p class="text-sm text-emerald-400"><strong>Solução:</strong> Aumente para 512-1024 tokens. Use chunk_overlap de 10-20% para não perder frases no corte.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
-          <h4 class="font-semibold text-red-400 mb-2">🔴 Problema: top-k muito baixo (k=1 ou k=2)</h4>
-          <p class="text-sm text-neutral-400 mb-2"><strong>Sintoma:</strong> O chunk com a resposta existe mas não está entre os primeiros retornados.</p>
-          <p class="text-sm text-emerald-400"><strong>Solução:</strong> Aumente para k=5 ou k=10. Use MMR (Maximal Marginal Relevance) para diversidade.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-blue-500/20 p-5">
-          <h4 class="font-semibold text-blue-400 mb-2">🔵 Problema: embedding ruim para o domínio</h4>
-          <p class="text-sm text-neutral-400 mb-2"><strong>Sintoma:</strong> Documentos semanticamente relacionados não aparecem como similares.</p>
-          <p class="text-sm text-emerald-400"><strong>Solução:</strong> Use modelos de embedding especializados (voyage-3 para código, multilingual-e5 para PT-BR).</p>
-        </div>
-      </div>
-      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
-        <h3 class="text-lg font-semibold text-primary mb-3">💡 Avaliando RAG com RAGAS</h3>
-        <p class="text-neutral-300 text-sm">RAGAS é uma framework open-source que avalia seu pipeline RAG em 4 métricas: <strong class="text-primary">Faithfulness</strong> (resposta está nos chunks?), <strong class="text-primary">Answer Relevancy</strong> (resposta é relevante à pergunta?), <strong class="text-primary">Context Recall</strong> (chunks relevantes foram recuperados?) e <strong class="text-primary">Context Precision</strong> (chunks recuperados são todos relevantes?). Use antes de ir para produção.</p>
-      </div>
-    </section>
-
-    <!-- TÓPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">💸 Custo de memória vetorial</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um sistema RAG tem dois custos distintos: <strong class="text-blue-400">indexação</strong> (embedding de todos os documentos — pago uma vez) e <strong class="text-blue-400">busca</strong> (embedding da query a cada interação — pago sempre). Em escala, a diferença importa.
-      </p>
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Exemplo de custo real</h3>
-        <p class="text-neutral-400 text-sm mb-4">Base de conhecimento: 1.000 documentos (500 tokens médios cada) = 500.000 tokens</p>
-        <div class="space-y-3">
-          <div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between">
-            <span class="text-sm text-neutral-300">Indexação completa (text-embedding-3-small)</span>
-            <span class="text-sm text-emerald-400 font-semibold">$0.01 (único)</span>
-          </div>
-          <div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between">
-            <span class="text-sm text-neutral-300">1.000 buscas/dia (query ~20 tokens)</span>
-            <span class="text-sm text-blue-400">$0.0004/dia</span>
-          </div>
-          <div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between border border-primary/20">
-            <span class="text-sm font-semibold text-neutral-200">Custo mensal total (embeddings)</span>
-            <span class="text-sm font-bold text-primary">~$0.01 indexação + $0.012 busca = $0.022</span>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-500 mt-3">O custo real do RAG é dominado pelo custo do LLM para gerar a resposta, não pelos embeddings.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-3">Self-hosted (FAISS/Chroma local)</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Custo zero de armazenamento vetorial</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Dados ficam na sua infraestrutura</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você gerencia backup e disponibilidade</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Escalabilidade limitada por memória RAM</span></li>
-          </ul>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-          <h4 class="font-bold text-neutral-300 mb-3">Hosted (Pinecone, Weaviate Cloud)</h4>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Escalabilidade automática sem limite</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>SLA de disponibilidade garantido</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Custo: Pinecone Serverless ~$0.033/1M reads</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados na nuvem do provider</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESUMO -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo 2.3</h2>
-        <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Amnésia do agente</strong><span class="text-neutral-400"> — sem memória longo prazo, cada sessão começa do zero; RAG é a solução padrão</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">FAISS vs. Chroma</strong><span class="text-neutral-400"> — FAISS é mais rápido, Chroma é mais simples; para começar, use Chroma</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Embeddings</strong><span class="text-neutral-400"> — texto → posição no espaço semântico; textos similares ficam próximos</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Pipeline RAG</strong><span class="text-neutral-400"> — 4 fases: indexar → recuperar → injetar → gerar; otimize cada fase separadamente</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Debug de retrieval</strong><span class="text-neutral-400"> — chunk size, top-k e qualidade de embedding são as 3 alavancas principais</span></div></div>
-          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Custo de RAG</strong><span class="text-neutral-400"> — embeddings são baratos; o custo real é do LLM para geração</span></div></div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-4 mb-8 border border-dark-600">
-          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">2.4 — Tools e Function Calling: como dar ao agente a capacidade de agir no mundo real com JSON Schema, Pydantic e segurança de tools.</p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← 2.2 Memória Curto Prazo</a>
-          <a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo: 2.4 Tools →</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>🤖 Agentic Engineering Masterclass · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
-    </div>
-  </footer>
-
-  <script>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span><span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Mentality</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Construction</span></a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors hidden sm:block" href="../trilha3/index.html">Frameworks</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-blue-400 transition-colors" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-blue-400 transition-colors" href="index.html">Track 2 — Agent Construction</a>
+<span>/</span>
+<span class="text-blue-400">Module 2.3</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MODULE 2.3</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">🗄️ Long Term Memory and RAG</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">Embeddings without heavy mathematics, FAISS and Chroma vector banks in practice, complete RAG pipeline and how to debug when retrieval returns irrelevant results.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Topics</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">45</div><div class="text-xs text-neutral-400">Minutes</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Intermediary</div><div class="text-xs text-neutral-400">Level</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Practice</div><div class="text-xs text-neutral-400">Type</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+TOPIC 1
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">1</span>
+<h2 class="text-2xl font-bold">🧠 The problem of amnesia</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Short memory (buffer) exists within a session. When the session ends, the agent<strong class="text-blue-400">forget everything</strong>. For a customer support agent, this means asking the same issue every time. For a research agent, it means redoing work already done. Long-term memory solves this.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+<p class="text-2xl mb-2">📚</p>
+<h4 class="font-semibold text-neutral-300 mb-2">Episodic Memory</h4>
+<p class="text-sm text-neutral-400">What happened in past interactions. "Last week the user reported bug X and it was resolved like this..."</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+<p class="text-2xl mb-2">🗂️</p>
+<h4 class="font-semibold text-neutral-300 mb-2">Semantic Memory</h4>
+<p class="text-sm text-neutral-400">General and specialized knowledge. "The API documentation says that the /orders endpoint accepts these parameters..."</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+<p class="text-2xl mb-2">⚙️</p>
+<h4 class="font-semibold text-neutral-300 mb-2">Procedural Memory</h4>
+<p class="text-sm text-neutral-400">How to do things. "The onboarding process follows these 7 steps in the correct order..."</p>
+</div>
+</div>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">RAG vs. Fine-tuning: when to use each one</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<p class="text-blue-400 font-semibold text-sm mb-2">Use RAG when:</p>
+<ul class="space-y-1 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Data changes frequently (documents, prices, cases)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>You need to cite the source of the information</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Data volume is large (GB of documents)</span></li>
+</ul>
+</div>
+<div>
+<p class="text-neutral-400 font-semibold text-sm mb-2">Use Fine-tuning when:</p>
+<ul class="space-y-1 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>Do you want to change the style/tone of the LLM</span></li>
+<li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>Knowledge is stable and does not change</span></li>
+<li class="flex items-start space-x-2"><span class="text-neutral-500">•</span><span>You have thousands of curated Q&amp;A examples</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+TOPIC 2
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">2</span>
+<h2 class="text-2xl font-bold">🗃️ Vector banks: FAISS and Chroma</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Vector banks specialize in storing and fetching<strong class="text-blue-400">high dimensional vectors</strong>(embeddings). Instead of searching by exact keyword, they find documents semantically similar to your query in milliseconds.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-semibold text-blue-400 mb-3">FAISS (Goal)</h4>
+<ul class="space-y-2 text-sm text-neutral-300 mb-4">
+<li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Extremely fast (search millions of vectors in ms)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Runs locally, without a server, without API costs</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">+</span><span>Supports GPU for massive scale</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>No native metadata filtering</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Low-level interface — more code to use</span></li>
+</ul>
+<p class="text-xs text-neutral-500">Best for: local prototyping, large datasets, no server dependency</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-semibold text-neutral-300 mb-3">Chroma</h4>
+<ul class="space-y-2 text-sm text-neutral-300 mb-4">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>Simple, Pythonic API — lower learning curve</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>Native metadata filtering — search by date, category, etc.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">+</span><span>Automatic persistence in SQLite</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Slower than FAISS on very large datasets</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Limited scalability without Chroma Cloud</span></li>
+</ul>
+<p class="text-xs text-neutral-500">Best for: smaller/medium projects, need for metadata filtering, starting a project</p>
+</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-6">
+<h3 class="text-lg font-semibold text-neutral-300 mb-4">💻 Creating a vectorstore with Chroma (5 lines)</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 font-mono text-sm">
+<p class="text-blue-400">from langchain_chroma import Chroma</p>
+<p class="text-blue-400">from langchain_openai import OpenAIEmbeddings</p>
+<p class="text-neutral-300 mt-2">embeddings = OpenAIEmbeddings(model="text-embedding-3-small")</p>
+<p class="text-neutral-300">vectorstore = Chroma(</p>
+<p class="text-neutral-300 ml-4">persist_directory="./my_bank",</p>
+<p class="text-neutral-300 ml-4">embedding_function=embeddings</p>
+<p class="text-neutral-300">)</p>
+<p class="text-neutral-500 mt-2"># Add documents</p>
+<p class="text-neutral-300">vectorstore.add_texts(texts=["doc1...", "doc2..."])</p>
+<p class="text-neutral-500"># Search similarity</p>
+<p class="text-neutral-300">results = vectorstore.similarity_search("my query", k=3)</p>
+</div>
+</div>
+</section>
+TOPIC 3
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">3</span>
+<h2 class="text-2xl font-bold">🔢 Embeddings in practice</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Embeddings transform text into numeric vectors where<strong class="text-blue-400">texts with similar meaning are close together in space</strong>. "Dog" and "dog" are close; "dog" and "plane" are far apart. It's not magic — it's geometry applied to meaning.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">🗺️ Intuition without math</h3>
+<p class="text-neutral-300 text-sm mb-4">Imagine a map where each word/sentence has a position (coordinates). The embedding model learned to place similar texts close to each other:</p>
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-blue-900/30 rounded-lg p-3 text-center border border-blue-500/20">
+<p class="text-blue-400 font-semibold text-sm">Region "Finance"</p>
+<p class="text-xs text-neutral-400 mt-1">share, dividend, stock market, investment, income</p>
+</div>
+<div class="bg-emerald-900/30 rounded-lg p-3 text-center border border-emerald-500/20">
+<p class="text-emerald-400 font-semibold text-sm">Region "Animals"</p>
+<p class="text-xs text-neutral-400 mt-1">dog, cat, dog, feline, canine</p>
+</div>
+<div class="bg-purple-900/30 rounded-lg p-3 text-center border border-purple-500/20">
+<p class="text-purple-400 font-semibold text-sm">Region "Code"</p>
+<p class="text-xs text-neutral-400 mt-1">function, loop, variable, debug, compile</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+<h4 class="font-semibold text-blue-400 mb-3">Embedding models in 2026</h4>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li><strong>text-embedding-3-small</strong>— 1536 dims, $0.02/1M tokens, great value for money</li>
+<li><strong>text-embedding-3-large</strong>— 3072 dims, $0.13/1M tokens, more accurate</li>
+<li><strong>voyage-3</strong>(Anthropic) — excellent for code and technical documentation</li>
+<li><strong>nomic-embed</strong>— open-source, self-hosted, free</li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-5">
+<h4 class="font-semibold text-neutral-300 mb-3">Critical chunking parameters</h4>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li><strong>chunk_size:</strong>size of each piece of text (256-1024 tokens)</li>
+<li><strong>chunk_overlap:</strong>overlap between chunks (10-20% of chunk_size)</li>
+<li><strong>separators:</strong>where to cut — paragraph, sentence or word</li>
+<li><strong>Rule:</strong>smaller chunk = more accurate, larger chunk = more context</li>
+</ul>
+</div>
+</div>
+</section>
+TOPIC 4
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">4</span>
+<h2 class="text-2xl font-bold">🔄 Complete RAG Pipeline</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">RAG (Retrieval-Augmented Generation) is the technique of giving the LLM access to an external knowledge base at the time of generation. The pipeline has<strong class="text-blue-400">4 distinct phases</strong>: index, retrieve, inject and generate.</p>
+<div class="space-y-4 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-blue-400 mb-2">Indexing (done once)</h4>
+<p class="text-sm text-neutral-400">Load documents → divide into chunks → generate embedding for each chunk → store in the vector database. Paid once, permanent benefit until documents change.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-blue-400 mb-2">Recovery (for each query)</h4>
+<p class="text-sm text-neutral-400">Receives the user's question → generates question embedding → searches for the K most similar chunks in the vector database by cosine similarity.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-blue-400 mb-2">Context injection</h4>
+<p class="text-sm text-neutral-400">The retrieved chunks are added to the prompt as context: "Based on the following documents: [chunks]. Answer: [user question]."</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+<h4 class="font-semibold text-blue-400 mb-2">Generation</h4>
+<p class="text-sm text-neutral-400">LLM responds using the injected context. He can cite sources, be more precise and not "hallucinate" about information that is explicitly in the documents.</p>
+</div>
+</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-6">
+<h3 class="text-lg font-semibold text-neutral-300 mb-4">💻 Full RAG on LangChain (working code)</h3>
+<div class="bg-dark-900/50 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<p class="text-blue-400">from langchain.chains import RetrievalQA</p>
+<p class="text-blue-400">from langchain_chroma import Chroma</p>
+<p class="text-blue-400">from langchain_openai import OpenAIEmbeddings, ChatOpenAI</p>
+<p class="text-blue-400">from langchain.text_splitter import RecursiveCharacterTextSplitter</p>
+<p class="text-blue-400">from langchain_community.document_loaders import TextLoader</p>
+<p class="text-neutral-300 mt-3"># 1. Indexing</p>
+<p class="text-neutral-300">loader = TextLoader("documentacao.txt")</p>
+<p class="text-neutral-300">docs = loader.load()</p>
+<p class="text-neutral-300">splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=50)</p>
+<p class="text-neutral-300">chunks = splitter.split_documents(docs)</p>
+<p class="text-neutral-300">vectorstore = Chroma.from_documents(chunks, OpenAIEmbeddings())</p>
+<p class="text-neutral-300 mt-2">#2-4. Recovery + Injection + Generation</p>
+<p class="text-neutral-300">qa = RetrievalQA.from_chain_type(</p>
+<p class="text-neutral-300 ml-4">llm=ChatOpenAI(model="gpt-4o-mini"),</p>
+<p class="text-neutral-300 ml-4">retriever=vectorstore.as_retriever(search_kwargs={"k": 3})</p>
+<p class="text-neutral-300">)</p>
+<p class="text-neutral-300">response = qa.invoke("What is the return policy?")</p>
+</div>
+</div>
+</section>
+TOPIC 5
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">5</span>
+<h2 class="text-2xl font-bold">🐛 Bad retrieval debug</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">"RAG doesn't work" is the most common bug in LLM projects. But<strong class="text-blue-400">which part failed?</strong>It could be a very small chunk, insufficient top-k, wrong threshold, or low quality embedding for the domain. Each cause has a specific solution.</p>
+<div class="space-y-4 mb-6">
+<div class="bg-dark-800 rounded-xl border border-amber-500/20 p-5">
+<h4 class="font-semibold text-amber-400 mb-2">🟡 Problem: chunks too small (256 tokens)</h4>
+<p class="text-sm text-neutral-400 mb-2"><strong>Symptom:</strong>The chunk contains the keyword but lacks the context to be useful to LLM.</p>
+<p class="text-sm text-emerald-400"><strong>Solution:</strong>Increase to 512-1024 tokens. Use chunk_overlap of 10-20% to avoid losing phrases when cutting.</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-red-500/20 p-5">
+<h4 class="font-semibold text-red-400 mb-2">🔴 Problem: top-k too low (k=1 or k=2)</h4>
+<p class="text-sm text-neutral-400 mb-2"><strong>Symptom:</strong>The chunk with the response exists but is not among the first returned.</p>
+<p class="text-sm text-emerald-400"><strong>Solution:</strong>Increase to k=5 or k=10. Use MMR (Maximal Marginal Relevance) for diversity.</p>
+</div>
+<div class="bg-dark-800 rounded-xl border border-blue-500/20 p-5">
+<h4 class="font-semibold text-blue-400 mb-2">🔵 Problem: Bad embedding for the domain</h4>
+<p class="text-sm text-neutral-400 mb-2"><strong>Symptom:</strong>Semantically related documents do not appear as similar.</p>
+<p class="text-sm text-emerald-400"><strong>Solution:</strong>Use specialized embedding templates (voyage-3 for code, multilingual-e5 for PT-BR).</p>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+<h3 class="text-lg font-semibold text-primary mb-3">💡 Evaluating RAG with RAGAS</h3>
+<p class="text-neutral-300 text-sm">RAGAS is an open-source framework that evaluates your RAG pipeline on 4 metrics:<strong class="text-primary">Faithfulness</strong>(answer is in the chunks?),<strong class="text-primary">Answer Relevance</strong>(Is the answer relevant to the question?),<strong class="text-primary">Context Recall</strong>(were relevant chunks recovered?) and<strong class="text-primary">Context Precision</strong>(are recovered chunks all relevant?). Use before going to production.</p>
+</div>
+</section>
+TOPIC 6
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl flex-shrink-0">6</span>
+<h2 class="text-2xl font-bold">💸 Vector memory cost</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A RAG system has two distinct costs:<strong class="text-blue-400">indexing</strong>(embedding of all documents — paid once) and<strong class="text-blue-400">search</strong>(query embedding for each interaction — always paid). At scale, difference matters.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">📊 Example of real cost</h3>
+<p class="text-neutral-400 text-sm mb-4">Knowledge base: 1,000 documents (500 average tokens each) = 500,000 tokens</p>
+<div class="space-y-3">
+<div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between">
+<span class="text-sm text-neutral-300">Full indexing (text-embedding-3-small)</span>
+<span class="text-sm text-emerald-400 font-semibold">$0.01 (single)</span>
+</div>
+<div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between">
+<span class="text-sm text-neutral-300">1,000 searches/day (query ~20 tokens)</span>
+<span class="text-sm text-blue-400">$0.0004/day</span>
+</div>
+<div class="bg-dark-800/60 rounded-lg p-3 flex items-center justify-between border border-primary/20">
+<span class="text-sm font-semibold text-neutral-200">Total monthly cost (embeddings)</span>
+<span class="text-sm font-bold text-primary">~$0.01 indexing + $0.012 search = $0.022</span>
+</div>
+</div>
+<p class="text-xs text-neutral-500 mt-3">The actual cost of RAG is dominated by the cost of LLM to generate the response, not the embeddings.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-3">Self-hosted (FAISS/Chroma local)</h4>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Zero vector storage cost</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Data stays in your infrastructure</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>You manage backup and availability</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Scalability limited by RAM memory</span></li>
+</ul>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h4 class="font-bold text-neutral-300 mb-3">Hosted (Pinecone, Weaviate Cloud)</h4>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Unlimited automatic scalability</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Guaranteed availability SLA</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cost: Pinecone Serverless ~$0.033/1M reads</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Data in the provider's cloud</span></li>
+</ul>
+</div>
+</div>
+</section>
+SUMMARY
+<section class="mb-12">
+<div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span>Module Summary 2.3</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Agent amnesia</strong><span class="text-neutral-400">— no long-term memory, each session starts from scratch; RAG is the default solution</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">FAISS vs. Chroma</strong><span class="text-neutral-400">— FAISS is faster, Chroma is simpler; To get started, use Chroma</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">Embeddings</strong><span class="text-neutral-400">— text → position in semantic space; similar texts are close together</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">RAG Pipeline</strong><span class="text-neutral-400">— 4 phases: index → ​​retrieve → inject → generate; optimize each phase separately</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">retrieval debug</strong><span class="text-neutral-400">— chunk size, top-k and embedding quality are the 3 main levers</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-0.5">✓</span><div><strong class="text-white">RAG cost</strong><span class="text-neutral-400">— embeddings are cheap; the real cost is the LLM for generation</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8 border border-dark-600">
+<h3 class="font-semibold text-blue-400 mb-2">Next Module:</h3>
+<p class="text-neutral-300">2.4 — Tools and Function Calling: how to give the agent the ability to act in the real world with JSON Schema, Pydantic and tool security.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-2-2.html">← 2.2 Short Term Memory</a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-4.html">Next: 2.4 Tools →</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>🤖 Agentic Engineering Masterclass ·<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>· 2026</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
