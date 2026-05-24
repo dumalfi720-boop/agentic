@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.10 Custo-Otimização: Roteamento Heterogêneo | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.10 Cost-Optimization: Heterogeneous Routing | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,156 +30,143 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400 transition-colors">Home</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400 transition-colors">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.10</span>
-    </nav>
-  </div>
-
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MÓDULO 5.10</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Custo-Otimização</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Roteamento Heterogêneo</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">
-        💡 Custo-Otimização: Roteamento Heterogêneo e Cache Semântico
-      </h1>
-      <p class="text-lg text-neutral-300 max-w-3xl mb-8">
-        Classificador de complexidade para roteamento inteligente entre modelos, cache semântico com embeddings, compressão de contexto e benchmark real demonstrando 90% de redução de custos.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">6</div>
-          <div class="text-xs text-neutral-400 mt-1">Seções</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">~55min</div>
-          <div class="text-xs text-neutral-400 mt-1">Duração</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">90%</div>
-          <div class="text-xs text-neutral-400 mt-1">Redução de Custo</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Avançado</div>
-          <div class="text-xs text-neutral-400 mt-1">Nível</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-
-    <!-- Seção 1 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
-        <h2 class="text-xl font-bold text-neutral-100">O Princípio da Heterogeneidade — Não Use Opus Para Tudo</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>O erro mais caro em orquestradores de IA é usar o modelo mais potente para todas as tarefas. Claude Opus custa <strong class="text-red-400">60x mais</strong> que Claude Haiku. Para uma tarefa simples como "classifique este texto em 3 categorias", Haiku resolve tão bem quanto Opus — ao custo de $0.25/M tokens vs. $15/M tokens.</p>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="border-b border-dark-600">
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Modelo</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Input $/M</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Output $/M</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Ideal Para</th>
-                <th class="text-left py-3 text-neutral-400 font-semibold">NÃO Usar Para</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-bold text-teal-400">Haiku 3</td>
-                <td class="py-3 pr-4 text-green-400">$0.25</td>
-                <td class="py-3 pr-4 text-green-400">$1.25</td>
-                <td class="py-3 pr-4 text-neutral-300">Classificação, extração, roteamento, sumário simples</td>
-                <td class="py-3 text-neutral-400">Raciocínio complexo, código avançado</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-bold text-yellow-400">Sonnet 3.5</td>
-                <td class="py-3 pr-4 text-yellow-400">$3.00</td>
-                <td class="py-3 pr-4 text-yellow-400">$15.00</td>
-                <td class="py-3 pr-4 text-neutral-300">Análise, código, redação, síntese de médio porte</td>
-                <td class="py-3 text-neutral-400">Tarefas triviais (desperdício)</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-4 font-bold text-red-400">Opus 4</td>
-                <td class="py-3 pr-4 text-red-400">$15.00</td>
-                <td class="py-3 pr-4 text-red-400">$75.00</td>
-                <td class="py-3 pr-4 text-neutral-300">Raciocínio avançado, código complexo, síntese final de alta qualidade</td>
-                <td class="py-3 text-neutral-400">Qualquer tarefa simples</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
-          <h3 class="font-bold text-teal-400 mb-3">Impacto real de um workflow de 100 tarefas</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-            <div>
-              <div class="font-bold text-red-400 mb-2">Tudo com Opus (sem otimização)</div>
-              <div class="space-y-1 text-neutral-300">
-                <div>100 tarefas × 1.000 tokens médios</div>
-                <div>Custo: $15 × 0.1M = <strong class="text-red-400">$15.00</strong></div>
-              </div>
-            </div>
-            <div>
-              <div class="font-bold text-teal-400 mb-2">Roteamento Heterogêneo</div>
-              <div class="space-y-1 text-neutral-300">
-                <div>60 tarefas simples → Haiku: $0.25 × 0.06M = <strong>$0.015</strong></div>
-                <div>30 tarefas médias → Sonnet: $3 × 0.03M = <strong>$0.09</strong></div>
-                <div>10 tarefas complexas → Opus: $15 × 0.01M = <strong>$0.15</strong></div>
-                <div>Total: <strong class="text-teal-400">$0.255</strong> (98% de economia)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 2 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
-        <h2 class="text-xl font-bold text-neutral-100">ComplexityClassifier — Classificação Automática de Tarefas</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>O classificador analisa cada tarefa antes da execução e decide qual modelo usar. Pode ser baseado em regras (heurísticas) para zero custo adicional, ou usar um LLM leve (Haiku) para classificação mais precisa.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from dataclasses import dataclass
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400 transition-colors" href="../../index.html">Home</a>
+<span>/</span>
+<a class="hover:text-teal-400 transition-colors" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.10</span>
+</nav>
+</div>
+<header class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MODULE 5.10</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Cost-Optimization</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Heterogeneous Routing</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">💡 Cost-Optimization: Heterogeneous Routing and Semantic Caching</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">Complexity classifier for intelligent routing between models, semantic cache with embeddings, context compression and real benchmark demonstrating 90% cost reduction.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Sections</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">~55min</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">90%</div>
+<div class="text-xs text-neutral-400 mt-1">Cost Reduction</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Advanced</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+Section 1
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
+<h2 class="text-xl font-bold text-neutral-100">The Principle of Heterogeneity — Don’t Use Opus for Everything</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The most expensive mistake in AI orchestrators is using the most powerful model for all tasks. Claude Opus costs<strong class="text-red-400">60x more</strong>than Claude Haiku. For a simple task like "classify this text into 3 categories", Haiku does just as well as Opus — at a cost of $0.25/M tokens vs. $15/M tokens.</p>
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="border-b border-dark-600">
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Model</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Input$/M</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Output$/M</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Ideal for</th>
+<th class="text-left py-3 text-neutral-400 font-semibold">DO NOT Use For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-bold text-teal-400">Haiku 3</td>
+<td class="py-3 pr-4 text-green-400">$0.25</td>
+<td class="py-3 pr-4 text-green-400">$1.25</td>
+<td class="py-3 pr-4 text-neutral-300">Classification, extraction, routing, simple summary</td>
+<td class="py-3 text-neutral-400">Complex reasoning, advanced code</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-bold text-yellow-400">Sonnet 3.5</td>
+<td class="py-3 pr-4 text-yellow-400">$3.00</td>
+<td class="py-3 pr-4 text-yellow-400">$15.00</td>
+<td class="py-3 pr-4 text-neutral-300">Analysis, code, writing, mid-range synthesis</td>
+<td class="py-3 text-neutral-400">Trivial tasks (waste)</td>
+</tr>
+<tr>
+<td class="py-3 pr-4 font-bold text-red-400">Opus 4</td>
+<td class="py-3 pr-4 text-red-400">$15.00</td>
+<td class="py-3 pr-4 text-red-400">$75.00</td>
+<td class="py-3 pr-4 text-neutral-300">Advanced reasoning, complex code, high-quality final synthesis</td>
+<td class="py-3 text-neutral-400">Any simple task</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
+<h3 class="font-bold text-teal-400 mb-3">Real impact of a workflow of 100 tasks</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+<div>
+<div class="font-bold text-red-400 mb-2">Everything with Opus (without optimization)</div>
+<div class="space-y-1 text-neutral-300">
+<div>100 tasks × 1,000 average tokens</div>
+<div>Cost: $15 × 0.1M =<strong class="text-red-400">$15.00</strong></div>
+</div>
+</div>
+<div>
+<div class="font-bold text-teal-400 mb-2">Heterogeneous Routing</div>
+<div class="space-y-1 text-neutral-300">
+<div>60 simple tasks → Haiku: $0.25 × 0.06M =<strong>$0.015</strong></div>
+<div>30 medium tasks → Sonnet: $3 × 0.03M =<strong>$0.09</strong></div>
+<div>10 complex tasks → Opus: $15 × 0.01M =<strong>$0.15</strong></div>
+<div>Total:<strong class="text-teal-400">$0.255</strong>(98% savings)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+Section 2
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
+<h2 class="text-xl font-bold text-neutral-100">ComplexityClassifier — Automatic Task Classification</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The classifier analyzes each task before execution and decides which model to use. It can be rule-based (heuristics) for zero overhead, or use a lightweight LLM (Haiku) for more accurate classification.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 import re
@@ -237,7 +224,7 @@ class ComplexityClassifier:
         "extraia", "liste", "formate", "sim ou não",
     }
 
-    def classify_by_heuristics(self, task: dict) -> Optional[ClassificationResult]:
+    def classify_by_heuristics(self, task: dict) -&gt; Optional[ClassificationResult]:
         """Classificação por regras — custo zero."""
         task_text = (
             task.get("description", "") + " " +
@@ -247,7 +234,7 @@ class ComplexityClassifier:
 
         # Verifica número de sub-tarefas
         num_subtasks = len(task.get("subtasks", []))
-        if num_subtasks > 5:
+        if num_subtasks &gt; 5:
             return ClassificationResult(
                 complexity=Complexity.COMPLEX,
                 model=self.MODEL_MAP[Complexity.COMPLEX],
@@ -263,7 +250,7 @@ class ComplexityClassifier:
         # Comprimento da entrada como proxy de complexidade
         input_length = len(str(task.get("input", "")))
 
-        if complex_hits >= 2 or input_length > 5000:
+        if complex_hits &gt;= 2 or input_length &gt; 5000:
             return ClassificationResult(
                 complexity=Complexity.COMPLEX,
                 model=self.MODEL_MAP[Complexity.COMPLEX],
@@ -272,7 +259,7 @@ class ComplexityClassifier:
                 estimated_cost=self._estimate_cost(Complexity.COMPLEX)
             )
 
-        if simple_hits >= 1 and complex_hits == 0 and input_length < 1000:
+        if simple_hits &gt;= 1 and complex_hits == 0 and input_length &lt; 1000:
             return ClassificationResult(
                 complexity=Complexity.SIMPLE,
                 model=self.MODEL_MAP[Complexity.SIMPLE],
@@ -283,7 +270,7 @@ class ComplexityClassifier:
 
         return None  # inconclusivo → vai para próxima camada
 
-    def classify_by_type(self, task: dict) -> Optional[ClassificationResult]:
+    def classify_by_type(self, task: dict) -&gt; Optional[ClassificationResult]:
         """Classificação por tipo de tarefa — custo zero."""
         task_type = task.get("type", "").lower()
 
@@ -332,7 +319,7 @@ class ComplexityClassifier:
 
         return None
 
-    async def classify_by_llm(self, task: dict) -> ClassificationResult:
+    async def classify_by_llm(self, task: dict) -&gt; ClassificationResult:
         """Classificação por LLM (Haiku) — fallback de alta precisão."""
         import anthropic, json
 
@@ -369,39 +356,37 @@ Reply ONLY with JSON: {{"complexity": "simple|medium|complex", "reason": "..."}}
                 estimated_cost=self._estimate_cost(Complexity.MEDIUM)
             )
 
-    async def classify(self, task: dict) -> ClassificationResult:
+    async def classify(self, task: dict) -&gt; ClassificationResult:
         """Pipeline de classificação em cascata."""
         # Camada 1: por tipo (zero custo)
         result = self.classify_by_type(task)
-        if result and result.confidence >= 0.85:
+        if result and result.confidence &gt;= 0.85:
             return result
 
         # Camada 2: por heurística (zero custo)
         result = self.classify_by_heuristics(task)
-        if result and result.confidence >= 0.80:
+        if result and result.confidence &gt;= 0.80:
             return result
 
         # Camada 3: LLM (custo mínimo, máxima precisão)
         return await self.classify_by_llm(task)
 
-    def _estimate_cost(self, complexity: Complexity, avg_tokens: int = 1000) -> float:
+    def _estimate_cost(self, complexity: Complexity, avg_tokens: int = 1000) -&gt; float:
         model = self.MODEL_MAP[complexity]
         costs = self.MODEL_COSTS[model]
         # Assume 70% input, 30% output
         return (avg_tokens * 0.7 * costs["input"] + avg_tokens * 0.3 * costs["output"]) / 1_000_000</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 3 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
-        <h2 class="text-xl font-bold text-neutral-100">SemanticCache — Cache Semântico com Embeddings</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Cache semântico vai além do cache exato: se uma tarefa é <em>semanticamente similar</em> a outra já processada (mesmo que com palavras diferentes), reutilizamos o resultado. Hit rate típico: 30-60% em workflows repetitivos.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install anthropic redis numpy
+</div>
+</section>
+Section 3
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
+<h2 class="text-xl font-bold text-neutral-100">SemanticCache — Semantic Cache with Embeddings</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>Semantic caching goes beyond exact caching: if a task is<em>semantically similar</em>the other already processed (even if with different words), we reuse the result. Typical hit rate: 30-60% in repetitive workflows.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install anthropic redis numpy
 
 import numpy as np
 import json
@@ -413,7 +398,7 @@ import redis.asyncio as aioredis
 class SemanticCache:
     """
     Cache semântico usando embeddings de texto.
-    Queries similares (cosine similarity > threshold) retornam
+    Queries similares (cosine similarity &gt; threshold) retornam
     resultado cacheado sem chamar o LLM.
 
     Custo de embedding (Voyage-3): $0.18/M tokens
@@ -432,7 +417,7 @@ class SemanticCache:
         self.ttl = ttl_seconds
         self.max_size = max_cache_size
 
-    async def get_embedding(self, text: str) -> np.ndarray:
+    async def get_embedding(self, text: str) -&gt; np.ndarray:
         """Gera embedding via Voyage API (ou Anthropic)."""
         import anthropic
 
@@ -454,7 +439,7 @@ class SemanticCache:
         return np.random.randn(1024)
 
     @staticmethod
-    def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+    def cosine_similarity(a: np.ndarray, b: np.ndarray) -&gt; float:
         """Similaridade de cosseno entre dois vetores."""
         a_norm = np.linalg.norm(a)
         b_norm = np.linalg.norm(b)
@@ -462,11 +447,11 @@ class SemanticCache:
             return 0.0
         return float(np.dot(a, b) / (a_norm * b_norm))
 
-    def _make_key(self, prompt: str) -> str:
+    def _make_key(self, prompt: str) -&gt; str:
         """Chave de lookup no Redis."""
         return f"semantic_cache:{hashlib.sha256(prompt.encode()).hexdigest()[:16]}"
 
-    async def get(self, prompt: str, model: str) -> Optional[dict]:
+    async def get(self, prompt: str, model: str) -&gt; Optional[dict]:
         """
         Tenta encontrar resultado similar no cache.
         Retorna None se não houver hit.
@@ -494,11 +479,11 @@ class SemanticCache:
             cached_embedding = np.array(cached["embedding"])
             similarity = self.cosine_similarity(query_embedding, cached_embedding)
 
-            if similarity > best_similarity:
+            if similarity &gt; best_similarity:
                 best_similarity = similarity
                 best_result = cached
 
-        if best_similarity >= self.threshold and best_result:
+        if best_similarity &gt;= self.threshold and best_result:
             # Registra hit no Redis para métricas
             await self.redis.incr("semantic_cache:hits")
             return {
@@ -511,7 +496,7 @@ class SemanticCache:
         await self.redis.incr("semantic_cache:misses")
         return None
 
-    async def set(self, prompt: str, model: str, result: str) -> None:
+    async def set(self, prompt: str, model: str, result: str) -&gt; None:
         """Armazena resultado no cache com embedding."""
         embedding = await self.get_embedding(prompt)
         key = self._make_key(prompt)
@@ -527,12 +512,12 @@ class SemanticCache:
         await self.redis.setex(key, self.ttl, json.dumps(cached_data))
         await self.redis.incr("semantic_cache:stored")
 
-    async def get_stats(self) -> dict:
+    async def get_stats(self) -&gt; dict:
         """Estatísticas de performance do cache."""
         hits = int(await self.redis.get("semantic_cache:hits") or 0)
         misses = int(await self.redis.get("semantic_cache:misses") or 0)
         total = hits + misses
-        hit_rate = hits / total if total > 0 else 0
+        hit_rate = hits / total if total &gt; 0 else 0
 
         keys = await self.redis.keys("semantic_cache:*")
         cache_size = len([k for k in keys if not k.startswith("semantic_cache:h") and
@@ -562,7 +547,7 @@ class CacheAwareLLMClient:
 
     async def complete(
         self, prompt: str, model: str, max_tokens: int = 2048
-    ) -> tuple[str, bool]:
+    ) -&gt; tuple[str, bool]:
         """
         Retorna (resposta, cache_hit).
         Se cache_hit=True, não houve custo de LLM.
@@ -583,19 +568,17 @@ class CacheAwareLLMClient:
         # Armazena para próximas queries similares
         await self.cache.set(prompt, model, result)
         return result, False</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 4 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
-        <h2 class="text-xl font-bold text-neutral-100">Compressão de Contexto — Menos Tokens, Mesma Qualidade</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Em workflows longos, o contexto acumula. Após 20 iterações, você pode estar enviando 8.000 tokens de histórico quando apenas 1.500 são relevantes. Context compression reduz custo sem perder qualidade.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from dataclasses import dataclass
+</div>
+</section>
+Section 4
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
+<h2 class="text-xl font-bold text-neutral-100">Context Compression — Fewer Tokens, Same Quality</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>In long workflows, context accumulates. After 20 iterations, you might be sending 8,000 history tokens when only 1,500 are relevant. Context compression reduces cost without losing quality.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass
 from typing import List, Dict, Any
 import anthropic
 
@@ -626,13 +609,13 @@ class ContextCompressor:
         self.min_recency = min_recency_messages
         self.client = anthropic.AsyncAnthropic()
 
-    def count_tokens(self, messages: List[Message]) -> int:
+    def count_tokens(self, messages: List[Message]) -&gt; int:
         """Conta tokens aproximados (4 chars ≈ 1 token)."""
         return sum(len(m.content) // 4 for m in messages)
 
     def filter_by_relevance(
         self, messages: List[Message], query: str, top_k: int = 10
-    ) -> List[Message]:
+    ) -&gt; List[Message]:
         """
         Mantém mensagens mais relevantes para a query atual.
         Em prod: use embedding similarity para score mais preciso.
@@ -641,7 +624,7 @@ class ContextCompressor:
 
         for msg in messages:
             content_words = set(msg.content.lower().split())
-            overlap = len(query_words & content_words)
+            overlap = len(query_words &amp; content_words)
             msg.relevance_score = overlap / max(len(query_words), 1)
 
         # Sempre mantém mensagens mais recentes
@@ -661,7 +644,7 @@ class ContextCompressor:
 
     async def summarize_history(
         self, messages: List[Message]
-    ) -> Message:
+    ) -&gt; Message:
         """Comprime histórico antigo em um sumário conciso."""
         history_text = "\n".join([
             f"{m.role}: {m.content[:300]}..."
@@ -694,7 +677,7 @@ Máximo: 400 tokens."""
         self,
         messages: List[Message],
         current_query: str
-    ) -> List[Message]:
+    ) -&gt; List[Message]:
         """
         Pipeline de compressão completo.
         1. Filtra por relevância
@@ -703,14 +686,14 @@ Máximo: 400 tokens."""
         total_tokens = self.count_tokens(messages)
 
         # Abaixo do threshold: não precisa comprimir
-        if total_tokens <= self.summary_threshold:
+        if total_tokens &lt;= self.summary_threshold:
             return messages
 
         # Passo 1: filtra por relevância
         filtered = self.filter_by_relevance(messages, current_query)
         filtered_tokens = self.count_tokens(filtered)
 
-        if filtered_tokens <= self.max_tokens:
+        if filtered_tokens &lt;= self.max_tokens:
             return filtered
 
         # Passo 2: sumariza histórico antigo
@@ -731,19 +714,17 @@ Máximo: 400 tokens."""
               f"({reduction_pct:.0f}% redução)")
 
         return result</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 5 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
-        <h2 class="text-xl font-bold text-neutral-100">PlanAndExecute — Separação de Planejamento e Execução</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Plan-and-Execute é um padrão onde um modelo potente (Opus) <em>planeja</em> e modelos baratos (Haiku/Sonnet) <em>executam</em>. O planner vê o objetivo completo uma vez; os executores recebem apenas a sub-tarefa relevante.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from dataclasses import dataclass
+</div>
+</section>
+Section 5
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
+<h2 class="text-xl font-bold text-neutral-100">PlanAndExecute — Separation of Planning and Execution</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>Plan-and-Execute is a pattern where a powerful model (Opus)<em>plans</em>and cheap models (Haiku/Sonnet)<em>perform</em>. The planner sees the completed objective once; executors receive only the relevant sub-task.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass
 from typing import List, Dict
 import asyncio
 import anthropic
@@ -768,7 +749,7 @@ class PlanAndExecuteOrchestrator:
         self.client = anthropic.AsyncAnthropic()
         self.classifier = ComplexityClassifier()
 
-    async def plan(self, objective: str) -> ExecutionPlan:
+    async def plan(self, objective: str) -&gt; ExecutionPlan:
         """Usa Sonnet para planejar (balança custo vs. qualidade de planejamento)."""
         response = await self.client.messages.create(
             model="claude-3-5-sonnet-20241022",
@@ -816,7 +797,7 @@ Responda em JSON:
             parallel_groups=data.get("parallel_groups", [[t["id"] for t in tasks]])
         )
 
-    async def execute_task(self, task: dict) -> dict:
+    async def execute_task(self, task: dict) -&gt; dict:
         """
         Executa uma única tarefa com o modelo apropriado.
         O executor recebe APENAS a sub-tarefa — sem o objetivo global.
@@ -848,7 +829,7 @@ Produza apenas o resultado da tarefa, sem explicações extras."""
             "cost": classification.estimated_cost,
         }
 
-    async def execute_parallel_group(self, task_ids: List[str], tasks_map: dict) -> List[dict]:
+    async def execute_parallel_group(self, task_ids: List[str], tasks_map: dict) -&gt; List[dict]:
         """Executa grupo de tarefas em paralelo."""
         group_tasks = [tasks_map[tid] for tid in task_ids if tid in tasks_map]
         results = await asyncio.gather(*[
@@ -856,7 +837,7 @@ Produza apenas o resultado da tarefa, sem explicações extras."""
         ])
         return list(results)
 
-    async def run(self, objective: str) -> dict:
+    async def run(self, objective: str) -&gt; dict:
         """Executa o workflow completo Plan-and-Execute."""
         # 1. Planejamento (uma vez, com modelo médio)
         plan = await self.plan(objective)
@@ -883,123 +864,112 @@ Produza apenas o resultado da tarefa, sem explicações extras."""
             "models_distribution": models_used,
             "tasks_completed": len(all_results),
         }</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 6 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
-        <h2 class="text-xl font-bold text-neutral-100">Benchmark Real — Comparação Baseline vs. Otimizado</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Dados reais de um workflow de análise competitiva com 50 empresas, medindo custo, latência e qualidade com e sem as otimizações.</p>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="border-b border-dark-600">
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Técnica</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Custo (50 empresas)</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Latência</th>
-                <th class="text-left py-3 text-neutral-400 font-semibold">Qualidade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Baseline (Opus para tudo)</td>
-                <td class="py-3 pr-4 text-red-400 font-bold">$47.20</td>
-                <td class="py-3 pr-4 text-neutral-300">18 min</td>
-                <td class="py-3 text-teal-400">100% (referência)</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">+ Roteamento heterogêneo</td>
-                <td class="py-3 pr-4 text-yellow-400 font-bold">$8.30</td>
-                <td class="py-3 pr-4 text-neutral-300">16 min</td>
-                <td class="py-3 text-teal-400">96%</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">+ Cache semântico (30% hit)</td>
-                <td class="py-3 pr-4 text-green-400 font-bold">$5.81</td>
-                <td class="py-3 pr-4 text-neutral-300">11 min</td>
-                <td class="py-3 text-teal-400">96%</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">+ Compressão de contexto</td>
-                <td class="py-3 pr-4 text-green-400 font-bold">$4.12</td>
-                <td class="py-3 pr-4 text-neutral-300">11 min</td>
-                <td class="py-3 text-teal-400">95%</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-4 font-bold text-teal-400">Stack completo otimizado</td>
-                <td class="py-3 pr-4 text-teal-400 font-black text-base">$4.12 (-91%)</td>
-                <td class="py-3 pr-4 text-teal-400">11 min (-39%)</td>
-                <td class="py-3 text-teal-400">95% (-5%)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
-          <h3 class="font-bold text-teal-400 mb-3">Regra de ouro das otimizações</h3>
-          <div class="space-y-3 text-sm text-neutral-300">
-            <div class="flex gap-3">
-              <span class="text-teal-400 font-bold flex-shrink-0">1ª prioridade:</span>
-              <span>Roteamento heterogêneo — maior impacto (82% de redução), implementação simples</span>
-            </div>
-            <div class="flex gap-3">
-              <span class="text-teal-400 font-bold flex-shrink-0">2ª prioridade:</span>
-              <span>Cache semântico — benefit cresce com o tempo (mais dados cached = mais hits)</span>
-            </div>
-            <div class="flex gap-3">
-              <span class="text-teal-400 font-bold flex-shrink-0">3ª prioridade:</span>
-              <span>Compressão de contexto — crítico para workflows longos (>20 iterações)</span>
-            </div>
-            <div class="flex gap-3">
-              <span class="text-yellow-400 font-bold flex-shrink-0">Cuidado:</span>
-              <span>Qualidade nunca pode cair abaixo do SLO acordado. Teste em produção com shadow mode antes de ativar otimizações.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
-          <h3 class="font-bold text-neutral-100 mb-3">Resumo do Módulo 5.10</h3>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Opus custa 60x mais que Haiku — usar o modelo certo para cada tarefa é a otimização #1</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>ComplexityClassifier em 3 camadas: tipo → heurística → LLM (custo crescente, cobertura crescente)</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Cache semântico com cosine similarity ≥ 0.92 — hit rate de 30-60% em workflows repetitivos</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>ContextCompressor: relevance filtering + summarization reduz contexto em 60-80%</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Plan-and-Execute: Sonnet planeja uma vez, Haiku executa 10x — custo de Haiku, qualidade de Sonnet</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Benchmark: baseline $47.20 → otimizado $4.12 com 95% de qualidade preservada</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegação -->
-    <div class="flex justify-between items-center pt-4">
-      <a href="modulo-5-9.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        <span class="text-sm font-medium">5.9 — Arquitetura Composta</span>
-      </a>
-      <a href="modulo-5-11.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all">
-        <span class="text-sm font-medium">5.11 — Projeto Final</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </main>
-
-  <footer class="border-t border-dark-600 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        Agentic Engineering Masterclass •
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
-        • Módulo 5.10 — Custo-Otimização
-      </p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</section>
+Section 6
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
+<h2 class="text-xl font-bold text-neutral-100">Real Benchmark — Baseline vs. Baseline Comparison Optimized</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>Real data from a competitive analysis workflow with 50 companies, measuring cost, latency and quality with and without optimizations.</p>
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="border-b border-dark-600">
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Technique</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Cost (50 companies)</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Latency</th>
+<th class="text-left py-3 text-neutral-400 font-semibold">Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">Baseline (Opus for everything)</td>
+<td class="py-3 pr-4 text-red-400 font-bold">$47.20</td>
+<td class="py-3 pr-4 text-neutral-300">18 min</td>
+<td class="py-3 text-teal-400">100% (reference)</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">+ Heterogeneous routing</td>
+<td class="py-3 pr-4 text-yellow-400 font-bold">$8.30</td>
+<td class="py-3 pr-4 text-neutral-300">16 min</td>
+<td class="py-3 text-teal-400">96%</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">+ Semantic cache (30% hit)</td>
+<td class="py-3 pr-4 text-green-400 font-bold">$5.81</td>
+<td class="py-3 pr-4 text-neutral-300">11 min</td>
+<td class="py-3 text-teal-400">96%</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">+ Context compression</td>
+<td class="py-3 pr-4 text-green-400 font-bold">$4.12</td>
+<td class="py-3 pr-4 text-neutral-300">11 min</td>
+<td class="py-3 text-teal-400">95%</td>
+</tr>
+<tr>
+<td class="py-3 pr-4 font-bold text-teal-400">Optimized full stack</td>
+<td class="py-3 pr-4 text-teal-400 font-black text-base">$4.12 (-91%)</td>
+<td class="py-3 pr-4 text-teal-400">11 min (-39%)</td>
+<td class="py-3 text-teal-400">95% (-5%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
+<h3 class="font-bold text-teal-400 mb-3">Golden rule of optimizations</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="flex gap-3">
+<span class="text-teal-400 font-bold flex-shrink-0">1st priority:</span>
+<span>Heterogeneous routing — biggest impact (82% reduction), simple implementation</span>
+</div>
+<div class="flex gap-3">
+<span class="text-teal-400 font-bold flex-shrink-0">2nd priority:</span>
+<span>Semantic cache — benefit grows over time (more cached data = more hits)</span>
+</div>
+<div class="flex gap-3">
+<span class="text-teal-400 font-bold flex-shrink-0">3rd priority:</span>
+<span>Context compression — critical for long workflows (&gt;20 iterations)</span>
+</div>
+<div class="flex gap-3">
+<span class="text-yellow-400 font-bold flex-shrink-0">Careful:</span>
+<span>Quality can never fall below the agreed SLO. Test in production with shadow mode before enabling optimizations.</span>
+</div>
+</div>
+</div>
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
+<h3 class="font-bold text-neutral-100 mb-3">Module Summary 5.10</h3>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Opus costs 60x more than Haiku — using the right template for each task is optimization #1</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>ComplexityClassifier in 3 layers: type → heuristics → LLM (increasing cost, increasing coverage)</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Semantic cache with cosine similarity ≥ 0.92 — hit rate of 30-60% in repetitive workflows</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>ContextCompressor: relevance filtering + summarization reduces context by 60-80%</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Plan-and-Execute: Sonnet plans once, Haiku executes 10x — Haiku cost, Sonnet quality</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Benchmark: baseline $47.20 → optimized $4.12 with 95% quality preserved</span></li>
+</ul>
+</div>
+</div>
+</section>
+Navigation
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all" href="modulo-5-9.html">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">5.9 — Composite Architecture</span>
+</a>
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all" href="modulo-5-11.html">
+<span class="text-sm font-medium">5.11 — Final Project</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<footer class="border-t border-dark-600 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 text-sm">Agentic Engineering Masterclass •<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>• Module 5.10 — Cost-Optimization</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const toggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
