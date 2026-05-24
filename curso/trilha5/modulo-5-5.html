@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.5 Camada 5a — Governança: Logs e Permissões | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.5 Layer 5a — Governance: Logs and Permissions | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,67 +30,60 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.5</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MÓDULO 5.5</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📋 Camada 5a — Governança: Logs e Permissões</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Em produção enterprise, cada ação de agente precisa ser rastreável, justificável e controlada. Logs estruturados, audit trail imutável, RBAC para agentes — a governança que transforma sistemas experimentais em sistemas confiáveis.</p>
-      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Código</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TOPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">1</span>
-        <h2 class="text-2xl font-bold">📝 Logs Estruturados para Agentes</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Logs de texto livre são inúteis em escala. Quando 20 agentes geram 500 logs por hora, você precisa de logs estruturados — JSON com schema fixo que permite queries, alertas e dashboards automáticos.
-      </p>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
-        <h3 class="text-base font-semibold text-neutral-300 mb-3">O schema obrigatório de um log de agente</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>{
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-teal-400" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.5</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MODULE 5.5</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📋 Layer 5a — Governance: Logs and Permissions</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">In enterprise production, each agent action needs to be traceable, justifiable and controlled. Structured logs, immutable audit trail, RBAC for agents — the governance that transforms experimental systems into reliable systems.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topics</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutes</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Advanced</div><div class="text-xs text-neutral-400">Level</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Code</div><div class="text-xs text-neutral-400">Type</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+TOPIC 1
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">1</span>
+<h2 class="text-2xl font-bold">📝 Structured Logs for Agents</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Free text logs are useless at scale. When 20 agents generate 500 logs per hour, you need structured logs — JSON with a fixed schema that allows queries, alerts and automatic dashboards.</p>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
+<h3 class="text-base font-semibold text-neutral-300 mb-3">The mandatory schema of an agent log</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">{
   "timestamp": "2026-03-03T14:32:11.234Z",
   "level": "INFO",
   "session_id": "sess_abc123def456",
@@ -111,10 +104,10 @@
     "routing_confidence": 0.94
   }
 }</code></pre>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Implementação: StructuredLogger</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>import json
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Implementation: StructuredLogger</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">import json
 import logging
 import time
 from datetime import datetime, timezone
@@ -131,7 +124,7 @@ class StructuredLogger:
         self.session_id = None
         self.agent_id = None
 
-    def bind(self, session_id: str, agent_id: str) -> "StructuredLogger":
+    def bind(self, session_id: str, agent_id: str) -&gt; "StructuredLogger":
         """Cria logger contextualizado para sessão/agente específico."""
         child = StructuredLogger.__new__(StructuredLogger)
         child._logger = self._logger
@@ -191,44 +184,41 @@ class StructuredLogger:
             "confidence": confidence
         }
         self._logger.info(json.dumps(record, ensure_ascii=False))</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">2</span>
-        <h2 class="text-2xl font-bold">🔒 Audit Trail Imutável</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        O audit trail não é apenas um log — é uma sequência imutável que prova que o sistema agiu dentro dos limites autorizados. Empresas reguladas em fintech, saúde e jurídico precisam disso para aprovação de órgãos reguladores.
-      </p>
-      <div class="bg-gradient-to-br from-teal-900/20 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
-        <h3 class="text-base font-semibold text-teal-400 mb-3">Diferença entre log e audit trail</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-dark-800/50 rounded-lg p-4">
-            <p class="font-bold text-neutral-400 mb-2 text-sm">Log operacional</p>
-            <ul class="text-xs text-neutral-300 space-y-1">
-              <li>• Pode ser deletado/rotacionado</li>
-              <li>• Para debugging em tempo real</li>
-              <li>• Retenção de 30-90 dias</li>
-              <li>• Pode ter gaps se sistema falha</li>
-            </ul>
-          </div>
-          <div class="bg-teal-900/20 rounded-lg p-4">
-            <p class="font-bold text-teal-400 mb-2 text-sm">Audit trail</p>
-            <ul class="text-xs text-neutral-300 space-y-1">
-              <li>• Nunca deletado — append-only</li>
-              <li>• Para auditoria por reguladores</li>
-              <li>• Retenção de 5-10 anos</li>
-              <li>• Hash chain garante integridade</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Implementação: ImmutableAuditTrail</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>import hashlib
+</div>
+</section>
+TOPIC 2
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">2</span>
+<h2 class="text-2xl font-bold">🔒 Immutable Audit Trail</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The audit trail is not just a log — it is an immutable sequence that proves the system acted within authorized limits. Regulated companies in fintech, healthcare and legal need this for approval from regulatory bodies.</p>
+<div class="bg-gradient-to-br from-teal-900/20 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-base font-semibold text-teal-400 mb-3">Difference between log and audit trail</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-dark-800/50 rounded-lg p-4">
+<p class="font-bold text-neutral-400 mb-2 text-sm">Operational log</p>
+<ul class="text-xs text-neutral-300 space-y-1">
+<li>• Can be deleted/rotated</li>
+<li>• For real-time debugging</li>
+<li>• 30-90 day retention</li>
+<li>• May have gaps if system fails</li>
+</ul>
+</div>
+<div class="bg-teal-900/20 rounded-lg p-4">
+<p class="font-bold text-teal-400 mb-2 text-sm">Audit trail</p>
+<ul class="text-xs text-neutral-300 space-y-1">
+<li>• Never deleted — append-only</li>
+<li>• For audit by regulators</li>
+<li>• 5-10 year retention</li>
+<li>• Hash chain ensures integrity</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Implementation: ImmutableAuditTrail</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">import hashlib
 import asyncpg
 
 class ImmutableAuditTrail:
@@ -238,7 +228,7 @@ class ImmutableAuditTrail:
         self.db = db_pool
         self._last_hash: dict[str, str] = {}  # session_id → último hash
 
-    def _compute_hash(self, event: dict, prev_hash: str) -> str:
+    def _compute_hash(self, event: dict, prev_hash: str) -&gt; str:
         """Computa hash do evento encadeado com o anterior."""
         content = json.dumps({**event, "prev_hash": prev_hash},
                               sort_keys=True, ensure_ascii=False)
@@ -249,7 +239,7 @@ class ImmutableAuditTrail:
                      event_type: str,
                      actor: str,
                      action: str,
-                     details: dict = None) -> str:
+                     details: dict = None) -&gt; str:
         """
         Adiciona entrada imutável ao audit trail.
         Retorna hash da entrada para referência.
@@ -278,7 +268,7 @@ class ImmutableAuditTrail:
 
         return event_hash
 
-    async def verify_integrity(self, session_id: str) -> bool:
+    async def verify_integrity(self, session_id: str) -&gt; bool:
         """Verifica se a cadeia de hashes está íntegra (não foi adulterada)."""
         rows = await self.db.fetch("""
             SELECT event_hash, prev_hash, event_type, actor, action, details, created_at
@@ -313,41 +303,38 @@ class ImmutableAuditTrail:
 #     action="read_database",
 #     details={"table": "financial_reports", "query": "SELECT..."}
 # )</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">3</span>
-        <h2 class="text-2xl font-bold">🛡️ RBAC para Agentes</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Role-Based Access Control aplicado a agentes: cada agente tem um role, cada role tem permissões específicas. O mesmo princípio de menor privilégio que aplicamos a usuários humanos — agora para sistemas autônomos.
-      </p>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
-        <h3 class="text-base font-semibold text-neutral-300 mb-4">Hierarquia de roles de agente</h3>
-        <div class="space-y-3 text-sm">
-          <div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
-            <span class="px-2 py-0.5 bg-teal-500/20 text-teal-400 rounded text-xs font-bold">READ_ONLY</span>
-            <span class="text-neutral-300">Pode: pesquisar web, ler bancos, consultar APIs de dados. Não pode: escrever, enviar, deletar. Agentes de pesquisa e análise.</span>
-          </div>
-          <div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
-            <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded text-xs font-bold">WRITER</span>
-            <span class="text-neutral-300">Inclui READ_ONLY. Adicional: criar arquivos, inserir dados, gerar documentos. Agentes de redação e formatação.</span>
-          </div>
-          <div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
-            <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 rounded text-xs font-bold">EXECUTOR</span>
-            <span class="text-neutral-300">Inclui WRITER. Adicional: executar código, chamar APIs externas com efeitos. Agentes de execução técnica. Requer log detalhado.</span>
-          </div>
-          <div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
-            <span class="px-2 py-0.5 bg-red-500/20 text-red-400 rounded text-xs font-bold">PRIVILEGED</span>
-            <span class="text-neutral-300">Acesso total. Deploy, email, ações irreversíveis. Requer aprovação humana explícita para cada uso. Apenas orquestrador principal.</span>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>from enum import Enum
+</div>
+</section>
+TOPIC 3
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">3</span>
+<h2 class="text-2xl font-bold">🛡️ RBAC for Agents</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Role-Based Access Control applied to agents: each agent has a role, each role has specific permissions. The same principle of least privilege that we apply to human users — now to autonomous systems.</p>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
+<h3 class="text-base font-semibold text-neutral-300 mb-4">Agent role hierarchy</h3>
+<div class="space-y-3 text-sm">
+<div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
+<span class="px-2 py-0.5 bg-teal-500/20 text-teal-400 rounded text-xs font-bold">READ_ONLY</span>
+<span class="text-neutral-300">You can: search the web, read banks, consult data APIs. You cannot: write, send, delete. Research and analysis agents.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
+<span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded text-xs font-bold">WRITER</span>
+<span class="text-neutral-300">Includes READ_ONLY. Additional: create files, insert data, generate documents. Writing and formatting agents.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
+<span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 rounded text-xs font-bold">EXECUTOR</span>
+<span class="text-neutral-300">Includes WRITER. Additional: run code, call external APIs with effects. Technical execution agents. Requires detailed logging.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-800/50 rounded-lg p-3">
+<span class="px-2 py-0.5 bg-red-500/20 text-red-400 rounded text-xs font-bold">PRIVILEGED</span>
+<span class="text-neutral-300">Full access. Deploy, email, irreversible actions. Requires explicit human approval for each use. Main orchestrator only.</span>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">from enum import Enum
 from functools import wraps
 
 class AgentRole(Enum):
@@ -396,13 +383,13 @@ class RBACManager:
             **(custom_assignments or {})
         }
 
-    def get_role(self, agent_id: str) -> AgentRole:
+    def get_role(self, agent_id: str) -&gt; AgentRole:
         """Obtém role de um agente pelo seu ID."""
         # Extrai tipo do agent_id (ex: "finance_agent_02" → "finance_agent")
         agent_type = "_".join(agent_id.split("_")[:-1]) if "_" in agent_id else agent_id
         return self.assignments.get(agent_type, AgentRole.READ_ONLY)
 
-    def can(self, agent_id: str, tool_name: str) -> bool:
+    def can(self, agent_id: str, tool_name: str) -&gt; bool:
         """Verifica se agente tem permissão para usar a tool."""
         role = self.get_role(agent_id)
         if role == AgentRole.PRIVILEGED:
@@ -418,53 +405,50 @@ class RBACManager:
                 f"Agente '{agent_id}' (role={role.value}) não tem permissão "
                 f"para usar tool '{tool_name}'"
             )</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">4</span>
-        <h2 class="text-2xl font-bold">🔧 Permissões Granulares por Tool</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        RBAC define o que um agente pode fazer em geral. Permissões granulares por tool vão além: definem o nível de risco de cada tool e os controles adicionais necessários para tools de alto risco.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-4">
-          <p class="font-bold text-teal-400 text-sm mb-2">Risco Baixo</p>
-          <p class="text-xs text-neutral-400 mb-3">Qualquer agente autorizado pode usar sem controle adicional.</p>
-          <ul class="text-xs text-neutral-300 space-y-1">
-            <li>• web_search</li>
-            <li>• read_file</li>
-            <li>• fetch_api_data (GET)</li>
-            <li>• query_elasticsearch</li>
-          </ul>
-        </div>
-        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-4">
-          <p class="font-bold text-amber-400 text-sm mb-2">Risco Médio</p>
-          <p class="text-xs text-neutral-400 mb-3">Requer role WRITER ou superior. Log obrigatório detalhado.</p>
-          <ul class="text-xs text-neutral-300 space-y-1">
-            <li>• write_file</li>
-            <li>• insert_database</li>
-            <li>• call_external_api (POST)</li>
-            <li>• execute_code</li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
-          <p class="font-bold text-red-400 text-sm mb-2">Risco Alto</p>
-          <p class="text-xs text-neutral-400 mb-3">Aprovação humana explícita + audit trail + notificação.</p>
-          <ul class="text-xs text-neutral-300 space-y-1">
-            <li>• delete_database</li>
-            <li>• send_email</li>
-            <li>• deploy_service</li>
-            <li>• transfer_funds</li>
-          </ul>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Middleware de interceptação de tool</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>class ToolPermissionMiddleware:
+</div>
+</section>
+TOPIC 4
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">4</span>
+<h2 class="text-2xl font-bold">🔧 Granular Permissions by Tool</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">RBAC defines what an agent can do in general. Granular permissions per tool go further: they define the risk level of each tool and the additional controls necessary for high-risk tools.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-4">
+<p class="font-bold text-teal-400 text-sm mb-2">Low Risk</p>
+<p class="text-xs text-neutral-400 mb-3">Any authorized agent may use it without additional control.</p>
+<ul class="text-xs text-neutral-300 space-y-1">
+<li>• web_search</li>
+<li>• read_file</li>
+<li>• fetch_api_data (GET)</li>
+<li>• query_elasticsearch</li>
+</ul>
+</div>
+<div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-4">
+<p class="font-bold text-amber-400 text-sm mb-2">Medium Risk</p>
+<p class="text-xs text-neutral-400 mb-3">Requires WRITER role or higher. Detailed mandatory logging.</p>
+<ul class="text-xs text-neutral-300 space-y-1">
+<li>• write_file</li>
+<li>• insert_database</li>
+<li>• call_external_api (POST)</li>
+<li>• execute_code</li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+<p class="font-bold text-red-400 text-sm mb-2">High Risk</p>
+<p class="text-xs text-neutral-400 mb-3">Explicit human approval + audit trail + notification.</p>
+<ul class="text-xs text-neutral-300 space-y-1">
+<li>• delete_database</li>
+<li>• send_email</li>
+<li>• deploy_service</li>
+<li>• transfer_funds</li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Tool interception middleware</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">class ToolPermissionMiddleware:
     """Intercepta chamadas de tool e aplica controles de segurança."""
 
     HIGH_RISK_TOOLS = {
@@ -481,7 +465,7 @@ class RBACManager:
 
     async def execute_tool(self, agent_id: str, tool_name: str,
                            tool_args: dict, session_id: str,
-                           actual_tool_fn) -> dict:
+                           actual_tool_fn) -&gt; dict:
         """
         Executa tool com pipeline completo de segurança:
         1. Verifica RBAC
@@ -528,43 +512,40 @@ class RBACManager:
             await self.audit.append(session_id, "tool_execution_error",
                                      agent_id, tool_name, {"error": str(e)})
             raise</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">5</span>
-        <h2 class="text-2xl font-bold">📊 Log Centralizado</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Logs de 10 agentes rodando em paralelo precisam ir para um lugar só. Elasticsearch ou Loki (stack Grafana) são as escolhas padrão para log centralizado em produção.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-bold text-teal-400 mb-3">Elasticsearch + Kibana</h4>
-          <ul class="text-sm text-neutral-300 space-y-2">
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Full-text search poderoso em logs</span></li>
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Kibana para dashboards e exploração</span></li>
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Alertas nativos via Kibana alerting</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Mais complexo de operar (JVM, memória)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Custo mais alto em infraestrutura própria</span></li>
-          </ul>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-bold text-teal-400 mb-3">Grafana Loki</h4>
-          <ul class="text-sm text-neutral-300 space-y-2">
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Integrado com Prometheus/Grafana stack</span></li>
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Muito mais barato: índice por labels apenas</span></li>
-            <li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>LogQL para queries flexíveis</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Full-text search mais limitado que Elasticsearch</span></li>
-            <li class="flex items-start space-x-2"><span class="text-neutral-400">→</span><span>Recomendado se já usa Grafana para métricas</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Configuração: envio de logs para Loki</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code># docker-compose.yml — Loki + Promtail + Grafana
+</div>
+</section>
+TOPIC 5
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">5</span>
+<h2 class="text-2xl font-bold">📊 Centralized Log</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Logs from 10 agents running in parallel need to go to one place. Elasticsearch or Loki (Grafana stack) are the default choices for centralized logging in production.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-bold text-teal-400 mb-3">Elasticsearch + Kibana</h4>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Powerful full-text search on logs</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Kibana for dashboards and exploration</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Native alerts via Kibana alerting</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>More complex to operate (JVM, memory)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Higher cost of own infrastructure</span></li>
+</ul>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-bold text-teal-400 mb-3">Grafana Loki</h4>
+<ul class="text-sm text-neutral-300 space-y-2">
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Integrated with Prometheus/Grafana stack</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>Much cheaper: index by labels only</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">+</span><span>LogQL for flexible queries</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">-</span><span>Full-text search more limited than Elasticsearch</span></li>
+<li class="flex items-start space-x-2"><span class="text-neutral-400">→</span><span>Recommended if you already use Grafana for metrics</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Configuration: sending logs to Loki</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True"># docker-compose.yml — Loki + Promtail + Grafana
 services:
   loki:
     image: grafana/loki:2.9.4
@@ -611,43 +592,40 @@ class LokiLogShipper:
 
 # LogQL query para encontrar erros de um session_id:
 # {service="orchestrator", session_id="sess_abc123"} |= "ERROR"
-# {service="orchestrator", agent_id="finance_agent_02"} | json | cost_usd > 0.01</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">⚖️ Compliance e Auditoria</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Empresas reguladas em setores como fintech, saúde e jurídico precisam demonstrar a reguladores que todos os agentes agiram dentro dos limites autorizados. O relatório de auditoria é o documento que prova isso.
-      </p>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
-        <h3 class="text-base font-semibold text-neutral-300 mb-3">Conteúdo de um relatório de auditoria típico</h3>
-        <div class="space-y-3 text-sm">
-          <div class="flex items-start space-x-3">
-            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <span class="text-neutral-300"><strong class="text-white">Sumário executivo:</strong> total de execuções, taxa de sucesso, custo total, ações que requereram aprovação humana</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <span class="text-neutral-300"><strong class="text-white">Log completo de ações:</strong> cada ação de cada agente, timestamp, input, output, agente responsável</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-neutral-300"><strong class="text-white">Ações de alto risco:</strong> lista de todas as tools de risco alto usadas, com aprovação humana documentada</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-neutral-300"><strong class="text-white">Verificação de integridade:</strong> resultado da verificação de hash chain do audit trail</span>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Geração de relatório de auditoria</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>class AuditReportGenerator:
+# {service="orchestrator", agent_id="finance_agent_02"} | json | cost_usd &gt; 0.01</code></pre>
+</div>
+</section>
+TOPIC 6
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">6</span>
+<h2 class="text-2xl font-bold">⚖️ Compliance and Audit</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Regulated companies in sectors such as fintech, healthcare and legal need to demonstrate to regulators that all agents acted within authorized limits. The audit report is the document that proves this.</p>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
+<h3 class="text-base font-semibold text-neutral-300 mb-3">Contents of a typical audit report</h3>
+<div class="space-y-3 text-sm">
+<div class="flex items-start space-x-3">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-neutral-300"><strong class="text-white">Executive Summary:</strong>total executions, success rate, total cost, actions that required human approval</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-neutral-300"><strong class="text-white">Full action log:</strong>each action of each agent, timestamp, input, output, responsible agent</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-neutral-300"><strong class="text-white">High-risk stocks:</strong>list of all high-risk tools used, with documented human approval</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-neutral-300"><strong class="text-white">Integrity check:</strong>audit trail hash chain check result</span>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Audit report generation</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">class AuditReportGenerator:
     """Gera relatórios de auditoria para compliance."""
 
     def __init__(self, db: asyncpg.Pool, audit_trail: ImmutableAuditTrail):
@@ -657,7 +635,7 @@ class LokiLogShipper:
     async def generate_period_report(self,
                                      start_date: str,
                                      end_date: str,
-                                     include_details: bool = True) -> dict:
+                                     include_details: bool = True) -&gt; dict:
         """Gera relatório de auditoria para um período."""
 
         # 1. Sumário de execuções
@@ -676,7 +654,7 @@ class LokiLogShipper:
             SELECT session_id, event_type, actor, action, details, created_at
             FROM audit_log
             WHERE event_type IN ('tool_execution_start', 'tool_rejected_by_human')
-              AND details::jsonb->>'tool' IN
+              AND details::jsonb-&gt;&gt;'tool' IN
                   ('send_email','delete_database','deploy_service','transfer_funds')
               AND created_at BETWEEN $1::timestamptz AND $2::timestamptz
             ORDER BY created_at
@@ -697,33 +675,30 @@ class LokiLogShipper:
             "permission_violations": [dict(r) for r in violations],
             "integrity_check": "PASS — audit trail verificado"
         }</code></pre>
-      </div>
-      <div class="bg-dark-800/50 rounded-lg p-5 mb-8 border border-dark-600">
-        <h3 class="font-semibold text-teal-400 mb-2">Resumo do Módulo 5.5</h3>
-        <div class="space-y-2 text-sm text-neutral-300">
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Logs estruturados em JSON com schema fixo: queries automáticas sem regex frágil</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Audit trail com hash chain: prova imutável de integridade para reguladores</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>RBAC para agentes: mesmo princípio de menor privilégio de sistemas humanos</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Middleware de tool: RBAC + aprovação humana + audit em cada chamada de tool de risco</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Log centralizado com Loki ou Elasticsearch: correlação cross-agente em segundos</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Relatório de auditoria automatizado: compliance enterprise sem trabalho manual</span></div>
-        </div>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="modulo-5-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← 5.4 Supervisão</a>
-        <a href="modulo-5-6.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo: 5.6 Custo e Audit →</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>🤖 Agentic Engineering Masterclass · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-5 mb-8 border border-dark-600">
+<h3 class="font-semibold text-teal-400 mb-2">Module 5.5 Summary</h3>
+<div class="space-y-2 text-sm text-neutral-300">
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Logs structured in JSON with fixed schema: automatic queries without fragile regex</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Audit trail with hash chain: immutable proof of integrity for regulators</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>RBAC for agents: same principle of least privilege as human systems</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Tool middleware: RBAC + human approval + audit on each risk tool call</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Centralized logging with Loki or Elasticsearch: cross-agent correlation in seconds</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Automated audit report: enterprise compliance without manual work</span></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-5-4.html">← 5.4 Supervision</a>
+<a class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors" href="modulo-5-6.html">Next: 5.6 Cost and Audit →</a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>🤖 Agentic Engineering Masterclass ·<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>· 2026</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
