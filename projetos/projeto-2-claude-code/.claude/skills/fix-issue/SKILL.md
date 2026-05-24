@@ -1,22 +1,16 @@
 # Skill: fix-issue
 
-## Descrição
+## Description
 
-A skill `fix-issue` automatiza o processo completo de corrigir uma issue do GitHub. Ao receber o número de uma issue, o Claude busca os detalhes no repositório, analisa o código relacionado, cria uma branch dedicada, implementa a correção, roda os testes e commita as mudanças — tudo de forma autônoma.
+The skill`fix-issue`Automates the entire process of fixing a GitHub issue. Upon receiving an issue number, Claude searches the repository for details, analyzes the related code, creates a dedicated branch, implements the fix, runs the tests and commits the changes — all autonomously.
 
-Esta skill é ideal para bugs bem descritos, melhorias de código, ajustes de documentação e refatorações pontuais.
+This skill is ideal for well-described bugs, code improvements, documentation adjustments and specific refactorings.
 
 ---
 
-## Como Usar
-
-```
+## How to Use```
 /fix-issue <numero-da-issue>
-```
-
-### Exemplos
-
-```bash
+```### Examples```bash
 # Corrigir a issue #123
 /fix-issue 123
 
@@ -25,44 +19,36 @@ Esta skill é ideal para bugs bem descritos, melhorias de código, ajustes de do
 
 # Corrigir a issue #200 (feature request simples)
 /fix-issue 200
-```
+```---
 
----
+## Execution Steps
 
-## Passos de Execução
+Claude will **obligatorily** follow this sequence when executing the skill:
 
-O Claude seguirá **obrigatoriamente** esta sequência ao executar a skill:
+### Step 1 — Read the Issue
 
-### Passo 1 — Ler a Issue
-
-Buscar os detalhes completos da issue no GitHub usando a CLI `gh`:
+Fetch full issue details from GitHub using the CLI`gh`:
 
 ```bash
 gh issue view <numero> --json title,body,labels,assignees,comments
-```
-
-Analisar:
-- Título e descrição do problema
+```Analyze:
+- Problem title and description
 - Labels (bug, enhancement, documentation, etc.)
-- Comentários com informações adicionais
-- Arquivos ou funções mencionados
+- Comments with additional information
+- Mentioned files or functions
 
-### Passo 2 — Analisar o Código Relacionado
+### Step 2 — Analyze Related Code
 
-Identificar os arquivos relevantes para a issue:
+Identify the files relevant to the issue:
 
-- Buscar por funções, classes ou variáveis mencionadas na issue
-- Ler os arquivos identificados completamente antes de qualquer edição
-- Entender o contexto: como o código é usado, quais dependências existem
-- Verificar os testes existentes para a área afetada
+- Search for functions, classes or variables mentioned in the issue
+- Read identified files completely before any editing
+- Understand the context: how the code is used, what dependencies exist
+- Check existing tests for the affected area
 
-Ferramentas usadas neste passo: `Grep`, `Glob`, `Read`
+Tools used in this step:`Grep`, `Glob`, `Read`### Step 3 — Create Dedicated Branch
 
-### Passo 3 — Criar Branch Dedicada
-
-Criar uma branch com nomenclatura padronizada antes de qualquer modificação:
-
-```bash
+Create a branch with standardized naming before any modifications:```bash
 # Para bugs
 git checkout -b fix/issue-<numero>-descricao-curta
 
@@ -71,27 +57,21 @@ git checkout -b feat/issue-<numero>-descricao-curta
 
 # Para documentação
 git checkout -b docs/issue-<numero>-descricao-curta
-```
+```Never make changes directly to`main` ou `develop`.
 
-Nunca fazer alterações diretamente em `main` ou `develop`.
+### Step 4 — Implement the Fix
 
-### Passo 4 — Implementar o Fix
+Apply the necessary corrections following the project conventions defined in the`CLAUDE.md`:
 
-Aplicar as correções necessárias seguindo as convenções do projeto definidas no `CLAUDE.md`:
+- Edit only the necessary files
+- Maintain existing code style
+- Add type hints where they are missing
+- Update docstrings if function signature changed
+- Do not introduce new dependencies unnecessarily
 
-- Editar apenas os arquivos necessários
-- Manter o estilo de código existente
-- Adicionar type hints onde estiverem faltando
-- Atualizar docstrings se a assinatura da função mudou
-- Não introduzir dependências novas sem necessidade
+Tools used in this step:`Edit`, `Write`### Step 5 — Run the Tests
 
-Ferramentas usadas neste passo: `Edit`, `Write`
-
-### Passo 5 — Rodar os Testes
-
-Verificar que a correção não quebrou nada e, idealmente, adicionar testes para o caso corrigido:
-
-```bash
+Check that the fix didn't break anything and, ideally, add tests for the corrected case:```bash
 # Rodar todos os testes
 pytest
 
@@ -100,19 +80,15 @@ pytest tests/test_<modulo>.py -v
 
 # Verificar cobertura na área modificada
 pytest --cov=app/<modulo> --cov-report=term-missing
-```
+```If any test fails:
+1. Analyze the error
+2. Fix the problem
+3. Run the tests again
+4. Repeat until everyone passes
 
-Se algum teste falhar:
-1. Analisar o erro
-2. Corrigir o problema
-3. Rodar os testes novamente
-4. Repetir até todos passarem
+### Step 6 — Commit the Changes
 
-### Passo 6 — Commitar as Mudanças
-
-Após todos os testes passarem, fazer o commit com mensagem clara e referência à issue:
-
-```bash
+After all tests pass, commit with a clear message and reference to the issue:```bash
 # Adicionar arquivos modificados
 git add <arquivos-modificados>
 
@@ -123,55 +99,51 @@ Resolve #<numero-da-issue>
 
 - <detalhe 1 do que foi feito>
 - <detalhe 2 do que foi feito>"
-```
-
-Não usar `git add .` — adicionar apenas os arquivos realmente modificados para o fix.
+```Do not use`git add .`— add only the actually modified files to the fix.
 
 ---
 
-## Ferramentas Disponíveis
+## Available Tools
 
-| Ferramenta | Uso na Skill                                              |
-|------------|-----------------------------------------------------------|
-| `Bash`     | Executar `gh issue view`, `git`, `pytest`, `ruff`         |
-| `Read`     | Ler arquivos de código antes de editar                    |
-| `Edit`     | Aplicar correções nos arquivos identificados              |
-| `Write`    | Criar novos arquivos de teste quando necessário           |
-| `Grep`     | Buscar funções, classes e padrões no código               |
-| `Glob`     | Encontrar arquivos relacionados à issue                   |
-
----
-
-## Comportamento em Casos Especiais
-
-### Issue muito ampla ou ambígua
-
-Se a issue não tiver detalhes suficientes para implementar uma solução clara, o Claude deve:
-1. Listar o que foi entendido
-2. Apresentar as possíveis abordagens
-3. Perguntar ao usuário qual caminho seguir antes de modificar qualquer arquivo
-
-### Testes falhando antes do fix
-
-Se os testes já estiverem falhando antes da modificação, o Claude deve:
-1. Informar ao usuário sobre os testes falhos pré-existentes
-2. Perguntar se deve corrigir apenas a issue ou também os testes quebrados
-3. Documentar os testes que estavam falhos no commit
-
-### Fix requer mudanças em múltiplos módulos
-
-Se a correção impactar mais de 3 arquivos distintos, o Claude deve:
-1. Apresentar um plano detalhado antes de executar
-2. Aguardar confirmação do usuário
-3. Executar as mudanças de forma incremental, testando a cada etapa
+| Tool | Use in Skill |
+|------------|----------------------------------------------------------|
+|`Bash`| To execute`gh issue view`, `git`, `pytest`, `ruff`         |
+| `Read`| Read code files before editing |
+|`Edit`| Apply corrections to identified files |
+|`Write`| Create new test files when necessary |
+|`Grep`| Search for functions, classes and patterns in the code |
+|`Glob`| Find files related to issue |
 
 ---
 
-## Saída Esperada
+## Behavior in Special Cases
 
-Ao finalizar, o Claude deve apresentar um resumo:
+### Issue too broad or ambiguous
 
-```
+If the issue does not have enough detail to implement a clear solution, Claude should:
+1. List what was understood
+2. Present possible approaches
+3. Ask the user which path to follow before modifying any file
+
+### Tests failing before fix
+
+If the tests are already failing before the modification, Claude should:
+1. Inform the user about pre-existing failed tests
+2. Ask whether to fix just the issue or also the broken tests
+3. Document the tests that were failed at commit
+
+### Fix requires changes to multiple modules
+
+If the fix impacts more than 3 different files, Claude must:
+1. Present a detailed plan before executing
+2. Wait for user confirmation
+3. Execute changes incrementally, testing at each stage
+
+---
+
+## Expected Output
+
+At the end, Claude must present a summary:```
 Fix concluído para a issue #<numero>
 
 Branch criada: fix/issue-<numero>-<descricao>
