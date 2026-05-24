@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto 1: Agente do Zero — INEMA.CLUB</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project 1: Agent of Zero — duclub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -26,7 +26,7 @@
       }
     }
   </script>
-  <style>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
 
     /* ── LIGHT MODE ─────────────────────────────────────────────── */
@@ -123,739 +123,602 @@
   </style>
 </head>
 <body class="text-neutral-100 min-h-screen">
-
-  <!-- ══════════════════════════════════════════════════════════════
+═══════════════════════════════ ═══════════════════════════════
        NAV
-  ══════════════════════════════════════════════════════════════════ -->
-  <nav class="sticky top-0 z-50 bg-dark-900/80 border-b border-dark-600">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-
-      <!-- Breadcrumb -->
-      <div class="flex items-center gap-2 text-sm text-neutral-400 min-w-0">
-        <a href="#" class="hover:text-orange-400 transition-colors whitespace-nowrap">Projetos Práticos</a>
-        <span class="text-neutral-500">/</span>
-        <span class="text-orange-400 font-medium truncate">Agente do Zero</span>
-      </div>
-
-      <!-- Logo + Theme toggle -->
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <span class="text-sky-400 font-bold text-sm tracking-wide">INEMA.CLUB</span>
-        <button
-          id="theme-toggle"
-          onclick="toggleTheme()"
-          class="w-8 h-8 flex items-center justify-center rounded-lg bg-dark-700 border border-dark-600 hover:border-orange-500/50 transition-colors text-neutral-400 hover:text-orange-400"
-          title="Alternar tema"
-        >
-          <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-          </svg>
-          <svg id="icon-moon" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ══════════════════════════════════════════════════════════════
+  ═════════════════════════════════ ═════════════════════════════════
+<nav class="sticky top-0 z-50 bg-dark-900/80 border-b border-dark-600">
+<div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+Breadcrumb
+<div class="flex items-center gap-2 text-sm text-neutral-400 min-w-0">
+<a class="hover:text-orange-400 transition-colors whitespace-nowrap" href="#">Practical Projects</a>
+<span class="text-neutral-500">/</span>
+<span class="text-orange-400 font-medium truncate">Agent of Zero</span>
+</div>
+Logo + Theme toggle
+<div class="flex items-center gap-3 flex-shrink-0">
+<span class="text-sky-400 font-bold text-sm tracking-wide">duclub</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-dark-700 border border-dark-600 hover:border-orange-500/50 transition-colors text-neutral-400 hover:text-orange-400" id="theme-toggle" onclick="toggleTheme()" title="Alternar tema">
+<svg class="w-4 h-4 hidden" fill="none" id="icon-sun" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<svg class="w-4 h-4" fill="none" id="icon-moon" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</nav>
+═══════════════════════════════ ═══════════════════════════════
        HERO
-  ══════════════════════════════════════════════════════════════════ -->
-  <header class="max-w-5xl mx-auto px-4 pt-14 pb-10">
-    <div class="flex flex-wrap items-center gap-3 mb-4">
-      <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 uppercase tracking-widest">
-        Python + Anthropic API
-      </span>
-      <span class="text-xs text-neutral-500">Projeto 1 de 4</span>
-    </div>
-
-    <h1 class="text-2xl font-bold text-neutral-100 mb-3 leading-tight">
-      Projeto 1: Agente do Zero
-    </h1>
-
-    <p class="text-neutral-400 text-base leading-relaxed max-w-3xl mb-6">
-      Construa um agente de IA funcional do zero, sem frameworks externos, usando apenas a
-      <strong class="text-orange-400">Anthropic API</strong>. Você entenderá o loop agentic completo —
-      Pensar, Agir, Observar — implementando manualmente o ciclo de <em>function calling</em>.
+  ═════════════════════════════════ ═════════════════════════════════
+<header class="max-w-5xl mx-auto px-4 pt-14 pb-10">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 uppercase tracking-widest">Python + Anthropic API</span>
+<span class="text-xs text-neutral-500">Project 1 of 4</span>
+</div>
+<h1 class="text-2xl font-bold text-neutral-100 mb-3 leading-tight">Project 1: Agent from Zero</h1>
+<p class="text-neutral-400 text-base leading-relaxed max-w-3xl mb-6">Build a working AI agent from scratch, without external frameworks, using only the<strong class="text-orange-400">Anthropic API</strong>. You will understand the complete agentic loop —
+      Think, Act, Observe — manually implementing the cycle of<em>function calling</em>.
     </p>
-
-    <!-- Stats -->
-    <div class="flex flex-wrap gap-4">
-      <div class="flex items-center gap-2 text-sm text-neutral-400">
-        <div class="w-2 h-2 rounded-full bg-green-400"></div>
-        Iniciante
-      </div>
-      <div class="flex items-center gap-2 text-sm text-neutral-400">
-        <div class="w-2 h-2 rounded-full bg-orange-400"></div>
-        ~2h estimado
-      </div>
-      <div class="flex items-center gap-2 text-sm text-neutral-400">
-        <div class="w-2 h-2 rounded-full bg-sky-400"></div>
-        Python 3.10+
-      </div>
-    </div>
-  </header>
-
-  <!-- DOWNLOAD -->
-  <section class="max-w-5xl mx-auto px-4 mb-8">
-    <div class="bg-gradient-to-br from-orange-900/20 to-dark-800 border border-orange-500/30 rounded-2xl p-6">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
-        <div>
-          <h2 class="text-base font-bold text-neutral-100 mb-1">Baixar Projeto Completo</h2>
-          <p class="text-xs text-neutral-400">Todos os arquivos prontos — extraia e comece em minutos</p>
-        </div>
-        <a href="../projeto-1-agente-zero.zip" download="projeto-1-agente-zero.zip" class="flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-400 text-white text-sm font-bold rounded-xl transition-colors whitespace-nowrap">
-          ↓ Download ZIP
-        </a>
-      </div>
-      <div class="flex flex-wrap gap-2 mb-5">
-        <a href="agent.py" download="agent.py" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">🐍 agent.py</a>
-        <a href="requirements.txt" download="requirements.txt" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">📦 requirements.txt</a>
-        <a href=".env.example" download=".env.example" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">🔑 .env.example</a>
-        <a href="README.md" download="README.md" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">📄 README.md</a>
-        <a href="ROTEIRO.md" download="ROTEIRO.md" class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors">🗺️ ROTEIRO.md</a>
-      </div>
-      <div class="border-t border-dark-600 pt-4">
-        <h3 class="text-sm font-bold text-neutral-200 mb-3">⚡ Execute em 3 passos</h3>
-        <ol class="space-y-3">
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Instale as dependências</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono">pip install -r requirements.txt</code>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Configure sua chave Anthropic</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono">cp .env.example .env  # abra o .env e coloque sua ANTHROPIC_API_KEY</code>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <div>
-              <p class="text-xs font-semibold text-neutral-200">Execute o agente</p>
-              <code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono">python agent.py</code>
-            </div>
-          </li>
-        </ol>
-        <p class="mt-3 text-xs text-neutral-500">Sem Python? Baixe em <a href="https://python.org" target="_blank" class="text-orange-400 hover:text-orange-300">python.org</a>. Sem chave Anthropic? Crie em <a href="https://console.anthropic.com" target="_blank" class="text-orange-400 hover:text-orange-300">console.anthropic.com</a>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       ARQUIVOS DO PROJETO
-  ══════════════════════════════════════════════════════════════════ -->
-  <section class="max-w-5xl mx-auto px-4 mb-12">
-    <h2 class="text-lg font-semibold text-neutral-100 mb-4">Arquivos do Projeto</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-
-      <!-- agent.py -->
-      <div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4 cursor-pointer"
-           onclick="scrollToCode()">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-9 h-9 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-neutral-100">agent.py</p>
-            <p class="text-xs text-neutral-500">Principal</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400">Loop agentic + ferramentas + dispatcher</p>
-      </div>
-
-      <!-- requirements.txt -->
-      <div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-9 h-9 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-neutral-100">requirements.txt</p>
-            <p class="text-xs text-neutral-500">Dependências</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400">anthropic, python-dotenv</p>
-      </div>
-
-      <!-- .env.example -->
-      <div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-9 h-9 rounded-lg bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-neutral-100">.env.example</p>
-            <p class="text-xs text-neutral-500">Configuração</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400">Template de variáveis de ambiente</p>
-      </div>
-
-      <!-- index.html -->
-      <div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="w-9 h-9 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
-            </svg>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-neutral-100">index.html</p>
-            <p class="text-xs text-neutral-500">Este guia</p>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400">Documentação interativa do projeto</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       TÓPICOS EXPANDÍVEIS
-  ══════════════════════════════════════════════════════════════════ -->
-  <section class="max-w-5xl mx-auto px-4 mb-12">
-    <h2 class="text-lg font-semibold text-neutral-100 mb-2">Guia Passo a Passo</h2>
-    <p class="text-neutral-400 text-sm mb-6">Clique em cada tópico para expandir o conteúdo.</p>
-
-    <div class="space-y-3" id="accordion">
-
-      <!-- ── TÓPICO 1: Instalação e Configuração ───────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(1)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">1</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">Instalação e Configuração</span>
-            <span class="ml-3 text-xs text-neutral-500">pip, .env, estrutura de pastas</span>
-          </div>
-          <svg id="chevron-1" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-1" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <!-- O que é -->
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                A etapa de instalação configura o ambiente Python isolado com as dependências corretas
-                e a chave de API da Anthropic. Um ambiente limpo garante que seu agente rode de forma
-                reproduzível em qualquer máquina — do seu laptop até servidores de produção.
+Stats
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 text-sm text-neutral-400">
+<div class="w-2 h-2 rounded-full bg-green-400"></div>Beginner</div>
+<div class="flex items-center gap-2 text-sm text-neutral-400">
+<div class="w-2 h-2 rounded-full bg-orange-400"></div>~2h estimated</div>
+<div class="flex items-center gap-2 text-sm text-neutral-400">
+<div class="w-2 h-2 rounded-full bg-sky-400"></div>Python 3.10+</div>
+</div>
+</header>
+DOWNLOAD
+<section class="max-w-5xl mx-auto px-4 mb-8">
+<div class="bg-gradient-to-br from-orange-900/20 to-dark-800 border border-orange-500/30 rounded-2xl p-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+<div>
+<h2 class="text-base font-bold text-neutral-100 mb-1">Download Complete Project</h2>
+<p class="text-xs text-neutral-400">All files ready — extract and get started in minutes</p>
+</div>
+<a class="flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-400 text-white text-sm font-bold rounded-xl transition-colors whitespace-nowrap" download="projeto-1-agente-zero.zip" href="../projeto-1-agente-zero.zip">↓ Download ZIP</a>
+</div>
+<div class="flex flex-wrap gap-2 mb-5">
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="agent.py" href="agent.py">🐍 agent.py</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="requirements.txt" href="requirements.txt">📦 requirements.txt</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download=".env.example" href=".env.example">🔑 .env.example</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="README.md" href="README.md">📄 README.md</a>
+<a class="px-3 py-1.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-lg text-xs text-neutral-300 transition-colors" download="ROTEIRO.md" href="ROTEIRO.md">🗺️ ROTEIRO.md</a>
+</div>
+<div class="border-t border-dark-600 pt-4">
+<h3 class="text-sm font-bold text-neutral-200 mb-3">⚡ Execute in 3 steps</h3>
+<ol class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Install dependencies</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono" data-notranslate="True">pip install -r requirements.txt</code>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Configure your Anthropic key</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono" data-notranslate="True">cp .env.example .env  # abra o .env e coloque sua ANTHROPIC_API_KEY</code>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+<div>
+<p class="text-xs font-semibold text-neutral-200">Run the agent</p>
+<code class="block mt-1 text-xs bg-dark-700 px-3 py-1.5 rounded text-orange-300 font-mono" data-notranslate="True">python agent.py</code>
+</div>
+</li>
+</ol>
+<p class="mt-3 text-xs text-neutral-500">No Python? Download at<a class="text-orange-400 hover:text-orange-300" href="https://python.org" target="_blank">python.org</a>. No Anthropic key? Create in<a class="text-orange-400 hover:text-orange-300" href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>.</p>
+</div>
+</div>
+</section>
+═══════════════════════════════ ═══════════════════════════════
+       PROJECT FILES
+  ═════════════════════════════════ ═════════════════════════════════
+<section class="max-w-5xl mx-auto px-4 mb-12">
+<h2 class="text-lg font-semibold text-neutral-100 mb-4">Project Files</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+agent.py
+<div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4 cursor-pointer" onclick="scrollToCode()">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-9 h-9 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center">
+<svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-semibold text-neutral-100">agent.py</p>
+<p class="text-xs text-neutral-500">Main</p>
+</div>
+</div>
+<p class="text-xs text-neutral-400">Agentic loop + tools + dispatcher</p>
+</div>
+requirements.txt
+<div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-9 h-9 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center">
+<svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-semibold text-neutral-100">requirements.txt</p>
+<p class="text-xs text-neutral-500">Dependencies</p>
+</div>
+</div>
+<p class="text-xs text-neutral-400">anthropic, python-dotenv</p>
+</div>
+.env.example
+<div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-9 h-9 rounded-lg bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center">
+<svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-semibold text-neutral-100">.env.example</p>
+<p class="text-xs text-neutral-500">Settings</p>
+</div>
+</div>
+<p class="text-xs text-neutral-400">Environment variables template</p>
+</div>
+index.html
+<div class="file-card bg-dark-800 border border-dark-600 rounded-xl p-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-9 h-9 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
+<svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-semibold text-neutral-100">index.html</p>
+<p class="text-xs text-neutral-500">This guide</p>
+</div>
+</div>
+<p class="text-xs text-neutral-400">Interactive project documentation</p>
+</div>
+</div>
+</section>
+═══════════════════════════════ ═══════════════════════════════
+       EXPANDABLE TOPICS
+  ═════════════════════════════════ ═════════════════════════════════
+<section class="max-w-5xl mx-auto px-4 mb-12">
+<h2 class="text-lg font-semibold text-neutral-100 mb-2">Step by Step Guide</h2>
+<p class="text-neutral-400 text-sm mb-6">Click on each topic to expand the content.</p>
+<div class="space-y-3" id="accordion">
+── TOPIC 1: Installation and Configuration ─────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(1)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">1</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">Installation and Configuration</span>
+<span class="ml-3 text-xs text-neutral-500">pip, .env, folder structure</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-1" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-1">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+What is it
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">The installation step configures the isolated Python environment with the correct dependencies
+                and the Anthropic API key. A clean environment ensures that your agent runs smoothly.
+                reproducible on any machine — from your laptop to production servers.</p>
+</div>
+Why learn
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Managing dependencies and secrets correctly is the foundation of any AI project
+                in production. Environment variables prevent API keys from being exposed in commits
+                of Git — a mistake that could be costly if your key is compromised.</p>
+</div>
+Key concepts
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Virtual Environment (venv)</p>
+<p class="text-xs text-neutral-400">Isolates project dependencies from global system libraries.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">python-dotenv</p>
+<p class="text-xs text-neutral-400">Load variables from file<code class="text-orange-300" data-notranslate="True">.env</code>to<code class="text-orange-300" data-notranslate="True">os.environ</code>automatically.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">ANTHROPIC_API_KEY</p>
+<p class="text-xs text-neutral-400">Authentication key obtained from console.anthropic.com. Never commit to Git.</p>
+</div>
+</div>
+</div>
+Commands
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">Installation commands</h3>
+<div class="code-block p-4">
+<div><span class="tok-comment">#1. Create the virtual environment</span></div>
+<div><span class="tok-var">python3</span> <span class="tok-op">-m</span>venv .venv</div>
+<div class="mt-1"><span class="tok-var">source</span>.venv/bin/activate<span class="tok-comment">#Linux/Mac</span></div>
+<div><span class="tok-comment"># .venv\Scripts\activate # Windows</span></div>
+<div class="mt-3"><span class="tok-comment"># 2. Install dependencies</span></div>
+<div><span class="tok-var">pip</span>install<span class="tok-op">-r</span>requirements.txt</div>
+<div class="mt-3"><span class="tok-comment"># 3. Configure environment variables</span></div>
+<div><span class="tok-var">cp</span>.env.example .env</div>
+<div><span class="tok-comment"># Edit .env and add your ANTHROPIC_API_KEY</span></div>
+</div>
+</div>
+Structure
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">File structure</h3>
+<div class="code-block p-4">
+<div>project-1-agent-zero/</div>
+<div>├── <span class="tok-var">agent.py</span> <span class="tok-comment"># Main agent</span></div>
+<div>├── <span class="tok-var">requirements.txt</span> <span class="tok-comment"># Dependencies</span></div>
+<div>├── <span class="tok-var">.env.example</span> <span class="tok-comment"># Secrets template</span></div>
+<div>├── <span class="tok-var">.env</span> <span class="tok-comment"># Your secrets (does not commit!)</span></div>
+<div>└── <span class="tok-var">index.html</span> <span class="tok-comment"># This guide</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+── TOPIC 2: Defining Tools ────────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(2)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">2</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">Defining Tools</span>
+<span class="ml-3 text-xs text-neutral-500">tools schema, function calling</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-2" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-2">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Tools (<em>tools</em>) are external capabilities that the language model can invoke.
+                Each tool is described by a JSON schema that specifies name, description and parameters.
+                Claude decides<strong class="text-neutral-100">when and how</strong>call each tool
+                based on the context of the conversation.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Tools transform a passive LLM into an active agent. Without them, the model can only
+                generate text. With tools, it can fetch data in real time, execute code,
+                call external APIs and persist information — making it genuinely useful.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">input_schema</p>
+<p class="text-xs text-neutral-400">JSON Schema that defines the parameters accepted by the tool. Claude automatically generates valid inputs.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">description</p>
+<p class="text-xs text-neutral-400">Natural language text that explains to the model<em>when</em>use the tool. The clearer it is, the better the decision.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">tool_use block</p>
+<p class="text-xs text-neutral-400">When Claude decides to use a tool, he returns a block<code class="text-orange-300" data-notranslate="True">tool_use</code>with id, name and inputs.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">Schema example</h3>
+<div class="code-block p-4">
+<div><span class="tok-var">tools</span> <span class="tok-op">=</span> [</div>
+<div>  {</div>
+<div> <span class="tok-string">"name"</span>: <span class="tok-string">"calculate"</span>,</div>
+<div> <span class="tok-string">"description"</span>: <span class="tok-string">"Perform mathematical calculations"</span>,</div>
+<div> <span class="tok-string">"input_schema"</span>:{</div>
+<div> <span class="tok-string">"type"</span>: <span class="tok-string">"object"</span>,</div>
+<div> <span class="tok-string">"properties"</span>:{</div>
+<div> <span class="tok-string">"expression"</span>:{</div>
+<div> <span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>,</div>
+<div> <span class="tok-string">"description"</span>: <span class="tok-string">"Ex: '2 + 2'"</span></div>
+<div>        }</div>
+<div>      },</div>
+<div> <span class="tok-string">"required"</span>:[<span class="tok-string">"expression"</span>]</div>
+<div>    }</div>
+<div>  }</div>
+<div>]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+── TOPIC 3: The Dispatcher ──────────────────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(3)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">3</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">The Dispatcher</span>
+<span class="ml-3 text-xs text-neutral-500">execute_tool, dispatch logic</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-3" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-3">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">The dispatcher is the function responsible for receiving the name of the tool requested by the model
+                and route execution to the correct Python function. It acts as an intermediary between
+                Claude's decisions and the actual implementations of the tools.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Without a dispatcher, the agentic loop would be chaotic. Centralize routing logic
+                makes it easier to add new tools, handle errors uniformly, and record
+                (log) all calls for debugging and auditing.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Routing by name</p>
+<p class="text-xs text-neutral-400">The dispatcher uses<code class="text-orange-300" data-notranslate="True">if/elif</code>or a function dictionary to map tool names to implementations.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Error handling</p>
+<p class="text-xs text-neutral-400">Always return an error descriptive string — the model will use this information to correct the call in the next iteration.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">safe eval()</p>
+<p class="text-xs text-neutral-400">Use<code class="text-orange-300" data-notranslate="True">eval(expr, {"__builtins__": {}})</code>to block dangerous functions in evaluating mathematical expressions.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">Dispatcher implementation</h3>
+<div class="code-block p-4">
+<div><span class="tok-keyword">def</span> <span class="tok-func">run_tool</span>(name:<span class="tok-builtin">str</span>, inputs:<span class="tok-builtin">dict</span>) <span class="tok-op">-&gt;</span> <span class="tok-builtin">str</span>:</div>
+<div> <span class="tok-string">"""Dispatches the correct tool."""</span></div>
+<div class="mt-2"> <span class="tok-keyword">if</span>name<span class="tok-op">==</span> <span class="tok-string">"calculate"</span>:</div>
+<div> <span class="tok-keyword">try</span>:</div>
+<div>result<span class="tok-op">=</span> <span class="tok-builtin">eval</span>(inputs[<span class="tok-string">"expression"</span>],</div>
+<div>                      {<span class="tok-string">"__builtins__"</span>:{}})</div>
+<div> <span class="tok-keyword">return</span> <span class="tok-string">f"Result: {result}"</span></div>
+<div> <span class="tok-keyword">except</span> <span class="tok-builtin">Exception</span> <span class="tok-keyword">as</span> e:</div>
+<div> <span class="tok-keyword">return</span> <span class="tok-string">f"Error: {str(e)}"</span></div>
+<div class="mt-2"> <span class="tok-keyword">return</span> <span class="tok-string">f"Tool '{name}' not found."</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+── TOPIC 4: The Agentic Loop ────────────────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(4)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">4</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">The Agentic Loop</span>
+<span class="ml-3 text-xs text-neutral-500">while loop, stop_reason, message history</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-4" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-4">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">The agentic loop is the heart of the agent. It repeats the cycle<strong class="text-orange-400">Think → Act → Observe</strong>until the model
+                decide you have enough information to respond to the user without calling up more tools.
+                The termination sign is the field<code class="text-orange-300" data-notranslate="True">stop_reason == "end_turn"</code>.
               </p>
-            </div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Understanding the manual loop reveals what frameworks like LangChain and LlamaIndex do in
+                behind the scenes. With this knowledge, you can debug unexpected behavior, optimize
+                the number of API calls and implement custom logic that generic frameworks do not support.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">stop_reason</p>
+<p class="text-xs text-neutral-400"><code class="text-orange-300" data-notranslate="True">"end_turn"</code>= final answer.<code class="text-orange-300" data-notranslate="True">"tool_use"</code>= model wants to run tools.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Message history</p>
+<p class="text-xs text-neutral-400">Each iteration adds the wizard response and tool results to the array<code class="text-orange-300" data-notranslate="True">mensagens</code>.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">max_iterations</p>
+<p class="text-xs text-neutral-400">Security limit to avoid infinite loops and unexpected API costs.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">Loop flow</h3>
+<div class="code-block p-4">
+<div><span class="tok-keyword">while</span>iteration<span class="tok-op">&lt;</span>max_iterations:</div>
+<div> <span class="tok-comment"># 1. THINK — LLM processes context</span></div>
+<div>response<span class="tok-op">=</span>client.messages.create(...)</div>
+<div class="mt-2"> <span class="tok-comment"># 2. Check if you are finished</span></div>
+<div> <span class="tok-keyword">if</span>response.stop_reason<span class="tok-op">==</span> <span class="tok-string">"end_turn"</span>:</div>
+<div> <span class="tok-keyword">return</span>final_response<span class="tok-comment"># Exit the loop</span></div>
+<div class="mt-2"> <span class="tok-comment"># 3. ACT — Execute tools</span></div>
+<div> <span class="tok-keyword">for</span>block<span class="tok-keyword">in</span>response.content:</div>
+<div> <span class="tok-keyword">if</span>block.<span class="tok-var">type</span> <span class="tok-op">==</span> <span class="tok-string">"tool_use"</span>:</div>
+<div>result<span class="tok-op">=</span>execute_tool(...)</div>
+<div class="mt-2"> <span class="tok-comment"># 4. OBSERVE — Adds to history</span></div>
+<div>messages.append({<span class="tok-string">"role"</span>: <span class="tok-string">"assistant"</span>, ...})</div>
+<div>messages.append({<span class="tok-string">"role"</span>: <span class="tok-string">"user"</span>, ...})  <span class="tok-comment"># results</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+── TOPIC 5: Adding Memory ──────────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(5)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">5</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">Adding Memory</span>
+<span class="ml-3 text-xs text-neutral-500">dict notes, persistence, basic RAG</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-5" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-5">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Memory is the agent's ability to retain and access information between tool calls.
+                In the project, we use a simple Python dictionary (<code class="text-orange-300" data-notranslate="True">notas = {}</code>)
+                as working memory. In production this could be a vector database for RAG.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">An agent with no memory starts over from scratch every session. With memory he can learn
+                user preferences, accumulate search results, and perform complex tasks
+                of multiple steps that go beyond the context window of a single conversation.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Short-term memory</p>
+<p class="text-xs text-neutral-400">The array<code class="text-orange-300" data-notranslate="True">mensagens</code>of the current session — everything the model has seen in this conversation.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Long-term memory</p>
+<p class="text-xs text-neutral-400">The dictionary<code class="text-orange-300" data-notranslate="True">notas</code>persists between calls within the same process execution.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">RAG (Retrieval Augmented Generation)</p>
+<p class="text-xs text-neutral-400">Technique of searching for relevant documents in a knowledge base and injecting context before calling the model.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">save_note tool</h3>
+<div class="code-block p-4">
+<div><span class="tok-var">notes</span> <span class="tok-op">=</span> {}  <span class="tok-comment"># Global memory</span></div>
+<div class="mt-3"><span class="tok-keyword">elif</span>name<span class="tok-op">==</span> <span class="tok-string">"save_note"</span>:</div>
+<div>notes[inputs[<span class="tok-string">"title"</span>]] <span class="tok-op">=</span>inputs[<span class="tok-string">"content"</span>]</div>
+<div> <span class="tok-keyword">return</span> <span class="tok-string">f"Note '{inputs['title']}' saved."</span></div>
+<div class="mt-3"><span class="tok-comment"># Evolution: persist in JSON</span></div>
+<div><span class="tok-keyword">import</span>json</div>
+<div><span class="tok-keyword">with</span> <span class="tok-builtin">open</span>(<span class="tok-string">"memory.json"</span>, <span class="tok-string">"w"</span>) <span class="tok-keyword">as</span> f:</div>
+<div>json.dump(notes, f, ensure_ascii<span class="tok-op">=</span><span class="tok-keyword">False</span>)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+── TOPIC 6: Running and Testing ────────────────────
+<div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors" onclick="toggleAccordion(6)">
+<span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">6</span>
+<div class="flex-1 min-w-0">
+<span class="font-semibold text-neutral-100">Running and Testing</span>
+<span class="ml-3 text-xs text-neutral-500">interaction with the agent, use cases</span>
+</div>
+<svg class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" id="chevron-6" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="accordion-body" id="accordion-6">
+<div class="px-5 pb-6 space-y-6 border-t border-dark-600">
+<div class="pt-5">
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">What is it</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">The execution and testing phase validates that the agent behaves as expected in different
+                scenarios. Includes testing single tool calls, chaining multiple
+                tools and error situations where the model needs to recover.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Why learn</h3>
+<p class="text-neutral-300 text-sm leading-relaxed">Agents have non-deterministic behavior. Testing with different cases reveals when
+                the model chooses the wrong tools, gets into loops, or fails silently.
+                Good testing identifies these issues before production.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Key concepts</h3>
+<div class="space-y-3">
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Single Tool Test</p>
+<p class="text-xs text-neutral-400">Ask something simple like "What is 125*8?" to check if the tool<code class="text-orange-300" data-notranslate="True">calcular</code>is activated.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Chaining</p>
+<p class="text-xs text-neutral-400">Ask "Research Python and save a summary" — the agent should use<code class="text-orange-300" data-notranslate="True">buscar_na_web</code>and then<code class="text-orange-300" data-notranslate="True">salvar_nota</code>.</p>
+</div>
+<div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
+<p class="text-xs font-semibold text-neutral-200 mb-1">Observe logs</p>
+<p class="text-xs text-neutral-400">Loop screenshots show each iteration, tool call, and result — use to debug unexpected behavior.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">How to run</h3>
+<div class="code-block p-4">
+<div><span class="tok-comment"># Activate the virtual environment</span></div>
+<div><span class="tok-var">source</span>.venv/bin/activate</div>
+<div class="mt-2"><span class="tok-comment"># Run the agent</span></div>
+<div><span class="tok-var">python</span>agent.py</div>
+<div class="mt-3"><span class="tok-comment"># Examples of prompts to test:</span></div>
+<div><span class="tok-comment"># "What is 15% of 3200?"</span></div>
+<div><span class="tok-comment"># "Research generative artificial intelligence"</span></div>
+<div><span class="tok-comment"># "Calculate the area of ​​a circle with radius 7 and save"</span></div>
+<div><span class="tok-comment"># "Search Python and then save a summary"</span></div>
+</div>
+</div>
+Expected output
+<div>
+<h3 class="text-sm font-semibold text-neutral-300 mb-3">Expected output at the terminal</h3>
+<div class="code-block p-4">
+<div><span class="tok-comment">==========================================================================</span></div>
+<div><span class="tok-var">AGENT STARTED</span></div>
+<div><span class="tok-comment">==========================================================================</span></div>
+<div class="mt-1">[Iteration 1] Thinking...</div>
+<div>→ Using tool: calculate(<span class="tok-string">"expression": "3200 * 0.15"</span>)</div>
+<div>← Result: Result: 480.0...</div>
+<div>[Iteration 2] Thinking...</div>
+<div class="mt-1"><span class="tok-comment">==========================================================================</span></div>
+<div><span class="tok-var">FINAL ANSWER:</span></div>
+<div><span class="tok-comment">==========================================================================</span></div>
+<div>15% of 3200 is<span class="tok-number">480</span>.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+═══════════════════════════════ ═══════════════════════════════
+       COMPLETE AGENT.PY CODE
+  ═════════════════════════════════ ═════════════════════════════════
+<section class="max-w-5xl mx-auto px-4 mb-12" id="codigo-completo">
+<div class="flex items-center justify-between mb-4 flex-wrap gap-3">
+<h2 class="text-lg font-semibold text-neutral-100">Complete Code — agent.py</h2>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500/20 border border-orange-500/30 text-orange-400 text-sm font-medium hover:bg-orange-500/30 transition-colors" id="btn-copiar" onclick="copiarCodigo()">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>Copy code</button>
+</div>
+<div class="code-block p-5 overflow-x-auto" id="bloco-agentpy">
+<pre data-notranslate="True" id="codigo-agentpy"><span class="tok-string">"""
+Agent from Zero — Agentic Engineering Masterclass
+duclub — Project 1: Agent without framework
 
-            <!-- Por que aprender -->
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Gerenciar dependências e segredos de forma correta é a base de qualquer projeto de IA
-                em produção. Variáveis de ambiente evitam que chaves de API sejam expostas em commits
-                do Git — um erro que pode custar caro se sua chave for comprometida.
-              </p>
-            </div>
-
-            <!-- Conceitos-chave -->
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Ambiente Virtual (venv)</p>
-                  <p class="text-xs text-neutral-400">Isola as dependências do projeto das bibliotecas globais do sistema.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">python-dotenv</p>
-                  <p class="text-xs text-neutral-400">Carrega variáveis do arquivo <code class="text-orange-300">.env</code> para <code class="text-orange-300">os.environ</code> automaticamente.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">ANTHROPIC_API_KEY</p>
-                  <p class="text-xs text-neutral-400">Chave de autenticação obtida em console.anthropic.com. Nunca commite no Git.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Comandos -->
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Comandos de instalação</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-comment"># 1. Crie o ambiente virtual</span></div>
-                <div><span class="tok-var">python3</span> <span class="tok-op">-m</span> venv .venv</div>
-                <div class="mt-1"><span class="tok-var">source</span> .venv/bin/activate  <span class="tok-comment"># Linux/Mac</span></div>
-                <div><span class="tok-comment"># .venv\Scripts\activate  # Windows</span></div>
-                <div class="mt-3"><span class="tok-comment"># 2. Instale as dependências</span></div>
-                <div><span class="tok-var">pip</span> install <span class="tok-op">-r</span> requirements.txt</div>
-                <div class="mt-3"><span class="tok-comment"># 3. Configure as variáveis de ambiente</span></div>
-                <div><span class="tok-var">cp</span> .env.example .env</div>
-                <div><span class="tok-comment"># Edite .env e adicione sua ANTHROPIC_API_KEY</span></div>
-              </div>
-            </div>
-
-            <!-- Estrutura -->
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Estrutura de arquivos</h3>
-              <div class="code-block p-4">
-                <div>projeto-1-agente-zero/</div>
-                <div>├── <span class="tok-var">agent.py</span>         <span class="tok-comment"># Agente principal</span></div>
-                <div>├── <span class="tok-var">requirements.txt</span>  <span class="tok-comment"># Dependências</span></div>
-                <div>├── <span class="tok-var">.env.example</span>     <span class="tok-comment"># Template de secrets</span></div>
-                <div>├── <span class="tok-var">.env</span>             <span class="tok-comment"># Seus secrets (não commite!)</span></div>
-                <div>└── <span class="tok-var">index.html</span>       <span class="tok-comment"># Este guia</span></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ── TÓPICO 2: Definindo Ferramentas ──────────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(2)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">2</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">Definindo Ferramentas</span>
-            <span class="ml-3 text-xs text-neutral-500">tools schema, function calling</span>
-          </div>
-          <svg id="chevron-2" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-2" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Ferramentas (<em>tools</em>) são capacidades externas que o modelo de linguagem pode invocar.
-                Cada ferramenta é descrita por um schema JSON que especifica nome, descrição e parâmetros.
-                O Claude decide <strong class="text-neutral-100">quando e como</strong> chamar cada ferramenta
-                com base no contexto da conversa.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Ferramentas transformam um LLM passivo em um agente ativo. Sem elas, o modelo só pode
-                gerar texto. Com ferramentas, ele pode buscar dados em tempo real, executar código,
-                chamar APIs externas e persistir informações — tornando-o genuinamente útil.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">input_schema</p>
-                  <p class="text-xs text-neutral-400">JSON Schema que define os parâmetros aceitos pela ferramenta. O Claude gera inputs válidos automaticamente.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">description</p>
-                  <p class="text-xs text-neutral-400">Texto em linguagem natural que explica ao modelo <em>quando</em> usar a ferramenta. Quanto mais clara, melhor a decisão.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">tool_use block</p>
-                  <p class="text-xs text-neutral-400">Quando o Claude decide usar uma ferramenta, ele retorna um bloco <code class="text-orange-300">tool_use</code> com id, nome e inputs.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Exemplo de schema</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-var">tools</span> <span class="tok-op">=</span> [</div>
-                <div>  {</div>
-                <div>    <span class="tok-string">"name"</span>: <span class="tok-string">"calcular"</span>,</div>
-                <div>    <span class="tok-string">"description"</span>: <span class="tok-string">"Executa cálculos matemáticos"</span>,</div>
-                <div>    <span class="tok-string">"input_schema"</span>: {</div>
-                <div>      <span class="tok-string">"type"</span>: <span class="tok-string">"object"</span>,</div>
-                <div>      <span class="tok-string">"properties"</span>: {</div>
-                <div>        <span class="tok-string">"expressao"</span>: {</div>
-                <div>          <span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>,</div>
-                <div>          <span class="tok-string">"description"</span>: <span class="tok-string">"Ex: '2 + 2'"</span></div>
-                <div>        }</div>
-                <div>      },</div>
-                <div>      <span class="tok-string">"required"</span>: [<span class="tok-string">"expressao"</span>]</div>
-                <div>    }</div>
-                <div>  }</div>
-                <div>]</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ── TÓPICO 3: O Dispatcher ────────────────────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(3)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">3</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">O Dispatcher</span>
-            <span class="ml-3 text-xs text-neutral-500">executar_ferramenta, lógica de despacho</span>
-          </div>
-          <svg id="chevron-3" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-3" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                O dispatcher é a função responsável por receber o nome da ferramenta solicitada pelo modelo
-                e rotear a execução para a função Python correta. Ele age como um intermediário entre
-                as decisões do Claude e as implementações reais das ferramentas.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Sem um dispatcher, o loop agentic seria caótico. Centralizar a lógica de roteamento
-                facilita adicionar novas ferramentas, tratar erros de forma uniforme e registrar
-                (logar) todas as chamadas para debugging e auditoria.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Roteamento por nome</p>
-                  <p class="text-xs text-neutral-400">O dispatcher usa <code class="text-orange-300">if/elif</code> ou um dicionário de funções para mapear nomes de ferramentas para implementações.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Tratamento de erros</p>
-                  <p class="text-xs text-neutral-400">Sempre retorne uma string descritiva de erro — o modelo usará essa informação para corrigir a chamada na próxima iteração.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">eval() seguro</p>
-                  <p class="text-xs text-neutral-400">Use <code class="text-orange-300">eval(expr, {"__builtins__": {}})</code> para bloquear funções perigosas em avaliação de expressões matemáticas.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Implementação do dispatcher</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-keyword">def</span> <span class="tok-func">executar_ferramenta</span>(nome: <span class="tok-builtin">str</span>, inputs: <span class="tok-builtin">dict</span>) <span class="tok-op">-></span> <span class="tok-builtin">str</span>:</div>
-                <div>  <span class="tok-string">"""Despacha a ferramenta correta."""</span></div>
-                <div class="mt-2">  <span class="tok-keyword">if</span> nome <span class="tok-op">==</span> <span class="tok-string">"calcular"</span>:</div>
-                <div>    <span class="tok-keyword">try</span>:</div>
-                <div>      resultado <span class="tok-op">=</span> <span class="tok-builtin">eval</span>(inputs[<span class="tok-string">"expressao"</span>],</div>
-                <div>                      {<span class="tok-string">"__builtins__"</span>: {}})</div>
-                <div>      <span class="tok-keyword">return</span> <span class="tok-string">f"Resultado: {resultado}"</span></div>
-                <div>    <span class="tok-keyword">except</span> <span class="tok-builtin">Exception</span> <span class="tok-keyword">as</span> e:</div>
-                <div>      <span class="tok-keyword">return</span> <span class="tok-string">f"Erro: {str(e)}"</span></div>
-                <div class="mt-2">  <span class="tok-keyword">return</span> <span class="tok-string">f"Ferramenta '{nome}' não encontrada."</span></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ── TÓPICO 4: O Loop Agentic ──────────────────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(4)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">4</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">O Loop Agentic</span>
-            <span class="ml-3 text-xs text-neutral-500">while loop, stop_reason, histórico de mensagens</span>
-          </div>
-          <svg id="chevron-4" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-4" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                O loop agentic é o coração do agente. Ele repete o ciclo
-                <strong class="text-orange-400">Pensar → Agir → Observar</strong> até que o modelo
-                decida que tem informação suficiente para responder ao usuário sem chamar mais ferramentas.
-                O sinal de término é o campo <code class="text-orange-300">stop_reason == "end_turn"</code>.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Entender o loop manual revela o que frameworks como LangChain e LlamaIndex fazem nos
-                bastidores. Com esse conhecimento, você pode depurar comportamentos inesperados, otimizar
-                o número de chamadas à API e implementar lógicas customizadas que frameworks genéricos não suportam.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">stop_reason</p>
-                  <p class="text-xs text-neutral-400"><code class="text-orange-300">"end_turn"</code> = resposta final. <code class="text-orange-300">"tool_use"</code> = o modelo quer executar ferramentas.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Histórico de mensagens</p>
-                  <p class="text-xs text-neutral-400">Cada iteração adiciona a resposta do assistente e os resultados das ferramentas ao array <code class="text-orange-300">mensagens</code>.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">max_iteracoes</p>
-                  <p class="text-xs text-neutral-400">Limite de segurança para evitar loops infinitos e custos inesperados com a API.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Fluxo do loop</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-keyword">while</span> iteracao <span class="tok-op">&lt;</span> max_iteracoes:</div>
-                <div>  <span class="tok-comment"># 1. PENSAR — LLM processa o contexto</span></div>
-                <div>  resposta <span class="tok-op">=</span> client.messages.create(...)</div>
-                <div class="mt-2">  <span class="tok-comment"># 2. Verificar se terminou</span></div>
-                <div>  <span class="tok-keyword">if</span> resposta.stop_reason <span class="tok-op">==</span> <span class="tok-string">"end_turn"</span>:</div>
-                <div>    <span class="tok-keyword">return</span> resposta_final  <span class="tok-comment"># Sai do loop</span></div>
-                <div class="mt-2">  <span class="tok-comment"># 3. AGIR — Executa ferramentas</span></div>
-                <div>  <span class="tok-keyword">for</span> bloco <span class="tok-keyword">in</span> resposta.content:</div>
-                <div>    <span class="tok-keyword">if</span> bloco.<span class="tok-var">type</span> <span class="tok-op">==</span> <span class="tok-string">"tool_use"</span>:</div>
-                <div>      resultado <span class="tok-op">=</span> executar_ferramenta(...)</div>
-                <div class="mt-2">  <span class="tok-comment"># 4. OBSERVAR — Adiciona ao histórico</span></div>
-                <div>  mensagens.append({<span class="tok-string">"role"</span>: <span class="tok-string">"assistant"</span>, ...})</div>
-                <div>  mensagens.append({<span class="tok-string">"role"</span>: <span class="tok-string">"user"</span>, ...})  <span class="tok-comment"># resultados</span></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ── TÓPICO 5: Adicionando Memória ────────────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(5)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">5</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">Adicionando Memória</span>
-            <span class="ml-3 text-xs text-neutral-500">notas dict, persistência, RAG básico</span>
-          </div>
-          <svg id="chevron-5" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-5" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Memória é a capacidade do agente de reter e acessar informações entre chamadas de ferramentas.
-                No projeto, usamos um dicionário Python simples (<code class="text-orange-300">notas = {}</code>)
-                como memória de trabalho. Em produção, isso pode ser um banco de dados vetorial para RAG.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Um agente sem memória recomeça do zero a cada sessão. Com memória, ele pode aprender
-                preferências do usuário, acumular resultados de pesquisa e executar tarefas complexas
-                de múltiplos passos que ultrapassam a janela de contexto de uma única conversa.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Memória de curto prazo</p>
-                  <p class="text-xs text-neutral-400">O array <code class="text-orange-300">mensagens</code> da sessão atual — tudo que o modelo já viu nesta conversa.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Memória de longo prazo</p>
-                  <p class="text-xs text-neutral-400">O dicionário <code class="text-orange-300">notas</code> persiste entre chamadas dentro da mesma execução do processo.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">RAG (Retrieval Augmented Generation)</p>
-                  <p class="text-xs text-neutral-400">Técnica de buscar documentos relevantes em uma base de conhecimento e injetar no contexto antes de chamar o modelo.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Ferramenta salvar_nota</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-var">notas</span> <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória global</span></div>
-                <div class="mt-3"><span class="tok-keyword">elif</span> nome <span class="tok-op">==</span> <span class="tok-string">"salvar_nota"</span>:</div>
-                <div>  notas[inputs[<span class="tok-string">"titulo"</span>]] <span class="tok-op">=</span> inputs[<span class="tok-string">"conteudo"</span>]</div>
-                <div>  <span class="tok-keyword">return</span> <span class="tok-string">f"Nota '{inputs['titulo']}' salva."</span></div>
-                <div class="mt-3"><span class="tok-comment"># Evolução: persistir em JSON</span></div>
-                <div><span class="tok-keyword">import</span> json</div>
-                <div><span class="tok-keyword">with</span> <span class="tok-builtin">open</span>(<span class="tok-string">"memoria.json"</span>, <span class="tok-string">"w"</span>) <span class="tok-keyword">as</span> f:</div>
-                <div>  json.dump(notas, f, ensure_ascii<span class="tok-op">=</span><span class="tok-keyword">False</span>)</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- ── TÓPICO 6: Executando e Testando ──────────────────── -->
-      <div class="bg-dark-800 border border-dark-600 rounded-xl overflow-hidden">
-        <button
-          class="w-full flex items-center gap-4 px-5 py-4 text-left hover:bg-dark-700/50 transition-colors"
-          onclick="toggleAccordion(6)"
-        >
-          <span class="topic-num bg-orange-500/20 border border-orange-500/30 text-orange-400">6</span>
-          <div class="flex-1 min-w-0">
-            <span class="font-semibold text-neutral-100">Executando e Testando</span>
-            <span class="ml-3 text-xs text-neutral-500">interação com o agente, casos de uso</span>
-          </div>
-          <svg id="chevron-6" class="w-5 h-5 text-neutral-500 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div id="accordion-6" class="accordion-body">
-          <div class="px-5 pb-6 space-y-6 border-t border-dark-600">
-
-            <div class="pt-5">
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">O que é</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                A fase de execução e teste valida se o agente se comporta como esperado em diferentes
-                cenários. Inclui testar chamadas únicas de ferramentas, encadeamento de múltiplas
-                ferramentas e situações de erro onde o modelo precisa se recuperar.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Por que aprender</h3>
-              <p class="text-neutral-300 text-sm leading-relaxed">
-                Agentes têm comportamento não-determinístico. Testar com casos variados revela quando
-                o modelo escolhe ferramentas erradas, entra em loops ou falha silenciosamente.
-                Bons testes identificam esses problemas antes da produção.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-orange-400 uppercase tracking-wider mb-3">Conceitos-chave</h3>
-              <div class="space-y-3">
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Teste de ferramenta única</p>
-                  <p class="text-xs text-neutral-400">Peça algo simples como "Quanto é 125 * 8?" para verificar se a ferramenta <code class="text-orange-300">calcular</code> é acionada.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Encadeamento</p>
-                  <p class="text-xs text-neutral-400">Peça "Pesquise sobre Python e salve um resumo" — o agente deve usar <code class="text-orange-300">buscar_na_web</code> e depois <code class="text-orange-300">salvar_nota</code>.</p>
-                </div>
-                <div class="bg-dark-700 rounded-lg p-3 border border-dark-600">
-                  <p class="text-xs font-semibold text-neutral-200 mb-1">Observar logs</p>
-                  <p class="text-xs text-neutral-400">Os prints do loop mostram cada iteração, ferramenta chamada e resultado — use para depurar comportamentos inesperados.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Como executar</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-comment"># Ative o ambiente virtual</span></div>
-                <div><span class="tok-var">source</span> .venv/bin/activate</div>
-                <div class="mt-2"><span class="tok-comment"># Execute o agente</span></div>
-                <div><span class="tok-var">python</span> agent.py</div>
-                <div class="mt-3"><span class="tok-comment"># Exemplos de prompts para testar:</span></div>
-                <div><span class="tok-comment"># "Qual é 15% de 3200?"</span></div>
-                <div><span class="tok-comment"># "Pesquise sobre inteligência artificial generativa"</span></div>
-                <div><span class="tok-comment"># "Calcule a área de um círculo com raio 7 e salve"</span></div>
-                <div><span class="tok-comment"># "Pesquise Python e depois salve um resumo"</span></div>
-              </div>
-            </div>
-
-            <!-- Saída esperada -->
-            <div>
-              <h3 class="text-sm font-semibold text-neutral-300 mb-3">Saída esperada no terminal</h3>
-              <div class="code-block p-4">
-                <div><span class="tok-comment">============================================================</span></div>
-                <div><span class="tok-var">AGENTE INICIADO</span></div>
-                <div><span class="tok-comment">============================================================</span></div>
-                <div class="mt-1">[Iteração 1] Pensando...</div>
-                <div>  → Usando ferramenta: calcular(<span class="tok-string">"expressao": "3200 * 0.15"</span>)</div>
-                <div>  ← Resultado: Resultado: 480.0...</div>
-                <div>[Iteração 2] Pensando...</div>
-                <div class="mt-1"><span class="tok-comment">============================================================</span></div>
-                <div><span class="tok-var">RESPOSTA FINAL:</span></div>
-                <div><span class="tok-comment">============================================================</span></div>
-                <div>15% de 3200 é <span class="tok-number">480</span>.</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       CÓDIGO COMPLETO DO AGENT.PY
-  ══════════════════════════════════════════════════════════════════ -->
-  <section class="max-w-5xl mx-auto px-4 mb-12" id="codigo-completo">
-    <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
-      <h2 class="text-lg font-semibold text-neutral-100">Código Completo — agent.py</h2>
-      <button
-        onclick="copiarCodigo()"
-        id="btn-copiar"
-        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-500/20 border border-orange-500/30 text-orange-400 text-sm font-medium hover:bg-orange-500/30 transition-colors"
-      >
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-        </svg>
-        Copiar código
-      </button>
-    </div>
-
-    <div class="code-block p-5 overflow-x-auto" id="bloco-agentpy">
-<pre id="codigo-agentpy"><span class="tok-string">"""
-Agente do Zero — Agentic Engineering Masterclass
-INEMA.CLUB — Projeto 1: Agente sem framework
-
-Demonstra o loop agentic manual com Anthropic API:
+Demonstrates manual agentic looping with Anthropic API:
 - Tools (function calling)
-- Loop Pensar → Agir → Observar
-- Sem frameworks externos
+- Loop Think → Act → Observe
+- No external frameworks
 """</span>
 <span class="tok-keyword">import</span> os
 <span class="tok-keyword">import</span> json
@@ -865,99 +728,99 @@ Demonstra o loop agentic manual com Anthropic API:
 <span class="tok-func">load_dotenv</span>()
 client <span class="tok-op">=</span> anthropic.<span class="tok-func">Anthropic</span>(api_key<span class="tok-op">=</span>os.<span class="tok-func">getenv</span>(<span class="tok-string">"ANTHROPIC_API_KEY"</span>))
 
-<span class="tok-comment"># ─── FERRAMENTAS ──────────────────────────────────────────────────────────────</span>
+<span class="tok-comment"># ─── TOOLS ─────────────────────────────── ───────────────────────────────</span>
 
 tools <span class="tok-op">=</span> [
     {
-        <span class="tok-string">"name"</span>: <span class="tok-string">"buscar_na_web"</span>,
-        <span class="tok-string">"description"</span>: <span class="tok-string">"Busca informações na web sobre qualquer tema"</span>,
+        <span class="tok-string">"name"</span>: <span class="tok-string">"search_on_web"</span>,
+        <span class="tok-string">"description"</span>: <span class="tok-string">"Search for information on the web on any topic"</span>,
         <span class="tok-string">"input_schema"</span>: {
             <span class="tok-string">"type"</span>: <span class="tok-string">"object"</span>,
             <span class="tok-string">"properties"</span>: {
                 <span class="tok-string">"query"</span>: {
                     <span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>,
-                    <span class="tok-string">"description"</span>: <span class="tok-string">"O que buscar. Seja específico."</span>
+                    <span class="tok-string">"description"</span>: <span class="tok-string">"What to look for. Be specific."</span>
                 }
             },
             <span class="tok-string">"required"</span>: [<span class="tok-string">"query"</span>]
         }
     },
     {
-        <span class="tok-string">"name"</span>: <span class="tok-string">"calcular"</span>,
-        <span class="tok-string">"description"</span>: <span class="tok-string">"Executa cálculos matemáticos. Recebe expressão Python válida."</span>,
+        <span class="tok-string">"name"</span>: <span class="tok-string">"calculate"</span>,
+        <span class="tok-string">"description"</span>: <span class="tok-string">"Performs mathematical calculations. Receives valid Python expression."</span>,
         <span class="tok-string">"input_schema"</span>: {
             <span class="tok-string">"type"</span>: <span class="tok-string">"object"</span>,
             <span class="tok-string">"properties"</span>: {
-                <span class="tok-string">"expressao"</span>: {
+                <span class="tok-string">"expression"</span>: {
                     <span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>,
-                    <span class="tok-string">"description"</span>: <span class="tok-string">"Expressão matemática. Ex: '2 + 2' ou '100 * 0.15'"</span>
+                    <span class="tok-string">"description"</span>: <span class="tok-string">"Mathematical expression. Ex: '2 + 2' or '100 * 0.15'"</span>
                 }
             },
-            <span class="tok-string">"required"</span>: [<span class="tok-string">"expressao"</span>]
+            <span class="tok-string">"required"</span>: [<span class="tok-string">"expression"</span>]
         }
     },
     {
-        <span class="tok-string">"name"</span>: <span class="tok-string">"salvar_nota"</span>,
-        <span class="tok-string">"description"</span>: <span class="tok-string">"Salva uma nota ou resultado importante em memória"</span>,
+        <span class="tok-string">"name"</span>: <span class="tok-string">"save_note"</span>,
+        <span class="tok-string">"description"</span>: <span class="tok-string">"Saves an important note or result in memory"</span>,
         <span class="tok-string">"input_schema"</span>: {
             <span class="tok-string">"type"</span>: <span class="tok-string">"object"</span>,
             <span class="tok-string">"properties"</span>: {
-                <span class="tok-string">"titulo"</span>: {<span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>},
-                <span class="tok-string">"conteudo"</span>: {<span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>}
+                <span class="tok-string">"title"</span>: {<span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>},
+                <span class="tok-string">"content"</span>: {<span class="tok-string">"type"</span>: <span class="tok-string">"string"</span>}
             },
-            <span class="tok-string">"required"</span>: [<span class="tok-string">"titulo"</span>, <span class="tok-string">"conteudo"</span>]
+            <span class="tok-string">"required"</span>: [<span class="tok-string">"title"</span>, <span class="tok-string">"content"</span>]
         }
     }
 ]
 
-<span class="tok-comment"># ─── DISPATCHER ───────────────────────────────────────────────────────────────</span>
+<span class="tok-comment"># ─── DISPATCHER ─────────────────────────────── ────────────────────────────────</span>
 
-notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória simples em dicionário</span>
+notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Simple dictionary memory</span>
 
-<span class="tok-keyword">def</span> <span class="tok-func">executar_ferramenta</span>(nome: <span class="tok-builtin">str</span>, inputs: <span class="tok-builtin">dict</span>) <span class="tok-op">-></span> <span class="tok-builtin">str</span>:
-    <span class="tok-string">"""Despacha a ferramenta correta e retorna o resultado."""</span>
+<span class="tok-keyword">def</span> <span class="tok-func">run_tool</span>(nome: <span class="tok-builtin">str</span>, inputs: <span class="tok-builtin">dict</span>) <span class="tok-op">-&gt;</span> <span class="tok-builtin">str</span>:
+    <span class="tok-string">"""Dispatches the correct tool and returns the result."""</span>
 
-    <span class="tok-keyword">if</span> nome <span class="tok-op">==</span> <span class="tok-string">"buscar_na_web"</span>:
+    <span class="tok-keyword">if</span> nome <span class="tok-op">==</span> <span class="tok-string">"search_on_web"</span>:
         query <span class="tok-op">=</span> inputs[<span class="tok-string">"query"</span>]
-        <span class="tok-keyword">return</span> <span class="tok-string">f"[Resultado de busca para '{query}']: Encontrado 3 resultados relevantes."</span>
+        <span class="tok-keyword">return</span> <span class="tok-string">f"[Search result for '{query}']: Found 3 relevant results."</span>
 
-    <span class="tok-keyword">elif</span> nome <span class="tok-op">==</span> <span class="tok-string">"calcular"</span>:
+    <span class="tok-keyword">elif</span> nome <span class="tok-op">==</span> <span class="tok-string">"calculate"</span>:
         <span class="tok-keyword">try</span>:
-            resultado <span class="tok-op">=</span> <span class="tok-builtin">eval</span>(inputs[<span class="tok-string">"expressao"</span>], {<span class="tok-string">"__builtins__"</span>: {}})
-            <span class="tok-keyword">return</span> <span class="tok-string">f"Resultado: {resultado}"</span>
+            resultado <span class="tok-op">=</span> <span class="tok-builtin">eval</span>(inputs[<span class="tok-string">"expression"</span>], {<span class="tok-string">"__builtins__"</span>: {}})
+            <span class="tok-keyword">return</span> <span class="tok-string">f"Result: {result}"</span>
         <span class="tok-keyword">except</span> <span class="tok-builtin">Exception</span> <span class="tok-keyword">as</span> e:
-            <span class="tok-keyword">return</span> <span class="tok-string">f"Erro no cálculo: {str(e)}"</span>
+            <span class="tok-keyword">return</span> <span class="tok-string">f"Error in calculation: {str(e)}"</span>
 
-    <span class="tok-keyword">elif</span> nome <span class="tok-op">==</span> <span class="tok-string">"salvar_nota"</span>:
-        notas[inputs[<span class="tok-string">"titulo"</span>]] <span class="tok-op">=</span> inputs[<span class="tok-string">"conteudo"</span>]
-        <span class="tok-keyword">return</span> <span class="tok-string">f"Nota '{inputs['titulo']}' salva com sucesso."</span>
+    <span class="tok-keyword">elif</span> nome <span class="tok-op">==</span> <span class="tok-string">"save_note"</span>:
+        notas[inputs[<span class="tok-string">"title"</span>]] <span class="tok-op">=</span> inputs[<span class="tok-string">"content"</span>]
+        <span class="tok-keyword">return</span> <span class="tok-string">f"Note '{inputs['title']}' saved successfully."</span>
 
-    <span class="tok-keyword">return</span> <span class="tok-string">f"Ferramenta '{nome}' não encontrada."</span>
+    <span class="tok-keyword">return</span> <span class="tok-string">f"Tool '{name}' not found."</span>
 
-<span class="tok-comment"># ─── LOOP AGENTIC ─────────────────────────────────────────────────────────────</span>
+<span class="tok-comment"># ─── LOOP AGENTIC ────────────────────────────── ───────────────────────────────</span>
 
-<span class="tok-keyword">def</span> <span class="tok-func">executar_agente</span>(mensagem_usuario: <span class="tok-builtin">str</span>, max_iteracoes: <span class="tok-builtin">int</span> <span class="tok-op">=</span> <span class="tok-number">10</span>) <span class="tok-op">-></span> <span class="tok-builtin">str</span>:
+<span class="tok-keyword">def</span> <span class="tok-func">execute_agent</span>(mensagem_usuario: <span class="tok-builtin">str</span>, max_iteracoes: <span class="tok-builtin">int</span> <span class="tok-op">=</span> <span class="tok-number">10</span>) <span class="tok-op">-&gt;</span> <span class="tok-builtin">str</span>:
     <span class="tok-string">"""
-    Loop agentic principal:
-    1. Envia mensagem ao LLM
-    2. Se o LLM chamar ferramentas → executa e retorna resultados
-    3. Repete até stop_reason == end_turn
+    Main agentic loop:
+    1. Send a message to LLM
+    2. If LLM calls tools → executes and returns results
+    3. Repeat until stop_reason == end_turn
     """</span>
     mensagens <span class="tok-op">=</span> [{<span class="tok-string">"role"</span>: <span class="tok-string">"user"</span>, <span class="tok-string">"content"</span>: mensagem_usuario}]
     iteracao <span class="tok-op">=</span> <span class="tok-number">0</span>
 
     <span class="tok-builtin">print</span>(<span class="tok-string">f"\n{'='*60}"</span>)
-    <span class="tok-builtin">print</span>(<span class="tok-string">f"AGENTE INICIADO"</span>)
+    <span class="tok-builtin">print</span>(<span class="tok-string">f"AGENT INITIATED"</span>)
     <span class="tok-builtin">print</span>(<span class="tok-string">f"{'='*60}"</span>)
 
     <span class="tok-keyword">while</span> iteracao <span class="tok-op">&lt;</span> max_iteracoes:
         iteracao <span class="tok-op">+=</span> <span class="tok-number">1</span>
-        <span class="tok-builtin">print</span>(<span class="tok-string">f"\n[Iteração {iteracao}] Pensando..."</span>)
+        <span class="tok-builtin">print</span>(<span class="tok-string">f"\n[Iteration {iteration}] Thinking..."</span>)
 
         resposta <span class="tok-op">=</span> client.messages.<span class="tok-func">create</span>(
             model<span class="tok-op">=</span><span class="tok-string">"claude-opus-4-6"</span>,
             max_tokens<span class="tok-op">=</span><span class="tok-number">4096</span>,
-            system<span class="tok-op">=</span><span class="tok-string">"Você é um assistente inteligente com acesso a ferramentas."</span>,
+            system<span class="tok-op">=</span><span class="tok-string">"You are an intelligent assistant with access to tools."</span>,
             tools<span class="tok-op">=</span>tools,
             messages<span class="tok-op">=</span>mensagens
         )
@@ -965,10 +828,10 @@ notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória sim
         <span class="tok-keyword">if</span> resposta.stop_reason <span class="tok-op">==</span> <span class="tok-string">"end_turn"</span>:
             resposta_final <span class="tok-op">=</span> <span class="tok-builtin">next</span>(
                 (b.text <span class="tok-keyword">for</span> b <span class="tok-keyword">in</span> resposta.content <span class="tok-keyword">if</span> <span class="tok-builtin">hasattr</span>(b, <span class="tok-string">"text"</span>)),
-                <span class="tok-string">"Sem resposta."</span>
+                <span class="tok-string">"No response."</span>
             )
             <span class="tok-builtin">print</span>(<span class="tok-string">f"\n{'='*60}"</span>)
-            <span class="tok-builtin">print</span>(<span class="tok-string">f"RESPOSTA FINAL:"</span>)
+            <span class="tok-builtin">print</span>(<span class="tok-string">f"FINAL ANSWER:"</span>)
             <span class="tok-builtin">print</span>(<span class="tok-string">f"{'='*60}"</span>)
             <span class="tok-builtin">print</span>(resposta_final)
             <span class="tok-keyword">return</span> resposta_final
@@ -976,9 +839,9 @@ notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória sim
         resultados_ferramentas <span class="tok-op">=</span> []
         <span class="tok-keyword">for</span> bloco <span class="tok-keyword">in</span> resposta.content:
             <span class="tok-keyword">if</span> bloco.<span class="tok-var">type</span> <span class="tok-op">==</span> <span class="tok-string">"tool_use"</span>:
-                <span class="tok-builtin">print</span>(<span class="tok-string">f"  → Usando: {bloco.name}({json.dumps(bloco.input)})"</span>)
-                resultado <span class="tok-op">=</span> <span class="tok-func">executar_ferramenta</span>(bloco.name, bloco.input)
-                <span class="tok-builtin">print</span>(<span class="tok-string">f"  ← Resultado: {resultado[:100]}..."</span>)
+                <span class="tok-builtin">print</span>(<span class="tok-string">f" → Using: {bloco.name}({json.dumps(bloco.input)})"</span>)
+                resultado <span class="tok-op">=</span> <span class="tok-func">run_tool</span>(bloco.name, bloco.input)
+                <span class="tok-builtin">print</span>(<span class="tok-string">f" ← Result: {result[:100]}..."</span>)
                 resultados_ferramentas.<span class="tok-func">append</span>({
                     <span class="tok-string">"type"</span>: <span class="tok-string">"tool_result"</span>,
                     <span class="tok-string">"tool_use_id"</span>: bloco.id,
@@ -988,101 +851,88 @@ notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória sim
         mensagens.<span class="tok-func">append</span>({<span class="tok-string">"role"</span>: <span class="tok-string">"assistant"</span>, <span class="tok-string">"content"</span>: resposta.content})
         mensagens.<span class="tok-func">append</span>({<span class="tok-string">"role"</span>: <span class="tok-string">"user"</span>, <span class="tok-string">"content"</span>: resultados_ferramentas})
 
-    <span class="tok-keyword">return</span> <span class="tok-string">"Máximo de iterações atingido."</span>
+    <span class="tok-keyword">return</span> <span class="tok-string">"Maximum iterations reached."</span>
 
-<span class="tok-comment"># ─── MAIN ─────────────────────────────────────────────────────────────────────</span>
+<span class="tok-comment"># ─── MAIN ────────────────────────────────── ───────────────────────────────────</span>
 
 <span class="tok-keyword">if</span> __name__ <span class="tok-op">==</span> <span class="tok-string">"__main__"</span>:
-    <span class="tok-builtin">print</span>(<span class="tok-string">"Agente do Zero — INEMA.CLUB"</span>)
-    <span class="tok-builtin">print</span>(<span class="tok-string">"Pressione Ctrl+C para sair\n"</span>)
+    <span class="tok-builtin">print</span>(<span class="tok-string">"Agent of Zero — duclub"</span>)
+    <span class="tok-builtin">print</span>(<span class="tok-string">"Press Ctrl+C to exit\n"</span>)
 
     <span class="tok-keyword">while</span> <span class="tok-keyword">True</span>:
         <span class="tok-keyword">try</span>:
-            mensagem <span class="tok-op">=</span> <span class="tok-builtin">input</span>(<span class="tok-string">"Você: "</span>).<span class="tok-func">strip</span>()
+            mensagem <span class="tok-op">=</span> <span class="tok-builtin">input</span>(<span class="tok-string">"You: "</span>).<span class="tok-func">strip</span>()
             <span class="tok-keyword">if not</span> mensagem:
                 <span class="tok-keyword">continue</span>
-            <span class="tok-keyword">if</span> mensagem.<span class="tok-func">lower</span>() <span class="tok-keyword">in</span> [<span class="tok-string">"sair"</span>, <span class="tok-string">"exit"</span>, <span class="tok-string">"quit"</span>]:
+            <span class="tok-keyword">if</span> mensagem.<span class="tok-func">lower</span>() <span class="tok-keyword">in</span> [<span class="tok-string">"to go out"</span>, <span class="tok-string">"exit"</span>, <span class="tok-string">"quit"</span>]:
                 <span class="tok-keyword">break</span>
-            <span class="tok-func">executar_agente</span>(mensagem)
+            <span class="tok-func">execute_agent</span>(mensagem)
         <span class="tok-keyword">except</span> KeyboardInterrupt:
-            <span class="tok-builtin">print</span>(<span class="tok-string">"\nAté logo!"</span>)
+            <span class="tok-builtin">print</span>(<span class="tok-string">"\nSee you later!"</span>)
             <span class="tok-keyword">break</span>
         <span class="tok-keyword">except</span> <span class="tok-builtin">Exception</span> <span class="tok-keyword">as</span> e:
-            <span class="tok-builtin">print</span>(<span class="tok-string">f"Erro: {e}"</span>)</pre>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       PRÓXIMOS PASSOS
-  ══════════════════════════════════════════════════════════════════ -->
-  <section class="max-w-5xl mx-auto px-4 mb-16">
-    <h2 class="text-lg font-semibold text-neutral-100 mb-2">Próximos Passos</h2>
-    <p class="text-neutral-400 text-sm mb-6">
-      Continue sua jornada na Agentic Engineering Masterclass com os próximos projetos.
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-
-      <!-- Projeto 2 -->
-      <a href="../projeto-2-claude-code/index.html"
-         class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-sky-500/50 transition-all hover:bg-dark-700/50">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xs font-bold">2</div>
-          <span class="text-xs text-sky-400 font-semibold uppercase tracking-wider">Claude Code</span>
-        </div>
-        <p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-sky-400 transition-colors">Agente com Claude Code</p>
-        <p class="text-xs text-neutral-400">Use Claude Code como agente de engenharia autônomo no seu terminal.</p>
-      </a>
-
-      <!-- Projeto 3 -->
-      <a href="../projeto-3-antigravity/index.html"
-         class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-purple-500/50 transition-all hover:bg-dark-700/50">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xs font-bold">3</div>
-          <span class="text-xs text-purple-400 font-semibold uppercase tracking-wider">Antigravity</span>
-        </div>
-        <p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-purple-400 transition-colors">Agente Multi-Step</p>
-        <p class="text-xs text-neutral-400">Planejamento e execução de tarefas complexas com múltiplos sub-agentes.</p>
-      </a>
-
-      <!-- Projeto 4 -->
-      <a href="../projeto-4-codex/index.html"
-         class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-green-500/50 transition-all hover:bg-dark-700/50">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 text-xs font-bold">4</div>
-          <span class="text-xs text-green-400 font-semibold uppercase tracking-wider">Codex</span>
-        </div>
-        <p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-green-400 transition-colors">Agente de Código</p>
-        <p class="text-xs text-neutral-400">Gere, revise e refatore código automaticamente com agentes especializados.</p>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
+            <span class="tok-builtin">print</span>(<span class="tok-string">f"Error: {e}"</span>)</pre>
+</div>
+</section>
+═══════════════════════════════ ═══════════════════════════════
+       NEXT STEPS
+  ═════════════════════════════════ ═════════════════════════════════
+<section class="max-w-5xl mx-auto px-4 mb-16">
+<h2 class="text-lg font-semibold text-neutral-100 mb-2">Next Steps</h2>
+<p class="text-neutral-400 text-sm mb-6">Continue your journey in the Agentic Engineering Masterclass with upcoming projects.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+Project 2
+<a class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-sky-500/50 transition-all hover:bg-dark-700/50" href="../projeto-2-claude-code/index.html">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xs font-bold">2</div>
+<span class="text-xs text-sky-400 font-semibold uppercase tracking-wider">Claude Code</span>
+</div>
+<p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-sky-400 transition-colors">Agent with Claude Code</p>
+<p class="text-xs text-neutral-400">Use Claude Code as a standalone engineering agent on your terminal.</p>
+</a>
+Project 3
+<a class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-purple-500/50 transition-all hover:bg-dark-700/50" href="../projeto-3-antigravity/index.html">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xs font-bold">3</div>
+<span class="text-xs text-purple-400 font-semibold uppercase tracking-wider">Antigravity</span>
+</div>
+<p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-purple-400 transition-colors">Multi-Step Agent</p>
+<p class="text-xs text-neutral-400">Planning and executing complex tasks with multiple sub-agents.</p>
+</a>
+Project 4
+<a class="group block bg-dark-800 border border-dark-600 rounded-xl p-5 hover:border-green-500/50 transition-all hover:bg-dark-700/50" href="../projeto-4-codex/index.html">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 text-xs font-bold">4</div>
+<span class="text-xs text-green-400 font-semibold uppercase tracking-wider">Codex</span>
+</div>
+<p class="text-sm font-semibold text-neutral-100 mb-1 group-hover:text-green-400 transition-colors">Code Agent</p>
+<p class="text-xs text-neutral-400">Automatically generate, review, and refactor code with expert agents.</p>
+</a>
+</div>
+</section>
+═══════════════════════════════ ═══════════════════════════════
        FOOTER
-  ══════════════════════════════════════════════════════════════════ -->
-  <footer class="border-t border-dark-600 bg-dark-900/50">
-    <div class="max-w-5xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <span class="text-sky-400 font-bold tracking-wide">INEMA.CLUB</span>
-        <span class="text-neutral-600">|</span>
-        <span class="text-neutral-500 text-sm">Agentic Engineering Masterclass</span>
-      </div>
-      <div class="flex items-center gap-4 text-xs text-neutral-500">
-        <span>Projeto 1 de 4</span>
-        <span class="text-neutral-600">•</span>
-        <span>Python + Anthropic API</span>
-        <span class="text-neutral-600">•</span>
-        <span>claude-opus-4-6</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ══════════════════════════════════════════════════════════════
+  ═════════════════════════════════ ═════════════════════════════════
+<footer class="border-t border-dark-600 bg-dark-900/50">
+<div class="max-w-5xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="text-sky-400 font-bold tracking-wide">duclub</span>
+<span class="text-neutral-600">|</span>
+<span class="text-neutral-500 text-sm">Agentic Engineering Masterclass</span>
+</div>
+<div class="flex items-center gap-4 text-xs text-neutral-500">
+<span>Project 1 of 4</span>
+<span class="text-neutral-600">•</span>
+<span>Python + Anthropic API</span>
+<span class="text-neutral-600">•</span>
+<span>claude-opus-4-6</span>
+</div>
+</div>
+</footer>
+═══════════════════════════════ ═══════════════════════════════
        JAVASCRIPT
-  ══════════════════════════════════════════════════════════════════ -->
-  <script>
+  ═════════════════════════════════ ═════════════════════════════════
+<script data-notranslate="True">
     // ── TEMA ─────────────────────────────────────────────────────────
     function toggleTheme() {
       const html = document.documentElement;
@@ -1180,6 +1030,5 @@ notas <span class="tok-op">=</span> {}  <span class="tok-comment"># Memória sim
     // (Comentado — deixa todos fechados por padrão)
     // toggleAccordion(1);
   </script>
-
 </body>
 </html>
