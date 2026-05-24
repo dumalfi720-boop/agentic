@@ -1,68 +1,54 @@
-# MASTER COMPLETO - Template de Cursos
+# COMPLETE MASTER - Course Template
 
-> **DOCUMENTO UNICO DEFINITIVO** - Tudo que precisa saber para criar paginas
-> **Versao:** 2.0 | **Data:** 2026-01-20
+> **SINGLE DEFINITIVE DOCUMENT** - Everything you need to know to create pages
+> **Version:** 2.0 | **Date:** 2026-01-20
 
 ---
 
-## INDICE
+## INDEX
 
-1. [ERROS CRITICOS - NUNCA COMETER](#1-erros-criticos---nunca-cometer)
-2. [ESTRUTURA DO PROJETO](#2-estrutura-do-projeto)
-3. [SISTEMA DE CORES](#3-sistema-de-cores)
-4. [TIPOGRAFIA E TOM DE VOZ](#4-tipografia-e-tom-de-voz)
-5. [NAVEGACAO GLOBAL](#5-navegacao-global)
-6. [ESTRUTURA DE PAGINAS](#6-estrutura-de-paginas)
-7. [COMPONENTES](#7-componentes)
-8. [TEMPLATES HTML COMPLETOS](#8-templates-html-completos)
+1. [CRITICAL ERRORS - NEVER MAKE](#1-critical-errors---never-make)
+2. [PROJECT STRUCTURE](#2-project-structure)
+3. [COLOR SYSTEM](#3-color-system)
+4. [TYPOGRAPHY AND TONE OF VOICE](#4-typography-and-tone-of-voice)
+5. [GLOBAL NAVIGATION](#5-global-navigation)
+6. [PAGE STRUCTURE](#6-page-structure)
+7. [COMPONENTS](#7-components)
+8. [COMPLETE HTML TEMPLATES](#8-templates-html-completos)
 9. [JAVASCRIPT](#9-javascript)
-10. [CSS OBRIGATORIO](#10-css-obrigatorio)
+10. [CSS REQUIRED](#10-css-required)
 
 ---
 
-# 1. ERROS CRITICOS - NUNCA COMETER
+# 1. CRITICAL ERRORS - NEVER MAKE
 
-## 1.1 BOTOES SEMPRE A ESQUERDA
-
-```html
+## 1.1 BUTTONS ALWAYS ON THE LEFT```html
 <!-- CORRETO -->
 <div class="flex justify-start space-x-3">
 
 <!-- ERRADO - NUNCA USAR -->
 <div class="flex justify-center space-x-3">
-```
-
-## 1.2 TOPICOS COM NUMEROS EM CIRCULO (NAO SETAS!)
-
-```html
+```## 1.2 TOPICS WITH CIRCLE NUMBERS (NOT ARROWS!)```html
 <!-- CORRETO - Numero em circulo -->
 <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center">1</span>
 
 <!-- ERRADO - Seta -->
 <span class="text-emerald-400">▶</span>
-```
+```## 1.3 THREE MANDATORY SECTIONS PER TOPIC
 
-## 1.3 TRES SECOES OBRIGATORIAS POR TOPICO
+Each expandable topic MUST have these 3 sections:
+- **What it is:** Clear definition
+- **Why learn:** Justification and benefits
+- **Key concepts:** Main points
 
-Cada topico expansivel DEVE ter estas 3 secoes:
-- **O que e:** Definicao clara
-- **Por que aprender:** Justificativa e beneficios
-- **Conceitos-chave:** Pontos principais
+## 1.4 duclub ON ALL PAGES```html
+<a href="https://duclub" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">duclub</a>
+```- **COLOR:**`text-sky-400`(light blue)
+- **POSITION:** Next to the logo, separated by`|`- **MANDATORY:** Index, tracks AND modules
 
-## 1.4 INEMA.CLUB EM TODAS AS PAGINAS
+## 1.5 LIGHT MODE CSS REQUIRED
 
-```html
-<a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-```
-- **COR:** `text-sky-400` (azul claro)
-- **POSICAO:** Ao lado do logo, separado por `|`
-- **OBRIGATORIO:** Index, trilhas E modulos
-
-## 1.5 LIGHT MODE CSS OBRIGATORIO
-
-Adicionar em TODAS as paginas (index, trilhas E modulos):
-
-```css
+Add to ALL pages (index, tracks AND modules):```css
 /* Light mode overrides */
 html:not(.dark) body {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
@@ -77,25 +63,17 @@ html:not(.dark) .text-neutral-400 { color: #6b7280; }
 html:not(.dark) .text-neutral-500 { color: #9ca3af; }
 html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
 html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
-```
-
-## 1.6 TITULO DO MODULO COM TEXT-2XL
-
-```html
+```## 1.6 MODULE TITLE WITH TEXT-2XL```html
 <!-- CORRETO -->
 <h3 class="text-2xl font-bold mb-2">Titulo do Modulo</h3>
 
 <!-- ERRADO - muito pequeno -->
 <h3 class="text-lg font-bold mb-2">Titulo do Modulo</h3>
-```
+```---
 
----
+# 2. PROJECT STRUCTURE
 
-# 2. ESTRUTURA DO PROJETO
-
-## 2.1 Estrutura Padrao
-
-```
+## 2.1 Standard Structure```
 [NOME DO CURSO]
 ├── [EMOJI DO CURSO]
 ├── X Trilhas (definir quantidade)
@@ -108,11 +86,7 @@ html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 ├── Total de Modulos
 ├── 6-8 Topicos por Modulo
 └── Total de Topicos
-```
-
-## 2.2 Estrutura de Arquivos
-
-```
+```## 2.2 File Structure```
 projeto/
 ├── index.html                    # Landing page
 ├── curso/
@@ -126,120 +100,110 @@ projeto/
 │   └── ...
 ├── doc/                          # Documentacao
 └── ref/                          # Referencias detalhadas
-```
+```---
 
----
+# 3. COLOR SYSTEM
 
-# 3. SISTEMA DE CORES
+## 3.1 Colors per Track
 
-## 3.1 Cores por Trilha
-
-| Trilha | Cor | text-* | bg-*/20 | border-*/30 | from-*/30 |
+| Trail | Color | text-* | bg-*/20 | border-*/30 | from-*/30 |
 |--------|-----|--------|---------|-------------|-----------|
-| T1 | Emerald | `text-emerald-400` | `bg-emerald-500/20` | `border-emerald-500/30` | `from-emerald-900/30` |
-| T2 | Blue | `text-blue-400` | `bg-blue-500/20` | `border-blue-500/30` | `from-blue-900/30` |
-| T3 | Purple | `text-purple-400` | `bg-purple-500/20` | `border-purple-500/30` | `from-purple-900/30` |
-| T4 | Amber | `text-amber-400` | `bg-amber-500/20` | `border-amber-500/30` | `from-amber-900/30` |
-| T5 | Teal | `text-teal-400` | `bg-teal-500/20` | `border-teal-500/30` | `from-teal-900/30` |
-| T6 | Rose | `text-rose-400` | `bg-rose-500/20` | `border-rose-500/30` | `from-rose-900/30` |
+| T1 | Emerald |`text-emerald-400` | `bg-emerald-500/20` | `border-emerald-500/30` | `from-emerald-900/30`|
+| T2 | Blue |`text-blue-400` | `bg-blue-500/20` | `border-blue-500/30` | `from-blue-900/30`|
+| T3 | Purple |`text-purple-400` | `bg-purple-500/20` | `border-purple-500/30` | `from-purple-900/30`|
+| T4 | Amber |`text-amber-400` | `bg-amber-500/20` | `border-amber-500/30` | `from-amber-900/30`|
+| T5 | Teal |`text-teal-400` | `bg-teal-500/20` | `border-teal-500/30` | `from-teal-900/30`|
+| T6 | Rose |`text-rose-400` | `bg-rose-500/20` | `border-rose-500/30` | `from-rose-900/30`|
 
-## 3.2 Cores Especiais
+## 3.2 Special Colors
 
-| Cor | Codigo | Classe | Uso |
+| Color | Code | Class | Usage |
 |-----|--------|--------|-----|
-| Primary (Yellow) | `#FACC15` | `text-primary`, `bg-primary` | Logo, CTAs, destaques, dicas |
-| Sky | `#38bdf8` | `text-sky-400` | Link INEMA.CLUB |
-| Red | `#f87171` | `text-red-400` | "Nao fazer", erros, alertas |
-| Neutral 300 | `#d4d4d4` | `text-neutral-300` | Texto principal |
-| Neutral 400 | `#a3a3a3` | `text-neutral-400` | Texto secundario |
+| Primary (Yellow) |`#FACC15` | `text-primary`, `bg-primary`| Logo, CTAs, highlights, tips |
+| Sky |`#38bdf8` | `text-sky-400`| Link duclub |
+| Red |`#f87171` | `text-red-400`| "Not to do", errors, warnings |
+| Neutral 300 |`#d4d4d4` | `text-neutral-300`| Main text |
+| Neutral 400 |`#a3a3a3` | `text-neutral-400`| Secondary text |
 
-## 3.3 Paleta Dark Mode
+## 3.3 Dark Mode Palette
 
-| Nome | Codigo | Classe | Uso |
+| Name | Code | Class | Usage |
 |------|--------|--------|-----|
-| dark-900 | `#111827` | `bg-dark-900` | Fundo principal |
-| dark-800 | `#1f2937` | `bg-dark-800` | Cards, containers |
-| dark-700 | `#374151` | `bg-dark-700` | Elementos internos |
-| dark-600 | `#4b5563` | `bg-dark-600` | Bordas, divisores |
+| dark-900 |`#111827` | `bg-dark-900`| Main fund |
+| dark-800 |`#1f2937` | `bg-dark-800`| Cards, containers |
+| dark-700 |`#374151` | `bg-dark-700`| Internal elements |
+| dark-600 |`#4b5563` | `bg-dark-600`| Borders, dividers |
 
-## 3.4 Paleta Light Mode
+## 3.4 Light Mode Palette
 
-| Nome | Codigo | Uso |
-|------|--------|-----|
-| white | `#ffffff` | Fundo principal (dark-900) |
-| gray-50 | `#f9fafb` | Cards (dark-800) |
-| gray-100 | `#f3f4f6` | Elementos (dark-700) |
-| gray-200 | `#e5e7eb` | Bordas (dark-600) |
+| Name | Code | Usage |
+|------|-----------|-----|
+| white |`#ffffff`| Main background (dark-900) |
+| gray-50 |`#f9fafb`| Cards (dark-800) |
+| gray-100 |`#f3f4f6`| Elements (dark-700) |
+| gray-200 |`#e5e7eb`| Edges (dark-600) |
 
 ---
 
-# 4. TIPOGRAFIA E TOM DE VOZ
+# 4. TYPOGRAPHY AND TONE OF VOICE
 
-## 4.1 Fonte
-
-```html
+## 4.1 Source```html
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 ```
 
 ```css
 body { font-family: 'Inter', sans-serif; }
-```
+```## 4.2 Hierarchy
 
-## 4.2 Hierarquia
+| Element | Classes | Usage |
+|----------|------------|-----|
+| H1 (Hero) |`text-4xl sm:text-5xl font-bold`| Main page title |
+| H2 (Section) |`text-2xl font-bold`| Section titles, topics |
+| H3 (Subsection) |`text-xl font-bold` ou `text-lg font-semibold`| Subtitles, boxes |
+| Body |`text-neutral-300`| Main text |
+| Secondary |`text-neutral-400`| Secondary text |
+| Small |`text-sm text-neutral-400`| Subtitles, metadata |
 
-| Elemento | Classes | Uso |
-|----------|---------|-----|
-| H1 (Hero) | `text-4xl sm:text-5xl font-bold` | Titulo principal da pagina |
-| H2 (Section) | `text-2xl font-bold` | Titulos de secao, topicos |
-| H3 (Subsection) | `text-xl font-bold` ou `text-lg font-semibold` | Subtitulos, boxes |
-| Body | `text-neutral-300` | Texto principal |
-| Secondary | `text-neutral-400` | Texto secundario |
-| Small | `text-sm text-neutral-400` | Legendas, metadados |
+## 4.3 Tone of Voice
 
-## 4.3 Tom de Voz
+- **Direct and practical:** No fluff, gets to the point
+- **Professional:** Focus on business application
+- **Confident:** Clear statements, without “maybe” or “could be”
+- **Didactic:** Step-by-step explanations
 
-- **Direto e pratico:** Sem enrolacao, vai ao ponto
-- **Profissional:** Foco em aplicacao empresarial
-- **Confiante:** Afirmacoes claras, sem "talvez" ou "pode ser"
-- **Didatico:** Explicacoes passo a passo
+## 4.4 Paragraph Structure
 
-## 4.4 Estrutura de Paragrafos
+- **Maximum 3-4 lines** per paragraph
+- **First sentence:** Main concept
+- **Highlight:** Keyword in **bold** or trail color
 
-- **Maximo 3-4 linhas** por paragrafo
-- **Primeira frase:** Conceito principal
-- **Destaque:** Palavra-chave em **negrito** ou cor da trilha
+## 4.5 Use of Lists
 
-## 4.5 Uso de Listas
-
-- **Bullets:** Para itens sem ordem especifica
-- **Numeros (1, 2, 3):** Para passos sequenciais
-- **Check/X:** Para fazer/nao fazer
+- **Bullets:** For items in no specific order
+- **Numbers (1, 2, 3):** For sequential steps
+- **Check/X:** To do/not to do
 
 ---
 
-# 5. NAVEGACAO GLOBAL
+# 5. GLOBAL NAVIGATION
 
-## 5.1 Elementos Obrigatorios
+## 5.1 Mandatory Elements
 
-1. **Logo** (emoji + nome) - `text-yellow-400`
-2. **Link INEMA.CLUB** - `text-sky-400`
-3. **Trilhas** com nomes completos (mobile: T1, T2, T3...)
-4. **Theme Toggle** - botao dark/light
+1. **Logo** (emoji + name) -`text-yellow-400`2. **duclub link** -`text-sky-400`3. **Trails** with full names (mobile: T1, T2, T3...)
+4. **Theme Toggle** - dark/light button
 
-## 5.2 Template Navigation
-
-```html
+## 5.2 Template Navigation```html
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-14">
-      <!-- Logo + INEMA.CLUB -->
+      <!-- Logo + duclub -->
       <div class="flex items-center space-x-4">
         <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
           <span class="text-2xl">[EMOJI]</span>
           <span class="font-bold text-lg hidden sm:inline">[NOME DO CURSO]</span>
         </a>
         <span class="text-neutral-600">|</span>
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        <a href="https://duclub" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">duclub</a>
       </div>
 
       <!-- Trilhas + Theme Toggle -->
@@ -269,26 +233,22 @@ body { font-family: 'Inter', sans-serif; }
     </div>
   </div>
 </nav>
-```
+```## 5.3 Track Link Colors
 
-## 5.3 Cores dos Links de Trilha
-
-| Estado | Classes |
+| Status | Classes |
 |--------|---------|
-| Ativo | `text-[cor]-400 bg-[cor]-500/10` |
-| Inativo | `text-neutral-400 hover:text-[cor]-400 hover:bg-[cor]-500/10 transition-colors` |
+| Active |`text-[cor]-400 bg-[cor]-500/10`|
+| Inactive |`text-neutral-400 hover:text-[cor]-400 hover:bg-[cor]-500/10 transition-colors`|
 
 ---
 
-# 6. ESTRUTURA DE PAGINAS
+# 6. PAGE STRUCTURE
 
-## 6.1 Pagina de Trilha (Index)
-
-```
+## 6.1 Track Page (Index)```
 TRILHA INDEX
 ├── Navigation Global
 │   ├── Logo (emoji + nome) - yellow-400
-│   ├── INEMA.CLUB - sky-400
+│   ├── duclub - sky-400
 │   ├── Trilhas (nomes completos, cor da ativa)
 │   └── Theme Toggle
 ├── Header com Gradiente
@@ -313,11 +273,7 @@ TRILHA INDEX
 │       └── Ver Completo
 ├── Navegacao (Voltar | Proxima Trilha)
 └── Footer
-```
-
-## 6.2 Pagina de Modulo
-
-```
+```## 6.2 Module Page```
 MODULO COMPLETO
 ├── Navigation Global (identico ao index)
 ├── Breadcrumb (Inicio / Trilha X / Modulo X.X)
@@ -343,42 +299,32 @@ MODULO COMPLETO
 │   ├── Proximo modulo
 │   └── CTAs de navegacao
 └── Footer
-```
+```## 6.3 Standard Spacing
 
-## 6.3 Espacamento Padrao
-
-| Classe | Uso |
+| Class | Usage |
 |--------|-----|
-| `mb-16` | Entre secoes principais (topicos) |
-| `mb-12` | Antes do resumo final |
-| `mb-8` | Entre grupos de conteudo |
-| `mb-6` | Entre boxes dentro de secao |
-| `mb-4` | Entre elementos menores |
-| `p-8` | Padding de cards principais |
-| `p-6` | Padding de boxes internos |
-| `p-4` | Padding de elementos menores |
-| `gap-4` | Grid de stats |
-| `gap-6` | Grid de comparacao |
+|`mb-16`| Between main sections (topics) |
+|`mb-12`| Before the final summary |
+|`mb-8`| Between content groups |
+|`mb-6`| Between boxes within section |
+|`mb-4`| Between smaller elements |
+|`p-8`| Main card padding |
+|`p-6`| Internal box padding |
+|`p-4`| Padding of minor elements |
+|`gap-4`| Stats grid |
+|`gap-6`| Comparison grid |
 
 ---
 
-# 7. COMPONENTES
+# 7. COMPONENTS
 
-## 7.1 Numero em Circulo
+## 7.1 Number in Circle
 
-**Pequeno (topicos expansiveis):**
-```html
+**Small (expandable topics):**```html
 <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
-```
-
-**Grande (secoes de modulo):**
-```html
+```**Large (module sections):**```html
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
-```
-
-## 7.2 Topico Expansivel com 3 Secoes
-
-```html
+```## 7.2 Expandable Topic with 3 Sections```html
 <div class="topic-item">
   <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
     <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
@@ -405,11 +351,7 @@ MODULO COMPLETO
     </div>
   </div>
 </div>
-```
-
-## 7.3 Card do Modulo
-
-```html
+```## 7.3 Module Card```html
 <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
   <!-- Header do Modulo -->
   <div class="p-6 border-b border-dark-600">
@@ -436,11 +378,7 @@ MODULO COMPLETO
     </a>
   </div>
 </div>
-```
-
-## 7.4 Header de Trilha
-
-```html
+```## 7.4 Track Header```html
 <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
@@ -472,11 +410,7 @@ MODULO COMPLETO
     </div>
   </div>
 </header>
-```
-
-## 7.5 Header de Modulo
-
-```html
+```## 7.5 Module Header```html
 <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
@@ -506,11 +440,7 @@ MODULO COMPLETO
     </div>
   </div>
 </header>
-```
-
-## 7.6 Breadcrumb
-
-```html
+```## 7.6 Breadcrumb```html
 <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
   <div class="flex items-center space-x-2 text-sm text-neutral-400">
     <a href="../../index.html" class="hover:text-emerald-400">Inicio</a>
@@ -520,11 +450,7 @@ MODULO COMPLETO
     <span class="text-emerald-400">Modulo 1.1</span>
   </div>
 </nav>
-```
-
-## 7.7 Secao de Topico (Pagina de Modulo)
-
-```html
+```## 7.7 Topic Section (Module Page)```html
 <section id="topico-1" class="mb-16">
   <div class="flex items-center space-x-4 mb-6">
     <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
@@ -537,11 +463,7 @@ MODULO COMPLETO
 
   <!-- Boxes de conteudo aqui -->
 </section>
-```
-
-## 7.8 Box Conceito Principal
-
-```html
+```## 7.8 Main Concept Box```html
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
   <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
     <span class="mr-2">[EMOJI]</span> Titulo
@@ -554,11 +476,7 @@ MODULO COMPLETO
     </li>
   </ul>
 </div>
-```
-
-## 7.9 Box Dados/Pesquisa
-
-```html
+```## 7.9 Box Data/Search```html
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
   <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
     <span class="mr-2">[EMOJI]</span> Dados de Pesquisa
@@ -567,22 +485,14 @@ MODULO COMPLETO
     <li><strong>XX%</strong> - Estatistica importante</li>
   </ul>
 </div>
-```
-
-## 7.10 Box Dica Pratica
-
-```html
+```## 7.10 Practical Tip Box```html
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
   <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
     <span class="mr-2">[EMOJI]</span> Dica Pratica
   </h3>
   <p class="text-neutral-300">Texto da dica...</p>
 </div>
-```
-
-## 7.11 Grid Fazer vs Evitar
-
-```html
+```## 7.11 Grid Do vs Avoid```html
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
   <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
     <h4 class="font-bold text-emerald-400 mb-4">✓ O que FAZER</h4>
@@ -603,11 +513,7 @@ MODULO COMPLETO
     </ul>
   </div>
 </div>
-```
-
-## 7.12 Timeline
-
-```html
+```## 7.12 Timeline```html
 <div class="space-y-6 mb-6">
   <div class="flex items-start space-x-4">
     <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
@@ -620,22 +526,14 @@ MODULO COMPLETO
     </div>
   </div>
 </div>
-```
-
-## 7.13 Box de Alerta
-
-```html
+```## 7.13 Alert Box```html
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
   <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
     <span class="mr-2">[EMOJI]</span> Atencao
   </h3>
   <p class="text-neutral-300">Texto de alerta...</p>
 </div>
-```
-
-## 7.14 Resumo do Modulo
-
-```html
+```## 7.14 Module Summary```html
 <section class="mb-12">
   <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
     <h2 class="text-2xl font-bold mb-6 flex items-center">
@@ -668,15 +566,11 @@ MODULO COMPLETO
     </div>
   </div>
 </section>
-```
+```---
 
----
+# 8. COMPLETE HTML TEMPLATES
 
-# 8. TEMPLATES HTML COMPLETOS
-
-## 8.1 Base HTML (usar em TODAS as paginas)
-
-```html
+## 8.1 HTML base (use on ALL pages)```html
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
@@ -746,15 +640,11 @@ MODULO COMPLETO
 
 </body>
 </html>
-```
-
----
+```---
 
 # 9. JAVASCRIPT
 
-## 9.1 Toggle de Topicos
-
-```javascript
+## 9.1 Topic Toggle```javascript
 function toggleTopic(button) {
   const topicItem = button.closest('.topic-item');
   const explanation = topicItem.querySelector('.topic-explanation');
@@ -770,11 +660,7 @@ function toggleTopic(button) {
   // Toggle do topico atual
   explanation.classList.toggle('active');
 }
-```
-
-## 9.2 Theme Toggle
-
-```javascript
+```## 9.2 Theme Toggle```javascript
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -795,15 +681,11 @@ themeToggle.addEventListener('click', () => {
   html.classList.toggle('dark');
   localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
 });
-```
+```## 9.3 Modal with Iframe
 
-## 9.3 Modal com Iframe
+**IMPORTANT:** The modal must load the module page via iframe to ensure that the content is IDENTICAL to that of the target page. DO NOT create duplicate or summarized content.
 
-**IMPORTANTE:** O modal deve carregar a pagina do modulo via iframe para garantir que o conteudo seja IDENTICO ao da pagina de destino. NAO crie conteudo duplicado ou resumido.
-
-### Template HTML do Modal
-
-```html
+### Modal HTML Template```html
 <div id="modal-1-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
   <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
     <!-- Header -->
@@ -818,16 +700,12 @@ themeToggle.addEventListener('click', () => {
     <iframe src="modulo-1-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
   </div>
 </div>
-```
+```**Advantages of iframe:**
+- Content always synchronized with the module page
+- No duplication of code/content
+- Simplified maintenance (updates in one place)
 
-**Vantagens do iframe:**
-- Conteudo sempre sincronizado com a pagina do modulo
-- Sem duplicacao de codigo/conteudo
-- Manutencao simplificada (atualiza em um lugar so)
-
-### JavaScript do Modal
-
-```javascript
+### Modal JavaScript```javascript
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -847,29 +725,17 @@ function closeModal() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
-```
+```---
 
----
+# 10. MANDATORY CSS
 
-# 10. CSS OBRIGATORIO
-
-## 10.1 CSS Base
-
-```css
+## 10.1 CSS Base```css
 body { font-family: 'Inter', sans-serif; }
 .dark body { background-color: #111827; }
-```
-
-## 10.2 Topicos Expansiveis
-
-```css
+```## 10.2 Expandable Topics```css
 .topic-explanation { display: none; }
 .topic-explanation.active { display: block; }
-```
-
-## 10.3 Light Mode (OBRIGATORIO em TODAS as paginas)
-
-```css
+```## 10.3 Light Mode (MANDATORY on ALL pages)```css
 html:not(.dark) body {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
 }
@@ -883,24 +749,22 @@ html:not(.dark) .text-neutral-400 { color: #6b7280; }
 html:not(.dark) .text-neutral-500 { color: #9ca3af; }
 html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
 html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
-```
+```---
+
+# FINAL REMINDER
+
+**ALWAYS check before finalizing any page:**
+
+1. ✓ Buttons on the LEFT (justify-start)
+2. ✓ Circled numbers (not arrows)
+3. ✓ 3 sections per topic
+4. ✓ duclub present (sky-400)
+5. ✓ Light mode CSS included
+6. ✓ Module title with text-2xl
+7. ✓ Correct track colors
+8. ✓ Theme toggle working
 
 ---
 
-# LEMBRETE FINAL
-
-**SEMPRE verificar antes de finalizar qualquer pagina:**
-
-1. ✓ Botoes a ESQUERDA (justify-start)
-2. ✓ Numeros em circulo (nao setas)
-3. ✓ 3 secoes por topico
-4. ✓ INEMA.CLUB presente (sky-400)
-5. ✓ Light mode CSS incluido
-6. ✓ Titulo do modulo com text-2xl
-7. ✓ Cores corretas da trilha
-8. ✓ Theme toggle funcionando
-
----
-
-**Ultima atualizacao:** 2026-01-20
-**Versao:** 1.0
+**Last update:** 2026-01-20
+**Version:** 1.0
