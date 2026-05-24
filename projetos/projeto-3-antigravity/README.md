@@ -1,19 +1,17 @@
-# Projeto 3 — Antigravity
+# Project 3 — Antigravity
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![Plataforma](https://img.shields.io/badge/plataforma-Antigravity%20IDE-blue)
-![Modelo](https://img.shields.io/badge/modelo-Gemini%202.0-orange)
-![Licenca](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
+![Platform](https://img.shields.io/badge/plataforma-Antigravity%20IDE-blue)
+![Model](https://img.shields.io/badge/modelo-Gemini%202.0-orange)
+![License](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
 
-Configuracao do Antigravity — IDE agent-first do Google.
+Antigravity configuration — Google's agent-first IDE.
 
-Este projeto contem os arquivos de configuracao necessarios para usar o **Antigravity**, a IDE experimental do Google projetada desde o inicio para desenvolvimento assistido por agentes de IA. O Antigravity usa o Gemini como modelo central e permite que o agente planeje, escreva codigo, execute testes e realize deploys de forma autonoma, com supervisao humana nos pontos criticos.
+This project contains the configuration files needed to use **Antigravity**, Google's experimental IDE designed from the ground up for AI-assisted development. Antigravity uses Gemini as a central model and allows the agent to plan, write code, run tests and deploy autonomously, with human supervision at critical points.
 
 ---
 
-## O que esta incluido
-
-```
+## What's included```
 projeto-3-antigravity/
 ├── workspace.json          # Configuracao principal do workspace Antigravity
 ├── CONTEXT.md              # Contexto persistente carregado pelo agente Gemini
@@ -27,180 +25,154 @@ projeto-3-antigravity/
     └── context-minimal.md   # Versao minima do CONTEXT.md para projetos simples
 ```
 
-### `workspace.json`
+### `workspace.json`Antigravity main configuration file. Defines:
 
-Arquivo de configuracao principal do Antigravity. Define:
+- **AI model** used by the agent (Gemini 2.0 Flash)
+- **MCP Servers** connected (filesystem, GitHub)
+- Pre-defined **Workflows** (feature, bugfix)
+- **Permissions** of the agent (what it can do automatically and what needs approval)
+- **Tools** enabled (browser, terminal)
 
-- **Modelo de IA** usado pelo agente (Gemini 2.0 Flash)
-- **Servidores MCP** conectados (filesystem, GitHub)
-- **Workflows** pre-definidos (feature, bugfix)
-- **Permissoes** do agente (o que ele pode fazer automaticamente e o que precisa de aprovacao)
-- **Ferramentas** habilitadas (browser, terminal)
+###`CONTEXT.md`Persistent context file automatically loaded by the agent throughout the session. And the equivalent of`CLAUDE.md`in Claude Code, but optimized for Gemini and the Antigravity environment. Contains:
 
-### `CONTEXT.md`
-
-Arquivo de contexto persistente carregado automaticamente pelo agente em toda sessao. E o equivalente do `CLAUDE.md` no Claude Code, mas otimizado para o Gemini e o ambiente Antigravity. Contem:
-
-- Identidade e descricao do projeto
-- Stack tecnologica completa
-- Estrutura de diretorios
-- Convencoes de codigo e commits
-- Workflows automatizados disponiveis
-- Regras de negocio criticas
-- Restricoes e politicas de seguranca
+- Identity and description of the project
+- Complete technology stack
+- Directory structure
+- Code conventions and commits
+- Automated workflows available
+- Critical business rules
+- Restrictions and security policies
 
 ---
 
-## Pre-requisitos
+## Prerequisites
 
-Antes de comecar, voce precisara de:
+Before starting, you will need:
 
-1. **Conta Google** — qualquer conta Gmail ou Google Workspace
-2. **Acesso ao Antigravity beta** — solicite em [g.co/antigravity](https://g.co/antigravity) (programa de acesso antecipado do Google)
-3. **Node.js 20+** — para os servidores MCP ([nodejs.org](https://nodejs.org))
-4. **Git** — controle de versao ([git-scm.com](https://git-scm.com))
-5. **Token GitHub** (opcional) — para o servidor MCP do GitHub, gere em [github.com/settings/tokens](https://github.com/settings/tokens)
+1. **Google Account** — any Gmail or Google Workspace account
+2. **Access to Antigravity beta** — request at [g.co/antigravity](https://g.co/antigravity) (Google early access program)
+3. **Node.js 20+** — for MCP servers ([nodejs.org](https://nodejs.org))
+4. **Git** — version control ([git-scm.com](https://git-scm.com))
+5. **GitHub Token** (optional) — for GitHub MCP server, generate at [github.com/settings/tokens](https://github.com/settings/tokens)
 
 ---
 
-## Como usar os arquivos de configuracao no Antigravity
+## How to use configuration files in Antigravity
 
-### 1. Importar o workspace.json
+### 1. Import workspace.json
 
-Ao abrir o Antigravity pela primeira vez em um projeto:
+When opening Antigravity for the first time in a project:
 
-1. Clique em **File > Import Workspace Configuration**
-2. Selecione o arquivo `workspace.json` deste projeto
-3. O Antigravity carregara automaticamente todas as configuracoes: modelo, ferramentas e workflows
+1. Click **File > Import Workspace Configuration**
+2. Select the file`workspace.json`of this project
+3. Antigravity will automatically load all configurations: model, tools and workflows
 
-Alternativamente, copie o `workspace.json` para a raiz do seu proprio projeto e o Antigravity o detectara automaticamente ao abrir a pasta.
+Alternatively, copy the`workspace.json`to the root of your own project and Antigravity will automatically detect it when you open the folder.
 
-### 2. Instalar os servidores MCP
+### 2. Install MCP servers
 
-Os servidores MCP (Model Context Protocol) dao ao agente acesso ao sistema de arquivos e ao GitHub. Execute o script de instalacao:
-
-```bash
+MCP (Model Context Protocol) servers give the agent access to the file system and GitHub. Run the installation script:```bash
 chmod +x scripts/setup-mcp.sh
 ./scripts/setup-mcp.sh
-```
-
-Ou instale manualmente:
-
-```bash
+```Or install manually:```bash
 npm install -g @modelcontextprotocol/server-filesystem
 npm install -g @modelcontextprotocol/server-github
-```
+```### 3. Configure CONTEXT.md
 
-### 3. Configurar o CONTEXT.md
+Copy the`CONTEXT.md`to the root of your project and edit the sections marked with`[EDITAR]`. See the section below for details.
 
-Copie o `CONTEXT.md` para a raiz do seu projeto e edite as secoes marcadas com `[EDITAR]`. Veja a secao abaixo para detalhes.
+### 4. Configure environment variables
 
-### 4. Configurar variaveis de ambiente
-
-Crie um arquivo `.env` na raiz do seu projeto (nunca commite este arquivo):
-
-```bash
+Create a file`.env`in the root of your project (never commit this file):```bash
 GITHUB_TOKEN=seu_token_aqui
 GOOGLE_CLIENT_ID=seu_client_id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=seu_client_secret
-```
+```### 5. Start Antigravity
 
-### 5. Iniciar o Antigravity
-
-Abra o Antigravity, aponte para a pasta do seu projeto e o agente estara pronto. Use os triggers definidos no `CONTEXT.md` para iniciar workflows:
-
-```
+Open Antigravity, point to your project folder and the agent will be ready. Use the triggers defined in`CONTEXT.md`To start workflows:```
 @agent implement feature: adicionar pagina de perfil do usuario
 @agent fix bug: botao de login nao funciona no Safari
 @agent deploy to staging
-```
+```---
 
----
+## About CONTEXT.md and how to adapt it to your project
 
-## Sobre o CONTEXT.md e como adaptar para seu projeto
+O`CONTEXT.md`is the most important file in this configuration. It defines the agent's "memory" — everything Gemini needs to know about your project to make correct decisions.
 
-O `CONTEXT.md` e o arquivo mais importante desta configuracao. Ele define a "memoria" do agente — tudo o que o Gemini precisa saber sobre o seu projeto para tomar decisoes corretas.
+### Mandatory sections
 
-### Secoes obrigatorias
-
-| Secao | Por que e importante |
+| Section | Why is it important |
 |-------|---------------------|
-| **Identidade do Projeto** | O agente precisa saber o nome, versao e repositorio para gerar commits e PRs corretos |
-| **Stack Tecnologica** | Define quais frameworks, bibliotecas e padroes o agente deve usar ao gerar codigo |
-| **Convencoes de Codigo** | Garante que o codigo gerado pelo agente seja consistente com o resto do projeto |
-| **Restricoes e Politicas** | O mais critico — define o que o agente pode e nao pode fazer sem pedir permissao |
+| **Project Identity** | The agent needs to know the name, version and repository to generate correct commits and PRs |
+| **Technological Stack** | Defines which frameworks, libraries and standards the agent should use when generating code |
+| **Code Conventions** | Ensures that the code generated by the agent is consistent with the rest of the project |
+| **Restrictions and Policies** | The most critical — defines what the agent can and cannot do without asking permission |
 
-### Como adaptar para seu projeto
+### How to adapt to your project
 
-1. **Identidade:** substitua `meu-projeto-agentic` pelo nome real do seu projeto e ajuste a URL do repositorio
-2. **Stack:** remova as tecnologias que voce nao usa e adicione as que usa (ex: Vue em vez de React, Django em vez de Fastify)
-3. **Estrutura de diretorios:** atualize para refletir a estrutura real do seu projeto
-4. **Regras de negocio:** esta secao e unica para cada projeto — descreva as regras que o agente precisa respeitar
-5. **Restricoes:** revise cuidadosamente o que o agente pode fazer automaticamente vs. o que precisa de aprovacao
+1. **Identity:** replace`meu-projeto-agentic`by the real name of your project and adjust the repository URL
+2. **Stack:** remove the technologies you don't use and add the ones you do (e.g. Vue instead of React, Django instead of Fastify)
+3. **Directory structure:** update to reflect the actual structure of your project
+4. **Business rules:** this section is unique to each project — describe the rules that the agent needs to respect
+5. **Constraints:** Carefully review what the agent can do automatically vs. what can be done automatically. what needs approval
 
-### Versao minima
+### Minimum version
 
-Se o seu projeto e simples, veja o arquivo `exemplos/context-minimal.md` para uma versao reduzida do CONTEXT.md com apenas o essencial.
+If your project is simple, see the file`exemplos/context-minimal.md`for a reduced version of CONTEXT.md with just the essentials.
 
 ---
 
-## Dicas de uso para desenvolvimento agentic
+## Usage tips for agentic development
 
-### Seja especifico nos prompts
+### Be specific in prompts
 
-Prefira:
-```
+Prefer:```
 @agent implement feature: adicionar endpoint POST /api/tasks que recebe {title, projectId}
 e retorna a task criada com status 201
-```
-
-Em vez de:
-```
+```Instead of:```
 @agent adiciona tasks
-```
+```The more context you give, the less the agent will need to ask and the fewer mistakes they will make.
 
-Quanto mais contexto voce der, menos o agente precisara perguntar e menos erros comettera.
+### Review the plan before executing
 
-### Revise o plano antes de executar
+The standard workflow includes a **Plan** step before any implementation. Always read the generated plan before approving — it is easier to correct a plan than to revert already written code.
 
-O workflow padrao inclui uma etapa de **Plan** antes de qualquer implementacao. Sempre leia o plano gerado antes de aprovar — e mais facil corrigir um plano do que reverter codigo ja escrito.
+###Use`auto_approve: false`in production
 
-### Use `auto_approve: false` em producao
+O`workspace.json`already comes with`auto_approve: false`. Keep it that way — especially for operations that affect infrastructure, databases and deployments.
 
-O `workspace.json` ja vem com `auto_approve: false`. Mantenha assim — especialmente para operacoes que afetam infraestrutura, banco de dados e deploys.
+### Keep CONTEXT.md updated
 
-### Mantenha o CONTEXT.md atualizado
+Whenever you change the stack, add a new business rule, or change a code convention, update the`CONTEXT.md`. An outdated context is worse than no context — the agent can generate inconsistent code.
 
-Sempre que voce mudar a stack, adicionar uma nova regra de negocio ou alterar uma convencao de codigo, atualize o `CONTEXT.md`. Um contexto desatualizado e pior do que nenhum contexto — o agente pode gerar codigo inconsistente.
+### Use workflows for repetitive tasks
 
-### Use workflows para tarefas repetitivas
+Antigravity shines on tasks with a clear and repetitive structure:
+- Implement CRUDs following the project pattern
+- Add tests for existing functions
+- Refactor components to follow new conventions
+- Generate documentation from the code
 
-O Antigravity brilha em tarefas com estrutura clara e repetitiva:
-- Implementar CRUDs seguindo o padrao do projeto
-- Adicionar testes para funcoes existentes
-- Refatorar componentes para seguir novas convencoes
-- Gerar documentacao a partir do codigo
+For highly creative tasks or those involving important architectural decisions, collaborate more actively rather than delegating completely.
 
-Para tarefas altamente criativas ou que envolvam decisoes arquiteturais importantes, colabore mais ativamente em vez de delegar completamente.
+### Connect GitHub MCP Server
 
-### Conecte o servidor MCP do GitHub
+With the GitHub MCP server configured, the agent can:
+- Read issues and pull requests directly
+- Create branches and commit code
+- Automatically open PRs after implementing a feature
 
-Com o servidor MCP do GitHub configurado, o agente pode:
-- Ler issues e pull requests diretamente
-- Criar branches e commitar codigo
-- Abrir PRs automaticamente apos implementar uma feature
-
-Isso fecha o loop de desenvolvimento agentic completo.
+This closes the complete agentic development loop.
 
 ---
 
-## Referencias
+## References
 
-- [Antigravity — pagina oficial do Google](https://g.co/antigravity)
-- [Model Context Protocol — documentacao](https://modelcontextprotocol.io)
-- [Gemini API — documentacao](https://ai.google.dev)
-- [Google Cloud — documentacao](https://cloud.google.com/docs)
+- [Antigravity — official Google page](https://g.co/antigravity)
+- [Model Context Protocol — documentation](https://modelcontextprotocol.io)
+- [Gemini API — documentation](https://ai.google.dev)
+- [Google Cloud — documentation](https://cloud.google.com/docs)
 
 ---
 
-*Ultima atualizacao: 2026-03-03*
+*Last update: 2026-03-03*
