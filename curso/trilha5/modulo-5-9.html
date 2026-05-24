@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.9 Arquitetura Composta — LangGraph + CrewAI + Redis + Postgres | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.9 Composite Architecture — LangGraph + CrewAI + Redis + Postgres | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,160 +30,145 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400 transition-colors">Home</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400 transition-colors">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.9</span>
-    </nav>
-  </div>
-
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MÓDULO 5.9</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Arquitetura Completa</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Integração</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">
-        🏛️ Arquitetura Composta — LangGraph + CrewAI + Redis + Postgres
-      </h1>
-      <p class="text-lg text-neutral-300 max-w-3xl mb-8">
-        Integração das 6 camadas em uma arquitetura hexagonal completa. LangGraph para orquestração de grafos, CrewAI para times de agentes, Redis para estado efêmero, Postgres para persistência, Prometheus para métricas.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">6</div>
-          <div class="text-xs text-neutral-400 mt-1">Seções</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">~60min</div>
-          <div class="text-xs text-neutral-400 mt-1">Duração</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Avançado</div>
-          <div class="text-xs text-neutral-400 mt-1">Nível</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Stack</div>
-          <div class="text-xs text-neutral-400 mt-1">Completo</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-
-    <!-- Seção 1 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
-        <h2 class="text-xl font-bold text-neutral-100">Visão Geral da Arquitetura Hexagonal</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>A arquitetura hexagonal (ports and adapters) separa o núcleo de lógica de negócio das dependências externas. Para um orquestrador de IA, isso significa que a lógica de planejamento e roteamento não conhece Redis, Postgres ou Prometheus diretamente — ela fala com interfaces (ports).</p>
-
-        <div class="bg-dark-900 rounded-xl p-6 border border-dark-600">
-          <div class="text-center text-sm font-mono space-y-2 text-neutral-300">
-            <div class="text-teal-400 font-bold text-base mb-4">ARQUITETURA HEXAGONAL DO ORQUESTRADOR</div>
-            <div class="grid grid-cols-3 gap-4 text-xs">
-              <div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
-                <div class="text-yellow-400 font-bold mb-2">DRIVERS (Input)</div>
-                <div class="text-neutral-400 space-y-1">
-                  <div>FastAPI REST</div>
-                  <div>WebSocket</div>
-                  <div>CLI Interface</div>
-                  <div>Task Queue</div>
-                </div>
-              </div>
-              <div class="bg-teal-900/30 rounded-lg p-3 border border-teal-500/30">
-                <div class="text-teal-400 font-bold mb-2">CORE (Domain)</div>
-                <div class="text-neutral-300 space-y-1">
-                  <div>Planner (C1)</div>
-                  <div>Router (C2)</div>
-                  <div>StateManager (C3)</div>
-                  <div>Supervisor (C4)</div>
-                  <div>Governor (C5)</div>
-                  <div>Observer (C6)</div>
-                </div>
-              </div>
-              <div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
-                <div class="text-purple-400 font-bold mb-2">DRIVEN (Output)</div>
-                <div class="text-neutral-400 space-y-1">
-                  <div>Redis Adapter</div>
-                  <div>Postgres Adapter</div>
-                  <div>Prometheus Adapter</div>
-                  <div>LLM Adapter</div>
-                  <div>Slack Adapter</div>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 text-xs text-neutral-500">
-              Ports são interfaces Python (Protocol/ABC). Adapters são implementações concretas.
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <div class="bg-dark-900 rounded-xl p-4 border border-dark-600">
-            <div class="font-bold text-yellow-400 mb-2">Por que Hexagonal?</div>
-            <ul class="text-sm text-neutral-400 space-y-1">
-              <li>• Trocar Redis por DynamoDB: só muda o Adapter</li>
-              <li>• Testar sem infraestrutura: usa Mock adapters</li>
-              <li>• Múltiplos LLMs: mesmo Router, Adapters diferentes</li>
-              <li>• Deploy gradual: core estável, adapters evoluem</li>
-            </ul>
-          </div>
-          <div class="bg-dark-900 rounded-xl p-4 border border-dark-600">
-            <div class="font-bold text-teal-400 mb-2">Stack de Referência</div>
-            <ul class="text-sm text-neutral-400 space-y-1">
-              <li>• LangGraph — grafo de execução (C1/C4)</li>
-              <li>• CrewAI — times de agentes especializados</li>
-              <li>• Redis 7 — estado efêmero, pub/sub, queues</li>
-              <li>• Postgres 16 — persistência, audit trail</li>
-              <li>• Prometheus + Grafana — métricas/traces</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 2 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
-        <h2 class="text-xl font-bold text-neutral-100">LangGraph — Orquestração como Grafo de Estado</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>LangGraph modela o workflow do orquestrador como um <strong class="text-neutral-100">grafo direcionado de estados</strong>. Cada nó é uma função que transforma o estado. Edges podem ser condicionais (baseados em resultado de LLM). É ideal para a Camada 1 (Planejamento) e Camada 4 (Supervisão/Replanejamento).</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install langgraph langchain-anthropic
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400 transition-colors" href="../../index.html">Home</a>
+<span>/</span>
+<a class="hover:text-teal-400 transition-colors" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.9</span>
+</nav>
+</div>
+<header class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MODULE 5.9</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Complete Architecture</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Integration</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">🏛️ Composite Architecture — LangGraph + CrewAI + Redis + Postgres</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">Integration of 6 layers into a complete hexagonal architecture. LangGraph for graph orchestration, CrewAI for agent teams, Redis for ephemeral state, Postgres for persistence, Prometheus for metrics.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Sections</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">~60min</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Advanced</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Stack</div>
+<div class="text-xs text-neutral-400 mt-1">Full</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+Section 1
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
+<h2 class="text-xl font-bold text-neutral-100">Hexagonal Architecture Overview</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The hexagonal architecture (ports and adapters) separates the core business logic from external dependencies. For an AI orchestrator, this means that the planning and routing logic doesn't know about Redis, Postgres, or Prometheus directly — it talks to interfaces (ports).</p>
+<div class="bg-dark-900 rounded-xl p-6 border border-dark-600">
+<div class="text-center text-sm font-mono space-y-2 text-neutral-300">
+<div class="text-teal-400 font-bold text-base mb-4">HEXAGONAL ORCHESTRATOR ARCHITECTURE</div>
+<div class="grid grid-cols-3 gap-4 text-xs">
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<div class="text-yellow-400 font-bold mb-2">DRIVERS (Input)</div>
+<div class="text-neutral-400 space-y-1">
+<div>FastAPI REST</div>
+<div>WebSocket</div>
+<div>CLI Interface</div>
+<div>Task Queue</div>
+</div>
+</div>
+<div class="bg-teal-900/30 rounded-lg p-3 border border-teal-500/30">
+<div class="text-teal-400 font-bold mb-2">CORE (Domain)</div>
+<div class="text-neutral-300 space-y-1">
+<div>Planner (C1)</div>
+<div>Router (C2)</div>
+<div>StateManager (C3)</div>
+<div>Supervisor (C4)</div>
+<div>Governor (C5)</div>
+<div>Observer (C6)</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<div class="text-purple-400 font-bold mb-2">DRIVEN (Output)</div>
+<div class="text-neutral-400 space-y-1">
+<div>Redis Adapter</div>
+<div>Postgres Adapter</div>
+<div>Prometheus Adapter</div>
+<div>LLM Adapter</div>
+<div>Slack Adapter</div>
+</div>
+</div>
+</div>
+<div class="mt-4 text-xs text-neutral-500">Ports are Python interfaces (Protocol/ABC). Adapters are concrete implementations.</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+<div class="bg-dark-900 rounded-xl p-4 border border-dark-600">
+<div class="font-bold text-yellow-400 mb-2">Why Hexagonal?</div>
+<ul class="text-sm text-neutral-400 space-y-1">
+<li>• Swap Redis for DynamoDB: only changes the Adapter</li>
+<li>• Test without infrastructure: use Mock adapters</li>
+<li>• Multiple LLMs: same Router, different Adapters</li>
+<li>• Gradual deployment: stable core, adapters evolve</li>
+</ul>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-dark-600">
+<div class="font-bold text-teal-400 mb-2">Reference Stack</div>
+<ul class="text-sm text-neutral-400 space-y-1">
+<li>• LangGraph — execution graph (C1/C4)</li>
+<li>• CrewAI — teams of specialized agents</li>
+<li>• Redis 7 — ephemeral state, pub/sub, queues</li>
+<li>• Postgres 16 — persistence, audit trail</li>
+<li>• Prometheus + Grafana — metrics/traces</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+Section 2
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
+<h2 class="text-xl font-bold text-neutral-100">LangGraph — Orchestration as State Graph</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>LangGraph models the orchestrator workflow as a<strong class="text-neutral-100">directed graph of states</strong>. Each node is a function that transforms the state. Edges can be conditional (based on LLM result). It is ideal for Tier 1 (Planning) and Tier 4 (Supervision/Replanning).</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install langgraph langchain-anthropic
 
 from langgraph.graph import StateGraph, END
 from langchain_anthropic import ChatAnthropic
@@ -220,7 +205,7 @@ llm_executor = ChatAnthropic(model="claude-3-sonnet-20240229")
 llm_supervisor = ChatAnthropic(model="claude-3-haiku-20240307")
 
 
-async def plan_node(state: OrchestratorState) -> dict:
+async def plan_node(state: OrchestratorState) -&gt; dict:
     """Nó 1: Planejamento — decompõe o objetivo em tarefas."""
     response = await llm_planner.ainvoke([
         HumanMessage(content=f"""
@@ -243,7 +228,7 @@ Responda em JSON:
     }
 
 
-async def execute_node(state: OrchestratorState) -> dict:
+async def execute_node(state: OrchestratorState) -&gt; dict:
     """Nó 2: Execução — processa as tarefas pendentes."""
     tasks = state.get("current_tasks", [])
     if not tasks:
@@ -269,12 +254,12 @@ async def execute_node(state: OrchestratorState) -> dict:
         }
 
 
-async def supervise_node(state: OrchestratorState) -> dict:
+async def supervise_node(state: OrchestratorState) -&gt; dict:
     """Nó 3: Supervisão — verifica qualidade e decide próximo passo."""
     failed = state.get("failed_tasks", [])
     retry = state.get("retry_count", 0)
 
-    if failed and retry < 2:
+    if failed and retry &lt; 2:
         # Reagenda tasks falhas
         return {
             "current_tasks": state.get("current_tasks", []) + failed,
@@ -283,13 +268,13 @@ async def supervise_node(state: OrchestratorState) -> dict:
             "messages": [AIMessage(content=f"Reagendando {len(failed)} tarefas (retry {retry+1})")]
         }
 
-    if failed and retry >= 2:
+    if failed and retry &gt;= 2:
         return {"should_escalate": True}
 
     return {}
 
 
-async def synthesize_node(state: OrchestratorState) -> dict:
+async def synthesize_node(state: OrchestratorState) -&gt; dict:
     """Nó 4: Síntese — gera resultado final."""
     completed = state.get("completed_tasks", [])
     results_summary = "\n".join([f"- {t['id']}: {str(t.get('result',''))[:200]}" for t in completed])
@@ -310,7 +295,7 @@ Resultados:
 # EDGES CONDICIONAIS
 # ============================================================
 
-def route_after_execute(state: OrchestratorState) -> str:
+def route_after_execute(state: OrchestratorState) -&gt; str:
     """Decide próximo nó após execução."""
     pending = state.get("current_tasks", [])
     if pending:
@@ -318,7 +303,7 @@ def route_after_execute(state: OrchestratorState) -> str:
     return "supervise"            # acabou → vai supervisionar
 
 
-def route_after_supervise(state: OrchestratorState) -> str:
+def route_after_supervise(state: OrchestratorState) -&gt; str:
     if state.get("should_escalate"):
         return END                # escala para humano → encerra
     pending = state.get("current_tasks", [])
@@ -331,7 +316,7 @@ def route_after_supervise(state: OrchestratorState) -> str:
 # CONSTRUÇÃO DO GRAFO
 # ============================================================
 
-def build_orchestrator_graph() -> StateGraph:
+def build_orchestrator_graph() -&gt; StateGraph:
     graph = StateGraph(OrchestratorState)
 
     # Adiciona nós
@@ -370,19 +355,17 @@ def build_orchestrator_graph() -> StateGraph:
 #     "retry_count": 0, "final_result": None,
 #     "should_escalate": False, "budget_remaining": 10.0
 # })</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 3 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
-        <h2 class="text-xl font-bold text-neutral-100">CrewAI — Times de Agentes Especializados</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>CrewAI modela times de agentes com papéis, objetivos e ferramentas específicas. É ideal para tarefas que mapeiam naturalmente para "quem faz o quê" — um time de pesquisa + analista + redator, cada um com suas responsabilidades.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install crewai crewai-tools
+</div>
+</section>
+Section 3
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
+<h2 class="text-xl font-bold text-neutral-100">CrewAI — Teams of Specialized Agents</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>CrewAI models teams of agents with specific roles, objectives and tools. It's ideal for tasks that naturally map to "who does what" — a research + analyst + writer team, each with their own responsibilities.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install crewai crewai-tools
 
 from crewai import Agent, Task, Crew, Process
 from crewai_tools import SerperDevTool, ScrapeWebsiteTool
@@ -508,7 +491,7 @@ Formato: Markdown estruturado, pronto para Notion/Confluence.
 
         return [research_task, analysis_task, report_task]
 
-    def run(self, objective: str, companies: list) -> str:
+    def run(self, objective: str, companies: list) -&gt; str:
         agents = self.build_agents()
         tasks = self.build_tasks(objective, companies, agents)
 
@@ -534,19 +517,17 @@ Formato: Markdown estruturado, pronto para Notion/Confluence.
 #     objective="Entender posição competitiva no mercado de AI assistants B2B",
 #     companies=["Notion AI", "Jasper AI", "Copy.ai", "Writer.com"]
 # )</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 4 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
-        <h2 class="text-xl font-bold text-neutral-100">Ports e Adapters — Interface entre Core e Infraestrutura</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>A chave da arquitetura hexagonal é definir <strong class="text-neutral-100">interfaces (ports)</strong> que o core usa, e <strong class="text-neutral-100">implementações (adapters)</strong> que conectam à infraestrutura real. O core nunca importa Redis, Postgres ou httpx diretamente.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from abc import ABC, abstractmethod
+</div>
+</section>
+Section 4
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
+<h2 class="text-xl font-bold text-neutral-100">Ports and Adapters — Interface between Core and Infrastructure</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The key to hexagonal architecture is to define<strong class="text-neutral-100">interfaces (ports)</strong>that the core uses, and<strong class="text-neutral-100">implementations (adapters)</strong>that connect to the real infrastructure. Core never imports Redis, Postgres or httpx directly.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from abc import ABC, abstractmethod
 from typing import Optional, Dict, Any, List
 from dataclasses import dataclass
 
@@ -558,15 +539,15 @@ class StatePort(ABC):
     """Port para gerenciamento de estado."""
 
     @abstractmethod
-    async def save_task_state(self, session_id: str, task_id: str, state: dict) -> None:
+    async def save_task_state(self, session_id: str, task_id: str, state: dict) -&gt; None:
         pass
 
     @abstractmethod
-    async def get_task_state(self, session_id: str, task_id: str) -> Optional[dict]:
+    async def get_task_state(self, session_id: str, task_id: str) -&gt; Optional[dict]:
         pass
 
     @abstractmethod
-    async def list_pending_tasks(self, session_id: str) -> List[str]:
+    async def list_pending_tasks(self, session_id: str) -&gt; List[str]:
         pass
 
 
@@ -576,11 +557,11 @@ class LLMPort(ABC):
     @abstractmethod
     async def complete(
         self, messages: List[dict], model: str, max_tokens: int = 2048
-    ) -> str:
+    ) -&gt; str:
         pass
 
     @abstractmethod
-    def estimate_cost(self, input_tokens: int, output_tokens: int, model: str) -> float:
+    def estimate_cost(self, input_tokens: int, output_tokens: int, model: str) -&gt; float:
         pass
 
 
@@ -588,15 +569,15 @@ class MetricsPort(ABC):
     """Port para emissão de métricas."""
 
     @abstractmethod
-    def increment_counter(self, name: str, labels: dict, value: float = 1.0) -> None:
+    def increment_counter(self, name: str, labels: dict, value: float = 1.0) -&gt; None:
         pass
 
     @abstractmethod
-    def observe_histogram(self, name: str, value: float, labels: dict) -> None:
+    def observe_histogram(self, name: str, value: float, labels: dict) -&gt; None:
         pass
 
     @abstractmethod
-    def set_gauge(self, name: str, value: float, labels: dict) -> None:
+    def set_gauge(self, name: str, value: float, labels: dict) -&gt; None:
         pass
 
 
@@ -604,7 +585,7 @@ class NotificationPort(ABC):
     """Port para notificações (Slack, email, etc)."""
 
     @abstractmethod
-    async def send_alert(self, channel: str, message: str, severity: str) -> None:
+    async def send_alert(self, channel: str, message: str, severity: str) -&gt; None:
         pass
 
 
@@ -620,18 +601,18 @@ class RedisStateAdapter(StatePort):
     def __init__(self, redis_url: str = "redis://localhost:6379"):
         self.redis = aioredis.from_url(redis_url, decode_responses=True)
 
-    async def save_task_state(self, session_id: str, task_id: str, state: dict) -> None:
+    async def save_task_state(self, session_id: str, task_id: str, state: dict) -&gt; None:
         import json
         key = f"session:{session_id}:task:{task_id}"
         await self.redis.setex(key, 3600, json.dumps(state))
 
-    async def get_task_state(self, session_id: str, task_id: str) -> Optional[dict]:
+    async def get_task_state(self, session_id: str, task_id: str) -&gt; Optional[dict]:
         import json
         key = f"session:{session_id}:task:{task_id}"
         data = await self.redis.get(key)
         return json.loads(data) if data else None
 
-    async def list_pending_tasks(self, session_id: str) -> List[str]:
+    async def list_pending_tasks(self, session_id: str) -&gt; List[str]:
         pattern = f"session:{session_id}:task:*"
         keys = await self.redis.keys(pattern)
         return [k.split(":")[-1] for k in keys]
@@ -643,13 +624,13 @@ class MockStateAdapter(StatePort):
     def __init__(self):
         self._store: Dict[str, dict] = {}
 
-    async def save_task_state(self, session_id: str, task_id: str, state: dict) -> None:
+    async def save_task_state(self, session_id: str, task_id: str, state: dict) -&gt; None:
         self._store[f"{session_id}:{task_id}"] = state
 
-    async def get_task_state(self, session_id: str, task_id: str) -> Optional[dict]:
+    async def get_task_state(self, session_id: str, task_id: str) -&gt; Optional[dict]:
         return self._store.get(f"{session_id}:{task_id}")
 
-    async def list_pending_tasks(self, session_id: str) -> List[str]:
+    async def list_pending_tasks(self, session_id: str) -&gt; List[str]:
         prefix = f"{session_id}:"
         return [k.split(":")[1] for k in self._store if k.startswith(prefix)]
 
@@ -667,7 +648,7 @@ class AnthropicLLMAdapter(LLMPort):
         import anthropic
         self.client = anthropic.AsyncAnthropic(api_key=api_key)
 
-    async def complete(self, messages: List[dict], model: str, max_tokens: int = 2048) -> str:
+    async def complete(self, messages: List[dict], model: str, max_tokens: int = 2048) -&gt; str:
         resp = await self.client.messages.create(
             model=model,
             max_tokens=max_tokens,
@@ -675,7 +656,7 @@ class AnthropicLLMAdapter(LLMPort):
         )
         return resp.content[0].text
 
-    def estimate_cost(self, input_tokens: int, output_tokens: int, model: str) -> float:
+    def estimate_cost(self, input_tokens: int, output_tokens: int, model: str) -&gt; float:
         costs = self.MODEL_COSTS.get(model, {"input": 3.0, "output": 15.0})
         return (input_tokens * costs["input"] + output_tokens * costs["output"]) / 1_000_000
 
@@ -689,19 +670,19 @@ class PrometheusMetricsAdapter(MetricsPort):
         self._histograms: Dict[str, Histogram] = {}
         self._gauges: Dict[str, Gauge] = {}
 
-    def increment_counter(self, name: str, labels: dict, value: float = 1.0) -> None:
+    def increment_counter(self, name: str, labels: dict, value: float = 1.0) -&gt; None:
         from prometheus_client import Counter
         if name not in self._counters:
             self._counters[name] = Counter(name, name, list(labels.keys()))
         self._counters[name].labels(**labels).inc(value)
 
-    def observe_histogram(self, name: str, value: float, labels: dict) -> None:
+    def observe_histogram(self, name: str, value: float, labels: dict) -&gt; None:
         from prometheus_client import Histogram
         if name not in self._histograms:
             self._histograms[name] = Histogram(name, name, list(labels.keys()))
         self._histograms[name].labels(**labels).observe(value)
 
-    def set_gauge(self, name: str, value: float, labels: dict) -> None:
+    def set_gauge(self, name: str, value: float, labels: dict) -&gt; None:
         from prometheus_client import Gauge
         if name not in self._gauges:
             self._gauges[name] = Gauge(name, name, list(labels.keys()))
@@ -721,7 +702,7 @@ class OrchestratorDeps:
     notifications: NotificationPort
 
 
-def create_production_deps(config: dict) -> OrchestratorDeps:
+def create_production_deps(config: dict) -&gt; OrchestratorDeps:
     """Factory para dependências de produção."""
     # Import aqui para não quebrar em testes
     from slack_adapter import SlackNotificationAdapter
@@ -734,7 +715,7 @@ def create_production_deps(config: dict) -> OrchestratorDeps:
     )
 
 
-def create_test_deps() -> OrchestratorDeps:
+def create_test_deps() -&gt; OrchestratorDeps:
     """Factory para dependências de teste (sem infraestrutura)."""
     from unittest.mock import AsyncMock
 
@@ -753,19 +734,17 @@ def create_test_deps() -> OrchestratorDeps:
         })(),
         notifications=mock_notif
     )</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 5 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
-        <h2 class="text-xl font-bold text-neutral-100">FastAPI — Entry Point e API REST do Orquestrador</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>A API REST é o driver principal do orquestrador — o ponto de entrada para sistemas externos. FastAPI com WebSocket para updates em tempo real e endpoints para gestão de sessões.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install fastapi uvicorn websockets
+</div>
+</section>
+Section 5
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
+<h2 class="text-xl font-bold text-neutral-100">FastAPI — Entry Point and Orchestrator REST API</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The REST API is the core driver of the orchestrator — the entry point to external systems. FastAPI with WebSocket for real-time updates and endpoints for session management.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install fastapi uvicorn websockets
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
@@ -789,7 +768,7 @@ app.add_middleware(
 )
 
 # Dependency injection via FastAPI
-def get_deps() -> OrchestratorDeps:
+def get_deps() -&gt; OrchestratorDeps:
     config = {
         "redis_url": os.getenv("REDIS_URL", "redis://localhost:6379"),
         "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY"),
@@ -918,19 +897,17 @@ async def run_workflow(session_id: str, request: WorkflowRequest, deps: Orchestr
     # orchestrator = build_orchestrator_graph()
     # result = await orchestrator.ainvoke(initial_state)
     pass</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 6 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
-        <h2 class="text-xl font-bold text-neutral-100">Docker Compose — Deploy Completo do Stack</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Com toda a arquitetura definida, o deploy em produção envolve orquestrar todos os componentes: a API, os workers assíncronos, Redis, Postgres e o stack de observabilidade.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># docker-compose.prod.yml — Deploy completo
+</div>
+</section>
+Section 6
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
+<h2 class="text-xl font-bold text-neutral-100">Docker Compose — Full Stack Deployment</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>With the entire architecture defined, deploying to production involves orchestrating all components: the API, asynchronous workers, Redis, Postgres and the observability stack.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># docker-compose.prod.yml — Deploy completo
 
 version: '3.8'
 services:
@@ -1070,45 +1047,37 @@ networks:
     driver: bridge
   monitoring:
     driver: bridge</code></pre>
-
-        <div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
-          <h3 class="font-bold text-neutral-100 mb-3">Resumo do Módulo 5.9</h3>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Arquitetura hexagonal: core puro de domínio + adapters para infraestrutura — testável e evolutiva</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>LangGraph para workflows com branching condicional (replanejamento, retry, escalada)</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>CrewAI para times especializados com papéis, memória compartilhada e delegação</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Ports/Adapters: StatePort, LLMPort, MetricsPort — trocar Redis por DynamoDB = 1 arquivo</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>FastAPI com WebSocket para updates em tempo real + REST para integração</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Docker Compose com 3 workers paralelos, Redis persistente, Postgres, e stack de obs completo</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegação -->
-    <div class="flex justify-between items-center pt-4">
-      <a href="modulo-5-8.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        <span class="text-sm font-medium">5.8 — Rastreamento</span>
-      </a>
-      <a href="modulo-5-10.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all">
-        <span class="text-sm font-medium">5.10 — Custo-Otimização</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </main>
-
-  <footer class="border-t border-dark-600 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        Agentic Engineering Masterclass •
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
-        • Módulo 5.9 — Arquitetura Composta
-      </p>
-    </div>
-  </footer>
-
-  <script>
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
+<h3 class="font-bold text-neutral-100 mb-3">Module Summary 5.9</h3>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Hexagonal architecture: pure domain core + infrastructure adapters — testable and evolutionary</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>LangGraph for workflows with conditional branching (replanning, retry, escalation)</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>CrewAI for specialized teams with roles, shared memory and delegation</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Ports/Adapters: StatePort, LLMPort, MetricsPort — swap Redis for DynamoDB = 1 file</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>FastAPI with WebSocket for real-time updates + REST for integration</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Docker Compose with 3 parallel workers, persistent Redis, Postgres, and full obs stack</span></li>
+</ul>
+</div>
+</div>
+</section>
+Navigation
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all" href="modulo-5-8.html">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">5.8 — Tracking</span>
+</a>
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all" href="modulo-5-10.html">
+<span class="text-sm font-medium">5.10 — Cost-Optimization</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<footer class="border-t border-dark-600 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 text-sm">Agentic Engineering Masterclass •<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>• Module 5.9 — Composite Architecture</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const toggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
