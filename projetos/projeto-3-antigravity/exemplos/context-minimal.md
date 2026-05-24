@@ -1,22 +1,20 @@
-# CONTEXT.md — Versao Minima
+# CONTEXT.md — Minimum Version
 
-> Versao reduzida do CONTEXT.md para projetos simples ou para quem esta comecando.
-> Copie o conteudo abaixo para um arquivo `CONTEXT.md` na raiz do seu projeto
-> e substitua os valores entre colchetes.
-
----
-
-## Como usar este template
-
-Este e o conjunto minimo de informacoes que o agente Gemini precisa para ser util no seu projeto. Para projetos mais complexos, use o `CONTEXT.md` completo disponivel na raiz deste repositorio.
-
-**Regra pratica:** se voce gasta mais de 30 minutos escrevendo o CONTEXT.md, ele esta detalhado demais para comecar. Comece com o minimo, adicione detalhes conforme o agente fizer perguntas ou cometer erros.
+> Reduced version of CONTEXT.md for simple projects or for those just starting out.
+> Copy the content below to a file`CONTEXT.md`at the root of your project
+> and replace the values in square brackets.
 
 ---
 
-## Template minimo (copie a partir daqui)
+## How to use this template
 
-```markdown
+This is the minimum set of information that the Gemini agent needs to be useful in your project. For more complex projects, use the`CONTEXT.md`full version available in the root of this repository.
+
+**Rule of thumb:** If you spend more than 30 minutes writing CONTEXT.md, it's too detailed to begin with. Start with the minimum, add details as the agent asks questions or makes mistakes.
+
+---
+
+## Minimum template (copy from here)```markdown
 # CONTEXT.md
 
 > Contexto persistente do projeto para o agente Gemini no Antigravity.
@@ -64,60 +62,55 @@ Este e o conjunto minimo de informacoes que o agente Gemini precisa para ser uti
 ## Comandos principais
 
 ```bash
-# Instalar dependencias
+# Install dependencies
 [ex: npm install]
 
-# Rodar em desenvolvimento
+# Run in development
 [ex: npm run dev]
 
-# Executar testes
+# Run tests
 [ex: npm test]
 
-# Build de producao
-[ex: npm run build]
-```
+# Production build
+[ex: npm run build]```
 
 ---
 *Ultima atualizacao: [data]*
-```
+```---
 
----
+## Filling guide
 
-## Guia de preenchimento
+### "Project" — what to write
 
-### "Projeto" — o que escrever
+The description should answer: "What does this software do for the user?"
 
-A descricao deve responder: "O que este software faz para o usuario?"
+Good examples:
+- "Appointment scheduling system for medical clinics"
+- "API to process payments via PIX"
+- "Dashboard to view sales metrics in real time"
 
-Exemplos bons:
-- "Sistema de agendamento de consultas para clinicas medicas"
-- "API para processar pagamentos via PIX"
-- "Dashboard para visualizar metricas de vendas em tempo real"
+Bad (very vague) examples:
+- "Web system"
+- "REST API"
+- "College Project"
 
-Exemplos ruins (muito vagos):
-- "Sistema web"
-- "API REST"
-- "Projeto da faculdade"
+### "Stack" — what to include
 
-### "Stack" — o que incluir
+Only include what is relevant to the agent when writing code. If you don't have a database, don't write "no database". Just omit that line.
 
-Inclua apenas o que for relevante para o agente ao escrever codigo. Se voce nao tem banco de dados, nao escreva "sem banco". Apenas omita essa linha.
+Tip: Think about what a new developer would need to know to open a Pull Request on your project.
 
-Dica: pense no que um desenvolvedor novo precisaria saber para abrir um Pull Request no seu projeto.
+### "Conventions" — what is most important
 
-### "Convencoes" — o que e mais importante
+The commit convention is the most important for the agent. If your commits are in English, declare that. The agent will generate commits in the language and format you specify.
 
-A convencao de commits e a mais importante para o agente. Se os seus commits sao em ingles, declare isso. O agente vai gerar commits no idioma e formato que voce especificar.
+If you have a file`.eslintrc` ou `prettier.config.js`, you can simply write "follow ESLint/Prettier configuration" and the agent will read these files automatically.
 
-Se voce tem um arquivo `.eslintrc` ou `prettier.config.js`, voce pode simplesmente escrever "seguir a configuracao do ESLint/Prettier" e o agente vai ler esses arquivos automaticamente.
+### "Restrictions" — do not skip this section
 
-### "Restricoes" — nao pule esta secao
+The restrictions are the most critical part. An unrestricted agent can push to main, run migrations in production or delete files without asking. Always define what requires human approval.
 
-As restricoes sao a parte mais critica. Um agente sem restricoes pode fazer push para main, rodar migrations em producao ou deletar arquivos sem perguntar. Sempre defina o que requer aprovacao humana.
-
-Para projetos pessoais simples, um conjunto minimo de restricoes e:
-
-```markdown
+For simple personal projects, a minimum set of restrictions is:```markdown
 ### O agente PODE fazer automaticamente:
 - Criar e modificar arquivos de codigo local
 - Executar testes
@@ -128,25 +121,21 @@ Para projetos pessoais simples, um conjunto minimo de restricoes e:
 
 ### O agente NUNCA deve:
 - Modificar arquivos fora da pasta do projeto
-```
+```---
+
+## When expanding CONTEXT.md
+
+Expand to the full CONTEXT.md when:
+
+- The agent will start generating code inconsistent with the project style
+- You find yourself repeating the same instructions in every conversation
+- The project will grow and have business rules that the agent needs to know
+- You add external integrations that the agent will need to use
+- The team grows and needs documented conventions anyway
 
 ---
 
-## Quando expandir o CONTEXT.md
-
-Expanda para o CONTEXT.md completo quando:
-
-- O agente comecar a gerar codigo inconsistente com o estilo do projeto
-- Voce se pegar repetindo as mesmas instrucoes em todas as conversas
-- O projeto crescer e ter regras de negocio que o agente precisa conhecer
-- Voce adicionar integrracoes externas que o agente vai precisar usar
-- O time crescer e precisar de convencoes documentadas de qualquer forma
-
----
-
-## Exemplo preenchido — projeto frontend simples
-
-```markdown
+## Filled example — simple frontend project```markdown
 # CONTEXT.md
 
 > Contexto persistente do projeto para o agente Gemini no Antigravity.
@@ -189,16 +178,13 @@ Expanda para o CONTEXT.md completo quando:
 ## Comandos principais
 
 ```bash
-npm install        # Instalar dependencias
-npm run dev        # Servidor de desenvolvimento (localhost:4321)
-npm run build      # Build de producao
-npm run preview    # Preview do build de producao
-```
+npm install # Install dependencies
+npm run dev # Development server (localhost:4321)
+npm run build # Production build
+npm run preview # Production build preview```
 
 ---
 *Ultima atualizacao: 2026-03-03*
-```
+```---
 
----
-
-*Para o CONTEXT.md completo com todas as secoes, veja `/CONTEXT.md` na raiz deste projeto.*
+*For the complete CONTEXT.md with all sections, see`/CONTEXT.md`at the root of this project.*
