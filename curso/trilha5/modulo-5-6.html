@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.6 Camada 5b — Governança: Custo e Audit | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.6 Layer 5b — Governance: Cost and Audit | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,113 +30,103 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
-    <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.6</span>
-    </div>
-  </nav>
-
-  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MÓDULO 5.6</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💰 Camada 5b — Governança: Custo e Audit</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Um agente em loop pode gastar $500 em uma hora. Isso já aconteceu em produção. Budget por execução, alertas multicamada, cost allocation e ROI de agentes — a governança financeira que protege a empresa.</p>
-      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Código</div><div class="text-xs text-neutral-400">Tipo</div></div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-    <!-- TOPICO 1 -->
-    <section id="topico-1" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">1</span>
-        <h2 class="text-2xl font-bold">⚠️ O Problema do Custo Não Monitorado</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Este não é um cenário hipotético. Em 2024, múltiplas startups reportaram publicamente faturas de $5.000 a $50.000 em APIs de LLM causadas por bugs de loop em agentes sem controle de custo. Aqui está como isso acontece.
-      </p>
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-base font-semibold text-red-400 mb-4">Anatomia de um loop de custo</h3>
-        <div class="space-y-3 text-sm">
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold mt-0.5">1.</span>
-            <span class="text-neutral-300">Agente recebe tarefa: "monitore preços de 100 produtos e alerte quando mudarem"</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold mt-0.5">2.</span>
-            <span class="text-neutral-300">Bug: condição de parada nunca é atingida (preços "mudam" a cada verificação por arredondamento)</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold mt-0.5">3.</span>
-            <span class="text-neutral-300">Agente chama LLM 60 vezes por minuto durante 8 horas: 28.800 chamadas</span>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-red-400 font-bold mt-0.5">4.</span>
-            <span class="text-neutral-300">A $0.015 por chamada: <strong class="text-red-400">$432 em uma noite</strong>. Empresa descobre na manhã seguinte.</span>
-          </div>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-4 text-center">
-          <div class="text-2xl font-bold text-red-400">$432</div>
-          <div class="text-xs text-neutral-400 mt-1">Caso real: loop de monitoramento, 8 horas</div>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-4 text-center">
-          <div class="text-2xl font-bold text-red-400">$8.000</div>
-          <div class="text-xs text-neutral-400 mt-1">Startup B: agente de RAG em recursão, 72 horas</div>
-        </div>
-        <div class="bg-teal-700/30 rounded-xl border border-teal-500/30 p-4 text-center">
-          <div class="text-2xl font-bold text-teal-400">$0</div>
-          <div class="text-xs text-neutral-400 mt-1">Com budget cap de $5: encerra, salva resultado parcial</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOPICO 2 -->
-    <section id="topico-2" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">2</span>
-        <h2 class="text-2xl font-bold">💵 Budget por Execução</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada job do orquestrador tem um <strong class="text-teal-400">budget máximo</strong>. O orquestrador monitora custo acumulado em tempo real e para quando o limite é atingido — entregando o resultado parcial em vez de falhar silenciosamente.
-      </p>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Implementação: BudgetMonitor</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>class BudgetMonitor:
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 border-b border-dark-600">
+<div class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-teal-400" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.6</span>
+</div>
+</nav>
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4 tracking-wide">MODULE 5.6</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">💰 Layer 5b — Governance: Cost and Audit</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">An agent in the loop can spend $500 in an hour. This has already happened in production. Budget by execution, multi-layer alerts, cost allocation and agent ROI — the financial governance that protects the company.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topics</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutes</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Advanced</div><div class="text-xs text-neutral-400">Level</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Code</div><div class="text-xs text-neutral-400">Type</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+TOPIC 1
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">1</span>
+<h2 class="text-2xl font-bold">⚠️ The Problem of Unmonitored Cost</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">This is not a hypothetical scenario. In 2024, multiple startups publicly reported bills of $5,000 to $50,000 on LLM APIs caused by loop bugs in agents without cost control. Here's how it happens.</p>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-base font-semibold text-red-400 mb-4">Anatomy of a Cost Loop</h3>
+<div class="space-y-3 text-sm">
+<div class="flex items-start space-x-3">
+<span class="text-red-400 font-bold mt-0.5">1.</span>
+<span class="text-neutral-300">Agent receives task: "monitor prices of 100 products and alert when they change"</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-red-400 font-bold mt-0.5">2.</span>
+<span class="text-neutral-300">Bug: stop condition is never reached (prices "change" with each check due to rounding)</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-red-400 font-bold mt-0.5">3.</span>
+<span class="text-neutral-300">Agent calls LLM 60 times per minute for 8 hours: 28,800 calls</span>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-red-400 font-bold mt-0.5">4.</span>
+<span class="text-neutral-300">At $0.015 per call:<strong class="text-red-400">$432 in one night</strong>. Company finds out the next morning.</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-4 text-center">
+<div class="text-2xl font-bold text-red-400">$432</div>
+<div class="text-xs text-neutral-400 mt-1">Real case: monitoring loop, 8 hours</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-4 text-center">
+<div class="text-2xl font-bold text-red-400">$8,000</div>
+<div class="text-xs text-neutral-400 mt-1">Startup B: RAG agent in recursion, 72 hours</div>
+</div>
+<div class="bg-teal-700/30 rounded-xl border border-teal-500/30 p-4 text-center">
+<div class="text-2xl font-bold text-teal-400">$0</div>
+<div class="text-xs text-neutral-400 mt-1">With budget cap of $5: close, save partial result</div>
+</div>
+</div>
+</section>
+TOPIC 2
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">2</span>
+<h2 class="text-2xl font-bold">💵 Budget by Execution</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Each orchestrator job has a<strong class="text-teal-400">maximum budget</strong>. The orchestrator monitors accumulated cost in real time and stops when the threshold is reached — delivering partial results rather than failing silently.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Implementation: BudgetMonitor</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">class BudgetMonitor:
     """Monitora custo em tempo real e aplica limites por execução."""
 
     # Custo por 1k tokens por modelo (USD) — atualizar conforme preços vigentes
@@ -161,7 +151,7 @@
         self._soft_alert_sent = False
 
     def record_llm_call(self, task_id: str, model: str,
-                        input_tokens: int, output_tokens: int) -> dict:
+                        input_tokens: int, output_tokens: int) -&gt; dict:
         """
         Registra custo de uma chamada LLM.
         Retorna {"cost": X, "status": "ok"|"warning"|"exceeded"}
@@ -175,9 +165,9 @@
         self.cost_by_model[model] = self.cost_by_model.get(model, 0) + call_cost
 
         status = "ok"
-        if self.accumulated_cost >= self.hard_limit:
+        if self.accumulated_cost &gt;= self.hard_limit:
             status = "exceeded"
-        elif self.accumulated_cost >= self.soft_limit and not self._soft_alert_sent:
+        elif self.accumulated_cost &gt;= self.soft_limit and not self._soft_alert_sent:
             status = "warning"
             self._soft_alert_sent = True
 
@@ -189,9 +179,9 @@
             "status": status
         }
 
-    def check_budget(self) -> bool:
+    def check_budget(self) -&gt; bool:
         """Retorna True se ainda há budget disponível."""
-        return self.accumulated_cost < self.hard_limit
+        return self.accumulated_cost &lt; self.hard_limit
 
     def raise_if_exceeded(self):
         """Lança exceção se budget foi excedido."""
@@ -201,7 +191,7 @@
                 f"Custo acumulado: ${self.accumulated_cost:.4f}"
             )
 
-    def get_summary(self) -> dict:
+    def get_summary(self) -&gt; dict:
         return {
             "session_id": self.session_id,
             "total_cost_usd": round(self.accumulated_cost, 6),
@@ -214,43 +204,40 @@
 class BudgetExceededException(Exception):
     """Lançada quando execução atinge o limite de custo configurado."""
     pass</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 3 -->
-    <section id="topico-3" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">3</span>
-        <h2 class="text-2xl font-bold">🔔 Alertas de Custo</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Alertas multicamada garantem que nenhum padrão anômalo de custo passe despercebido — sem criar alert fatigue com notificações excessivas.
-      </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h4 class="font-semibold text-white">Camada 1: Por execução</h4>
-            <span class="text-xs text-teal-400 bg-teal-500/20 px-2 py-0.5 rounded">Imediato</span>
-          </div>
-          <p class="text-sm text-neutral-300">Execução ultrapassa 80% do budget → alerta soft (warning). 100% → budget hard stop automático. Ação: notificar responsável + pausar execução se configurado.</p>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h4 class="font-semibold text-white">Camada 2: Por hora/dia</h4>
-            <span class="text-xs text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded">Agregado</span>
-          </div>
-          <p class="text-sm text-neutral-300">Custo horário ultrapassa threshold configurado → alerta. Custo diário acima do baseline histórico → alerta de anomalia. Identifica padrões antes da fatura chegar.</p>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h4 class="font-semibold text-white">Camada 3: Por usuário/tenant</h4>
-            <span class="text-xs text-purple-400 bg-purple-500/20 px-2 py-0.5 rounded">Mensal</span>
-          </div>
-          <p class="text-sm text-neutral-300">Custo mensal de um departamento/cliente ultrapassa limite configurado → alerta para gestor responsável. Permite chargeback proativo.</p>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>class CostAlertSystem:
+</div>
+</section>
+TOPIC 3
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">3</span>
+<h2 class="text-2xl font-bold">🔔 Cost Alerts</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Multi-layer alerts ensure that no anomalous cost patterns go unnoticed — without creating alert fatigue with excessive notifications.</p>
+<div class="space-y-4 mb-6">
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-semibold text-white">Tier 1: Per run</h4>
+<span class="text-xs text-teal-400 bg-teal-500/20 px-2 py-0.5 rounded">Immediate</span>
+</div>
+<p class="text-sm text-neutral-300">Execution exceeds 80% of budget → soft alert (warning). 100% → budget hard stop automatic. Action: notify responsible + pause execution if configured.</p>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-semibold text-white">Tier 2: Per hour/day</h4>
+<span class="text-xs text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded">Aggregate</span>
+</div>
+<p class="text-sm text-neutral-300">Hourly cost exceeds configured threshold → alert. Daily cost above historical baseline → anomaly alert. Identifies patterns before the invoice arrives.</p>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<div class="flex items-center justify-between mb-3">
+<h4 class="font-semibold text-white">Tier 3: Per user/tenant</h4>
+<span class="text-xs text-purple-400 bg-purple-500/20 px-2 py-0.5 rounded">Monthly</span>
+</div>
+<p class="text-sm text-neutral-300">Monthly cost of a department/client exceeds configured limit → alert to responsible manager. Enables proactive chargeback.</p>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">class CostAlertSystem:
     """Sistema de alertas de custo multicamada."""
 
     def __init__(self, slack_webhook: str, email_recipients: list[str]):
@@ -281,13 +268,13 @@ class BudgetExceededException(Exception):
         alerts = []
 
         # Camada 1: por execução
-        if accumulated >= self.thresholds["per_execution_critical_usd"]:
+        if accumulated &gt;= self.thresholds["per_execution_critical_usd"]:
             alerts.append({
                 "level": "CRITICAL",
                 "message": f"Budget crítico: ${accumulated:.2f} atingido",
                 "action": "Execução pausada automaticamente"
             })
-        elif accumulated >= self.thresholds["per_execution_warning_usd"]:
+        elif accumulated &gt;= self.thresholds["per_execution_warning_usd"]:
             alerts.append({
                 "level": "WARNING",
                 "message": f"Execução em ${accumulated:.2f} (80% do budget)",
@@ -295,14 +282,14 @@ class BudgetExceededException(Exception):
             })
 
         # Camada 2: por hora
-        if self._hourly_cost > self.thresholds["per_hour_usd"]:
+        if self._hourly_cost &gt; self.thresholds["per_hour_usd"]:
             alerts.append({
                 "level": "WARNING",
                 "message": f"Custo horário: ${self._hourly_cost:.2f}/h (limite: ${self.thresholds['per_hour_usd']})"
             })
 
         # Anomaly detection simples
-        if self._baseline_hourly and self._hourly_cost > self._baseline_hourly * self.thresholds["anomaly_multiplier"]:
+        if self._baseline_hourly and self._hourly_cost &gt; self._baseline_hourly * self.thresholds["anomaly_multiplier"]:
             alerts.append({
                 "level": "WARNING",
                 "message": f"Anomalia: custo {self._hourly_cost/self._baseline_hourly:.1f}x acima do baseline"
@@ -327,21 +314,18 @@ class BudgetExceededException(Exception):
         }
         async with aiohttp.ClientSession() as session:
             await session.post(self.slack_webhook, json=message)</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 4 -->
-    <section id="topico-4" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">4</span>
-        <h2 class="text-2xl font-bold">🏢 Cost Allocation</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada execução do orquestrador precisa ter um <strong class="text-teal-400">cost_center</strong> associado — departamento, projeto ou cliente. Isso cria accountability e permite chargeback interno.
-      </p>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
-        <h3 class="text-base font-semibold text-neutral-300 mb-3">Schema de cost allocation</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>-- Adição ao schema de sessões para cost allocation
+</div>
+</section>
+TOPIC 4
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">4</span>
+<h2 class="text-2xl font-bold">🏢 Cost Allocation</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Each orchestrator run must have a<strong class="text-teal-400">cost_center</strong>associate — department, project, or customer. This creates accountability and allows for internal chargebacks.</p>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5 mb-6">
+<h3 class="text-base font-semibold text-neutral-300 mb-3">Cost allocation scheme</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">-- Adição ao schema de sessões para cost allocation
 ALTER TABLE orchestration_sessions ADD COLUMN IF NOT EXISTS
     cost_center VARCHAR(100),      -- "financeiro/q2-análise"
     department  VARCHAR(100),      -- "financeiro"
@@ -359,64 +343,61 @@ SELECT
     AVG(cost_usd) AS avg_cost_per_session,
     COUNT(*) FILTER (WHERE status = 'completed') AS successful
 FROM orchestration_sessions
-WHERE started_at >= NOW() - INTERVAL '12 months'
+WHERE started_at &gt;= NOW() - INTERVAL '12 months'
 GROUP BY department, DATE_TRUNC('month', started_at)
 ORDER BY month DESC, total_cost_usd DESC;</code></pre>
-      </div>
-      <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-        <h3 class="text-base font-semibold text-neutral-300 mb-3">Relatório de chargeback mensal</h3>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead><tr class="border-b border-dark-600">
-              <th class="text-left py-2 pr-4 text-neutral-400">Departamento</th>
-              <th class="text-left py-2 pr-4 text-neutral-400">Sessões</th>
-              <th class="text-left py-2 pr-4 text-neutral-400">Custo Março</th>
-              <th class="text-left py-2 text-neutral-400">Custo Fev</th>
-            </tr></thead>
-            <tbody class="divide-y divide-dark-600">
-              <tr><td class="py-2 pr-4 text-neutral-300">Financeiro</td><td class="py-2 pr-4 text-neutral-300">47</td><td class="py-2 pr-4 text-teal-400">$234.50</td><td class="py-2 text-neutral-400">$198.20</td></tr>
-              <tr><td class="py-2 pr-4 text-neutral-300">Jurídico</td><td class="py-2 pr-4 text-neutral-300">32</td><td class="py-2 pr-4 text-teal-400">$189.10</td><td class="py-2 text-neutral-400">$201.40</td></tr>
-              <tr><td class="py-2 pr-4 text-neutral-300">Produto</td><td class="py-2 pr-4 text-neutral-300">83</td><td class="py-2 pr-4 text-teal-400">$412.80</td><td class="py-2 text-neutral-400">$356.90</td></tr>
-              <tr class="font-bold"><td class="py-2 pr-4 text-white">TOTAL</td><td class="py-2 pr-4 text-white">162</td><td class="py-2 pr-4 text-teal-400">$836.40</td><td class="py-2 text-neutral-400">$756.50</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOPICO 5 -->
-    <section id="topico-5" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">5</span>
-        <h2 class="text-2xl font-bold">📈 Relatório de Custo e ROI</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        O argumento final para manter orçamento em agentes: mostrar o ROI real. Custo de IA vs. custo de trabalho humano equivalente para as mesmas tarefas.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-5">
-          <h4 class="font-bold text-teal-400 mb-3">Exemplo: Due Diligence de empresa</h4>
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between"><span class="text-neutral-400">Custo com agentes:</span><span class="text-teal-400 font-bold">$2.40</span></div>
-            <div class="flex justify-between"><span class="text-neutral-400">Tempo com agentes:</span><span class="text-teal-400 font-bold">6.5 min</span></div>
-            <div class="flex justify-between border-t border-dark-600 pt-2"><span class="text-neutral-400">Custo humano equivalente:</span><span class="text-neutral-300 font-bold">$800</span></div>
-            <div class="flex justify-between"><span class="text-neutral-400">Tempo humano equivalente:</span><span class="text-neutral-300 font-bold">8h</span></div>
-            <div class="flex justify-between border-t border-teal-500/30 pt-2 mt-2"><span class="text-white font-semibold">ROI:</span><span class="text-teal-400 font-bold text-lg">333x</span></div>
-          </div>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-bold text-neutral-300 mb-3">Onde o ROI é menor (mas ainda positivo)</h4>
-          <div class="space-y-2 text-sm text-neutral-300">
-            <div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Tarefas criativas de alto valor (copywriting especializado): ROI ~5x</span></div>
-            <div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Análises que exigem julgamento humano crítico: ROI ~3x (mais revisão)</span></div>
-            <div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Setup inicial e configuração: ROI negativo nas primeiras semanas</span></div>
-            <div class="flex items-start space-x-2"><span class="text-teal-400">→</span><span>Tarefas repetitivas de pesquisa e análise: ROI 50-200x</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Query SQL para cálculo de ROI</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code>-- ROI por tipo de tarefa (baseado em custo humano configurado)
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h3 class="text-base font-semibold text-neutral-300 mb-3">Monthly chargeback report</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead><tr class="border-b border-dark-600">
+<th class="text-left py-2 pr-4 text-neutral-400">Department</th>
+<th class="text-left py-2 pr-4 text-neutral-400">Sessions</th>
+<th class="text-left py-2 pr-4 text-neutral-400">March Cost</th>
+<th class="text-left py-2 text-neutral-400">Cost Feb</th>
+</tr></thead>
+<tbody class="divide-y divide-dark-600">
+<tr><td class="py-2 pr-4 text-neutral-300">Financial</td><td class="py-2 pr-4 text-neutral-300">47</td><td class="py-2 pr-4 text-teal-400">$234.50</td><td class="py-2 text-neutral-400">$198.20</td></tr>
+<tr><td class="py-2 pr-4 text-neutral-300">Legal</td><td class="py-2 pr-4 text-neutral-300">32</td><td class="py-2 pr-4 text-teal-400">$189.10</td><td class="py-2 text-neutral-400">$201.40</td></tr>
+<tr><td class="py-2 pr-4 text-neutral-300">Product</td><td class="py-2 pr-4 text-neutral-300">83</td><td class="py-2 pr-4 text-teal-400">$412.80</td><td class="py-2 text-neutral-400">$356.90</td></tr>
+<tr class="font-bold"><td class="py-2 pr-4 text-white">TOTAL</td><td class="py-2 pr-4 text-white">162</td><td class="py-2 pr-4 text-teal-400">$836.40</td><td class="py-2 text-neutral-400">$756.50</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+TOPIC 5
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">5</span>
+<h2 class="text-2xl font-bold">📈 Cost and ROI Report</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The final argument for keeping budget on agents: show real ROI. AI Cost vs. equivalent human labor cost for the same tasks.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-5">
+<h4 class="font-bold text-teal-400 mb-3">Example: Company Due Diligence</h4>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between"><span class="text-neutral-400">Cost with agents:</span><span class="text-teal-400 font-bold">$2.40</span></div>
+<div class="flex justify-between"><span class="text-neutral-400">Time with agents:</span><span class="text-teal-400 font-bold">6.5 min</span></div>
+<div class="flex justify-between border-t border-dark-600 pt-2"><span class="text-neutral-400">Equivalent human cost:</span><span class="text-neutral-300 font-bold">$800</span></div>
+<div class="flex justify-between"><span class="text-neutral-400">Equivalent human time:</span><span class="text-neutral-300 font-bold">8h</span></div>
+<div class="flex justify-between border-t border-teal-500/30 pt-2 mt-2"><span class="text-white font-semibold">ROI:</span><span class="text-teal-400 font-bold text-lg">333x</span></div>
+</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-bold text-neutral-300 mb-3">Where the ROI is lower (but still positive)</h4>
+<div class="space-y-2 text-sm text-neutral-300">
+<div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>High-value creative tasks (specialized copywriting): ROI ~5x</span></div>
+<div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Analytics requiring critical human judgment: ROI ~3x (plus review)</span></div>
+<div class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Initial setup and configuration: Negative ROI in the first few weeks</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400">→</span><span>Repetitive research and analysis tasks: 50-200x ROI</span></div>
+</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">SQL Query for ROI calculation</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True">-- ROI por tipo de tarefa (baseado em custo humano configurado)
 WITH human_cost_reference AS (
     SELECT
         task_type,
@@ -432,7 +413,7 @@ agent_cost AS (
         COUNT(*) AS total_executions
     FROM task_executions
     WHERE status = 'done'
-      AND started_at >= NOW() - INTERVAL '30 days'
+      AND started_at &gt;= NOW() - INTERVAL '30 days'
     GROUP BY task_type
 )
 SELECT
@@ -447,38 +428,35 @@ SELECT
 FROM agent_cost a
 JOIN human_cost_reference h ON a.task_type = h.task_type
 ORDER BY roi_multiplier DESC;</code></pre>
-      </div>
-    </section>
-
-    <!-- TOPICO 6 -->
-    <section id="topico-6" class="mb-16">
-      <div class="flex items-center space-x-4 mb-6">
-        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">6</span>
-        <h2 class="text-2xl font-bold">✂️ Otimização de Custo</h2>
-      </div>
-      <p class="text-neutral-300 mb-6 leading-relaxed">
-        Além dos controles de custo, há técnicas ativas para <strong class="text-teal-400">reduzir o custo</strong> por execução mantendo a qualidade. A combinação das 3 técnicas pode reduzir custo em 70-90%.
-      </p>
-      <div class="space-y-4 mb-6">
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-teal-400 mb-2">Técnica 1: Heterogeneous Routing (detalhado no módulo 5.10)</h4>
-          <p class="text-sm text-neutral-300">Usar o modelo mais barato capaz para cada tipo de tarefa. Classificador de complexidade direciona para Haiku ($0.00025/1k) quando possível, Sonnet para médio, Opus apenas para complexo.</p>
-          <div class="mt-2 text-xs text-teal-400">Redução típica: 60-85% do custo de LLM</div>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-teal-400 mb-2">Técnica 2: Semantic Caching (detalhado no módulo 5.10)</h4>
-          <p class="text-sm text-neutral-300">Quando duas execuções fazem perguntas semanticamente similares, retornar resultado cacheado. Embedding similarity com threshold de 0.92+ detecta queries equivalentes.</p>
-          <div class="mt-2 text-xs text-teal-400">Redução típica: 30-50% em workloads com queries repetidas</div>
-        </div>
-        <div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
-          <h4 class="font-semibold text-teal-400 mb-2">Técnica 3: Context Compression</h4>
-          <p class="text-sm text-neutral-300">Em vez de passar o resultado completo de uma tarefa para a próxima, passar um sumário comprimido. Compressão 10:1 nos resultados intermediários reduz tokens de contexto drasticamente.</p>
-          <div class="mt-2 text-xs text-teal-400">Redução típica: 40-70% dos tokens de contexto</div>
-        </div>
-      </div>
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-sm font-semibold text-teal-400 mb-3">Resultado combinado das otimizações</h3>
-        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300"><code># Exemplo: due diligence de empresa sem vs. com otimizações
+</div>
+</section>
+TOPIC 6
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl flex-shrink-0">6</span>
+<h2 class="text-2xl font-bold">✂️ Cost Optimization</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">In addition to cost controls, there are active techniques for<strong class="text-teal-400">reduce the cost</strong>per execution while maintaining quality. The combination of the 3 techniques can reduce costs by 70-90%.</p>
+<div class="space-y-4 mb-6">
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-semibold text-teal-400 mb-2">Technique 1: Heterogeneous Routing (detailed in module 5.10)</h4>
+<p class="text-sm text-neutral-300">Use the cheapest model capable for each type of task. Complexity classifier targets Haiku ($0.00025/1k) when possible, Sonnet for medium, Opus for complex only.</p>
+<div class="mt-2 text-xs text-teal-400">Typical reduction: 60-85% of LLM cost</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-semibold text-teal-400 mb-2">Technique 2: Semantic Caching (detailed in module 5.10)</h4>
+<p class="text-sm text-neutral-300">When two executions ask semantically similar questions, return cached results. Embedding similarity with a threshold of 0.92+ detects equivalent queries.</p>
+<div class="mt-2 text-xs text-teal-400">Typical reduction: 30-50% in workloads with repeated queries</div>
+</div>
+<div class="bg-dark-700/50 rounded-xl border border-dark-600 p-5">
+<h4 class="font-semibold text-teal-400 mb-2">Technique 3: Context Compression</h4>
+<p class="text-sm text-neutral-300">Instead of passing the complete result of one task to the next, pass a compressed summary. 10:1 compression on intermediate results reduces context tokens drastically.</p>
+<div class="mt-2 text-xs text-teal-400">Typical reduction: 40-70% of context tokens</div>
+</div>
+</div>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+<h3 class="text-sm font-semibold text-teal-400 mb-3">Combined result of optimizations</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300" data-notranslate="True"><code data-notranslate="True"># Exemplo: due diligence de empresa sem vs. com otimizações
 
 baseline = {
     "modelo": "claude-opus-4-6 para tudo",
@@ -500,33 +478,30 @@ otimizado = {
 
 # A pergunta: você aceita 0.3 pontos de qualidade por 90% de redução de custo?
 # Na maioria dos casos: SIM — essa é a fronteira de Pareto correta</code></pre>
-      </div>
-      <div class="bg-dark-800/50 rounded-lg p-5 mb-8 border border-dark-600">
-        <h3 class="font-semibold text-teal-400 mb-2">Resumo do Módulo 5.6</h3>
-        <div class="space-y-2 text-sm text-neutral-300">
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Loops sem budget = risco de fatura de $500+ em horas — isso é documentado e real</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>BudgetMonitor com hard stop automático: 5 linhas de código que previnem $500 de fatura</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Alertas multicamada: por execução, por hora e por anomalia — sem alert fatigue</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Cost allocation: accountability por departamento, relatório automático de chargeback</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>ROI calculado: custo AI vs. custo humano — o argumento que mantém o orçamento</span></div>
-          <div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>3 técnicas de otimização combinadas: redução de 90% de custo com 97% da qualidade</span></div>
-        </div>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← 5.5 Logs e Permissões</a>
-        <a href="modulo-5-7.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo: 5.7 Métricas →</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-dark-600 py-8 mt-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-      <p>🤖 Agentic Engineering Masterclass · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-5 mb-8 border border-dark-600">
+<h3 class="font-semibold text-teal-400 mb-2">Module Summary 5.6</h3>
+<div class="space-y-2 text-sm text-neutral-300">
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Loops without budget = risk of $500+ invoice in hours — this is documented and real</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>BudgetMonitor with automatic hard stop: 5 lines of code that prevent $500 bill</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Multi-layer alerts: per run, per hour and per anomaly — no alert fatigue</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Cost allocation: accountability by department, automatic chargeback reporting</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>Calculated ROI: AI cost vs. human cost — the argument that keeps the budget</span></div>
+<div class="flex items-start space-x-2"><span class="text-teal-400 mt-0.5">✓</span><span>3 optimization techniques combined: 90% cost reduction with 97% quality</span></div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-5-5.html">← 5.5 Logs and Permissions</a>
+<a class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors" href="modulo-5-7.html">Next: 5.7 Metrics →</a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>🤖 Agentic Engineering Masterclass ·<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>· 2026</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const themeToggle = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
