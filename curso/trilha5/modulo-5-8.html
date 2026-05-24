@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.8 Camada 6b — Observabilidade: Rastreamento | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.8 Layer 6b — Observability: Tracking | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,134 +30,121 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400 transition-colors">Home</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400 transition-colors">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.8</span>
-    </nav>
-  </div>
-
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MÓDULO 5.8</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Camada 6b</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Rastreamento Distribuído</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">
-        🔍 Camada 6b — Observabilidade: Rastreamento
-      </h1>
-      <p class="text-lg text-neutral-300 max-w-3xl mb-8">
-        OpenTelemetry, distributed tracing com Jaeger/Tempo, propagação de contexto entre agentes, análise de gargalos e debugging de workflows complexos em produção.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">6</div>
-          <div class="text-xs text-neutral-400 mt-1">Seções</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">~55min</div>
-          <div class="text-xs text-neutral-400 mt-1">Duração</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Avançado</div>
-          <div class="text-xs text-neutral-400 mt-1">Nível</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">C6b</div>
-          <div class="text-xs text-neutral-400 mt-1">Camada</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-
-    <!-- Seção 1 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
-        <h2 class="text-xl font-bold text-neutral-100">Métricas vs. Traces — Quando Usar Cada Um</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Métricas (módulo 5.7) respondem "o que está acontecendo em geral". Traces respondem "o que aconteceu <em>nessa tarefa específica</em> que levou 8 minutos". São complementares, não concorrentes.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="bg-dark-900 rounded-xl p-5 border border-dark-600">
-            <div class="font-bold text-yellow-400 mb-3">📊 Métricas — Use quando:</div>
-            <ul class="space-y-2 text-sm text-neutral-300">
-              <li class="flex gap-2"><span class="text-yellow-400">•</span> P99 latência está alta (mas não sabe qual tarefa)</li>
-              <li class="flex gap-2"><span class="text-yellow-400">•</span> Taxa de erro subiu nos últimos 5 minutos</li>
-              <li class="flex gap-2"><span class="text-yellow-400">•</span> Budget consumindo mais rápido que o normal</li>
-              <li class="flex gap-2"><span class="text-yellow-400">•</span> Alertas e dashboards de saúde geral</li>
-            </ul>
-          </div>
-          <div class="bg-dark-900 rounded-xl p-5 border border-teal-500/30">
-            <div class="font-bold text-teal-400 mb-3">🔍 Traces — Use quando:</div>
-            <ul class="space-y-2 text-sm text-neutral-300">
-              <li class="flex gap-2"><span class="text-teal-400">•</span> Uma tarefa específica falhou — o que aconteceu?</li>
-              <li class="flex gap-2"><span class="text-teal-400">•</span> Qual agente causou a lentidão em task #12345?</li>
-              <li class="flex gap-2"><span class="text-teal-400">•</span> Quais ferramentas foram chamadas e em que ordem?</li>
-              <li class="flex gap-2"><span class="text-teal-400">•</span> Onde está o gargalo no pipeline multi-agente?</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-2">
-          <h3 class="font-bold text-neutral-100 mb-3">Anatomia de um Trace</h3>
-          <div class="font-mono text-xs text-neutral-300 space-y-1">
-            <div class="text-teal-400">TRACE: competitive_analysis [trace_id: abc123] — 142.3s total</div>
-            <div class="pl-4">├── orchestrator.plan [span: def456] — 2.1s</div>
-            <div class="pl-4">├── orchestrator.route [span: ghi789] — 0.3s</div>
-            <div class="pl-4">├── agent.research_amazon [span: jkl012] — 45.2s</div>
-            <div class="pl-8">├── tool.web_search [span: mno345] — 12.1s</div>
-            <div class="pl-8">├── llm.claude-3-sonnet [span: pqr678] — 28.4s ⚠️ LENTO</div>
-            <div class="pl-8">└── tool.write_result [span: stu901] — 4.7s</div>
-            <div class="pl-4">├── agent.research_google [span: vwx234] — 38.8s</div>
-            <div class="pl-4">└── agent.synthesizer [span: yza567] — 55.9s</div>
-            <div class="pl-8">└── llm.claude-3-opus [span: bcd890] — 54.1s ⚠️ GARGALO</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 2 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
-        <h2 class="text-xl font-bold text-neutral-100">OpenTelemetry — O Padrão Universal de Instrumentação</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>OpenTelemetry (OTel) é o padrão aberto para instrumentação. Você escreve código OTel uma vez e pode enviar para Jaeger, Tempo, Zipkin, Datadog, Honeycomb — qualquer backend. Zero vendor lock-in.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install opentelemetry-api opentelemetry-sdk
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400 transition-colors" href="../../index.html">Home</a>
+<span>/</span>
+<a class="hover:text-teal-400 transition-colors" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.8</span>
+</nav>
+</div>
+<header class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MODULE 5.8</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Layer 6b</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Distributed Tracing</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">🔍 Layer 6b — Observability: Tracking</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">OpenTelemetry, distributed tracing with Jaeger/Tempo, context propagation between agents, bottleneck analysis and debugging complex workflows in production.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Sections</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">~55min</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Advanced</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">C6b</div>
+<div class="text-xs text-neutral-400 mt-1">Layer</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+Section 1
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
+<h2 class="text-xl font-bold text-neutral-100">Metrics vs. Traces — When to Use Each</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>Metrics (module 5.7) answer "what is happening in general". Traces respond "what happened<em>in this specific task</em>which took 8 minutes". They are complementary, not competing.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600">
+<div class="font-bold text-yellow-400 mb-3">📊 Metrics — Use when:</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-yellow-400">•</span>P99 latency is high (but doesn't know which task)</li>
+<li class="flex gap-2"><span class="text-yellow-400">•</span>Error rate increased in the last 5 minutes</li>
+<li class="flex gap-2"><span class="text-yellow-400">•</span>Budget consuming faster than normal</li>
+<li class="flex gap-2"><span class="text-yellow-400">•</span>General health alerts and dashboards</li>
+</ul>
+</div>
+<div class="bg-dark-900 rounded-xl p-5 border border-teal-500/30">
+<div class="font-bold text-teal-400 mb-3">🔍 Traces — Use when:</div>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-teal-400">•</span>A specific task failed — what happened?</li>
+<li class="flex gap-2"><span class="text-teal-400">•</span>Which agent caused the slowdown in task #12345?</li>
+<li class="flex gap-2"><span class="text-teal-400">•</span>Which tools were called and in what order?</li>
+<li class="flex gap-2"><span class="text-teal-400">•</span>Where is the bottleneck in the multi-agent pipeline?</li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-2">
+<h3 class="font-bold text-neutral-100 mb-3">Anatomy of a Trace</h3>
+<div class="font-mono text-xs text-neutral-300 space-y-1">
+<div class="text-teal-400">TRACE: competitive_analysis [trace_id: abc123] — 142.3s total</div>
+<div class="pl-4">├── orchestrator.plan [span: def456] — 2.1s</div>
+<div class="pl-4">├── orchestrator.route [span: ghi789] — 0.3s</div>
+<div class="pl-4">├── agent.research_amazon [span: jkl012] — 45.2s</div>
+<div class="pl-8">├── tool.web_search [span: mno345] — 12.1s</div>
+<div class="pl-8">├── llm.claude-3-sonnet [span: pqr678] — 28.4s ⚠️ SLOW</div>
+<div class="pl-8">└── tool.write_result [span: stu901] — 4.7s</div>
+<div class="pl-4">├── agent.research_google [span: vwx234] — 38.8s</div>
+<div class="pl-4">└── agent.synthesizer [span: yza567] — 55.9s</div>
+<div class="pl-8">└── llm.claude-3-opus [span: bcd890] — 54.1s ⚠️ BOTTLENECK</div>
+</div>
+</div>
+</div>
+</section>
+Section 2
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
+<h2 class="text-xl font-bold text-neutral-100">OpenTelemetry — The Universal Instrumentation Standard</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>OpenTelemetry (OTel) is the open standard for instrumentation. You write OTel code once and you can send it to Jaeger, Tempo, Zipkin, Datadog, Honeycomb — any backend. Zero vendor lock-in.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install opentelemetry-api opentelemetry-sdk
 # pip install opentelemetry-exporter-otlp opentelemetry-instrumentation-httpx
 
 from opentelemetry import trace
@@ -178,7 +165,7 @@ from contextlib import asynccontextmanager
 def setup_tracing(
     service_name: str,
     otlp_endpoint: str = "http://localhost:4317"  # Jaeger/Tempo endpoint
-) -> trace.Tracer:
+) -&gt; trace.Tracer:
     """Configura OpenTelemetry com exportador OTLP."""
 
     resource = Resource.create({
@@ -246,7 +233,7 @@ class InstrumentedOrchestrator:
 
     async def execute_workflow(
         self, objective: str, session_id: str
-    ) -> dict:
+    ) -&gt; dict:
         """Ponto de entrada — cria o trace raiz."""
 
         # Span raiz: representa todo o workflow
@@ -281,7 +268,7 @@ class InstrumentedOrchestrator:
                 root_span.set_attribute("error.message", str(e))
                 raise
 
-    async def _plan(self, objective: str, parent_span) -> dict:
+    async def _plan(self, objective: str, parent_span) -&gt; dict:
         """Fase de planejamento com span filho."""
         async with traced_span(
             "orchestrator.plan",
@@ -300,7 +287,7 @@ class InstrumentedOrchestrator:
             span.set_attribute("plan.strategy", "parallel")
             return {"tasks": tasks}
 
-    async def _execute_task(self, task: dict, parent_span) -> dict:
+    async def _execute_task(self, task: dict, parent_span) -&gt; dict:
         """Execução de uma tarefa individual."""
         async with traced_span(
             f"agent.execute",
@@ -334,7 +321,7 @@ class InstrumentedOrchestrator:
             span.set_attribute("task.result_length", 1500)
             return {"task_id": task["id"], "result": "..."}
 
-    async def _synthesize(self, results: list, parent_span) -> dict:
+    async def _synthesize(self, results: list, parent_span) -&gt; dict:
         async with traced_span(
             "orchestrator.synthesize",
             attributes={"results.count": len(results)}
@@ -342,19 +329,17 @@ class InstrumentedOrchestrator:
             await asyncio.sleep(0.2)
             span.set_attribute("synthesis.model", "claude-3-opus-20240229")
             return {"status": "completed", "tasks": len(results)}</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 3 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
-        <h2 class="text-xl font-bold text-neutral-100">Propagação de Contexto entre Agentes</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Em sistemas multi-agente, cada agente pode rodar em um processo diferente ou até em um servidor diferente. A <strong class="text-neutral-100">propagação de contexto</strong> garante que o trace_id e span_id sejam transmitidos junto com cada request, mantendo a árvore de spans coesa.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from opentelemetry import propagate
+</div>
+</section>
+Section 3
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
+<h2 class="text-xl font-bold text-neutral-100">Context Propagation between Agents</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>In multi-agent systems, each agent can run in a different process or even on a different server. THE<strong class="text-neutral-100">context propagation</strong>ensures that the trace_id and span_id are transmitted along with each request, keeping the span tree cohesive.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from opentelemetry import propagate
 from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
 import httpx
 import asyncio
@@ -371,7 +356,7 @@ class AgentHTTPClient:
 
     async def call_agent(
         self, endpoint: str, payload: dict
-    ) -> dict:
+    ) -&gt; dict:
         """Chama agente remoto propagando o trace context."""
 
         # Injeta trace context nos headers
@@ -444,7 +429,7 @@ class TraceContextRedisQueue:
 
     async def dequeue_and_restore(
         self, queue_name: str
-    ) -> tuple[dict, object]:
+    ) -&gt; tuple[dict, object]:
         """Remove tarefa da fila e restaura trace context."""
         raw = await self.redis.brpop(queue_name, timeout=30)
         if not raw:
@@ -475,23 +460,20 @@ class TraceContextRedisQueue:
 
     async def _process(self, task: dict):
         await asyncio.sleep(0.1)  # simula processamento</code></pre>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-4">
-          <p class="text-sm text-teal-300"><strong>W3C Trace Context:</strong> O formato <code class="bg-dark-700 px-1 rounded">traceparent: 00-{trace_id}-{span_id}-{flags}</code> é um padrão W3C. O trace_id tem 128 bits (32 hex chars). É o mesmo ID que conecta todos os spans de um workflow, mesmo distribuído por 10 processos.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 4 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
-        <h2 class="text-xl font-bold text-neutral-100">Jaeger + Grafana Tempo — Setup e Configuração</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p><strong class="text-neutral-100">Jaeger</strong> é o backend de tracing open-source mais usado. <strong class="text-neutral-100">Grafana Tempo</strong> é uma alternativa eficiente que integra nativamente com Grafana, Loki e Prometheus — ideal quando você já tem o stack de observabilidade no Grafana.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># docker-compose.tracing.yml — Backend de tracing
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-4">
+<p class="text-sm text-teal-300"><strong>W3C Trace Context:</strong>The format<code class="bg-dark-700 px-1 rounded" data-notranslate="True">traceparent: 00-{trace_id}-{span_id}-{flags}</code>is a W3C standard. The trace_id is 128 bits (32 hex chars). It is the same ID that connects all spans of a workflow, even if it is distributed across 10 processes.</p>
+</div>
+</div>
+</section>
+Section 4
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
+<h2 class="text-xl font-bold text-neutral-100">Jaeger + Grafana Tempo — Setup and Configuration</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p><strong class="text-neutral-100">Jaeger</strong>is the most widely used open-source tracing backend.<strong class="text-neutral-100">Grafana Weather</strong>is an efficient alternative that natively integrates with Grafana, Loki and Prometheus — ideal when you already have the observability stack in Grafana.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># docker-compose.tracing.yml — Backend de tracing
 
 version: '3.8'
 services:
@@ -610,19 +592,17 @@ service:
       receivers: [otlp]
       processors: [batch]
       exporters: [prometheus]</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 5 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
-        <h2 class="text-xl font-bold text-neutral-100">Análise de Gargalos — TraceAnalyzer</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Com os traces coletados, podemos programaticamente identificar gargalos: qual agente é mais lento, qual ferramenta falha mais, quais tarefas têm critical path mais longo.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from dataclasses import dataclass, field
+</div>
+</section>
+Section 5
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
+<h2 class="text-xl font-bold text-neutral-100">Bottleneck Analysis — TraceAnalyzer</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>With the traces collected, we can programmatically identify bottlenecks: which agent is slower, which tool fails more, which tasks have a longer critical path.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime, timedelta
 import httpx
@@ -641,15 +621,15 @@ class SpanData:
     status: str  # OK / ERROR
 
     @property
-    def is_error(self) -> bool:
+    def is_error(self) -&gt; bool:
         return self.status == "ERROR"
 
     @property
-    def is_llm_call(self) -> bool:
+    def is_llm_call(self) -&gt; bool:
         return self.operation_name.startswith("llm.")
 
     @property
-    def is_tool_call(self) -> bool:
+    def is_tool_call(self) -&gt; bool:
         return self.operation_name.startswith("tool.")
 
 
@@ -659,7 +639,7 @@ class TraceAnalysis:
     total_duration_ms: float
     critical_path: List[SpanData]
     bottleneck_span: Optional[SpanData]
-    parallel_efficiency: float   # 1.0 = perfeito, <1.0 = overhead
+    parallel_efficiency: float   # 1.0 = perfeito, &lt;1.0 = overhead
     error_spans: List[SpanData]
     llm_time_ms: float
     tool_time_ms: float
@@ -672,7 +652,7 @@ class TraceAnalyzer:
     def __init__(self, jaeger_url: str = "http://localhost:16686"):
         self.jaeger_url = jaeger_url
 
-    async def fetch_trace(self, trace_id: str) -> List[SpanData]:
+    async def fetch_trace(self, trace_id: str) -&gt; List[SpanData]:
         """Busca todos os spans de um trace no Jaeger."""
         async with httpx.AsyncClient() as client:
             resp = await client.get(
@@ -703,7 +683,7 @@ class TraceAnalyzer:
             ))
         return spans
 
-    def find_critical_path(self, spans: List[SpanData]) -> List[SpanData]:
+    def find_critical_path(self, spans: List[SpanData]) -&gt; List[SpanData]:
         """Encontra o caminho crítico (sequência de spans mais longa)."""
         # Constrói árvore de spans
         children: Dict[Optional[str], List[SpanData]] = {}
@@ -712,7 +692,7 @@ class TraceAnalyzer:
             children.setdefault(parent, []).append(span)
 
         # DFS para encontrar o caminho mais longo
-        def longest_path(span_id: Optional[str]) -> List[SpanData]:
+        def longest_path(span_id: Optional[str]) -&gt; List[SpanData]:
             kids = children.get(span_id, [])
             if not kids:
                 return []
@@ -729,7 +709,7 @@ class TraceAnalyzer:
         root = max(roots, key=lambda s: s.duration_ms)
         return [root] + longest_path(root.span_id)
 
-    def analyze(self, spans: List[SpanData]) -> TraceAnalysis:
+    def analyze(self, spans: List[SpanData]) -&gt; TraceAnalysis:
         """Análise completa de um trace."""
         root_spans = [s for s in spans if not s.parent_span_id]
         total_duration = max(s.duration_ms for s in root_spans) if root_spans else 0
@@ -744,7 +724,7 @@ class TraceAnalyzer:
 
         # Parallel efficiency: se tudo fosse serial, demoraria total_span_time
         # Mas demora total_duration (com paralelismo)
-        efficiency = total_duration / total_span_time if total_span_time > 0 else 1.0
+        efficiency = total_duration / total_span_time if total_span_time &gt; 0 else 1.0
 
         orchestration_overhead = total_duration - llm_time - tool_time
 
@@ -760,7 +740,7 @@ class TraceAnalyzer:
             orchestration_overhead_ms=max(0, orchestration_overhead)
         )
 
-    def format_report(self, analysis: TraceAnalysis) -> str:
+    def format_report(self, analysis: TraceAnalysis) -&gt; str:
         bn = analysis.bottleneck_span
         return f"""
 ANÁLISE DE TRACE: {analysis.trace_id[:16]}...
@@ -777,19 +757,17 @@ PARALELISMO:
 GARGALO: {bn.operation_name if bn else 'N/A'} ({bn.duration_ms:.0f}ms)
 ERROS: {len(analysis.error_spans)} spans com erro
 """</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 6 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
-        <h2 class="text-xl font-bold text-neutral-100">Correlacionando Métricas, Logs e Traces — Observabilidade Unificada</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>O poder real da observabilidade aparece quando você pode <strong class="text-neutral-100">correlacionar os 3 pilares</strong>: viu uma spike de latência no Grafana? Clica no ponto, o Grafana abre os logs do Loki naquele intervalo, e você pode pular direto para o trace no Tempo que causou a anomalia.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">import logging
+</div>
+</section>
+Section 6
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
+<h2 class="text-xl font-bold text-neutral-100">Correlating Metrics, Logs and Traces — Unified Observability</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The real power of observability comes when you can<strong class="text-neutral-100">correlate the 3 pillars</strong>: Did you see a latency spike in Grafana? Click on the point, Grafana opens Loki's logs at that interval, and you can jump straight to the trace in Time that caused the anomaly.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">import logging
 import json
 from opentelemetry import trace as otel_trace
 
@@ -803,7 +781,7 @@ class OTelAwareLogger:
     def __init__(self, name: str):
         self._logger = logging.getLogger(name)
 
-    def _get_trace_context(self) -> dict:
+    def _get_trace_context(self) -&gt; dict:
         """Extrai trace context do span atual."""
         span = otel_trace.get_current_span()
         if not span or not span.is_recording():
@@ -891,45 +869,37 @@ class OTelAwareLogger:
 #           matcherRegex: '"trace_id":"(\w+)"'
 #           url: '$${__value.raw}'
 #           datasourceUid: tempo</code></pre>
-
-        <div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
-          <h3 class="font-bold text-neutral-100 mb-3">Resumo do Módulo 5.8</h3>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Métricas respondem "o que"; traces respondem "por que" — use ambos para observabilidade completa</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>OpenTelemetry é o padrão universal — escreva uma vez, exporte para qualquer backend</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Propagação de contexto via W3C traceparent garante trace coeso em sistemas distribuídos</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>OTel Collector em produção: filtra dados sensíveis (prompts, emails) antes de exportar</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>TraceAnalyzer programático: encontra critical path, gargalos e eficiência de paralelismo</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Logs com trace_id + Grafana datasource linking = navegação 1-clique entre métricas/logs/traces</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegação -->
-    <div class="flex justify-between items-center pt-4">
-      <a href="modulo-5-7.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        <span class="text-sm font-medium">5.7 — Métricas</span>
-      </a>
-      <a href="modulo-5-9.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all">
-        <span class="text-sm font-medium">5.9 — Arquitetura Composta</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </main>
-
-  <footer class="border-t border-dark-600 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        Agentic Engineering Masterclass •
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
-        • Módulo 5.8 — Camada 6b: Rastreamento
-      </p>
-    </div>
-  </footer>
-
-  <script>
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
+<h3 class="font-bold text-neutral-100 mb-3">Module Summary 5.8</h3>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Metrics answer “what”; traces answer "why" — use both for full observability</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>OpenTelemetry is the universal standard — write once, export to any backend</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Context propagation via W3C traceparent ensures cohesive trace in distributed systems</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>OTel Collector in production: filters sensitive data (prompts, emails) before exporting</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Programmatic TraceAnalyzer: finds critical path, bottlenecks and parallelism efficiency</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Logs with trace_id + Grafana datasource linking = 1-click navigation between metrics/logs/traces</span></li>
+</ul>
+</div>
+</div>
+</section>
+Navigation
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all" href="modulo-5-7.html">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">5.7 — Metrics</span>
+</a>
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all" href="modulo-5-9.html">
+<span class="text-sm font-medium">5.9 — Composite Architecture</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<footer class="border-t border-dark-600 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 text-sm">Agentic Engineering Masterclass •<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>• Module 5.8 — Layer 6b: Tracking</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const toggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
