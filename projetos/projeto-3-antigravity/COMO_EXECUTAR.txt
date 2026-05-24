@@ -1,349 +1,349 @@
 ========================================
-COMO EXECUTAR - PROJETO 3: ANTIGRAVITY
+HOW TO EXECUTE - PROJECT 3: ANTIGRAVITY
 ========================================
 
-Este guia foi escrito para pessoas que nunca usaram
-ferramentas de desenvolvimento com inteligencia artificial.
-Nao tem termos tecnicos desnecessarios, nao tem formatacao
-especial. So o que voce precisa saber para comecar.
-
-
-========================================
-O QUE E O ANTIGRAVITY?
-========================================
-
-O Antigravity e um editor de codigo criado pelo Google.
-A diferenca dele para editores normais (como o VS Code)
-e que ele foi construido do zero para trabalhar com um
-agente de inteligencia artificial - o Gemini.
-
-Numa IDE normal, voce escreve todo o codigo. O Gemini
-talvez sugira uma linha aqui ou ali, mas voce faz o trabalho.
-
-No Antigravity, a logica e diferente. Voce descreve o que
-quer fazer em linguagem normal - como mandar uma mensagem -
-e o agente planeja e escreve o codigo por voce. Voce revisa
-o plano, aprova, acompanha a execucao e verifica o resultado.
-
-Por exemplo, em vez de passar 2 horas escrevendo um sistema
-de login, voce escreve:
-
-    "Adicione login com Google. O usuario precisa ter email
-    e nome de exibicao salvos no banco. Apos o login, redirecione
-    para a pagina inicial."
-
-O agente le essa instrucao, cria um plano com todos os arquivos
-que vao mudar, espera voce aprovar e depois escreve o codigo.
-
-Isso e chamado de "desenvolvimento agentico" - voce dirige o
-projeto, o agente escreve.
+This guide was written for people who have never used
+development tools with artificial intelligence.
+There are no unnecessary technical terms, there is no formatting
+special. Just what you need to know to get started.
 
 
 ========================================
-QUEM PODE USAR O ANTIGRAVITY?
+WHAT IS ANTIGRAVITY?
 ========================================
 
-Para usar o Antigravity voce precisa:
+Antigravity is a code editor created by Google.
+How it differs from normal editors (like VS Code)
+and that it was built from scratch to work with a
+artificial intelligence agent - Gemini.
 
-1. Ter uma conta Google (Gmail serve)
+In a normal IDE, you write all the code. The Gemini
+Maybe suggest a line here or there, but you get the job done.
 
-2. Ter acesso ao programa beta do Antigravity
-   O Antigravity ainda nao esta disponivel para todo mundo.
-   E preciso solicitar acesso.
+In Antigravity, the logic is different. You describe what
+want to do it in normal language - like sending a message -
+and the agent plans and writes the code for you. You review
+the plan, approves it, monitors its execution and verifies the result.
 
-3. Ter o Node.js instalado no seu computador
-   Node.js e um programa que permite rodar codigo JavaScript
-   fora do navegador. E gratuito.
+For example, instead of spending 2 hours writing a system
+login, you write:
 
-4. Ter o Git instalado
-   Git e um programa para controle de versao de codigo.
-   Tambem e gratuito.
+    "Add login with Google. The user must have an email
+    and display name saved in the database. After login, redirect
+    to the home page."
 
-Se voce so tem uma conta Google, comece pelo proximo topico.
-As instrucoes mostram como conseguir tudo o que falta.
+The agent reads this instruction, creates a plan with all the files
+that will change, waits for you to approve it and then writes the code.
+
+This is called "agentic development" - you direct the
+project, the agent writes.
 
 
 ========================================
-COMO CONSEGUIR ACESSO AO ANTIGRAVITY
+WHO CAN USE ANTIGRAVITY?
 ========================================
 
-Passo 1: Acesse o site do programa beta
+To use Antigravity you need:
+
+1. Have a Google account (Gmail will do)
+
+2. Have access to the Antigravity beta program
+   Antigravity is not yet available to everyone.
+   And I need to request access.
+
+3. Have Node.js installed on your computer
+   Node.js is a program that allows you to run JavaScript code
+   outside the browser. And free.
+
+4. Have Git installed
+   Git is a program for code version control.
+   It's also free.
+
+If you only have a Google account, start with the next topic.
+The instructions show you how to get everything you need.
+
+
+========================================
+HOW TO GET ACCESS TO ANTIGRAVITY
+========================================
+
+Step 1: Access the beta program website
 -----------------------------------------
-Abra o navegador e va para:
+Open your browser and go to:
     https://g.co/antigravity
 
-Voce precisara estar logado na sua conta Google.
+You will need to be logged into your Google account.
 
-Passo 2: Solicite o acesso
+Step 2: Request access
 ---------------------------
-Clique no botao "Request Access" (Solicitar acesso).
-Aparecera um formulario simples.
+Click the "Request Access" button.
+A simple form will appear.
 
-No formulario, descreva brevemente como voce quer usar
-o Antigravity. Pode escrever em ingles ou portugues.
-Exemplo:
-    "Quero usar para aprender desenvolvimento agentico
-    e automatizar tarefas repetitivas de programacao."
+In the form, briefly describe how you want to use
+o Antigravity. You can write in English or Portuguese.
+Example:
+    "I want to use it to learn agentic development
+    and automate repetitive programming tasks."
 
-Clique em enviar.
+Click submit.
 
-Passo 3: Aguarde o email
+Step 3: Wait for the email
 -------------------------
-O Google vai analisar seu pedido. Isso pode levar
-de algumas horas a alguns dias. Voce recebera um email
-no Gmail quando o acesso for liberado.
+Google will review your request. This can take
+from a few hours to a few days. You will receive an email
+in Gmail when access is granted.
 
-Enquanto aguarda, instale os programas do proximo topico.
+While waiting, install the programs in the next topic.
 
-Passo 4: Instale o Antigravity
+Step 4: Install Antigravity
 -------------------------------
-Quando receber o email de aprovacao, clique no link de
-download que vira no email. Baixe o instalador para o
-seu sistema operacional (Windows, macOS ou Linux).
+When you receive the approval email, click on the approval link
+download that turns into the email. Download the installer for
+your operating system (Windows, macOS or Linux).
 
-Execute o instalador. Na primeira vez que abrir o
-Antigravity, ele vai pedir para voce entrar com a
-sua conta Google. Use a mesma conta com a qual
-solicitou o acesso.
+Run the installer. The first time you open the
+Antigravity, he will ask you to enter the
+your Google account. Use the same account with which
+requested access.
 
 
 ========================================
-COMO INSTALAR OS PRE-REQUISITOS
+HOW TO INSTALL PREREQUISITES
 ========================================
 
-Voce precisa instalar dois programas antes de usar
-os arquivos deste projeto:
+You need to install two programs before using
+the files for this project:
 
-Programa 1: Node.js
+Program 1: Node.js
 --------------------
-O Node.js e necessario para os servidores MCP, que sao
-ferramentas que o agente usa para acessar seus arquivos
-e o GitHub.
+Node.js is required for MCP servers, which are
+tools the agent uses to access your files
+and GitHub.
 
-Para instalar:
-    1. Acesse: https://nodejs.org
-    2. Clique no botao verde grande que diz "LTS"
-       (isso baixa a versao estavel recomendada)
-    3. Abra o arquivo baixado e siga as instrucoes
-    4. Para verificar se funcionou, abra o terminal e digite:
+To install:
+    1. Visit: https://nodejs.org
+    2. Click the big green button that says "LTS"
+       (this downloads the recommended stable version)
+    3. Open the downloaded file and follow the instructions
+    4. To check if it worked, open the terminal and type:
            node --version
-       Deve aparecer algo como "v20.11.0"
+       It should say something like "v20.11.0"
 
-Programa 2: Git
+Program 2: Git
 ----------------
-O Git e necessario para salvar versoes do seu codigo e
-para o agente criar commits e branches.
+Git is necessary to save versions of your code and
+for the agent to create commits and branches.
 
-Para instalar:
-    1. Acesse: https://git-scm.com
-    2. Clique em "Download" e baixe para o seu sistema
-    3. Instale seguindo as instrucoes na tela
-    4. Para verificar, abra o terminal e digite:
+To install:
+    1. Visit: https://git-scm.com
+    2. Click "Download" and download to your system
+    3. Install following the on-screen instructions
+4. To check, open the terminal and type:
            git --version
-       Deve aparecer algo como "git version 2.44.0"
+       It should say something like "git version 2.44.0"
 
 
 ========================================
-COMO USAR OS ARQUIVOS DESTE PROJETO
+HOW TO USE THIS PROJECT FILES
 ========================================
 
-Este projeto contem dois arquivos principais que voce
-vai usar dentro do Antigravity:
+This project contains two main files that you
+will use within Antigravity:
 
-Arquivo 1: workspace.json
+File 1: workspace.json
 --------------------------
-Este arquivo diz ao Antigravity como se comportar no
-seu projeto. Ele define qual modelo de IA usar, quais
-ferramentas ativar e o que o agente precisa pedir
-permissao para fazer.
+This file tells Antigravity how to behave in
+your project. It defines which AI model to use, which
+enable tools and what the agent needs to ask
+permission to do.
 
-Como usar:
-    1. Abra o Antigravity
-    2. Crie um novo projeto apontando para a pasta do
-       seu codigo (ou crie uma pasta nova)
-    3. Copie o arquivo workspace.json para a raiz do projeto
-    4. O Antigravity vai detectar e carregar automaticamente
+How to use:
+    1. Open Antigravity
+    2. Create a new project pointing to the project folder
+       your code (or create a new folder)
+    3. Copy the workspace.json file to the project root
+    4. Antigravity will automatically detect and load
 
-Arquivo 2: CONTEXT.md
+File 2: CONTEXT.md
 ----------------------
-Este e o arquivo mais importante. Ele e como um manual
-do seu projeto que o agente le antes de comecar qualquer
-tarefa. Voce precisa personalizar este arquivo para o
-SEU projeto.
+This is the most important file. It's like a manual
+of your project that the agent reads before starting any
+task. You need to customize this file for the
+YOUR project.
 
-Como usar:
-    1. Copie o arquivo CONTEXT.md para a raiz do seu projeto
-    2. Abra o arquivo em qualquer editor de texto
-    3. Substitua as informacoes do projeto de exemplo pelas
-       informacoes reais do seu projeto:
-       - Nome do projeto
-       - O que o projeto faz
-       - Quais tecnologias voce usa
-       - Suas convencoes de codigo
-    4. Salve o arquivo
+How to use:
+    1. Copy the CONTEXT.md file to the root of your project
+    2. Open the file in any text editor
+    3. Replace the example project information with the
+       real information about your project:
+       - Project name
+       - What the project does
+       - What technologies do you use
+       - Your code conventions
+    4. Save the file
 
-Se o seu projeto e simples, use o arquivo em:
-    exemplos/context-minimal.md
-Ele tem menos secoes e e mais facil de preencher.
+If your project is simple, use the file at:
+    examples/context-minimal.md
+It has fewer sections and is easier to fill out.
 
-Instalando as ferramentas extras (servidores MCP):
+Installing the extra tools (MCP servers):
 ---------------------------------------------------
-Para que o agente possa acessar seus arquivos e o GitHub,
-voce precisa instalar dois programas extras. Temos um
-script que faz isso automaticamente.
+So that the agent can access your files and GitHub,
+you need to install two extra programs. We have a
+script that does this automatically.
 
-Abra o terminal na pasta do projeto e execute:
+Open the terminal in the project folder and run:
     chmod +x scripts/setup-mcp.sh
     ./scripts/setup-mcp.sh
 
-O script vai instalar tudo e mostrar mensagens coloridas
-indicando o que esta acontecendo. Se tudo correr bem,
-voce vera uma mensagem verde de sucesso no final.
+The script will install everything and show colorful messages
+indicating what is happening. If everything goes well,
+You will see a green success message at the end.
 
 
 ========================================
-COMO USAR O ANTIGRAVITY NO DIA A DIA
+HOW TO USE ANTIGRAVITY IN EVERYDAY LIFE
 ========================================
 
-Com tudo configurado, usar o Antigravity e simples.
+With everything configured, using Antigravity is simple.
 
-Abrindo um projeto:
+Opening a project:
 -------------------
-    1. Abra o Antigravity
-    2. Va em File > Open Folder
-    3. Selecione a pasta do seu projeto
+    1. Open Antigravity
+    2. Go to File > Open Folder
+    3. Select your project folder
 
-O agente vai carregar o workspace.json e o CONTEXT.md
-automaticamente. Ele agora "conhece" o seu projeto.
+The agent will load workspace.json and CONTEXT.md
+automatically. He now "knows" his project.
 
-Pedindo ao agente para fazer algo:
+Asking the agent to do something:
 -----------------------------------
-Na parte inferior da tela do Antigravity ha um campo
-de chat. E la que voce se comunica com o agente.
+At the bottom of the Antigravity screen there is a field
+chat. This is where you communicate with the agent.
 
-Para implementar uma nova funcionalidade, escreva:
+To implement a new feature, write:
 
-    @agent implement feature: [descreva o que voce quer]
+    @agent implement feature: [describe what you want]
 
-Exemplo:
-    @agent implement feature: adicionar pagina de perfil
-    do usuario com foto, nome e bio editaveis
+Example:
+    @agent implement feature: add profile page
+    username with editable photo, name and bio
 
-Para corrigir um bug:
-    @agent fix bug: [descreva o problema]
+To fix a bug:
+    @agent fix bug: [describe the problem]
 
-Exemplo:
-    @agent fix bug: o botao de salvar na pagina de
-    configuracoes nao faz nada quando clicado
+Example:
+    @agent fix bug: the save button on the save page
+    settings does nothing when clicked
 
-Para fazer deploy (publicar o site):
+To deploy (publish the website):
     @agent deploy to staging
 
-Revisando o que o agente vai fazer:
+Reviewing what the agent will do:
 ------------------------------------
-Depois de receber seu pedido, o agente PRIMEIRO mostra
-um plano do que pretende fazer. Leia esse plano antes
-de aprovar.
+After receiving your order, the agent FIRST shows
+a plan of what you intend to do. Read this plan first
+to approve.
 
-O plano lista todos os arquivos que serao criados ou
-alterados. Se algo parecer errado, escreva sua correcao
-no chat antes de aprovar.
+The plan lists all files that will be created or
+changed. If something seems wrong, write your correction
+in chat before approving.
 
-Para aprovar o plano, clique em "Aprovar" ou escreva "s".
+To approve the plan, click "Approve" or write "s".
 
-Acompanhando a execucao:
+Monitoring the execution:
 -------------------------
-Apos a aprovacao, o agente escreve o codigo. Voce ve
-os arquivos sendo criados em tempo real na tela do
-Antigravity. Nao precisa fazer nada - so aguardar.
+After approval, the agent writes the code. Do you see
+files being created in real time on the screen
+Antigravity. You don't need to do anything - just wait.
 
-Se o agente encontrar um erro (por exemplo, um teste
-que nao passa), ele vai tentar corrigir automaticamente.
+If the agent encounters an error (for example, a test
+that doesn't pass), it will try to correct it automatically.
 
-Ao final, o agente apresenta um resumo do que foi feito
-e aguarda sua aprovacao final antes de commitar o codigo.
-
-
-========================================
-O QUE ESPERAR COMO RESULTADO
-========================================
-
-Ao usar o Antigravity com os arquivos deste projeto,
-voce deve esperar:
-
-O que vai funcionar bem:
-    - Implementar funcionalidades novas seguindo os
-      padroes do seu projeto
-    - Corrigir bugs com causa clara e bem descrita
-    - Criar testes automatizados para codigo existente
-    - Refatorar codigo para melhorar a qualidade
-    - Fazer deploys para ambientes de teste (staging)
-
-O que requer mais atencao:
-    - Funcionalidades muito complexas podem precisar de
-      varios ciclos de revisao
-    - O agente pode nao conhecer bibliotecas muito novas
-      ou muito especificas
-    - Decisoes de arquitetura importantes ainda precisam
-      de voce - o agente e bom em executar, nao em
-      decidir a direcao do produto
-
-Quanto tempo voce economiza:
-    Para tarefas repetitivas e bem definidas, o agente
-    pode ser 3 a 5 vezes mais rapido do que escrever
-    o codigo manualmente. Para tarefas criativas ou
-    exploratoras, o ganho e menor - o valor e mais
-    na ajuda para pensar do que na velocidade de escrita.
+At the end, the agent presents a summary of what was done
+and waits for your final approval before committing the code.
 
 
 ========================================
-DUVIDAS COMUNS
+WHAT TO EXPECT AS A RESULT
 ========================================
 
-Pergunta: Preciso saber programar para usar o Antigravity?
-Resposta: Sim. O Antigravity acelera o desenvolvimento,
-mas nao substitui o conhecimento tecnico. Voce precisa
-entender o codigo que o agente gera para revisar e
-aprovar o que ele faz. Sem isso, voce nao sabera se
-o resultado esta correto.
+When using Antigravity with the files in this project,
+you should expect:
 
-Pergunta: O agente pode deletar meu codigo por acidente?
-Resposta: Com as configuracoes deste projeto (workspace.json),
-o agente sempre pede permissao antes de operacoes
-destrutivas. Alem disso, com o Git configurado, voce
-pode desfazer qualquer mudanca com um comando.
+What will work well:
+    - Implement new features following the guidelines
+      patterns of your project
+    - Fix bugs with clear and well-described cause
+    - Create automated tests for existing code
+    - Refactor code to improve quality
+    - Deploy to test environments (staging)
 
-Pergunta: Meu codigo e enviado para o Google quando uso o Antigravity?
-Resposta: Sim. O codigo que o agente acessa e enviado
-para os servidores do Google para processar as requisicoes
-do Gemini. Verifique os termos de servico do Antigravity
-antes de usar com projetos que contenham dados sensiveis
-ou codigo proprietario restrito.
+What requires more attention:
+- Very complex functionalities may require
+      multiple review cycles
+    - The agent may not know very new libraries
+      or very specific
+    - Important architectural decisions still need to be made
+      from you - the agent is good at executing, not
+      decide product direction
 
-Pergunta: O que acontece se o agente cometer um erro?
-Resposta: Voce revisa o plano antes da execucao. Se o
-agente cometer um erro na execucao, voce pode descrever
-o problema no chat e ele tentara corrigir. Para erros
-graves, o Git permite voltar ao estado anterior do codigo.
+How much time you save:
+    For repetitive and well-defined tasks, the agent
+    can be 3 to 5 times faster than writing
+    the code manually. For creative tasks or
+    exploration companies, the gain is lower - the value is more
+    in helping you think than in writing speed.
 
 
 ========================================
-LINKS UTEIS
+COMMON QUESTIONS
 ========================================
 
-Antigravity (acesso beta):
+Question: Do I need to know how to program to use Antigravity?
+Answer: Yes. Antigravity accelerates development,
+but it does not replace technical knowledge. Do you need
+understand the code that the agent generates to review and
+approve of what he does. Without this, you won't know if
+the result is correct.
+
+Question: Can the agent delete my code by accident?
+Answer: With the settings of this project (workspace.json),
+the agent always asks for permission before operations
+destructive. Furthermore, with Git configured, you can
+You can undo any change with one command.
+
+Question: Is my code sent to Google when I use Antigravity?
+Answer: Yes. The code that the agent accesses is sent
+to Google servers to process requests
+from Gemini. Check Antigravity terms of service
+before using with projects containing sensitive data
+or restricted proprietary code.
+
+Question: What happens if the agent makes a mistake?
+Answer: You review the plan before execution. If the
+agent makes an error in execution, you can describe
+the problem in the chat and he will try to fix it. For errors
+serious, Git allows you to return to the previous state of the code.
+
+
+========================================
+USEFUL LINKS
+========================================
+
+Antigravity (beta access):
     https://g.co/antigravity
 
-Node.js (instalacao):
+Node.js (installation):
     https://nodejs.org
 
-Git (instalacao):
+Git (installation):
     https://git-scm.com
 
-Model Context Protocol (documentacao dos servidores MCP):
+Model Context Protocol (MCP servers documentation):
     https://modelcontextprotocol.io
 
-Gemini (documentacao da API):
+Gemini (API documentation):
     https://ai.google.dev
 
 Google Cloud Console:
@@ -351,8 +351,8 @@ Google Cloud Console:
 
 
 ========================================
-FIM DO GUIA
+END OF GUIDE
 ========================================
 
-Data de criacao: 2026-03-03
-Projeto: Agentic — Projeto 3 (Antigravity)
+Creation date: 2026-03-03
+Project: Agentic — Project 3 (Antigravity)
