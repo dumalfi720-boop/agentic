@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5.7 Camada 6a — Observabilidade: Métricas | Trilha 5 | Agentic Engineering</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>5.7 Layer 6a — Observability: Metrics | Trail 5 | Agentic Engineering</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-notranslate="True">
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
@@ -30,134 +30,121 @@
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-14">
-        <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
-            <span class="text-2xl">🤖</span>
-            <span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
-          </a>
-          <span class="text-neutral-600">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">Orquestrador</a>
-          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-teal-400 transition-colors">Home</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-teal-400 transition-colors">Trilha 5</a>
-      <span>/</span>
-      <span class="text-teal-400">Módulo 5.7</span>
-    </nav>
-  </div>
-
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MÓDULO 5.7</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Camada 6a</span>
-        <span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Observabilidade</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">
-        📊 Camada 6a — Observabilidade: Métricas
-      </h1>
-      <p class="text-lg text-neutral-300 max-w-3xl mb-8">
-        Métricas técnicas e de negócio, SLIs/SLOs, Prometheus + Grafana, dashboards executivos e sistema de alertas para orquestradores de IA em produção.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">6</div>
-          <div class="text-xs text-neutral-400 mt-1">Seções</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">~50min</div>
-          <div class="text-xs text-neutral-400 mt-1">Duração</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">Avançado</div>
-          <div class="text-xs text-neutral-400 mt-1">Nível</div>
-        </div>
-        <div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
-          <div class="text-2xl font-black text-teal-400">C6a</div>
-          <div class="text-xs text-neutral-400 mt-1">Camada</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
-
-    <!-- Seção 1 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
-        <h2 class="text-xl font-bold text-neutral-100">Por que Observabilidade é Crítica em Orquestradores</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Um orquestrador de IA em produção é uma caixa-preta em movimento: dezenas de agentes executando tarefas em paralelo, chamadas LLM caras acontecendo a cada segundo, loops de retry silenciosos consumindo budget. Sem observabilidade adequada, você descobre os problemas <strong class="text-neutral-100">depois que o cliente reclamou</strong> — ou depois que a fatura chegou.</p>
-        <p>A diferença entre um sistema monitorado e um não-monitorado é a diferença entre detectar um agente preso em loop em <strong class="text-teal-400">30 segundos</strong> versus descobrir <strong class="text-red-400">2 horas depois</strong> com $800 gastos.</p>
-
-        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5 mt-4">
-          <h3 class="font-bold text-red-400 mb-3">Incidentes reais por falta de observabilidade</h3>
-          <div class="space-y-3 text-sm">
-            <div class="flex gap-3">
-              <span class="text-red-400 font-bold flex-shrink-0">Caso 1:</span>
-              <span>Agente de pesquisa em loop infinito por 4 horas. Sem alertas configurados. Custo: $1.200. Detectado manualmente ao verificar billing.</span>
-            </div>
-            <div class="flex gap-3">
-              <span class="text-red-400 font-bold flex-shrink-0">Caso 2:</span>
-              <span>Taxa de sucesso caiu de 94% para 67% após deploy. Sem dashboard de SLO, ninguém percebeu por 3 dias. 200+ tarefas falharam silenciosamente.</span>
-            </div>
-            <div class="flex gap-3">
-              <span class="text-red-400 font-bold flex-shrink-0">Caso 3:</span>
-              <span>Latência P99 subiu de 8s para 45s após mudança de modelo. Usuários abandonaram o produto. Rollback feito 6 horas depois.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
-          <h3 class="font-bold text-teal-400 mb-3">Os 3 pilares da observabilidade para IA</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-            <div>
-              <div class="font-bold text-neutral-100 mb-1">📊 Métricas</div>
-              <div class="text-neutral-400">Números agregados no tempo. Taxa de sucesso, latência P50/P99, custo/hora, throughput. Respondem "o que está acontecendo agora?"</div>
-            </div>
-            <div>
-              <div class="font-bold text-neutral-100 mb-1">🔍 Traces</div>
-              <div class="text-neutral-400">Rastreamento de requests individuais end-to-end. Mostra exatamente onde uma tarefa específica travou. Próximo módulo.</div>
-            </div>
-            <div>
-              <div class="font-bold text-neutral-100 mb-1">📋 Logs</div>
-              <div class="text-neutral-400">Eventos estruturados com contexto completo. Auditoria, debug, compliance. Coberto no módulo 5.5.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 2 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
-        <h2 class="text-xl font-bold text-neutral-100">PrometheusMetricsCollector — Instrumentação do Orquestrador</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>Prometheus é o padrão de facto para métricas em sistemas distribuídos. Para orquestradores de IA, instrumentamos quatro tipos de métricas: <strong class="text-neutral-100">Counters</strong> (incrementam), <strong class="text-neutral-100">Gauges</strong> (valor atual), <strong class="text-neutral-100">Histograms</strong> (distribuições de latência) e <strong class="text-neutral-100">Summaries</strong> (percentis calculados no cliente).</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># pip install prometheus-client asyncio
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🤖</span>
+<span class="font-bold text-lg hidden sm:inline">Agentic Engineering</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10" href="index.html">Orchestrator</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<nav class="flex items-center space-x-2 text-sm text-neutral-400">
+<a class="hover:text-teal-400 transition-colors" href="../../index.html">Home</a>
+<span>/</span>
+<a class="hover:text-teal-400 transition-colors" href="index.html">Track 5</a>
+<span>/</span>
+<span class="text-teal-400">Module 5.7</span>
+</nav>
+</div>
+<header class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-dark-900 to-dark-800"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-400 border border-teal-500/30">MODULE 5.7</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Layer 6a</span>
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-dark-700 text-neutral-400">Observability</span>
+</div>
+<h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-neutral-100 mb-4">📊 Layer 6a — Observability: Metrics</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">Technical and business metrics, SLIs/SLOs, Prometheus + Grafana, executive dashboards and alerting system for AI orchestrators in production.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Sections</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">~50min</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">Advanced</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800/60 rounded-xl p-4 border border-dark-600">
+<div class="text-2xl font-black text-teal-400">C6a</div>
+<div class="text-xs text-neutral-400 mt-1">Layer</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+Section 1
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">1</div>
+<h2 class="text-xl font-bold text-neutral-100">Why Observability is Critical in Orchestrators</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>An AI orchestrator in production is a moving black box: dozens of agents executing tasks in parallel, expensive LLM calls happening every second, silent retry loops consuming budget. Without proper observability, you discover the problems<strong class="text-neutral-100">after the customer complained</strong>— or after the invoice arrived.</p>
+<p>The difference between a monitored and an unmonitored system is the difference between detecting an agent trapped in a loop in<strong class="text-teal-400">30 seconds</strong>versus discover<strong class="text-red-400">2 hours later</strong>with $800 spent.</p>
+<div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5 mt-4">
+<h3 class="font-bold text-red-400 mb-3">Real incidents due to lack of observability</h3>
+<div class="space-y-3 text-sm">
+<div class="flex gap-3">
+<span class="text-red-400 font-bold flex-shrink-0">Case 1:</span>
+<span>Research agent in infinite loop for 4 hours. No alerts configured. Cost: $1,200. Manually detected when checking billing.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-red-400 font-bold flex-shrink-0">Case 2:</span>
+<span>Success rate dropped from 94% to 67% after deployment. Without an SLO dashboard, no one noticed for 3 days. 200+ tasks failed silently.</span>
+</div>
+<div class="flex gap-3">
+<span class="text-red-400 font-bold flex-shrink-0">Case 3:</span>
+<span>P99 latency increased from 8s to 45s after model change. Users abandoned the product. Rollback done 6 hours later.</span>
+</div>
+</div>
+</div>
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 mt-4">
+<h3 class="font-bold text-teal-400 mb-3">The 3 pillars of observability for AI</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<div class="font-bold text-neutral-100 mb-1">📊 Metrics</div>
+<div class="text-neutral-400">Numbers aggregated over time. Success rate, P50/P99 latency, cost/hour, throughput. They answer "what's happening now?"</div>
+</div>
+<div>
+<div class="font-bold text-neutral-100 mb-1">🔍 Traces</div>
+<div class="text-neutral-400">End-to-end individual request tracking. Shows exactly where a specific task got stuck. Next module.</div>
+</div>
+<div>
+<div class="font-bold text-neutral-100 mb-1">📋 Logs</div>
+<div class="text-neutral-400">Structured events with full context. Audit, debug, compliance. Covered in module 5.5.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+Section 2
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">2</div>
+<h2 class="text-xl font-bold text-neutral-100">PrometheusMetricsCollector — Orchestrator Instrumentation</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>Prometheus is the de facto standard for metrics in distributed systems. For AI orchestrators, we instrument four types of metrics:<strong class="text-neutral-100">Counters</strong>(increment),<strong class="text-neutral-100">gauges</strong>(current value),<strong class="text-neutral-100">Histograms</strong>(latency distributions) and<strong class="text-neutral-100">Summaries</strong>(percentiles calculated at the client).</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># pip install prometheus-client asyncio
 
 from prometheus_client import (
     Counter, Histogram, Gauge, Summary,
@@ -361,67 +348,63 @@ async def execute_agent_task(agent_id: str, task: dict):
             agent_type=agent_type,
             status="running"
         ).dec()</code></pre>
-
-        <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-4">
-          <p class="text-sm text-teal-300"><strong>Dica:</strong> Use labels com moderação. Cada combinação única de labels cria uma nova série temporal no Prometheus. Com 10 agents × 5 models × 3 statuses = 150 séries. Com 100 agents, já são 1.500 séries — pode explodir a memória do Prometheus.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção 3 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
-        <h2 class="text-xl font-bold text-neutral-100">SLIs e SLOs — Definindo Contratos de Qualidade</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p><strong class="text-neutral-100">SLI (Service Level Indicator)</strong> é a métrica real que você mede. <strong class="text-neutral-100">SLO (Service Level Objective)</strong> é o alvo que você se compromete a atingir. <strong class="text-neutral-100">SLA (Service Level Agreement)</strong> é o contrato comercial com penalidades se o SLO for violado.</p>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm border-collapse">
-            <thead>
-              <tr class="border-b border-dark-600">
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Dimensão</th>
-                <th class="text-left py-3 pr-4 text-neutral-400 font-semibold">SLI (O que medir)</th>
-                <th class="text-left py-3 text-neutral-400 font-semibold">SLO (Meta)</th>
-              </tr>
-            </thead>
-            <tbody class="space-y-2">
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Disponibilidade</td>
-                <td class="py-3 pr-4 text-neutral-300">% requests com status 2xx</td>
-                <td class="py-3 text-teal-400">≥ 99.5%</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Taxa de Sucesso</td>
-                <td class="py-3 pr-4 text-neutral-300">tarefas_sucesso / tarefas_total</td>
-                <td class="py-3 text-teal-400">≥ 95%</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Latência P50</td>
-                <td class="py-3 pr-4 text-neutral-300">Mediana do tempo de conclusão</td>
-                <td class="py-3 text-teal-400">≤ 30s</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Latência P99</td>
-                <td class="py-3 pr-4 text-neutral-300">99° percentil do tempo</td>
-                <td class="py-3 text-teal-400">≤ 120s</td>
-              </tr>
-              <tr class="border-b border-dark-700">
-                <td class="py-3 pr-4 font-medium text-neutral-100">Freshness</td>
-                <td class="py-3 pr-4 text-neutral-300">% dados com idade ≤ threshold</td>
-                <td class="py-3 text-teal-400">≥ 98%</td>
-              </tr>
-              <tr>
-                <td class="py-3 pr-4 font-medium text-neutral-100">Custo por Tarefa</td>
-                <td class="py-3 pr-4 text-neutral-300">USD médio por tarefa completada</td>
-                <td class="py-3 text-teal-400">≤ $0.15</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600 mt-4"><code class="text-green-400">from dataclasses import dataclass, field
+<div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-4">
+<p class="text-sm text-teal-300"><strong>Tip:</strong>Use labels sparingly. Each unique combination of labels creates a new time series in Prometheus. With 10 agents × 5 models × 3 statuses = 150 series. With 100 agents, there are already 1,500 series — it could explode Prometheus' memory.</p>
+</div>
+</div>
+</section>
+Section 3
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">3</div>
+<h2 class="text-xl font-bold text-neutral-100">SLIs and SLOs — Defining Quality Contracts</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p><strong class="text-neutral-100">SLI (Service Level Indicator)</strong>it's the actual metric you measure.<strong class="text-neutral-100">SLO (Service Level Objective)</strong>it is the target you commit to achieving.<strong class="text-neutral-100">SLA (Service Level Agreement)</strong>it is the commercial contract with penalties if the SLO is violated.</p>
+<div class="overflow-x-auto">
+<table class="w-full text-sm border-collapse">
+<thead>
+<tr class="border-b border-dark-600">
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">Dimension</th>
+<th class="text-left py-3 pr-4 text-neutral-400 font-semibold">SLI (What to measure)</th>
+<th class="text-left py-3 text-neutral-400 font-semibold">SLO (Target)</th>
+</tr>
+</thead>
+<tbody class="space-y-2">
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">Availability</td>
+<td class="py-3 pr-4 text-neutral-300">% requests with status 2xx</td>
+<td class="py-3 text-teal-400">≥ 99.5%</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">Success Rate</td>
+<td class="py-3 pr-4 text-neutral-300">success_tasks / total_tasks</td>
+<td class="py-3 text-teal-400">≥ 95%</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">P50 Latency</td>
+<td class="py-3 pr-4 text-neutral-300">Median completion time</td>
+<td class="py-3 text-teal-400">≤ 30s</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">P99 Latency</td>
+<td class="py-3 pr-4 text-neutral-300">99th percentile of time</td>
+<td class="py-3 text-teal-400">≤ 120s</td>
+</tr>
+<tr class="border-b border-dark-700">
+<td class="py-3 pr-4 font-medium text-neutral-100">Freshness</td>
+<td class="py-3 pr-4 text-neutral-300">% data aged ≤ threshold</td>
+<td class="py-3 text-teal-400">≥ 98%</td>
+</tr>
+<tr>
+<td class="py-3 pr-4 font-medium text-neutral-100">Cost per Task</td>
+<td class="py-3 pr-4 text-neutral-300">Average USD per task completed</td>
+<td class="py-3 text-teal-400">≤ $0.15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600 mt-4" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 import time
 
@@ -453,7 +436,7 @@ class SLOManager:
     def __init__(self, prometheus_url: str):
         self.prometheus_url = prometheus_url
 
-    def evaluate_task_success_rate(self, window_hours: int = 24) -> float:
+    def evaluate_task_success_rate(self, window_hours: int = 24) -&gt; float:
         """Calcula taxa de sucesso via PromQL."""
         # PromQL equivalente:
         # sum(rate(orchestrator_tasks_total{status="success"}[24h]))
@@ -469,7 +452,7 @@ class SLOManager:
 
     def calculate_error_budget(
         self, slo: SLODefinition, current_value: float
-    ) -> float:
+    ) -&gt; float:
         """
         Error budget = quanto do SLO posso violar.
         Ex: SLO 99.5% → error budget = 0.5% de falhas permitidas.
@@ -477,14 +460,14 @@ class SLOManager:
         """
         total_budget = 1.0 - slo.target
         consumed = slo.target - current_value
-        if consumed <= 0:
+        if consumed &lt;= 0:
             return 1.0  # 100% do budget restante
         remaining = (total_budget - consumed) / total_budget
         return max(0.0, remaining)
 
     def calculate_burn_rate(
         self, current_1h: float, current_24h: float, slo_target: float
-    ) -> float:
+    ) -&gt; float:
         """
         Burn rate = velocidade de consumo do error budget.
         Burn rate 1 = consumindo exatamente na taxa sustentável.
@@ -496,7 +479,7 @@ class SLOManager:
             return 0
         return current_error_rate / hourly_budget
 
-    def evaluate_all(self) -> List[SLOStatus]:
+    def evaluate_all(self) -&gt; List[SLOStatus]:
         results = []
         for slo in self.SLOS:
             current = self.evaluate_task_success_rate(slo.window_hours)
@@ -506,24 +489,22 @@ class SLOManager:
             results.append(SLOStatus(
                 slo=slo,
                 current_value=current,
-                is_compliant=current >= slo.target,
+                is_compliant=current &gt;= slo.target,
                 error_budget_remaining=budget_remaining,
                 burn_rate=burn_rate
             ))
         return results</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 4 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
-        <h2 class="text-xl font-bold text-neutral-100">Prometheus + Grafana — Setup Completo</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>O stack Prometheus + Grafana é o padrão para visualização de métricas. Prometheus coleta e armazena; Grafana visualiza com dashboards interativos.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># docker-compose.yml — Stack de observabilidade completo
+</div>
+</section>
+Section 4
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">4</div>
+<h2 class="text-xl font-bold text-neutral-100">Prometheus + Grafana — Complete Setup</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>The Prometheus + Grafana stack is the standard for metrics visualization. Prometheus collects and stores; Grafana visualizes with interactive dashboards.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># docker-compose.yml — Stack de observabilidade completo
 
 version: '3.8'
 services:
@@ -617,8 +598,7 @@ scrape_configs:
   - job_name: 'postgres'
     static_configs:
       - targets: ['postgres-exporter:9187']</code></pre>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600 mt-4"><code class="text-green-400"># alerts.yml — Regras de alertas Prometheus
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600 mt-4" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># alerts.yml — Regras de alertas Prometheus
 
 groups:
   - name: orchestrator_alerts
@@ -631,7 +611,7 @@ groups:
           (
             sum(rate(orchestrator_tasks_total{status="success"}[5m]))
             / sum(rate(orchestrator_tasks_total[5m]))
-          ) < 0.90
+          ) &lt; 0.90
         for: 2m
         labels:
           severity: critical
@@ -644,7 +624,7 @@ groups:
       # Alerta: agente em loop (muito retry)
       - alert: AgentRetryLoop
         expr: |
-          rate(orchestrator_retry_total[5m]) > 5
+          rate(orchestrator_retry_total[5m]) &gt; 5
         for: 1m
         labels:
           severity: warning
@@ -653,7 +633,7 @@ groups:
 
       # Alerta: budget quase esgotado
       - alert: BudgetCritical
-        expr: orchestrator_budget_remaining_pct < 10
+        expr: orchestrator_budget_remaining_pct &lt; 10
         for: 0m
         labels:
           severity: critical
@@ -666,7 +646,7 @@ groups:
         expr: |
           histogram_quantile(0.99,
             rate(orchestrator_task_duration_seconds_bucket[10m])
-          ) > 120
+          ) &gt; 120
         for: 5m
         labels:
           severity: warning
@@ -679,25 +659,23 @@ groups:
           (
             1 - sum(rate(orchestrator_tasks_total{status="success"}[1h]))
             / sum(rate(orchestrator_tasks_total[1h]))
-          ) > 0.05
+          ) &gt; 0.05
         for: 5m
         labels:
           severity: critical
         annotations:
           summary: "Error budget consumindo 10x mais rápido que o sustentável"</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 5 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
-        <h2 class="text-xl font-bold text-neutral-100">Dashboard Executivo — Métricas de Negócio</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>CEOs e CFOs não leem gráficos de P99. Eles querem saber: quantas tarefas completamos, qual o custo, qual o ROI. O dashboard executivo traduz métricas técnicas em linguagem de negócio.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400">from dataclasses import dataclass
+</div>
+</section>
+Section 5
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">5</div>
+<h2 class="text-xl font-bold text-neutral-100">Executive Dashboard — Business Metrics</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>CEOs and CFOs don't read P99 charts. They want to know: how many tasks we completed, what the cost was, what the ROI was. The executive dashboard translates technical metrics into business language.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True">from dataclasses import dataclass
 from typing import Dict, List
 import httpx
 import asyncio
@@ -734,7 +712,7 @@ class ExecutiveDashboard:
     def __init__(self, prometheus_url: str):
         self.prom = prometheus_url
 
-    async def query(self, promql: str) -> float:
+    async def query(self, promql: str) -&gt; float:
         """Executa query PromQL e retorna valor escalar."""
         async with httpx.AsyncClient() as client:
             resp = await client.get(
@@ -747,7 +725,7 @@ class ExecutiveDashboard:
                 return float(results[0]["value"][1])
         return 0.0
 
-    async def get_snapshot(self) -> BusinessMetricSnapshot:
+    async def get_snapshot(self) -&gt; BusinessMetricSnapshot:
         """Coleta snapshot atual de todas as métricas de negócio."""
 
         # Queries paralelas para eficiência
@@ -764,8 +742,8 @@ class ExecutiveDashboard:
         )
 
         total = tasks_success + tasks_failed
-        success_rate = (tasks_success / total * 100) if total > 0 else 0
-        avg_cost = (cost_today / tasks_success) if tasks_success > 0 else 0
+        success_rate = (tasks_success / total * 100) if total &gt; 0 else 0
+        avg_cost = (cost_today / tasks_success) if tasks_success &gt; 0 else 0
 
         # Calcular horas humanas economizadas
         # Assume média de 35 minutos por tarefa para humano
@@ -773,7 +751,7 @@ class ExecutiveDashboard:
 
         # ROI: quanto economizou vs. custo do sistema
         human_cost_equivalent = human_hours_saved * self.HUMAN_HOURLY_RATE
-        roi = (human_cost_equivalent / cost_today) if cost_today > 0 else 0
+        roi = (human_cost_equivalent / cost_today) if cost_today &gt; 0 else 0
 
         return BusinessMetricSnapshot(
             timestamp=datetime.now(),
@@ -788,7 +766,7 @@ class ExecutiveDashboard:
             budget_remaining_pct=budget_pct
         )
 
-    def format_executive_report(self, snap: BusinessMetricSnapshot) -> str:
+    def format_executive_report(self, snap: BusinessMetricSnapshot) -&gt; str:
         return f"""
 RELATÓRIO EXECUTIVO — ORQUESTRADOR IA
 Data: {snap.timestamp.strftime('%d/%m/%Y %H:%M')}
@@ -810,22 +788,20 @@ VALOR GERADO
   ROI do sistema:       {snap.roi_multiplier:.1f}x
 
 PRÓXIMAS AÇÕES
-  {'⚠️  ALERTA: Budget crítico' if snap.budget_remaining_pct < 20 else '✓  Budget saudável'}
-  {'⚠️  ALERTA: Taxa de sucesso baixa' if snap.success_rate_pct < 90 else '✓  Qualidade OK'}
+  {'⚠️  ALERTA: Budget crítico' if snap.budget_remaining_pct &lt; 20 else '✓  Budget saudável'}
+  {'⚠️  ALERTA: Taxa de sucesso baixa' if snap.success_rate_pct &lt; 90 else '✓  Qualidade OK'}
 """</code></pre>
-      </div>
-    </section>
-
-    <!-- Seção 6 -->
-    <section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
-        <h2 class="text-xl font-bold text-neutral-100">AlertManager — Sistema de Alertas com Roteamento Inteligente</h2>
-      </div>
-      <div class="space-y-4 text-neutral-300">
-        <p>AlertManager recebe alertas do Prometheus e roteia para os canais corretos: Slack para on-call, PagerDuty para críticos, e-mail para relatórios. O roteamento evita notification fatigue — nem todo alerta precisa acordar alguém às 3h da manhã.</p>
-
-        <pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600"><code class="text-green-400"># alertmanager.yml — Roteamento de alertas
+</div>
+</section>
+Section 6
+<section class="bg-dark-800 rounded-2xl p-8 border border-dark-600">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-10 h-10 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg flex-shrink-0">6</div>
+<h2 class="text-xl font-bold text-neutral-100">AlertManager — Alert System with Intelligent Routing</h2>
+</div>
+<div class="space-y-4 text-neutral-300">
+<p>AlertManager receives alerts from Prometheus and routes them to the correct channels: Slack for on-call, PagerDuty for critical, email for reporting. Routing avoids notification fatigue — not every alert needs to wake someone up at 3 am.</p>
+<pre class="bg-dark-900 rounded-xl p-5 text-sm border border-dark-600" data-notranslate="True"><code class="text-green-400" data-notranslate="True"># alertmanager.yml — Roteamento de alertas
 
 global:
   resolve_timeout: 5m
@@ -906,75 +882,66 @@ inhibit_rules:
     target_match:
       severity: 'warning'
     equal: ['alertname']</code></pre>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-          <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-            <div class="font-bold text-teal-400 mb-2">PromQL Essenciais</div>
-            <div class="text-xs text-neutral-400 space-y-1 font-mono">
-              <div>rate(metric[5m])</div>
-              <div>histogram_quantile(0.99, ...)</div>
-              <div>increase(counter[24h])</div>
-              <div>avg_over_time(gauge[1h])</div>
-            </div>
-          </div>
-          <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-            <div class="font-bold text-teal-400 mb-2">Grafana Panels</div>
-            <div class="text-xs text-neutral-400 space-y-1">
-              <div>Time Series → latências</div>
-              <div>Stat → valor atual</div>
-              <div>Gauge → budget %</div>
-              <div>Table → top failures</div>
-            </div>
-          </div>
-          <div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
-            <div class="font-bold text-teal-400 mb-2">Retenção</div>
-            <div class="text-xs text-neutral-400 space-y-1">
-              <div>Prometheus: 30 dias</div>
-              <div>Thanos: 1 ano (S3)</div>
-              <div>Resolution: 15s raw</div>
-              <div>Downsample: 5m / 1h</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
-          <h3 class="font-bold text-neutral-100 mb-3">Resumo do Módulo 5.7</h3>
-          <ul class="space-y-2 text-sm text-neutral-300">
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Prometheus com 4 tipos de métricas: Counter, Gauge, Histogram, Summary</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>SLIs medem qualidade real; SLOs definem metas; error budget quantifica quanto posso falhar</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Burn rate > 10x → alerta imediato, mesmo que SLO ainda não violado</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Dashboard executivo traduz latência P99 em "horas humanas salvas" e ROI</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>AlertManager roteia: críticos → PagerDuty, warnings → Slack, budget → CFO</span></li>
-            <li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Inhibit rules evitam notification fatigue quando sistemas estão em cascata</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Navegação -->
-    <div class="flex justify-between items-center pt-4">
-      <a href="modulo-5-6.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        <span class="text-sm font-medium">5.6 — Custo e Audit</span>
-      </a>
-      <a href="modulo-5-8.html" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all">
-        <span class="text-sm font-medium">5.8 — Rastreamento</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </main>
-
-  <footer class="border-t border-dark-600 mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-neutral-400 text-sm">
-        Agentic Engineering Masterclass •
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
-        • Módulo 5.7 — Camada 6a: Métricas
-      </p>
-    </div>
-  </footer>
-
-  <script>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="font-bold text-teal-400 mb-2">PromQL Essentials</div>
+<div class="text-xs text-neutral-400 space-y-1 font-mono">
+<div>rate(metric[5m])</div>
+<div>histogram_quantile(0.99, ...)</div>
+<div>increase(counter[24h])</div>
+<div>avg_over_time(gauge[1h])</div>
+</div>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="font-bold text-teal-400 mb-2">Grafana Panels</div>
+<div class="text-xs text-neutral-400 space-y-1">
+<div>Time Series → latencies</div>
+<div>Stat → current value</div>
+<div>Gauge → budget %</div>
+<div>Table → top failures</div>
+</div>
+</div>
+<div class="bg-dark-900 rounded-xl p-4 border border-teal-500/30">
+<div class="font-bold text-teal-400 mb-2">Retention</div>
+<div class="text-xs text-neutral-400 space-y-1">
+<div>Prometheus: 30 days</div>
+<div>Thanos: 1 year (S3)</div>
+<div>Resolution: 15s raw</div>
+<div>Downsample: 5m / 1h</div>
+</div>
+</div>
+</div>
+<div class="bg-dark-900 rounded-xl p-5 border border-dark-600 mt-4">
+<h3 class="font-bold text-neutral-100 mb-3">Module Summary 5.7</h3>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Prometheus with 4 types of metrics: Counter, Gauge, Histogram, Summary</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>SLIs measure actual quality; SLOs define goals; error budget quantifies how much I can fail</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Burn rate &gt; 10x → immediate alert, even if SLO not yet violated</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Executive Dashboard Translates P99 Latency into “Human Hours Saved” and ROI</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>AlertManager routes: critical → PagerDuty, warnings → Slack, budget → CFO</span></li>
+<li class="flex gap-2"><span class="text-teal-400 flex-shrink-0">•</span> <span>Inhibit rules avoid notification fatigue when systems are cascaded</span></li>
+</ul>
+</div>
+</div>
+</section>
+Navigation
+<div class="flex justify-between items-center pt-4">
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-dark-800 border border-dark-600 text-neutral-300 hover:text-teal-400 hover:border-teal-500/30 transition-all" href="modulo-5-6.html">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">5.6 — Cost and Audit</span>
+</a>
+<a class="flex items-center gap-2 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400 hover:bg-teal-500/30 transition-all" href="modulo-5-8.html">
+<span class="text-sm font-medium">5.8 — Tracking</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<footer class="border-t border-dark-600 mt-12 py-8">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-400 text-sm">Agentic Engineering Masterclass •<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>• Module 5.7 — Layer 6a: Metrics</p>
+</div>
+</footer>
+<script data-notranslate="True">
     const toggle = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
