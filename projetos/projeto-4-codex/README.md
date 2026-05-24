@@ -1,55 +1,50 @@
-# Projeto 4 — Agentic com Codex CLI
+# Project 4 — Agentic with Codex CLI
 
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-blue)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
+![License](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
 ![OpenAI](https://img.shields.io/badge/powered%20by-OpenAI%20Codex-412991)
 
-> Configuração do OpenAI Codex CLI para desenvolvimento agentic
+> OpenAI Codex CLI configuration for agentic development
 
 ---
 
-## O que e este projeto
+## What is this project
 
-Este projeto contém tudo que você precisa para configurar o **OpenAI Codex CLI** no seu ambiente de desenvolvimento e começar a usar IA de forma agentica — ou seja, deixar o agente executar tarefas reais no seu código com diferentes níveis de autonomia.
+This project contains everything you need to configure the **OpenAI Codex CLI** in your development environment and start using AI agentically — that is, letting the agent perform real tasks in your code with different levels of autonomy.
 
 ---
 
-## O que esta incluido
+## What's included
 
-| Arquivo | Descrição |
+| Archive | Description |
 |---|---|
-| `AGENTS.md` | Guia de contexto lido automaticamente pelo Codex em toda sessão |
-| `.codex/config.toml` | Configuração do comportamento do agente (modelo, modo, timeouts) |
-| `scripts/setup.sh` | Script de instalação e configuração do ambiente |
-| `scripts/run-headless.sh` | Executa tarefas sem interação humana (modo CI/CD) |
-| `exemplos/github-actions.yml` | Workflow completo de code review automático com GitHub Actions |
-| `.env.example` | Template de variáveis de ambiente |
-| `COMO_EXECUTAR.txt` | Guia para iniciantes em linguagem simples |
-| `ROTEIRO.md` | Roteiro passo a passo para dominar o Codex CLI |
+|`AGENTS.md`| Context guide automatically read by Codex every session |
+|`.codex/config.toml`| Agent behavior configuration (model, mode, timeouts) |
+|`scripts/setup.sh`| Environment installation and configuration script |
+|`scripts/run-headless.sh`| Perform tasks without human interaction (CI/CD mode) |
+|`exemplos/github-actions.yml`| Complete automatic code review workflow with GitHub Actions |
+|`.env.example`| Environment variables template |
+|`COMO_EXECUTAR.txt`| Simple Language Beginner's Guide |
+|`ROTEIRO.md`| Step-by-step roadmap to master Codex CLI |
 
 ---
 
-## Pre-requisitos
+## Prerequisites
 
-Antes de começar, certifique-se de ter:
+Before you start, make sure you have:
 
-- **Node.js 18 ou superior** — [download em nodejs.org](https://nodejs.org)
-- **npm** — vem junto com o Node.js
-- **Chave de API da OpenAI** — obtenha em [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-- **Git** — para clonar repositórios e usar o modo de revisão de PR
+- **Node.js 18 or higher** — [download at nodejs.org](https://nodejs.org)
+- **npm** — comes bundled with Node.js
+- **OpenAI API Key** — get it from [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+- **Git** — to clone repositories and use PR review mode
 
-Para verificar se já tem o Node.js instalado:
-```bash
+To check if you already have Node.js installed:```bash
 node --version
 # Deve mostrar v18.0.0 ou superior
-```
+```---
 
----
-
-## Instalação
-
-```bash
+## Installation```bash
 # Instalar o Codex CLI globalmente
 npm install -g @openai/codex
 
@@ -68,17 +63,13 @@ source ~/.bashrc
 # Opção 3: Arquivo .env no projeto (para times — nunca commitar com o valor real)
 cp .env.example .env
 # Edite o arquivo .env com sua chave
-```
+```---
 
----
+## How to use the files in this project
 
-## Como usar os arquivos deste projeto
+### Option 1: Use as template (recommended)
 
-### Opção 1: Usar como template (recomendado)
-
-Copie os arquivos relevantes para o seu projeto:
-
-```bash
+Copy the relevant files for your project:```bash
 # Copiar o AGENTS.md (adapte para o contexto do seu projeto)
 cp AGENTS.md /caminho/do/seu/projeto/AGENTS.md
 
@@ -89,138 +80,97 @@ cp .codex/config.toml /caminho/do/seu/projeto/.codex/config.toml
 # Copiar os scripts
 cp scripts/*.sh /caminho/do/seu/projeto/scripts/
 chmod +x /caminho/do/seu/projeto/scripts/*.sh
-```
-
-### Opção 2: Rodar o script de setup
-
-```bash
+```### Option 2: Run the setup script```bash
 # O script verifica dependências e configura tudo automaticamente
 bash scripts/setup.sh
-```
+```### Option 3: Use directly in this directory
 
-### Opção 3: Usar diretamente neste diretório
-
-Se você quiser testar sem copiar para outro projeto, basta executar o Codex aqui:
-
-```bash
+If you want to test without copying to another project, just run the Codex here:```bash
 codex "explique a estrutura do AGENTS.md deste projeto"
-```
+```---
 
----
+## The 3 approval modes
 
-## Os 3 modos de aprovacao
+The Codex CLI has three levels of autonomy. Choose depending on how much you trust the agent for each task:
 
-O Codex CLI possui três níveis de autonomia. Escolha conforme o quanto você confia no agente para cada tarefa:
+### Mode 1:`suggest`(Suggest)
 
-### Modo 1: `suggest` (Sugerir)
-
-O agente **lê o código e sugere mudancas**, mas nao executa nada. Voce ve as sugestões e decide o que fazer.
-
-```bash
+The agent **reads the code and suggests changes**, but does not execute anything. You see the suggestions and decide what to do.```bash
 codex --approval-mode suggest "adicione tratamento de erro na função authenticate"
-```
-
-**Quando usar:** Revisão de código, explorar possibilidades, aprender o que o agente faria. Ideal para iniciantes ou para mudanças de alto risco.
+```**When to use:** Code review, explore possibilities, learn what the agent would do. Ideal for beginners or high-risk moves.
 
 ---
 
-### Modo 2: `auto-edit` (Editar com aprovacao)
+### Mode 2:`auto-edit`(Edit with approval)
 
-O agente **pode editar arquivos**, mas precisa de aprovação sua para executar comandos no terminal (como rodar testes, instalar pacotes, etc.).
-
-```bash
+The agent **can edit files**, but needs your approval to execute commands in the terminal (such as running tests, installing packages, etc.).```bash
 codex --approval-mode auto-edit "refatore o módulo de autenticação para usar async/await"
-```
-
-**Quando usar:** Refatorações, criação de novos arquivos, pequenas features. O fluxo mais comum no dia a dia.
+```**When to use:** Refactorings, creation of new files, small features. The most common flow in everyday life.
 
 ---
 
-### Modo 3: `full-auto` (Totalmente automatico)
+### Mode 3:`full-auto`(Fully automatic)
 
-O agente **tem autonomia total**: edita arquivos, executa comandos, roda testes. Trabalha sem pedir confirmação.
-
-```bash
+The agent **has complete autonomy**: edits files, executes commands, runs tests. Works without asking for confirmation.```bash
 codex --approval-mode full-auto "crie testes unitários para o UserService"
-```
-
-**Quando usar:** Tarefas repetitivas bem definidas, pipelines de CI/CD, geração de código boilerplate. Use com cuidado em código de produção.
+```**When to use:** Well-defined repetitive tasks, CI/CD pipelines, boilerplate code generation. Use with caution in production code.
 
 ---
 
-## Claude Code vs Codex CLI — quando usar cada um
+## Claude Code vs Codex CLI — when to use each
 
-| Criterio | Claude Code | Codex CLI |
+| Criterion | Claude Code | Codex CLI |
 |---|---|---|
-| **Empresa** | Anthropic | OpenAI |
-| **Modelo base** | Claude (Sonnet/Opus) | GPT-4o / o3 |
-| **Melhor para** | Raciocínio complexo, arquitetura, explicações longas | Geração de código, refatorações, tarefas bem definidas |
-| **Contexto do projeto** | `CLAUDE.md` | `AGENTS.md` |
-| **Uso em CI/CD** | Possível mas menos nativo | Excelente (modo headless) |
-| **Custo** | Por token (Claude API) | Por token (OpenAI API) |
-| **Interface** | CLI interativo | CLI interativo + headless |
-| **Integração GitHub** | Manual | GitHub Actions nativo |
-| **Quando preferir** | Discussões arquiteturais, debugging complexo, análise de código | Automação, geração em massa, pipelines CI/CD |
+| **Company** | Anthropic | OpenAI |
+| **Base model** | Claude (Sonnet/Opus) | GPT-4o/o3 |
+| **Best for** | Complex reasoning, architecture, long explanations | Code generation, refactorings, well-defined tasks |
+| **Project context** |`CLAUDE.md` | `AGENTS.md`|
+| **Use in CI/CD** | Possible but less native | Excellent (headless mode) |
+| **Cost** | By token (Claude API) | By token (OpenAI API) |
+| **Interface** | Interactive CLI | Interactive + headless CLI |
+| **GitHub Integration** | Manual | Native GitHub Actions |
+| **Whenever you prefer** | Architectural discussions, complex debugging, code analysis | Automation, mass generation, CI/CD pipelines |
 
-**Regra prática:** Use Claude Code quando precisar _pensar junto_ com o agente. Use Codex quando precisar _executar_ uma tarefa bem definida.
+**Rule of thumb:** Use Claude Code when you need to _think together_ with the agent. Use Codex when you need to _perform_ a well-defined task.
 
 ---
 
-## Dicas de produtividade
+## Productivity tips
 
-### 1. Seja especifico nas instrucoes
-
-```bash
+### 1. Be specific in instructions```bash
 # Ruim — muito vago
 codex "melhore o código"
 
 # Bom — especifico e acionável
 codex "refatore a função createUser em src/modules/users/user.service.js para usar early returns e reduzir aninhamento"
-```
+```### 2. Use AGENTS.md to provide context
 
-### 2. Use o AGENTS.md para dar contexto
+The more detailed your`AGENTS.md`, the less you need to explain in each session. Document:
+- Technological stack
+- Naming conventions
+- Test and lint commands
+- What the agent should NEVER do
 
-Quanto mais detalhado seu `AGENTS.md`, menos você precisa explicar em cada sessão. Documente:
-- Stack tecnológica
-- Convencoes de nomenclatura
-- Comandos de teste e lint
-- O que o agente NUNCA deve fazer
+### 3. Start with`suggest`, evolved into`auto-edit`For new or unfamiliar tasks, always start in`suggest`. Once you gain confidence in what the agent does, switch to`auto-edit`.
 
-### 3. Comece com `suggest`, evoluia para `auto-edit`
+### 4. Combine with Git
 
-Para tarefas novas ou desconhecidas, sempre comece em modo `suggest`. Quando ganhar confiança no que o agente faz, mude para `auto-edit`.
-
-### 4. Combine com Git
-
-Antes de usar o modo `full-auto`, crie um branch:
-```bash
+Before using the mode`full-auto`, create a branch:```bash
 git checkout -b feature/ai-refactor
 codex --approval-mode full-auto "refatore todos os controllers para usar o padrão X"
 git diff  # Revise as mudanças
-```
-
-### 5. Use o modo headless para tarefas repetitivas
-
-```bash
+```### 5. Use headless mode for repetitive tasks```bash
 # Gerar testes para vários arquivos
 for file in src/modules/*/service.js; do
   ./scripts/run-headless.sh "escreva testes unitários para $file"
 done
-```
+```### 6. Save long sessions
 
-### 6. Salve sessoes longas
-
-Se uma sessão for interrompida, o Codex mantém contexto do projeto via `AGENTS.md`. Descreva o que estava fazendo no início da nova sessão:
-
-```bash
+If a session is interrupted, Codex maintains project context via`AGENTS.md`. Describe what you were doing at the start of the new session:```bash
 codex "continuando de onde paramos: estávamos refatorando o módulo de auth. O service já foi atualizado, falta o controller e os testes"
-```
+```---
 
----
-
-## Estrutura do projeto
-
-```
+## Project structure```
 projeto-4-codex/
 ├── AGENTS.md                  # Contexto do projeto para o Codex
 ├── .codex/
@@ -234,17 +184,15 @@ projeto-4-codex/
 ├── README.md                  # Este arquivo
 ├── ROTEIRO.md                 # Guia passo a passo
 └── COMO_EXECUTAR.txt          # Guia para iniciantes
-```
+```---
+
+## Resources and documentation
+
+- [Official Codex CLI documentation](https://github.com/openai/codex)
+- [OpenAI API Reference](https://platform.openai.com/docs)
+- [AGENTS.md examples](https://github.com/openai/codex/tree/main/examples)
+- [GitHub Actions with OpenAI](https://docs.github.com/en/actions)
 
 ---
 
-## Recursos e documentacao
-
-- [Documentação oficial do Codex CLI](https://github.com/openai/codex)
-- [Referência da API OpenAI](https://platform.openai.com/docs)
-- [Exemplos de AGENTS.md](https://github.com/openai/codex/tree/main/examples)
-- [GitHub Actions com OpenAI](https://docs.github.com/en/actions)
-
----
-
-*Parte do curso de desenvolvimento agentico — Projeto 4 de 8*
+*Part of the agentic development course — Project 4 of 8*
