@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Módulo 2.8 — Depuração e Rastreamento | Trilha 2</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 2.8 — Debugging and Tracing | Track 2</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -20,7 +20,7 @@
       }
     }
   </script>
-  <style>
+<style data-notranslate="True">
     html:not(.dark) body { background-color: #f8fafc; color: #1e293b; }
     html:not(.dark) nav { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
     html:not(.dark) .bg-dark-800 { background-color: #ffffff !important; border: 1px solid #e2e8f0; }
@@ -33,191 +33,181 @@
   </style>
 </head>
 <body class="bg-dark-900 text-gray-100 font-sans min-h-screen">
-
-  <!-- NAV -->
-  <nav class="bg-dark-800 border-b border-gray-800 sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="text-primary font-black text-xl">AEM</span>
-        <span class="text-gray-400 text-sm hidden sm:inline">Agentic Engineering Masterclass</span>
-      </div>
-      <div class="flex items-center gap-1 text-sm">
-        <a href="../../index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-dark-700 transition-colors">Início</a>
-        <a href="../trilha1/index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">T1</a>
-        <a href="index.html" class="px-3 py-1 rounded-lg text-blue-400 bg-blue-500/10 font-semibold">T2</a>
-        <a href="../trilha3/index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">T3</a>
-        <a href="../trilha4/index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-colors">T4</a>
-        <a href="../trilha5/index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-pink-400 hover:bg-pink-500/10 transition-colors">T5</a>
-        <a href="../trilha6/index.html" class="px-3 py-1 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-colors">T6</a>
-        <button onclick="toggleTheme()" class="ml-2 p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors text-gray-400 hover:text-gray-200">
-          <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9H21M3 12H2m15.36-6.36l-.71.71M6.34 17.66l-.71.71M17.66 17.66l.71.71M6.34 6.34l.71.71M12 5a7 7 0 100 14A7 7 0 0012 5z"/></svg>
-          <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- BREADCRUMB -->
-  <div class="max-w-4xl mx-auto px-4 py-3">
-    <div class="flex items-center gap-2 text-sm text-gray-400">
-      <a href="../../index.html" class="hover:text-blue-400 transition-colors">Início</a>
-      <span>/</span>
-      <a href="index.html" class="hover:text-blue-400 transition-colors">Trilha 2 — Construção de Agentes</a>
-      <span>/</span>
-      <span class="text-blue-400 font-medium">Módulo 2.8</span>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header class="max-w-4xl mx-auto px-4 pb-8">
-    <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 border border-blue-500/30 rounded-2xl p-8">
-      <div class="flex items-start gap-4">
-        <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🔍</div>
-        <div class="flex-1">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-blue-400 font-bold text-sm uppercase tracking-wider">Módulo 2.8</span>
-            <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full border border-blue-500/30">Último da Trilha</span>
-          </div>
-          <h1 class="text-3xl font-black text-gray-100 mb-2">Depuração e Rastreamento</h1>
-          <p class="text-gray-400 text-lg leading-relaxed">Observe, meça e corrija o comportamento dos seus agentes com LangSmith, logging estruturado e métricas de qualidade em produção.</p>
-          <div class="flex flex-wrap gap-4 mt-4">
-            <div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span> 6 tópicos</div>
-            <div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span> ~40 minutos</div>
-            <div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span> Intermediário</div>
-            <div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span> Prático</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- CONTENT -->
-  <main class="max-w-4xl mx-auto px-4 pb-16 space-y-10">
-
-    <!-- SECTION 1 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">1</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Por que agentes são difíceis de debugar</h2>
-          <p class="text-gray-400 mt-1">Não-determinismo, dependência de LLM e loops: os três inimigos do desenvolvedor.</p>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
-          <div class="text-2xl mb-2">🎲</div>
-          <h3 class="font-bold text-red-300 mb-2">Não-determinismo</h3>
-          <p class="text-sm text-gray-400">O mesmo input pode gerar outputs diferentes. Temperature &gt; 0 garante variação. Reproduzir um bug exige capturar o estado exato.</p>
-        </div>
-        <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
-          <div class="text-2xl mb-2">🔗</div>
-          <h3 class="font-bold text-red-300 mb-2">Dependência de LLM</h3>
-          <p class="text-sm text-gray-400">O comportamento muda com versões de modelo, mudanças de prompt e até carga do servidor. O que funciona hoje pode falhar amanhã.</p>
-        </div>
-        <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
-          <div class="text-2xl mb-2">🔄</div>
-          <h3 class="font-bold text-red-300 mb-2">Loops infinitos</h3>
-          <p class="text-sm text-gray-400">O agente chama a mesma tool repetidamente, interpreta o resultado errado ou nunca decide que terminou. Sem limite, o custo explode.</p>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
-        <h3 class="font-bold text-blue-300 mb-3">Por que print() não é suficiente</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <p class="text-xs text-red-400 font-semibold uppercase mb-2">Abordagem ingênua</p>
-            <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">agent.run("Pesquise sobre IA")
+NAV
+<nav class="bg-dark-800 border-b border-gray-800 sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-primary font-black text-xl">AEM</span>
+<span class="text-gray-400 text-sm hidden sm:inline">Agentic Engineering Masterclass</span>
+</div>
+<div class="flex items-center gap-1 text-sm">
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-dark-700 transition-colors" href="../../index.html">Start</a>
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">T1</a>
+<a class="px-3 py-1 rounded-lg text-blue-400 bg-blue-500/10 font-semibold" href="index.html">T2</a>
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">T3</a>
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-colors" href="../trilha4/index.html">T4</a>
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-pink-400 hover:bg-pink-500/10 transition-colors" href="../trilha5/index.html">T5</a>
+<a class="px-3 py-1 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-colors" href="../trilha6/index.html">T6</a>
+<button class="ml-2 p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors text-gray-400 hover:text-gray-200" onclick="toggleTheme()">
+<svg class="w-4 h-4 hidden" fill="none" id="icon-sun" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 3v1m0 16v1m8.66-9H21M3 12H2m15.36-6.36l-.71.71M6.34 17.66l-.71.71M17.66 17.66l.71.71M6.34 6.34l.71.71M12 5a7 7 0 100 14A7 7 0 0012 5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<svg class="w-4 h-4" fill="none" id="icon-moon" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</nav>
+BREADCRUMB
+<div class="max-w-4xl mx-auto px-4 py-3">
+<div class="flex items-center gap-2 text-sm text-gray-400">
+<a class="hover:text-blue-400 transition-colors" href="../../index.html">Start</a>
+<span>/</span>
+<a class="hover:text-blue-400 transition-colors" href="index.html">Track 2 — Agent Construction</a>
+<span>/</span>
+<span class="text-blue-400 font-medium">Module 2.8</span>
+</div>
+</div>
+HEADER
+<header class="max-w-4xl mx-auto px-4 pb-8">
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 border border-blue-500/30 rounded-2xl p-8">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🔍</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-blue-400 font-bold text-sm uppercase tracking-wider">Module 2.8</span>
+<span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full border border-blue-500/30">Last of the Trail</span>
+</div>
+<h1 class="text-3xl font-black text-gray-100 mb-2">Debugging and Tracing</h1>
+<p class="text-gray-400 text-lg leading-relaxed">Observe, measure and correct your agents' behavior with LangSmith, structured logging and quality metrics in production.</p>
+<div class="flex flex-wrap gap-4 mt-4">
+<div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span>6 topics</div>
+<div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span>~40 minutes</div>
+<div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span>Intermediary</div>
+<div class="flex items-center gap-1.5 text-sm text-gray-400"><span class="text-blue-400">◆</span>Practical</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+CONTENT
+<main class="max-w-4xl mx-auto px-4 pb-16 space-y-10">
+SECTION 1
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">1</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Why agents are difficult to debug</h2>
+<p class="text-gray-400 mt-1">Non-determinism, LLM dependency and loops: the three enemies of the developer.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="text-2xl mb-2">🎲</div>
+<h3 class="font-bold text-red-300 mb-2">Non-determinism</h3>
+<p class="text-sm text-gray-400">The same input can generate different outputs. Temperature &gt; 0 guarantees variation. Reproducing a bug requires capturing the exact state.</p>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="text-2xl mb-2">🔗</div>
+<h3 class="font-bold text-red-300 mb-2">LLM Dependency</h3>
+<p class="text-sm text-gray-400">Behavior changes with model versions, prompt changes, and even server load. What works today may fail tomorrow.</p>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<div class="text-2xl mb-2">🔄</div>
+<h3 class="font-bold text-red-300 mb-2">Infinite loops</h3>
+<p class="text-sm text-gray-400">The agent calls the same tool repeatedly, interprets the result wrong, or never decides it is finished. Without a limit, the cost explodes.</p>
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
+<h3 class="font-bold text-blue-300 mb-3">Why print() is not enough</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-red-400 font-semibold uppercase mb-2">Naive approach</p>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">agent.run("Pesquise sobre IA")
 # Saída: uma string final
 # Você não sabe:
 # - Quantas chamadas ao LLM?
 # - Qual tool foi chamada?
 # - Qual foi o custo?
 # - Por que parou?</pre>
-          </div>
-          <div>
-            <p class="text-xs text-blue-400 font-semibold uppercase mb-2">Com rastreamento</p>
-            <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">with langsmith.trace("agent-run"):
+</div>
+<div>
+<p class="text-xs text-blue-400 font-semibold uppercase mb-2">With tracking</p>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">with langsmith.trace("agent-run"):
     agent.run("Pesquise sobre IA")
 # Você vê:
 # - 3 chamadas ao GPT-4o
 # - 2 tool calls (search + calc)
 # - $0.042 de custo
 # - 8.3s de latência total</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-        <h3 class="font-bold text-gray-200 mb-3">O Princípio da Observabilidade em Agentes</h3>
-        <p class="text-gray-400 text-sm mb-3">Um sistema é observável quando você consegue entender seu estado interno apenas analisando suas saídas externas. Para agentes, isso significa capturar:</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="text-center p-3 bg-dark-900/40 rounded-lg">
-            <div class="text-2xl mb-1">📥</div>
-            <p class="text-xs text-gray-400">Input exato de cada chamada</p>
-          </div>
-          <div class="text-center p-3 bg-dark-900/40 rounded-lg">
-            <div class="text-2xl mb-1">📤</div>
-            <p class="text-xs text-gray-400">Output e tokens usados</p>
-          </div>
-          <div class="text-center p-3 bg-dark-900/40 rounded-lg">
-            <div class="text-2xl mb-1">⏱️</div>
-            <p class="text-xs text-gray-400">Latência por etapa</p>
-          </div>
-          <div class="text-center p-3 bg-dark-900/40 rounded-lg">
-            <div class="text-2xl mb-1">❌</div>
-            <p class="text-xs text-gray-400">Erros e exceções</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">2</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Configurando LangSmith em 3 minutos</h2>
-          <p class="text-gray-400 mt-1">Da conta gratuita ao primeiro trace capturado — sem alterar código de produção.</p>
-        </div>
-      </div>
-
-      <!-- Timeline 3 passos -->
-      <div class="space-y-4 mb-6">
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center">
-            <div class="w-9 h-9 bg-blue-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">1</div>
-            <div class="w-0.5 bg-blue-500/30 flex-1 mt-2"></div>
-          </div>
-          <div class="pb-4 flex-1">
-            <h3 class="font-bold text-gray-200 mb-2">Crie a conta e gere a API key</h3>
-            <p class="text-sm text-gray-400 mb-2">Acesse <span class="text-blue-400">smith.langchain.com</span>, crie uma conta gratuita e vá em Settings → API Keys → Create API Key.</p>
-            <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto"># Tier gratuito: 5.000 traces/mês
+</div>
+</div>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<h3 class="font-bold text-gray-200 mb-3">The Principle of Observability in Agents</h3>
+<p class="text-gray-400 text-sm mb-3">A system is observable when you can understand its internal state just by analyzing its external outputs. For agents, this means capturing:</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="text-center p-3 bg-dark-900/40 rounded-lg">
+<div class="text-2xl mb-1">📥</div>
+<p class="text-xs text-gray-400">Exact input for each call</p>
+</div>
+<div class="text-center p-3 bg-dark-900/40 rounded-lg">
+<div class="text-2xl mb-1">📤</div>
+<p class="text-xs text-gray-400">Output and tokens used</p>
+</div>
+<div class="text-center p-3 bg-dark-900/40 rounded-lg">
+<div class="text-2xl mb-1">⏱️</div>
+<p class="text-xs text-gray-400">Latency per step</p>
+</div>
+<div class="text-center p-3 bg-dark-900/40 rounded-lg">
+<div class="text-2xl mb-1">❌</div>
+<p class="text-xs text-gray-400">Errors and exceptions</p>
+</div>
+</div>
+</div>
+</section>
+SECTION 2
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">2</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Setting up LangSmith in 3 minutes</h2>
+<p class="text-gray-400 mt-1">From free account to first trace captured — without changing production code.</p>
+</div>
+</div>
+Timeline 3 steps
+<div class="space-y-4 mb-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-9 h-9 bg-blue-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">1</div>
+<div class="w-0.5 bg-blue-500/30 flex-1 mt-2"></div>
+</div>
+<div class="pb-4 flex-1">
+<h3 class="font-bold text-gray-200 mb-2">Create the account and generate the API key</h3>
+<p class="text-sm text-gray-400 mb-2">Access<span class="text-blue-400">smith.langchain.com</span>, create a free account and go to Settings → API Keys → Create API Key.</p>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True"># Tier gratuito: 5.000 traces/mês
 # Sem necessidade de cartão de crédito</pre>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center">
-            <div class="w-9 h-9 bg-blue-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">2</div>
-            <div class="w-0.5 bg-blue-500/30 flex-1 mt-2"></div>
-          </div>
-          <div class="pb-4 flex-1">
-            <h3 class="font-bold text-gray-200 mb-2">Configure as variáveis de ambiente</h3>
-            <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">export LANGCHAIN_TRACING_V2="true"
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-9 h-9 bg-blue-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">2</div>
+<div class="w-0.5 bg-blue-500/30 flex-1 mt-2"></div>
+</div>
+<div class="pb-4 flex-1">
+<h3 class="font-bold text-gray-200 mb-2">Configure environment variables</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">export LANGCHAIN_TRACING_V2="true"
 export LANGCHAIN_API_KEY="ls__xxxxxxxxxxxxxxxx"
 export LANGCHAIN_PROJECT="meu-agente-producao"
 
 # Ou via .env + python-dotenv
 # NUNCA commite sua API key no git</pre>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center">
-            <div class="w-9 h-9 bg-green-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">3</div>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-bold text-gray-200 mb-2">Execute seu agente normalmente</h3>
-            <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langchain_openai import ChatOpenAI
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-9 h-9 bg-green-500 rounded-full flex items-center justify-center text-dark-900 font-black text-sm flex-shrink-0">3</div>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-gray-200 mb-2">Run your agent normally</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langchain_openai import ChatOpenAI
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.prompts import ChatPromptTemplate
 
@@ -229,94 +219,90 @@ executor = AgentExecutor(agent=agent, tools=tools)
 
 result = executor.invoke({"input": "Qual é a capital do Brasil?"})
 # → Trace aparece automaticamente no LangSmith</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-primary/10 border border-primary/30 rounded-xl p-4">
-        <div class="flex items-start gap-3">
-          <span class="text-primary text-lg">💡</span>
-          <div>
-            <p class="font-semibold text-primary text-sm mb-1">Dica: Tracing seletivo em produção</p>
-            <p class="text-gray-400 text-sm">Ative o tracing apenas para uma amostra das requisições em produção (ex: 10%) para controlar custos e volume. Use a variável <code class="text-blue-300 bg-dark-900/50 px-1 rounded">LANGCHAIN_SAMPLING_RATE=0.1</code>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">3</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Visualizando uma trace completa</h2>
-          <p class="text-gray-400 mt-1">Anatomia de um trace no LangSmith: o que cada nó representa e como lê-lo.</p>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-6">
-        <h3 class="font-bold text-blue-300 mb-4">Estrutura de um trace hierárquico</h3>
-        <div class="space-y-2 font-mono text-sm">
-          <div class="flex items-center gap-2">
-            <span class="text-blue-400">▼</span>
-            <span class="text-gray-200 font-bold">AgentExecutor</span>
-            <span class="text-gray-500 text-xs ml-auto">8.3s | $0.042</span>
-          </div>
-          <div class="flex items-center gap-2 pl-6">
-            <span class="text-purple-400">▼</span>
-            <span class="text-purple-300">LLM: gpt-4o-mini</span>
-            <span class="text-gray-500 text-xs ml-auto">1.2s | 423 tokens</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Input: [SystemMessage, HumanMessage, AIMessage...]</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Output: tool_call → search("clima São Paulo")</span>
-          </div>
-          <div class="flex items-center gap-2 pl-6">
-            <span class="text-green-400">▼</span>
-            <span class="text-green-300">Tool: search</span>
-            <span class="text-gray-500 text-xs ml-auto">3.1s | $0.001</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Input: "clima São Paulo"</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Output: "28°C, parcialmente nublado..."</span>
-          </div>
-          <div class="flex items-center gap-2 pl-6">
-            <span class="text-purple-400">▼</span>
-            <span class="text-purple-300">LLM: gpt-4o-mini</span>
-            <span class="text-gray-500 text-xs ml-auto">0.9s | 312 tokens</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Input: [histórico + tool result]</span>
-          </div>
-          <div class="flex items-center gap-2 pl-12">
-            <span class="text-gray-500">•</span>
-            <span class="text-gray-400 text-xs">Output: "O clima em São Paulo está 28°C..."</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4 mb-5">
-        <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
-          <h3 class="font-bold text-gray-200 mb-3">O que inspecionar primeiro</h3>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Status:</strong> Success, Error ou Timeout?</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Latência total:</strong> onde está o gargalo?</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Número de iterações:</strong> loops excessivos?</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Custo:</strong> dentro do orçamento esperado?</span></li>
-          </ul>
-        </div>
-        <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
-          <h3 class="font-bold text-gray-200 mb-3">Adicionando metadata ao trace</h3>
-          <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langsmith import traceable
+</div>
+</div>
+</div>
+<div class="bg-primary/10 border border-primary/30 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-primary text-lg">💡</span>
+<div>
+<p class="font-semibold text-primary text-sm mb-1">Tip: Selective tracing in production</p>
+<p class="text-gray-400 text-sm">Activate tracing for only a sample of requests in production (e.g. 10%) to control costs and volume. Use the variable<code class="text-blue-300 bg-dark-900/50 px-1 rounded" data-notranslate="True">LANGCHAIN_SAMPLING_RATE=0.1</code>.</p>
+</div>
+</div>
+</div>
+</section>
+SECTION 3
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">3</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Viewing a complete trace</h2>
+<p class="text-gray-400 mt-1">Anatomy of a trace in LangSmith: what each node represents and how to read it.</p>
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-6">
+<h3 class="font-bold text-blue-300 mb-4">Structure of a hierarchical trace</h3>
+<div class="space-y-2 font-mono text-sm">
+<div class="flex items-center gap-2">
+<span class="text-blue-400">▼</span>
+<span class="text-gray-200 font-bold">AgentExecutor</span>
+<span class="text-gray-500 text-xs ml-auto">8.3s | $0.042</span>
+</div>
+<div class="flex items-center gap-2 pl-6">
+<span class="text-purple-400">▼</span>
+<span class="text-purple-300">LLM: gpt-4o-mini</span>
+<span class="text-gray-500 text-xs ml-auto">1.2s | 423 tokens</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Input: [SystemMessage, HumanMessage, AIMessage...]</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Output: tool_call → search("São Paulo climate")</span>
+</div>
+<div class="flex items-center gap-2 pl-6">
+<span class="text-green-400">▼</span>
+<span class="text-green-300">Tool: search</span>
+<span class="text-gray-500 text-xs ml-auto">3.1s | $0.001</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Input: "São Paulo climate"</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Output: "28°C, partly cloudy..."</span>
+</div>
+<div class="flex items-center gap-2 pl-6">
+<span class="text-purple-400">▼</span>
+<span class="text-purple-300">LLM: gpt-4o-mini</span>
+<span class="text-gray-500 text-xs ml-auto">0.9s | 312 tokens</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Input: [history + tool result]</span>
+</div>
+<div class="flex items-center gap-2 pl-12">
+<span class="text-gray-500">•</span>
+<span class="text-gray-400 text-xs">Output: "The weather in São Paulo is 28°C..."</span>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-4 mb-5">
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
+<h3 class="font-bold text-gray-200 mb-3">What to inspect first</h3>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Status:</strong>Success, Error or Timeout?</span></li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Total latency:</strong>where is the bottleneck?</span></li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Number of iterations:</strong>Excessive loops?</span></li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">→</span><span><strong class="text-gray-300">Cost:</strong>within the expected budget?</span></li>
+</ul>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
+<h3 class="font-bold text-gray-200 mb-3">Adding metadata to the trace</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langsmith import traceable
 
 @traceable(
     run_type="chain",
@@ -327,78 +313,59 @@ result = executor.invoke({"input": "Qual é a capital do Brasil?"})
         "feature_flag": "gpt4o"
     }
 )
-def classify_email(text: str) -> str:
+def classify_email(text: str) -&gt; str:
     return agent.run(text)</pre>
-        </div>
-      </div>
-
-      <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
-        <h3 class="font-bold text-gray-200 mb-2">Usando o decorador @traceable para funções customizadas</h3>
-        <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langsmith import traceable
+</div>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-4">
+<h3 class="font-bold text-gray-200 mb-2">Using the @traceable decorator for custom functions</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langsmith import traceable
 from langchain_openai import ChatOpenAI
 
 @traceable  # Aparece como nó separado na árvore do trace
-def my_preprocessing(text: str) -> str:
+def my_preprocessing(text: str) -&gt; str:
     """Limpeza e normalização do input."""
     text = text.strip().lower()
     return text[:2000]  # Trunca textos muito longos
 
 @traceable
-def my_postprocessing(response: str) -> dict:
+def my_postprocessing(response: str) -&gt; dict:
     """Estrutura a resposta final."""
     return {"answer": response, "confidence": 0.9}
 
 # Estas funções agora aparecem na hierarquia do trace LangSmith</pre>
-      </div>
-    </section>
-
-    <!-- SECTION 4 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">4</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Identificando a chamada de LLM problemática</h2>
-          <p class="text-gray-400 mt-1">Técnicas para isolar qual etapa causou falha, resposta incorreta ou custo elevado.</p>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
-          <h3 class="font-semibold text-blue-300 mb-2">Sintoma 1: Resposta incorreta</h3>
-          <p class="text-xs text-gray-400 mb-2">Inspecione o prompt enviado ao LLM. O contexto estava correto? A instrução era clara?</p>
-          <div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">
-            → Clique no nó LLM<br/>
-            → Tab "Input"<br/>
-            → Veja o System Message<br/>
-            → Veja o contexto injetado
-          </div>
-        </div>
-        <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
-          <h3 class="font-semibold text-blue-300 mb-2">Sintoma 2: Custo alto</h3>
-          <p class="text-xs text-gray-400 mb-2">Qual chamada consumiu mais tokens? Contexto desnecessariamente longo?</p>
-          <div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">
-            → Ordene nós por tokens<br/>
-            → Identifique o maior<br/>
-            → Verifique se todos os<br/>
-              mensagens são necessárias
-          </div>
-        </div>
-        <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
-          <h3 class="font-semibold text-blue-300 mb-2">Sintoma 3: Timeout</h3>
-          <p class="text-xs text-gray-400 mb-2">Qual nó demorou mais? Tool externa lenta? LLM sobrecarregado?</p>
-          <div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">
-            → Veja latência por nó<br/>
-            → Identifique gargalo<br/>
-            → Tool ou LLM?<br/>
-            → Adicione timeout local
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5 mb-5">
-        <h3 class="font-bold text-gray-200 mb-3">Replay e comparação de traces</h3>
-        <p class="text-sm text-gray-400 mb-3">Um dos superpoderes do LangSmith é comparar dois traces lado a lado para ver exatamente o que mudou entre versões de prompt:</p>
-        <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langsmith import Client
+</div>
+</section>
+SECTION 4
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">4</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Identifying the problematic LLM call</h2>
+<p class="text-gray-400 mt-1">Techniques to isolate which step caused failure, incorrect response or high cost.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
+<h3 class="font-semibold text-blue-300 mb-2">Symptom 1: Incorrect response</h3>
+<p class="text-xs text-gray-400 mb-2">Inspect the prompt sent to LLM. Was the context correct? Was the instruction clear?</p>
+<div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">→ Click on the LLM node<br/>→ Tab "Input"<br/>→ See the System Message<br/>→ See the injected context</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
+<h3 class="font-semibold text-blue-300 mb-2">Symptom 2: High cost</h3>
+<p class="text-xs text-gray-400 mb-2">Which call consumed the most tokens? Unnecessarily long context?</p>
+<div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">→ Sort nodes by tokens<br/>→ Identify the largest<br/>→ Check that all<br/>messages are necessary</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
+<h3 class="font-semibold text-blue-300 mb-2">Symptom 3: Timeout</h3>
+<p class="text-xs text-gray-400 mb-2">Which node took the longest? Slow external tool? Overloaded LLM?</p>
+<div class="text-xs font-mono bg-dark-900/50 rounded p-2 text-gray-300">→ See latency per node<br/>→ Identify bottleneck<br/>→ Tool or LLM?<br/>→ Add local timeout</div>
+</div>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5 mb-5">
+<h3 class="font-bold text-gray-200 mb-3">Trace replay and comparison</h3>
+<p class="text-sm text-gray-400 mb-3">One of LangSmith's superpowers is comparing two traces side by side to see exactly what changed between prompt versions:</p>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langsmith import Client
 
 client = Client()
 
@@ -420,98 +387,94 @@ for run in runs:
 run = client.read_run("run-id-aqui")
 print(run.inputs)   # Input exato
 print(run.outputs)  # Output retornado</pre>
-      </div>
-
-      <div class="bg-primary/10 border border-primary/30 rounded-xl p-4">
-        <div class="flex items-start gap-3">
-          <span class="text-primary text-lg">💡</span>
-          <div>
-            <p class="font-semibold text-primary text-sm mb-1">Adicione feedback humano ao trace</p>
-            <p class="text-gray-400 text-sm">Com <code class="text-blue-300 bg-dark-900/50 px-1 rounded">client.create_feedback(run_id, "quality", score=1)</code> você pode associar avaliações humanas (thumbs up/down) a traces específicos e criar datasets para fine-tuning ou avaliação automática.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">5</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Métricas de qualidade para agentes</h2>
-          <p class="text-gray-400 mt-1">Latência, custo e success rate: as três métricas que todo agente em produção precisa monitorar.</p>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-gray-200">Latência</h3>
-            <span class="text-2xl">⏱️</span>
-          </div>
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-gray-400">P50 (mediana)</span>
-              <span class="text-green-400">&lt; 5s</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">P95</span>
-              <span class="text-yellow-400">&lt; 15s</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">P99</span>
-              <span class="text-red-400">&lt; 30s</span>
-            </div>
-          </div>
-          <p class="text-xs text-gray-500 mt-3">Monitore percentis, não só médias. Uma média de 5s pode esconder P99 de 60s.</p>
-        </div>
-        <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-gray-200">Custo</h3>
-            <span class="text-2xl">💰</span>
-          </div>
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-gray-400">Por tarefa</span>
-              <span class="text-green-400">&lt; $0.05</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Por usuário/dia</span>
-              <span class="text-yellow-400">&lt; $0.50</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Alerta de anomalia</span>
-              <span class="text-red-400">3× média</span>
-            </div>
-          </div>
-          <p class="text-xs text-gray-500 mt-3">Defina alertas para tarefas que custam 3× acima da média — indica loop ou prompt infinito.</p>
-        </div>
-        <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-bold text-gray-200">Success Rate</h3>
-            <span class="text-2xl">✅</span>
-          </div>
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-gray-400">Excelente</span>
-              <span class="text-green-400">&gt; 95%</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Aceitável</span>
-              <span class="text-yellow-400">85–95%</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-gray-400">Revisar agente</span>
-              <span class="text-red-400">&lt; 85%</span>
-            </div>
-          </div>
-          <p class="text-xs text-gray-500 mt-3">Inclua falhas silenciosas: respostas fora do formato esperado também são falhas.</p>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
-        <h3 class="font-bold text-blue-300 mb-3">Dashboard de métricas com LangSmith SDK</h3>
-        <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langsmith import Client
+</div>
+<div class="bg-primary/10 border border-primary/30 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-primary text-lg">💡</span>
+<div>
+<p class="font-semibold text-primary text-sm mb-1">Add human feedback to the trace</p>
+<p class="text-gray-400 text-sm">With<code class="text-blue-300 bg-dark-900/50 px-1 rounded" data-notranslate="True">client.create_feedback(run_id, "quality", score=1)</code>you can associate human evaluations (thumbs up/down) with specific traces and create datasets for fine-tuning or automatic evaluation.</p>
+</div>
+</div>
+</div>
+</section>
+SECTION 5
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">5</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Quality metrics for agents</h2>
+<p class="text-gray-400 mt-1">Latency, cost and success rate: the three metrics that every agent in production needs to monitor.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-gray-200">Latency</h3>
+<span class="text-2xl">⏱️</span>
+</div>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-gray-400">P50 (median)</span>
+<span class="text-green-400">&lt; 5s</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">P95</span>
+<span class="text-yellow-400">&lt; 15s</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">P99</span>
+<span class="text-red-400">&lt; 30s</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-3">Monitor percentiles, not just averages. An average of 5s can hide P99 of 60s.</p>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-gray-200">Cost</h3>
+<span class="text-2xl">💰</span>
+</div>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-gray-400">By task</span>
+<span class="text-green-400">&lt; $0.05</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">Per user/day</span>
+<span class="text-yellow-400">&lt; $0.50</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">Anomaly alert</span>
+<span class="text-red-400">3× average</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-3">Set alerts for tasks that cost 3× above average — indicates infinite loop or prompt.</p>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-gray-200">Success Rate</h3>
+<span class="text-2xl">✅</span>
+</div>
+<div class="space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-gray-400">Excellent</span>
+<span class="text-green-400">&gt; 95%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">Acceptable</span>
+<span class="text-yellow-400">85–95%</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">Review agent</span>
+<span class="text-red-400">&lt; 85%</span>
+</div>
+</div>
+<p class="text-xs text-gray-500 mt-3">Include silent failures: Responses outside the expected format are also failures.</p>
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
+<h3 class="font-bold text-blue-300 mb-3">Metrics Dashboard with LangSmith SDK</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langsmith import Client
 from datetime import datetime, timedelta
 import statistics
 
@@ -537,11 +500,10 @@ print(f"Latência mediana: {statistics.median(latencias):.1f}s")
 print(f"Latência P95: {sorted(latencias)[int(len(latencias)*0.95)]:.1f}s")
 print(f"Custo médio: ${statistics.mean(custos):.4f}")
 print(f"Custo total: ${sum(custos):.2f}")</pre>
-      </div>
-
-      <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-        <h3 class="font-bold text-gray-200 mb-3">Avaliação automática com LangSmith Evaluators</h3>
-        <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">from langsmith.evaluation import evaluate, LangChainStringEvaluator
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<h3 class="font-bold text-gray-200 mb-3">Automatic evaluation with LangSmith Evaluators</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">from langsmith.evaluation import evaluate, LangChainStringEvaluator
 
 # Cria um evaluator baseado em LLM
 qa_evaluator = LangChainStringEvaluator(
@@ -558,23 +520,21 @@ results = evaluate(
 )
 
 print(results.to_pandas()[["input", "output", "score"]].head())</pre>
-      </div>
-    </section>
-
-    <!-- SECTION 6 -->
-    <section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">6</div>
-        <div>
-          <h2 class="text-2xl font-bold text-gray-100">Logging estruturado para produção</h2>
-          <p class="text-gray-400 mt-1">Registre cada tool call com input, output e custo — e combine com métricas de negócio.</p>
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-4 mb-6">
-        <div>
-          <p class="text-xs text-red-400 font-semibold uppercase mb-2">Logging não estruturado (evitar)</p>
-          <pre class="bg-dark-900/60 border border-red-900/30 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">print("Iniciando agente...")
+</div>
+</section>
+SECTION 6
+<section class="bg-dark-800 border border-gray-800 rounded-2xl p-8">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-black text-xl flex-shrink-0">6</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-100">Structured logging for production</h2>
+<p class="text-gray-400 mt-1">Record each tool call with input, output and cost — and combine with business metrics.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div>
+<p class="text-xs text-red-400 font-semibold uppercase mb-2">Unstructured logging (avoid)</p>
+<pre class="bg-dark-900/60 border border-red-900/30 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">print("Iniciando agente...")
 print("Chamando search tool")
 print(f"Resultado: {result}")
 print("Agente terminou")
@@ -584,10 +544,10 @@ print("Agente terminou")
 # - Sem timestamp preciso
 # - Sem custo ou tokens
 # - Impossível agregar em dashboards</pre>
-        </div>
-        <div>
-          <p class="text-xs text-green-400 font-semibold uppercase mb-2">Logging estruturado (fazer)</p>
-          <pre class="bg-dark-900/60 border border-green-900/30 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">import structlog, time
+</div>
+<div>
+<p class="text-xs text-green-400 font-semibold uppercase mb-2">Structured logging (do)</p>
+<pre class="bg-dark-900/60 border border-green-900/30 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">import structlog, time
 
 logger = structlog.get_logger()
 
@@ -602,12 +562,11 @@ logger.info("tool_call",
     session_id="sess_456",
     trace_id=run_id
 )</pre>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
-        <h3 class="font-bold text-blue-300 mb-3">Callback handler completo para produção</h3>
-        <pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto">import time, structlog
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-5 mb-5">
+<h3 class="font-bold text-blue-300 mb-3">Complete callback handler for production</h3>
+<pre class="bg-dark-900/60 rounded-lg p-3 text-xs font-mono text-gray-300 overflow-x-auto" data-notranslate="True">import time, structlog
 from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.outputs import LLMResult
 
@@ -670,120 +629,110 @@ result = executor.invoke(
     {"input": "Analise este contrato"},
     config={"callbacks": [handler]}
 )</pre>
-      </div>
-
-      <!-- Fazer vs Evitar -->
-      <div class="grid md:grid-cols-2 gap-4 mb-5">
-        <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-4">
-          <h3 class="text-emerald-400 font-bold mb-3 flex items-center gap-2"><span>✓</span> Boas práticas de logging</h3>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Logue input e output truncados (máx. 300 chars)</li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Sempre inclua user_id, session_id e trace_id</li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Registre duração em milissegundos</li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Use formato JSON estruturado (structlog, loguru)</li>
-            <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Capture erros com stack trace completo</li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
-          <h3 class="text-red-400 font-bold mb-3 flex items-center gap-2"><span>✗</span> Anti-padrões de logging</h3>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Logar o conteúdo completo de cada mensagem</li>
-            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Ignorar erros de tools (só logar sucesso)</li>
-            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Logar dados pessoais sensíveis (PII)</li>
-            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Usar print() sem contexto de sessão</li>
-            <li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Logar de forma síncrona em hot path</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
-        <h3 class="font-bold text-gray-200 mb-3">Stack de observabilidade recomendada</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="text-center p-4 bg-dark-900/40 rounded-xl">
-            <p class="text-3xl mb-2">🔬</p>
-            <p class="font-semibold text-blue-300">LangSmith</p>
-            <p class="text-xs text-gray-400 mt-1">Traces detalhados, comparação de experimentos, datasets de avaliação</p>
-          </div>
-          <div class="text-center p-4 bg-dark-900/40 rounded-xl">
-            <p class="text-3xl mb-2">📊</p>
-            <p class="font-semibold text-blue-300">Grafana + Loki</p>
-            <p class="text-xs text-gray-400 mt-1">Dashboards de métricas de negócio, alertas de anomalia, logs de produção</p>
-          </div>
-          <div class="text-center p-4 bg-dark-900/40 rounded-xl">
-            <p class="text-3xl mb-2">🚨</p>
-            <p class="font-semibold text-blue-300">Sentry / Datadog</p>
-            <p class="text-xs text-gray-400 mt-1">Alertas de erros em tempo real, APM, correlação com traces do LangSmith</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SUMMARY -->
-    <section class="bg-gradient-to-br from-blue-900/30 to-dark-800 border border-blue-500/30 rounded-2xl p-8">
-      <h2 class="text-2xl font-bold text-gray-100 mb-2">Resumo do Módulo 2.8</h2>
-      <p class="text-gray-400 mb-6">Você concluiu o último módulo da Trilha 2. Agora sabe como tornar seus agentes observáveis, mensuráveis e depuráveis em produção.</p>
-
-      <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <h3 class="font-bold text-blue-300 mb-3">O que você aprendeu</h3>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Por que agentes são difíceis de debugar (não-determinismo, loops, dependência de LLM)</li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Como configurar o LangSmith em menos de 3 minutos</li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Como ler e interpretar uma trace hierárquica completa</li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Como identificar a chamada problemática usando filtros e metadata</li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Métricas de qualidade: latência (P50/P95/P99), custo e success rate</li>
-            <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Logging estruturado com callback handler para produção</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-bold text-blue-300 mb-3">Checklist de conclusão</h3>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Criou conta no LangSmith e configurou variáveis</li>
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Executou um agente e visualizou o trace</li>
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Identificou o custo de uma run completa</li>
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Implementou o ProductionCallbackHandler</li>
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Definiu alertas de latência e custo</li>
-            <li class="flex items-center gap-2"><input type="checkbox" class="accent-blue-500" /> Calculou o success rate do seu agente</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Navigation -->
-      <div class="border-t border-blue-500/20 pt-6">
-        <div class="flex flex-col sm:flex-row justify-between gap-4">
-          <a href="modulo-2-7.html" class="flex items-center justify-start gap-3 px-5 py-3 bg-dark-700 hover:bg-dark-600 border border-gray-700 rounded-xl transition-colors group">
-            <svg class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            <div>
-              <div class="text-xs text-gray-500">Anterior</div>
-              <div class="text-sm font-semibold text-gray-200 group-hover:text-blue-300 transition-colors">2.7 Primeiro Agente Real</div>
-            </div>
-          </a>
-          <a href="../trilha3/index.html" class="flex items-center justify-start gap-3 px-5 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition-colors group">
-            <div class="flex-1">
-              <div class="text-xs text-blue-200">Próxima Trilha</div>
-              <div class="text-sm font-semibold text-white">Trilha 3 — Agentes Multi-Etapa</div>
-            </div>
-            <svg class="w-5 h-5 text-blue-200 group-hover:text-white transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-800 mt-8">
-    <div class="max-w-4xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-gray-500">
-        <span class="font-black text-primary">AEM</span> · Agentic Engineering Masterclass · Trilha 2 — Construção de Agentes
-      </div>
-      <div class="text-sm text-gray-500">
-        Uma iniciativa <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 transition-colors font-semibold">INEMA.CLUB</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
+</div>
+Do vs Avoid
+<div class="grid md:grid-cols-2 gap-4 mb-5">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-4">
+<h3 class="text-emerald-400 font-bold mb-3 flex items-center gap-2"><span>✓</span>Good logging practices</h3>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Log input and output truncated (max. 300 chars)</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Always include user_id, session_id and trace_id</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Record duration in milliseconds</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Use structured JSON format (structlog, loguru)</li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span>Capture errors with full stack trace</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-4">
+<h3 class="text-red-400 font-bold mb-3 flex items-center gap-2"><span>✗</span>Logging anti-patterns</h3>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Log the full content of each message</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Ignore tool errors (only log in successfully)</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Log sensitive personal data (PII)</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Use print() without session context</li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span>Log in synchronously to hot path</li>
+</ul>
+</div>
+</div>
+<div class="bg-dark-700/50 border border-gray-700 rounded-xl p-5">
+<h3 class="font-bold text-gray-200 mb-3">Recommended Observability Stack</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="text-center p-4 bg-dark-900/40 rounded-xl">
+<p class="text-3xl mb-2">🔬</p>
+<p class="font-semibold text-blue-300">LangSmith</p>
+<p class="text-xs text-gray-400 mt-1">Detailed traces, experiment comparison, evaluation datasets</p>
+</div>
+<div class="text-center p-4 bg-dark-900/40 rounded-xl">
+<p class="text-3xl mb-2">📊</p>
+<p class="font-semibold text-blue-300">Grafana + Loki</p>
+<p class="text-xs text-gray-400 mt-1">Business metrics dashboards, anomaly alerts, production logs</p>
+</div>
+<div class="text-center p-4 bg-dark-900/40 rounded-xl">
+<p class="text-3xl mb-2">🚨</p>
+<p class="font-semibold text-blue-300">Sentry/Datadog</p>
+<p class="text-xs text-gray-400 mt-1">Real-time error alerts, APM, correlation with LangSmith traces</p>
+</div>
+</div>
+</div>
+</section>
+SUMMARY
+<section class="bg-gradient-to-br from-blue-900/30 to-dark-800 border border-blue-500/30 rounded-2xl p-8">
+<h2 class="text-2xl font-bold text-gray-100 mb-2">Module Summary 2.8</h2>
+<p class="text-gray-400 mb-6">You've completed the last module of Track 2. Now you know how to make your agents observable, measurable, and debuggable in production.</p>
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+<div>
+<h3 class="font-bold text-blue-300 mb-3">What did you learn</h3>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Why agents are difficult to debug (non-determinism, loops, LLM dependency)</li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>How to Set Up LangSmith in Under 3 Minutes</li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>How to read and interpret a complete hierarchical trace</li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>How to identify the problematic call using filters and metadata</li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Quality metrics: latency (P50/P95/P99), cost and success rate</li>
+<li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">◆</span>Structured logging with callback handler for production</li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-blue-300 mb-3">Completion checklist</h3>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Created an account on LangSmith and configured variables</li>
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Ran an agent and viewed the trace</li>
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Identified the cost of a complete run</li>
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Implemented the ProductionCallbackHandler</li>
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Defined latency and cost alerts</li>
+<li class="flex items-center gap-2"><input class="accent-blue-500" type="checkbox"/>Calculated your agent’s success rate</li>
+</ul>
+</div>
+</div>
+Navigation
+<div class="border-t border-blue-500/20 pt-6">
+<div class="flex flex-col sm:flex-row justify-between gap-4">
+<a class="flex items-center justify-start gap-3 px-5 py-3 bg-dark-700 hover:bg-dark-600 border border-gray-700 rounded-xl transition-colors group" href="modulo-2-7.html">
+<svg class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<div class="text-xs text-gray-500">Previous</div>
+<div class="text-sm font-semibold text-gray-200 group-hover:text-blue-300 transition-colors">2.7 First Real Agent</div>
+</div>
+</a>
+<a class="flex items-center justify-start gap-3 px-5 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition-colors group" href="../trilha3/index.html">
+<div class="flex-1">
+<div class="text-xs text-blue-200">Next Trail</div>
+<div class="text-sm font-semibold text-white">Track 3 — Multi-Step Agents</div>
+</div>
+<svg class="w-5 h-5 text-blue-200 group-hover:text-white transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</section>
+</main>
+FOOTER
+<footer class="border-t border-gray-800 mt-8">
+<div class="max-w-4xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-sm text-gray-500">
+<span class="font-black text-primary">AEM</span>· Agentic Engineering Masterclass · Track 2 — Agent Construction</div>
+<div class="text-sm text-gray-500">An initiative<a class="text-sky-400 hover:text-sky-300 transition-colors font-semibold" href="https://duclub" target="_blank">duclub</a>
+</div>
+</div>
+</footer>
+<script data-notranslate="True">
     function toggleTheme() {
       const html = document.documentElement;
       const isDark = html.classList.contains('dark');
