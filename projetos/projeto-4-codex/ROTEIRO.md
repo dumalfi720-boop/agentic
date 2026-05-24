@@ -1,13 +1,11 @@
-# ROTEIRO — Dominando o OpenAI Codex CLI
+# ROADMAP — Mastering the OpenAI Codex CLI
 
-> Roteiro passo a passo para sair do zero ate usar o Codex CLI em pipelines de producao.
-> Tempo total estimado: **~6 horas**
+> Step-by-step roadmap to go from scratch to using Codex CLI in production pipelines.
+> Estimated total time: **~6 hours**
 
 ---
 
-## Visao geral do roteiro
-
-```
+## Overview of the itinerary```
 Passo 1: Instalar (10 min)
     ↓
 Passo 2: Obter API key (5 min)
@@ -23,73 +21,52 @@ Passo 6: Modo auto-edit (30 min)
 Passo 7: Integrar com GitHub Actions (1h)
     ↓
 Passo 8: Pipeline de desenvolvimento autonomo (3h)
-```
+```---
 
----
+## Step 1 — Install Node.js and Codex CLI
 
-## Passo 1 — Instalar Node.js e Codex CLI
+**Estimated time:** 10 minutes
 
-**Tempo estimado:** 10 minutos
-
-### 1.1 Verificar se o Node.js esta instalado
-
-```bash
+### 1.1 Check if Node.js is installed```bash
 node --version
-```
+```If it appears`v18.0.0`or higher, skip to item 1.3.
 
-Se aparecer `v18.0.0` ou superior, pule para o item 1.3.
+### 1.2 Install Node.js (if necessary)
 
-### 1.2 Instalar o Node.js (caso necessario)
-
-**Linux (Ubuntu/Debian):**
-```bash
+**Linux (Ubuntu/Debian):**```bash
 # Usando o gerenciador de versoes nvm (recomendado)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.bashrc
 nvm install 20
 nvm use 20
-```
-
-**macOS:**
-```bash
+```**macOS:**```bash
 # Com Homebrew
 brew install node@20
-```
+```**Windows:**
+Go to [nodejs.org](https://nodejs.org) and download the LTS installer.
 
-**Windows:**
-Acesse [nodejs.org](https://nodejs.org) e baixe o instalador LTS.
-
-### 1.3 Instalar o Codex CLI
-
-```bash
+### 1.3 Install Codex CLI```bash
 npm install -g @openai/codex
-```
-
-### 1.4 Verificar a instalacao
-
-```bash
+```### 1.4 Verify the installation```bash
 codex --version
 # Deve exibir a versao instalada, ex: 0.1.x
-```
-
-**Checkpoint:** O comando `codex --version` deve funcionar sem erros.
+```**Checkpoint:** The command`codex --version`it should work without errors.
 
 ---
 
-## Passo 2 — Obter a API key da OpenAI e configurar
+## Step 2 — Obtain the OpenAI API key and configure
 
-**Tempo estimado:** 5 minutos
+**Estimated time:** 5 minutes
 
-### 2.1 Obter a chave
+### 2.1 Get the key
 
-1. Acesse [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-2. Clique em **"Create new secret key"**
-3. Copie a chave (começa com `sk-...`) — ela nao sera exibida novamente
+1. Access [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Click **"Create new secret key"**
+3. Copy the key (starts with`sk-...`) — it will not be displayed again
 
-### 2.2 Configurar no ambiente
+### 2.2 Configure in the environment
 
-**Opção recomendada — adicionar permanentemente ao shell:**
-```bash
+**Recommended option — permanently add to shell:**```bash
 # Para bash
 echo 'export OPENAI_API_KEY="sk-SUA_CHAVE_AQUI"' >> ~/.bashrc
 source ~/.bashrc
@@ -97,55 +74,37 @@ source ~/.bashrc
 # Para zsh
 echo 'export OPENAI_API_KEY="sk-SUA_CHAVE_AQUI"' >> ~/.zshrc
 source ~/.zshrc
-```
-
-**Opcao alternativa — arquivo .env no projeto:**
-```bash
+```**Alternative option — .env file in project:**```bash
 cp .env.example .env
 # Edite o arquivo .env e adicione sua chave
-```
-
-### 2.3 Verificar a configuracao
-
-```bash
+```### 2.3 Check the configuration```bash
 echo $OPENAI_API_KEY
 # Deve exibir sua chave (ou parte dela)
-```
-
-### 2.4 Testar a conexao
-
-```bash
+```### 2.4 Test the connection```bash
 codex "diga 'funcionou' em uma palavra"
 # O agente deve responder brevemente
-```
-
-**Checkpoint:** O Codex deve responder sem erros de autenticacao.
+```**Checkpoint:** Codex must respond without authentication errors.
 
 ---
 
-## Passo 3 — Criar seu AGENTS.md
+## Step 3 — Create your AGENTS.md
 
-**Tempo estimado:** 30 minutos
+**Estimated time:** 30 minutes
 
-O `AGENTS.md` e o coração da sua configuracao agentica. E lido automaticamente pelo Codex no inicio de cada sessao, dando contexto sobre o projeto sem que voce precise repetir isso toda vez.
+O`AGENTS.md`It is the heart of its agentic configuration. It is automatically read by Codex at the beginning of each session, giving context about the project without you having to repeat it every time.
 
-### 3.1 Entender a estrutura do AGENTS.md
+### 3.1 Understand the structure of AGENTS.md
 
-Abra o template de referencia:
-```bash
+Open the reference template:```bash
 cat AGENTS.md
-```
+```The essential sections are:
+1. **Project Context** — what the project does, technology stack
+2. **Development Commands** — how to install, run, test
+3. **Code Conventions** — nomenclature, imports, error pattern
+4. **Rules of Behavior** — what the agent should NEVER do
+5. **Architecture** — folder structure, architectural patterns
 
-As secoes essenciais sao:
-1. **Contexto do Projeto** — o que o projeto faz, stack tecnologica
-2. **Comandos de Desenvolvimento** — como instalar, rodar, testar
-3. **Convencoes de Codigo** — nomenclatura, imports, padrao de erros
-4. **Regras de Comportamento** — o que o agente NUNCA deve fazer
-5. **Arquitetura** — estrutura de pastas, padroes arquiteturais
-
-### 3.2 Criar para o seu projeto
-
-```bash
+### 3.2 Create for your project```bash
 # No diretorio do SEU projeto (nao neste diretório)
 cd /caminho/do/seu/projeto
 
@@ -156,61 +115,49 @@ cp /home/nmaldaner/projetos/agentic/projetos/projeto-4-codex/AGENTS.md ./AGENTS.
 code AGENTS.md   # VS Code
 # ou
 nano AGENTS.md   # terminal
-```
+```### 3.3 What to customize
 
-### 3.3 O que personalizar
+Replace each section with actual information from your project:
 
-Substitua cada secao com informacoes reais do seu projeto:
+- [ ] Project name and description
+- [ ] Technological stack (language, framework, database)
+- [ ] Installation and execution commands
+- [ ] Test and lint commands
+- [ ] Your team naming conventions
+- [ ] List of critical files that the agent should not modify
+- [ ] Project folder structure
 
-- [ ] Nome e descricao do projeto
-- [ ] Stack tecnologica (linguagem, framework, banco de dados)
-- [ ] Comandos de instalacao e execucao
-- [ ] Comandos de teste e lint
-- [ ] Convencoes de nomenclatura da sua equipe
-- [ ] Lista de arquivos criticos que o agente nao deve modificar
-- [ ] Estrutura de pastas do projeto
+### 3.4 Tips for a good AGENTS.md
 
-### 3.4 Dicas para um bom AGENTS.md
+- **Be specific:** "Use camelCase for variables" is better than "follow good practices"
+- **List what not to do:** Explicit prohibitions prevent accidents
+- **Keep updated:** Each time you change the stack, update AGENTS.md
+- **Include code examples:** The agent learns from concrete examples
 
-- **Seja especifico:** "Use camelCase para variaveis" e melhor que "siga boas praticas"
-- **Liste o que nao fazer:** Proibicoes explicitas evitam acidentes
-- **Mantenha atualizado:** Cada vez que mudar a stack, atualize o AGENTS.md
-- **Inclua exemplos de codigo:** O agente aprende com exemplos concretos
-
-**Checkpoint:** Voce tem um `AGENTS.md` personalizado no diretorio do seu projeto.
+**Checkpoint:** You have a`AGENTS.md`customized in your project directory.
 
 ---
 
-## Passo 4 — Configurar .codex/config.toml com modo suggest
+## Step 4 — Configure .codex/config.toml with suggest mode
 
-**Tempo estimado:** 20 minutos
+**Estimated time:** 20 minutes
 
-O arquivo `.codex/config.toml` controla o comportamento padrao do Codex. Configurar com modo `suggest` garante que o agente nunca fara nada sem sua aprovacao — perfeito para comecar.
+The file`.codex/config.toml`controls the default behavior of the Codex. Configure with mode`suggest`guarantees that the agent will never do anything without your approval — perfect for starters.
 
-### 4.1 Criar a pasta e o arquivo
-
-```bash
+### 4.1 Create the folder and file```bash
 # No diretorio do SEU projeto
 mkdir -p .codex
 
 # Copiar a configuracao base
 cp /home/nmaldaner/projetos/agentic/projetos/projeto-4-codex/.codex/config.toml ./.codex/config.toml
-```
-
-### 4.2 Verificar a configuracao
-
-```bash
+```### 4.2 Check the configuration```bash
 cat .codex/config.toml
-```
+```Confirm that`approval_mode = "suggest"`is defined. This means:
+- The agent can read all project files
+- The agent shows what it would do, but does not execute anything
+- You see the suggestions and decide how to proceed
 
-Confirme que `approval_mode = "suggest"` esta definido. Isso significa:
-- O agente pode ler todos os arquivos do projeto
-- O agente mostra o que faria, mas nao executa nada
-- Voce ve as sugestoes e decide como proceder
-
-### 4.3 Opcoes de configuracao disponíveis
-
-```toml
+### 4.3 Available configuration options```toml
 # Modo de aprovacao (suggest | auto-edit | full-auto)
 approval_mode = "suggest"
 
@@ -225,135 +172,101 @@ timeout = 120
 
 # Nivel de log (debug | info | warn | error)
 log_level = "info"
-```
+```### 4.4 Why start with suggest
 
-### 4.4 Por que comecar com suggest
+In mode`suggest`:
+- Zero risk of accidental changes
+- You learn what the agent would do before trusting him
+- Great for exploring behavior in new projects
 
-No modo `suggest`:
-- Zero risco de mudancas acidentais
-- Voce aprende o que o agente faria antes de confiar nele
-- Otimo para explorar o comportamento em projetos novos
-
-**Checkpoint:** O arquivo `.codex/config.toml` existe com `approval_mode = "suggest"`.
+**Checkpoint:** The file`.codex/config.toml`exists with`approval_mode = "suggest"`.
 
 ---
 
-## Passo 5 — Primeira sessao interativa com o Codex
+## Step 5 — First interactive session with the Codex
 
-**Tempo estimado:** 30 minutos
+**Estimated time:** 30 minutes
 
-Chegou a hora de conversar com o agente de verdade.
+It's time to talk to the real agent.
 
-### 5.1 Iniciar o Codex no diretorio do projeto
-
-```bash
+### 5.1 Start Codex in the project directory```bash
 # No diretorio do seu projeto (que tem AGENTS.md)
 cd /caminho/do/seu/projeto
 codex
-```
+```The Codex goes:
+1. Read the`AGENTS.md`automatically
+2. Open the interactive prompt
+3. Wait for your instructions
 
-O Codex vai:
-1. Ler o `AGENTS.md` automaticamente
-2. Abrir o prompt interativo
-3. Aguardar suas instrucoes
+### 5.2 Exercises for the first session
 
-### 5.2 Exercicios para a primeira sessao
+Perform these exercises in order. They range from the simplest to the most complex:
 
-Execute estes exercicios na ordem. Eles vao do mais simples ao mais complexo:
-
-**Exercicio A — Explorar o projeto (5 min):**
-```
+**Exercise A — Explore the project (5 min):**```
 Voce: "Liste os arquivos mais importantes deste projeto e explique a funcao de cada um"
-```
-
-**Exercicio B — Entender o codigo (10 min):**
-```
+```**Exercise B — Understanding the code (10 min):**```
 Voce: "Explique como funciona o fluxo de autenticacao neste projeto"
-```
-
-**Exercicio C — Pedir uma sugestao de melhoria (10 min):**
-```
+```**Exercise C — Ask for a suggestion for improvement (10 min):**```
 Voce: "Quais melhorias de seguranca voce sugere para este projeto?"
-```
-
-**Exercicio D — Sugestao de codigo (5 min):**
-```
+```**Exercise D — Code suggestion (5 min):**```
 Voce: "Mostre como eu adicionaria um endpoint GET /api/users/:id/tasks que retorna as tarefas de um usuario especifico"
-```
+```### 5.3 What to observe during the session
 
-### 5.3 O que observar durante a sessao
+- The Codex will reference information from the`AGENTS.md`in the answers
+- In mode`suggest`, it shows code diffs but does not apply
+- You can ask follow-up questions in the same session
+- Use Ctrl+C to exit
 
-- O Codex vai referenciar informacoes do `AGENTS.md` nas respostas
-- No modo `suggest`, ele mostra code diffs mas nao aplica
-- Voce pode fazer perguntas de acompanhamento na mesma sessao
-- Use Ctrl+C para sair
+### 5.4 Go out and reflect
 
-### 5.4 Sair e refletir
+When finished, answer yourself:
+- Did the agent understand the project stack?
+- Did the suggestions make sense for the context?
+- What is missing from AGENTS.md?
 
-Ao terminar, responda para si mesmo:
-- O agente entendeu a stack do projeto?
-- As sugestoes faziam sentido para o contexto?
-- O que esta faltando no AGENTS.md?
-
-**Checkpoint:** Voce completou uma sessao interativa e tem ideias de como melhorar o AGENTS.md.
+**Checkpoint:** You have completed an interactive session and have ideas on how to improve AGENTS.md.
 
 ---
 
-## Passo 6 — Modo auto-edit: deixar o agente editar com aprovacao
+## Step 6 — Auto-edit mode: let the agent edit with approval
 
-**Tempo estimado:** 30 minutos
+**Estimated time:** 30 minutes
 
-Agora vamos dar mais autonomia ao agente, mas ainda com controle sobre execucao de comandos.
+Now we will give the agent more autonomy, but still with control over the execution of commands.
 
-### 6.1 Mudar para o modo auto-edit
+### 6.1 Switch to auto-edit mode
 
-Edite o `.codex/config.toml`:
+Edit the`.codex/config.toml`:
 ```toml
 approval_mode = "auto-edit"
-```
-
-Ou use o flag direto no comando:
-```bash
+```Or use the flag directly in the command:```bash
 codex --approval-mode auto-edit "sua instrucao aqui"
-```
+```### 6.2 What changes in auto-edit mode
 
-### 6.2 O que muda no modo auto-edit
+Allowed without approval:
+- Create new files
+- Edit existing files
+- Read any project file
 
-Permitido sem aprovacao:
-- Criar novos arquivos
-- Editar arquivos existentes
-- Ler qualquer arquivo do projeto
+Still requires approval:
+- Run commands in the terminal (`npm test`, `git commit`, etc.)
+- Install dependencies
+- Any network operation
 
-Ainda requer aprovacao:
-- Rodar comandos no terminal (`npm test`, `git commit`, etc.)
-- Instalar dependencias
-- Qualquer operacao de rede
+### 6.3 Exercises for auto-edit mode
 
-### 6.3 Exercicios para o modo auto-edit
-
-**Exercicio A — Criar um novo arquivo (10 min):**
-```bash
+**Exercise A — Create a new file (10 min):**```bash
 codex --approval-mode auto-edit "crie um arquivo src/utils/format-date.js com uma funcao formatDate que recebe uma data ISO e retorna no formato DD/MM/AAAA"
-```
+```Review the created file and verify that:
+- [ ] The file was created in the correct location
+- [ ] The code follows the project conventions (according to AGENTS.md)
+- [ ] The function does what was requested
 
-Revise o arquivo criado e verifique se:
-- [ ] O arquivo foi criado no local correto
-- [ ] O codigo segue as convencoes do projeto (conforme AGENTS.md)
-- [ ] A funcao faz o que foi pedido
-
-**Exercicio B — Refatorar codigo existente (20 min):**
-```bash
+**Exercise B — Refactor existing code (20 min):**```bash
 codex --approval-mode auto-edit "no arquivo [escolha um arquivo existente], refatore para melhorar a legibilidade sem mudar o comportamento"
-```
-
-Use `git diff` para ver exatamente o que mudou:
-```bash
+```Use`git diff`to see exactly what changed:```bash
 git diff
-```
-
-### 6.4 Fluxo de trabalho recomendado
-
-```bash
+```### 6.4 Recommended workflow```bash
 # 1. Criar branch antes de deixar o agente editar
 git checkout -b ai/refactor-user-module
 
@@ -369,53 +282,40 @@ npm test
 # 5. Se tudo OK, commitar
 git add .
 git commit -m "refactor: [descricao do que o agente fez]"
-```
-
-**Checkpoint:** Voce usou o modo auto-edit e revisou as mudancas com `git diff`.
+```**Checkpoint:** Did you use auto-edit mode and review the changes with`git diff`.
 
 ---
 
-## Passo 7 — Integrar com GitHub Actions (CI/CD headless)
+## Step 7 — Integrate with GitHub Actions (headless CI/CD)
 
-**Tempo estimado:** 1 hora
+**Estimated time:** 1 hour
 
-O Codex em modo headless (sem interacao humana) e perfeito para pipelines de CI/CD.
+Codex in headless mode (without human interaction) is perfect for CI/CD pipelines.
 
-### 7.1 Entender o modo headless
+### 7.1 Understanding headless mode
 
-No modo headless, o Codex:
-- Recebe a instrucao como argumento de linha de comando
-- Executa sem prompt interativo
-- Retorna o resultado no stdout
-- Retorna codigo de saida 0 (sucesso) ou 1 (falha)
-
-```bash
+In headless mode, the Codex:
+- Receives the instruction as a command line argument
+- Runs without interactive prompt
+- Returns the result on stdout
+- Returns exit code 0 (success) or 1 (failure)```bash
 # Exemplo de uso headless
 codex --approval-mode full-auto --quiet "rodar os testes e reportar falhas"
 echo "Codigo de saida: $?"
-```
-
-### 7.2 Copiar o workflow de exemplo
-
-```bash
+```### 7.2 Copy the example workflow```bash
 # No repositorio do seu projeto
 mkdir -p .github/workflows
 cp /home/nmaldaner/projetos/agentic/projetos/projeto-4-codex/exemplos/github-actions.yml .github/workflows/ai-review.yml
-```
+```### 7.3 Configure the API key secret
 
-### 7.3 Configurar o secret da API key
+On GitHub:
+1. Go to **Settings > Secrets and variables > Actions**
+2. Click on **"New repository secret"**
+3. Name:`OPENAI_API_KEY`4. Value: Your API Key
 
-No GitHub:
-1. Va em **Settings > Secrets and variables > Actions**
-2. Clique em **"New repository secret"**
-3. Nome: `OPENAI_API_KEY`
-4. Valor: sua chave de API
+### 7.4 Adapt the workflow to your project
 
-### 7.4 Adaptar o workflow ao seu projeto
-
-Abra `.github/workflows/ai-review.yml` e personalize:
-
-```yaml
+Abra`.github/workflows/ai-review.yml`and customize:```yaml
 # Altere a instrucao para o review do seu projeto
 run: |
   codex --approval-mode suggest \
@@ -424,11 +324,7 @@ run: |
     2. Problemas de seguranca
     3. Violacoes das convencoes do AGENTS.md
     4. Oportunidades de melhoria de performance"
-```
-
-### 7.5 Testar o workflow
-
-```bash
+```### 7.5 Test the workflow```bash
 # Criar um PR de teste
 git checkout -b test/codex-integration
 echo "// teste" >> src/index.js
@@ -436,40 +332,27 @@ git add .
 git commit -m "test: testar integracao com Codex"
 git push origin test/codex-integration
 # Abrir PR no GitHub e observar o workflow rodar
-```
+```### 7.6 Advanced uses of CI/CD
 
-### 7.6 Usos avancados de CI/CD
-
-**Review automatico de PR:**
-```yaml
+**Automatic PR review:**```yaml
 run: codex --approval-mode suggest "revise este PR para bugs e melhorias"
-```
-
-**Geracao automatica de changelog:**
-```yaml
+```**Automatic changelog generation:**```yaml
 run: codex --approval-mode auto-edit "gere um CHANGELOG.md baseado nos commits desde a ultima tag"
-```
-
-**Verificacao de cobertura de testes:**
-```yaml
+```**Test coverage check:**```yaml
 run: codex --approval-mode full-auto "identifique funcoes sem testes e crie testes unitarios basicos"
-```
-
-**Checkpoint:** Voce tem um workflow de GitHub Actions funcionando que usa o Codex.
+```**Checkpoint:** You have a working GitHub Actions workflow that uses Codex.
 
 ---
 
-## Passo 8 — Desafio final: pipeline de desenvolvimento autonomo
+## Step 8 — Final challenge: autonomous development pipeline
 
-**Tempo estimado:** 3 horas
+**Estimated time:** 3 hours
 
-Este e o passo final — e o mais avancado. Voce vai construir um pipeline onde o Codex executa um ciclo completo de desenvolvimento com minima intervencao humana.
+This is the final step — and the most advanced. You will build a pipeline where Codex runs a complete development cycle with minimal human intervention.
 
-### 8.1 O desafio
+### 8.1 The challenge
 
-Implemente uma feature completa usando o seguinte pipeline:
-
-```
+Implement a complete feature using the following pipeline:```
 Requisito em linguagem natural
     ↓ [Codex — modo suggest]
 Plano de implementacao aprovado
@@ -479,79 +362,55 @@ Codigo escrito e refatorado
 Testes gerados e executados
     ↓ [Review humano]
 PR criado e aprovado
-```
+```### 8.2 Feature to implement
 
-### 8.2 Feature para implementar
+Choose one of these features for your example project:
 
-Escolha uma dessas features para o seu projeto de exemplo:
-
-**Opcao A (facil):** Endpoint de busca com filtros
-```
+**Option A (easy):** Search endpoint with filters```
 "Implemente um endpoint GET /api/tasks/search que aceita
 os parametros: q (texto), status, priority, dueDate.
 Inclua validacao de input, paginacao e testes."
-```
-
-**Opcao B (media):** Sistema de notificacoes
-```
+```**Option B (medium):** Notification system```
 "Crie um sistema de notificacoes em tempo real usando
 Server-Sent Events (SSE) para notificar o usuario quando
 uma tarefa e atribuida a ele."
-```
-
-**Opcao C (avancada):** Cache inteligente
-```
+```**Option C (advanced):** Smart cache```
 "Implemente uma camada de cache Redis para os endpoints
 mais acessados. O cache deve ser invalidado automaticamente
 quando os dados relevantes sao modificados."
-```
+```### 8.3 Run the pipeline
 
-### 8.3 Executar o pipeline
-
-**Fase 1 — Planejamento (20 min):**
-```bash
+**Phase 1 — Planning (20 min):**```bash
 codex --approval-mode suggest "Quero implementar [FEATURE ESCOLHIDA].
 Crie um plano detalhado de implementacao com:
 - Arquivos a criar/modificar
 - Ordem de implementacao
 - Pontos de atencao e riscos
 - Estimativa de linhas de codigo"
-```
+```Review the plan and decide if you agree. Adjust if necessary.
 
-Revise o plano e decida se esta de acordo. Ajuste se necessario.
-
-**Fase 2 — Implementacao (1h):**
-```bash
+**Phase 2 — Implementation (1h):**```bash
 # Criar branch
 git checkout -b feature/[nome-da-feature]
 
 # Deixar o agente implementar
 codex --approval-mode auto-edit "Implemente [FEATURE] conforme o plano aprovado.
 Siga todas as convencoes do AGENTS.md."
-```
+```Review each change with`git diff`before continuing.
 
-Revise cada mudanca com `git diff` antes de continuar.
-
-**Fase 3 — Testes (40 min):**
-```bash
+**Phase 3 — Tests (40 min):**```bash
 codex --approval-mode full-auto "
 1. Rode os testes existentes e confirme que nao quebramos nada
 2. Gere testes unitarios para o codigo novo
 3. Gere testes de integracao para os endpoints novos
 4. Verifique se a cobertura atingiu 80%"
-```
-
-**Fase 4 — Documentacao (20 min):**
-```bash
+```**Phase 4 — Documentation (20 min):**```bash
 codex --approval-mode auto-edit "
 Atualize a documentacao:
 1. Adicione os novos endpoints ao Swagger (se existir)
 2. Atualize o README com as novas funcionalidades
 3. Adicione comentarios JSDoc nas funcoes publicas novas"
-```
-
-**Fase 5 — Review e PR (40 min):**
-```bash
+```**Phase 5 — Review and PR (40 min):**```bash
 # Revisar tudo
 git diff main
 
@@ -562,22 +421,18 @@ npm run lint
 # Criar PR
 git push origin feature/[nome-da-feature]
 # Abrir PR no GitHub com descricao do que foi implementado
-```
+```### 8.4 Post-challenge reflection
 
-### 8.4 Reflexao pos-desafio
+When finished, document your learnings:
 
-Ao terminar, documente suas aprendizagens:
+- Where was the agent most helpful?
+- Where did the agent make a mistake and need human correction?
+- Does AGENTS.md need updates?
+- What would be the next step to automate more?
 
-- Onde o agente foi mais util?
-- Onde o agente errou e precisou de correcao humana?
-- O AGENTS.md precisa de atualizacoes?
-- Qual seria o proximo passo para automatizar mais?
+### 8.5 Going further
 
-### 8.5 Indo alem
-
-Apos completar o desafio, experimente:
-
-```bash
+After completing the challenge, try:```bash
 # Multi-agente: um agente planeja, outro implementa
 codex "crie um plano detalhado para refatorar o modulo X" > plano.md
 codex --approval-mode auto-edit "implemente o plano em plano.md"
@@ -587,25 +442,23 @@ codex --approval-mode suggest "faca uma auditoria de seguranca completa e liste 
 
 # Atualizacao de dependencias segura
 codex --approval-mode full-auto "atualize as dependencias desatualizadas, rodando os testes apos cada atualizacao"
-```
+```---
+
+## Summary and next steps
+
+Congratulations! By completing this itinerary, you learned to:
+
+- [x] Install and configure Codex CLI
+- [x] Create an effective AGENTS.md to give context to the agent
+- [x] Use the 3 approval modes strategically
+- [x] Integrate Codex into CI/CD pipelines with GitHub Actions
+- [x] Execute a complete agentic development cycle
+
+**Recommended upcoming projects:**
+- Project 5: Multi-agent with CrewAI
+- Project 6: Agent with customized tools (MCP)
+- Project 7: Monitoring and observability of agents
 
 ---
 
-## Resumo e proximos passos
-
-Parabens! Ao completar este roteiro, voce aprendeu a:
-
-- [x] Instalar e configurar o Codex CLI
-- [x] Criar um AGENTS.md eficaz para dar contexto ao agente
-- [x] Usar os 3 modos de aprovacao de forma estrategica
-- [x] Integrar o Codex em pipelines de CI/CD com GitHub Actions
-- [x] Executar um ciclo completo de desenvolvimento agentico
-
-**Proximos projetos recomendados:**
-- Projeto 5: Multi-agente com CrewAI
-- Projeto 6: Agente com ferramentas customizadas (MCP)
-- Projeto 7: Monitoramento e observabilidade de agentes
-
----
-
-*Parte do curso de desenvolvimento agentico — Projeto 4 de 8*
+*Part of the agentic development course — Project 4 of 8*
