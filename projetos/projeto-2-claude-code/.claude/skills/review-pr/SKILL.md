@@ -1,22 +1,16 @@
 # Skill: review-pr
 
-## Descrição
+## Description
 
-A skill `review-pr` realiza um review estruturado e completo de um Pull Request do GitHub. Ao receber o número do PR, o Claude busca as mudanças, analisa a qualidade do código, verifica a cobertura de testes, confere as convenções do projeto e produz um comentário de review organizado e acionável — pronto para ser postado ou usado como referência.
+The skill`review-pr`performs a structured and complete review of a GitHub Pull Request. Upon receiving the PR number, Claude searches for changes, analyzes code quality, checks test coverage, checks project conventions, and produces an organized, actionable review comment — ready to be posted or used as a reference.
 
-Esta skill é ideal para garantir consistência nos reviews, acelerar o processo de code review e manter a qualidade do código em equipe.
+This skill is ideal for ensuring consistency in reviews, speeding up the code review process and maintaining code quality as a team.
 
 ---
 
-## Como Usar
-
-```
+## How to Use```
 /review-pr <numero-do-pr>
-```
-
-### Exemplos
-
-```bash
+```### Examples```bash
 # Fazer review do PR #78
 /review-pr 78
 
@@ -25,115 +19,85 @@ Esta skill é ideal para garantir consistência nos reviews, acelerar o processo
 
 # Fazer review do PR #200 antes de aprovar
 /review-pr 200
-```
+```---
 
----
+## Execution Steps
 
-## Passos de Execução
+Claude will **obligatorily** follow this sequence when executing the skill:
 
-O Claude seguirá **obrigatoriamente** esta sequência ao executar a skill:
+### Step 1 — Search for PR information
 
-### Passo 1 — Buscar informações do PR
-
-Coletar todos os metadados relevantes do Pull Request:
-
-```bash
+Collect all relevant Pull Request metadata:```bash
 gh pr view <numero> --json title,body,author,baseRefName,headRefName,additions,deletions,changedFiles,reviews,comments,labels,isDraft,mergeable
-```
+```Analyze:
+- Title and description: does the PR clearly explain what it does and why?
+- Author and context
+- Origin and destination branch
+- Size: number of files and lines changed
+- Status: draft, mergeable, or blocked by checks
+- Existing labels and reviews
 
-Analisar:
-- Título e descrição: o PR explica claramente o que faz e por quê?
-- Autor e contexto
-- Branch de origem e destino
-- Tamanho: número de arquivos e linhas alteradas
-- Status: draft, mergeable, ou bloqueado por checks
-- Labels e reviews já existentes
+If the PR is as draft (`isDraft: true`), inform the user before continuing — draft PRs are generally not ready for review.
 
-Se o PR estiver como draft (`isDraft: true`), informar ao usuário antes de continuar — PRs draft geralmente não estão prontos para review.
+### Step 2 — Get the changes in detail
 
-### Passo 2 — Obter as mudanças em detalhes
-
-Buscar o diff completo do PR:
-
-```bash
+Fetch the full PR diff:```bash
 gh pr diff <numero>
-```
+```Analyze line by line:
+- Which files were added, modified or removed
+- If the changes are cohesive (a PR must do just one thing)
+- If there is commented code or forgotten debugs (console.log, print, pdb, etc.)
+- Whether there are hardcoded secrets, URLs or environment settings
 
-Analisar linha a linha:
-- Quais arquivos foram adicionados, modificados ou removidos
-- Se as mudanças são coesas (um PR deve fazer uma coisa só)
-- Se há código comentado ou debugs esquecidos (console.log, print, pdb, etc.)
-- Se há hardcoded secrets, URLs ou configurações de ambiente
+Tools used in this step:`Bash`### Step 3 — Analyze the modified files
 
-Ferramentas usadas neste passo: `Bash`
+For each relevant file modified, read the full context (not just the diff):
 
-### Passo 3 — Analisar os arquivos modificados
+Tools used in this step:`Read`, `Glob`, `Grep`For each file analyzed, check:
 
-Para cada arquivo relevante modificado, ler o contexto completo (não apenas o diff):
+**Code quality:**
+- Is the code readable and self-explanatory?
+- Are there very long functions or methods that should be broken?
+- Is there code duplication that could be extracted?
+- Is error handling adequate?
+- Are there untreated edge cases?
 
-Ferramentas usadas neste passo: `Read`, `Glob`, `Grep`
+**Project conventions (according to CLAUDE.md):**
+- Is the naming of variables, functions and classes correct?
+- Type hints present where mandatory?
+- Docstrings following the standard format?
+- Imports organized in the correct order?
+- Code style consistent with the rest of the project?
 
-Para cada arquivo analisado, verificar:
+**Security:**
+- Are user inputs being validated?
+- Are there operations that should have authorization verification?
+- Sensitive data being logged or exposed?
 
-**Qualidade do código:**
-- O código é legível e autoexplicativo?
-- Há funções ou métodos muito longos que deveriam ser quebrados?
-- Há duplicação de código que poderia ser extraída?
-- O tratamento de erros é adequado?
-- Há edge cases não tratados?
+### Step 4 — Check test coverage
 
-**Convenções do projeto (conforme CLAUDE.md):**
-- Nomenclatura de variáveis, funções e classes está correta?
-- Type hints presentes onde obrigatório?
-- Docstrings seguindo o formato padrão?
-- Imports organizados na ordem correta?
-- Estilo de código consistente com o restante do projeto?
-
-**Segurança:**
-- Inputs de usuário estão sendo validados?
-- Há operações que deveriam ter verificação de autorização?
-- Dados sensíveis sendo logados ou expostos?
-
-### Passo 4 — Verificar cobertura de testes
-
-Identificar se os arquivos modificados têm testes correspondentes:
-
-```bash
+Identify whether modified files have matching tests:```bash
 # Listar arquivos de teste existentes
 gh pr diff <numero> --name-only
-```
-
-Ferramentas usadas neste passo: `Glob`, `Grep`, `Read`
-
-Para cada arquivo de código modificado:
-- Verificar se existe um arquivo de teste correspondente
-- Ler os testes existentes: cobrem os casos do PR?
-- O PR adicionou novos testes para as novas funcionalidades?
-- Há testes para os edge cases identificados?
-
-```bash
+```Tools used in this step:`Glob`, `Grep`, `Read`For each modified code file:
+- Check if a corresponding test file exists
+- Read existing tests: do they cover PR cases?
+- Has the PR added new tests for new features?
+- Are there tests for the identified edge cases?```bash
 # Verificar se os testes passam localmente (se possível)
 pytest tests/ -v --tb=short 2>&1 | tail -20
-```
+```### Step 5 — Check PR checks
 
-### Passo 5 — Verificar checks do PR
-
-Ver o status dos checks automatizados:
-
-```bash
+View the status of automated checks:```bash
 gh pr checks <numero>
-```
+```Identify:
+- Which checks are failing
+- Which checks are passing
+- Are there lint, type or security checks failing?
 
-Identificar:
-- Quais checks estão falhando
-- Quais checks estão passando
-- Há checks de lint, tipo ou segurança falhando?
+### Step 6 — Produce the structured review
 
-### Passo 6 — Produzir o review estruturado
-
-Gerar um comentário de review completo, organizado nas seguintes seções:
-
-```
+Generate a complete review comment, organized into the following sections:```
 ## Review do PR #<numero>: <titulo>
 
 ### Resumo
@@ -165,58 +129,54 @@ Gerar um comentário de review completo, organizado nas seguintes seções:
 **[APROVADO / APROVADO COM RESSALVAS / MUDANÇAS NECESSÁRIAS]**
 
 [Justificativa da decisão em 1-2 frases]
-```
+```---
+
+## Available Tools
+
+| Tool | Use in Skill |
+|------------|-----------------------------------------------------------------------|
+|`Bash`| To execute`gh pr view`, `gh pr diff`, `gh pr checks`, `pytest`      |
+| `Read`| Read modified files in full context |
+|`Grep`| Search for problematic patterns (debug, secrets, TODOs) |
+|`Glob`| Find test files corresponding to changed files |
 
 ---
 
-## Ferramentas Disponíveis
+## Behavior in Special Cases
 
-| Ferramenta | Uso na Skill                                                       |
-|------------|--------------------------------------------------------------------|
-| `Bash`     | Executar `gh pr view`, `gh pr diff`, `gh pr checks`, `pytest`      |
-| `Read`     | Ler os arquivos modificados no contexto completo                   |
-| `Grep`     | Buscar padrões problemáticos (debug, secrets, TODOs)               |
-| `Glob`     | Encontrar arquivos de teste correspondentes aos arquivos mudados   |
+### Very large PR (>500 lines changed)
 
----
+If the diff is very large:
+1. Inform the user of the size of the PR
+2. Focus on the highest risk files (business logic, authentication, data)
+3. Mention in the review that the PR could be broken into smaller parts
 
-## Comportamento em Casos Especiais
+### PR without description
 
-### PR muito grande (>500 linhas alteradas)
+If the PR has no description or the description is very vague:
+1. Include in the review that the lack of context makes the review difficult
+2. Suggest what the description should include
+3. Continue the review anyway
 
-Se o diff for muito extenso:
-1. Informar ao usuário o tamanho do PR
-2. Focar nos arquivos de maior risco (lógica de negócio, autenticação, dados)
-3. Mencionar no review que o PR poderia ser quebrado em partes menores
+### Checks failing
 
-### PR sem descrição
+If automated checks are failing:
+1. List the checks that are failing in the review
+2. Classify as critical issue if lint, types or tests
+3. Not approving the PR while critical checks are failing
 
-Se o PR não tiver descrição ou a descrição for muito vaga:
-1. Incluir no review que a falta de contexto dificulta o review
-2. Sugerir o que a descrição deveria incluir
-3. Continuar o review mesmo assim
+### PR belongs to the user
 
-### Checks falhando
-
-Se os checks automatizados estiverem falhando:
-1. Listar os checks que estão falhando no review
-2. Classificar como problema crítico se for lint, tipos ou testes
-3. Não aprovar o PR enquanto houver checks críticos falhando
-
-### PR é do próprio usuário
-
-Se o PR foi criado pelo usuário que invocou a skill:
-1. Avisar sobre o conflito de interesse em auto-review
-2. Continuar o review de forma objetiva como pair review
-3. Focar em melhorias de qualidade, não em aprovação
+If the PR was created by the user who invoked the skill:
+1. Warn about conflict of interest in self-review
+2. Continue the review objectively as a pair review
+3. Focus on quality improvements, not approval
 
 ---
 
-## Saída Esperada
+## Expected Output
 
-Ao finalizar, o Claude deve apresentar o review formatado e perguntar:
-
-```
+When finished, Claude must present the formatted review and ask:```
 Review concluido para PR #<numero>: "<titulo>"
 
 [Review completo formatado acima]
@@ -227,6 +187,4 @@ Deseja que eu:
   2. Aprove o PR: gh pr review <numero> --approve
   3. Solicite mudancas: gh pr review <numero> --request-changes -b "..."
   4. Apenas usar como referencia (nao postar)
-```
-
-Aguardar a decisão do usuário antes de executar qualquer ação no GitHub.
+```Wait for the user's decision before taking any action on GitHub.
