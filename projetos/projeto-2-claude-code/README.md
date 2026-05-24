@@ -1,17 +1,15 @@
-# Projeto 2 — Claude Code: Configuração Agentic Profissional
+# Project 2 — Claude Code: Professional Agentic Configuration
 
 ![Status](https://img.shields.io/badge/status-ativo-brightgreen)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-latest-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-green)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-lightgrey)
+![License](https://img.shields.io/badge/licen%C3%A7a-MIT-lightgrey)
 
-> Configuração profissional do Claude Code para desenvolvimento agentic — um kit completo com CLAUDE.md, permissões, hooks, skills e exemplos prontos para uso em projetos reais.
+> Professional configuration of Claude Code for agentic development — a complete kit with CLAUDE.md, permissions, hooks, skills and examples ready for use in real projects.
 
 ---
 
-## O que está incluído
-
-```
+## What's included```
 projeto-2-claude-code/
 ├── CLAUDE.md                          # Contexto completo do projeto para o Claude
 ├── .claude/
@@ -31,32 +29,20 @@ projeto-2-claude-code/
 │   └── CLAUDE.md.minimal              # Versão mínima do CLAUDE.md para iniciantes
 ├── ROTEIRO.md                         # Roteiro de estudo passo a passo
 └── README.md                          # Este arquivo
-```
+```---
 
----
+## Prerequisites
 
-## Pré-requisitos
-
-Antes de usar este projeto, certifique-se de ter instalado:
+Before using this project, make sure you have installed:
 
 - **Node.js 18+** — [nodejs.org](https://nodejs.org)
-- **npm** — incluído com o Node.js
-- **Claude Code** — instalado globalmente via npm:
-
-```bash
+- **npm** — included with Node.js
+- **Claude Code** — installed globally via npm:```bash
 npm install -g @anthropic-ai/claude-code
-```
-
-- **ANTHROPIC_API_KEY** — chave de API da Anthropic configurada no ambiente:
-
-```bash
+```- **ANTHROPIC_API_KEY** — Anthropic API key configured in the environment:```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
 # Ou adicione ao seu .bashrc / .zshrc para persistir
-```
-
-- **gh CLI** (opcional, necessário para as skills de issue e PR) — [cli.github.com](https://cli.github.com)
-
-```bash
+```- **gh CLI** (optional, required for issue and PR skills) — [cli.github.com](https://cli.github.com)```bash
 # Ubuntu/Debian
 sudo apt install gh
 
@@ -65,15 +51,11 @@ brew install gh
 
 # Autenticar
 gh auth login
-```
+```---
 
----
+## How to use
 
-## Como usar
-
-### 1. Copiar os arquivos para seu projeto
-
-```bash
+### 1. Copy the files to your project```bash
 # Clonar ou baixar este repositório
 git clone https://github.com/seu-usuario/projeto-2-claude-code.git
 
@@ -82,84 +64,60 @@ cp -r projeto-2-claude-code/.claude /caminho/do/seu/projeto/
 
 # Copiar o CLAUDE.md (você vai customizar este arquivo)
 cp projeto-2-claude-code/CLAUDE.md /caminho/do/seu/projeto/
-```
-
-Ou execute o script de setup automatizado:
-
-```bash
+```Or run the automated setup script:```bash
 cd projeto-2-claude-code
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
-```
+```### 2. Adjust CLAUDE.md for your context
 
-### 2. Ajustar o CLAUDE.md para seu contexto
+O`CLAUDE.md`is the most important file. It defines the context that Claude will use in all interactions. Edit it to reflect **your** project:
 
-O `CLAUDE.md` é o arquivo mais importante. Ele define o contexto que o Claude vai usar em todas as interações. Edite-o para refletir **seu** projeto:
+- Change the technology stack
+- Update development, test and build commands
+- Define your team's code conventions
+- Configure the desired behavior rules
+- Document the project architecture
 
-- Altere a stack tecnológica
-- Atualize os comandos de desenvolvimento, teste e build
-- Defina as convenções de código do seu time
-- Configure as regras de comportamento desejadas
-- Documente a arquitetura do projeto
-
-### 3. Verificar a configuração
-
-```bash
+### 3. Check configuration```bash
 chmod +x scripts/check-config.sh
 ./scripts/check-config.sh
-```
-
-### 4. Iniciar o Claude Code
-
-```bash
+```### 4. Start Claude Code```bash
 # No diretório do seu projeto
 claude
-```
+```---
 
----
+## Description of each file
 
-## Descrição de cada arquivo
+###`CLAUDE.md`The Claude Code central configuration file. It works like a complete briefing that Claude reads automatically when starting a project.
 
-### `CLAUDE.md`
+**What to include:**
+- Context and objective of the project
+- Technological stack and versions
+- Development commands (install, run, test, build)
+- Code conventions (naming, formatting, imports)
+- Rules of behavior (what you can and cannot do)
+- Folder architecture
+- Required environment variables
 
-O arquivo central de configuração do Claude Code. Funciona como um briefing completo que o Claude lê automaticamente ao iniciar em um projeto.
-
-**O que incluir:**
-- Contexto e objetivo do projeto
-- Stack tecnológica e versões
-- Comandos de desenvolvimento (instalar, rodar, testar, buildar)
-- Convenções de código (nomenclatura, formatação, imports)
-- Regras de comportamento (o que pode e não pode fazer)
-- Arquitetura de pastas
-- Variáveis de ambiente necessárias
-
-**Como customizar:**
-
-```bash
+**How to customize:**```bash
 # Abrir para edição
 code CLAUDE.md  # VS Code
 nano CLAUDE.md  # Terminal
-```
-
-Substitua os exemplos de FastAPI/Python pela sua stack real. Quanto mais detalhado o `CLAUDE.md`, mais preciso e útil será o comportamento do Claude.
+```Replace the FastAPI/Python examples with your actual stack. The more detailed the`CLAUDE.md`, the more accurate and useful Claude's behavior will be.
 
 ---
 
-### `.claude/settings.json`
+###`.claude/settings.json`Controls Claude Code permissions, lifecycle hooks, and environment variables.
 
-Controla permissões, hooks de ciclo de vida e variáveis de ambiente do Claude Code.
+**Main Sections:**
 
-**Seções principais:**
+-`permissions.allow`— list of commands that Claude can execute without asking for confirmation
+-`permissions.deny`— list of blocked commands (will never be executed)
+-`hooks.PreToolUse`— scripts run before any tool
+-`hooks.PostToolUse`— scripts run after any tool
+-`env`— environment variables injected into sessions
 
-- `permissions.allow` — lista de comandos que o Claude pode executar sem pedir confirmação
-- `permissions.deny` — lista de comandos bloqueados (nunca serão executados)
-- `hooks.PreToolUse` — scripts executados antes de qualquer ferramenta
-- `hooks.PostToolUse` — scripts executados após qualquer ferramenta
-- `env` — variáveis de ambiente injetadas nas sessões
-
-**Como customizar:**
-
-```json
+**How to customize:**```json
 {
   "permissions": {
     "allow": [
@@ -171,142 +129,92 @@ Controla permissões, hooks de ciclo de vida e variáveis de ambiente do Claude 
     ]
   }
 }
-```
-
-Ajuste os padrões de allow/deny conforme sua stack e política de segurança.
+```Adjust the allow/deny defaults according to your stack and security policy.
 
 ---
 
-### `.claude/skills/fix-issue/SKILL.md`
+###`.claude/skills/fix-issue/SKILL.md`Skill that automates the complete process of fixing a GitHub issue.
 
-Skill que automatiza o processo completo de corrigir uma issue do GitHub.
-
-**Uso:** `/fix-issue <numero>`
-
-Lê a issue, analisa o código, cria uma branch, implementa a correção, roda os testes e commita — tudo de forma autônoma.
+**Use:**`/fix-issue <numero>`Read the issue, analyze the code, create a branch, implement the fix, run the tests and commit — all autonomously.
 
 ---
 
-### `.claude/skills/review-pr/SKILL.md`
+###`.claude/skills/review-pr/SKILL.md`Skill to carry out a structured review of Pull Requests.
 
-Skill para fazer review estruturado de Pull Requests.
-
-**Uso:** `/review-pr <numero>`
-
-Busca o PR com `gh`, analisa as mudanças, verifica cobertura de testes, checa convenções de código e produz um comentário de review estruturado.
+**Use:**`/review-pr <numero>`Search for PR with`gh`, analyzes changes, checks test coverage, checks code conventions and produces a structured review comment.
 
 ---
 
-### `.claude/skills/write-tests/SKILL.md`
+###`.claude/skills/write-tests/SKILL.md`Skill to automatically generate unit tests for a file.
 
-Skill para gerar testes unitários automaticamente para um arquivo.
-
-**Uso:** `/write-tests <caminho/do/arquivo>`
-
-Lê o arquivo, identifica todas as funções públicas sem testes correspondentes, cria o arquivo de testes com cobertura adequada e valida rodando o pytest.
+**Use:**`/write-tests <caminho/do/arquivo>`Reads the file, identifies all public functions without corresponding tests, creates the test file with adequate coverage and validates it by running pytest.
 
 ---
 
-### `scripts/setup.sh`
+###`scripts/setup.sh`Bash script that automates the initial configuration of Claude Code in a new project.
 
-Script bash que automatiza a configuração inicial do Claude Code em um novo projeto.
+**What it does:**
+- Checks if Claude Code is installed
+- Creates the structure`.claude/`if it doesn't exist
+- Check if`ANTHROPIC_API_KEY`is configured
+- Prints instructions for next steps
 
-**O que faz:**
-- Verifica se Claude Code está instalado
-- Cria a estrutura `.claude/` se não existir
-- Verifica se `ANTHROPIC_API_KEY` está configurada
-- Imprime instruções para os próximos passos
-
-**Uso:**
-
-```bash
+**Usage:**```bash
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
 ---
 
-### `scripts/check-config.sh`
+### `scripts/check-config.sh`Diagnostic script that checks if the configuration is correct before starting Claude Code.
 
-Script de diagnóstico que verifica se a configuração está correta antes de iniciar o Claude Code.
+**What you check:**
+- Existence and validity of the`.claude/settings.json`- Existence and minimum size of the`CLAUDE.md`- Presence of`ANTHROPIC_API_KEY`in the environment
 
-**O que verifica:**
-- Existência e validade do `.claude/settings.json`
-- Existência e tamanho mínimo do `CLAUDE.md`
-- Presença da `ANTHROPIC_API_KEY` no ambiente
-
-**Uso:**
-
-```bash
+**Usage:**```bash
 chmod +x scripts/check-config.sh
 ./scripts/check-config.sh
 ```
 
 ---
 
-### `exemplos/mcp-config.json`
+### `exemplos/mcp-config.json`Complete example of configuring MCP (Model Context Protocol) servers to expand the capabilities of Claude Code.
 
-Exemplo completo de configuração de MCP (Model Context Protocol) servers para expandir as capacidades do Claude Code.
-
-Inclui configurações prontas para: filesystem local, GitHub, Firebase e PostgreSQL.
+Includes ready-made configurations for: local filesystem, GitHub, Firebase and PostgreSQL.
 
 ---
 
-### `exemplos/CLAUDE.md.minimal`
-
-Versão simplificada do `CLAUDE.md`, ideal para quem está começando ou para projetos pequenos. Contém apenas as seções essenciais: contexto, comandos e regras básicas.
+###`exemplos/CLAUDE.md.minimal`Simplified version of`CLAUDE.md`, ideal for those just starting out or for small projects. Contains only the essential sections: context, commands and basic rules.
 
 ---
 
-## Skills disponíveis
+## Skills available
 
-### `/fix-issue <numero>`
-
-Corrige uma issue do GitHub de ponta a ponta:
-
-```bash
+###`/fix-issue <numero>`Fixes a GitHub issue from end to end:```bash
 # Dentro do Claude Code
 /fix-issue 123
-```
+```Claude will:
+1. Read the issue details with`gh issue view`2. Analyze related code
+3. Create a branch`fix/issue-123-descricao`4. Implement the fix
+5. Run the tests
+6. Commit with reference to the issue
 
-O Claude vai:
-1. Ler os detalhes da issue com `gh issue view`
-2. Analisar o código relacionado
-3. Criar uma branch `fix/issue-123-descricao`
-4. Implementar a correção
-5. Rodar os testes
-6. Commitar com referência à issue
-
-### `/review-pr <numero>`
-
-Faz review estruturado de um PR:
-
-```bash
+###`/review-pr <numero>`Perform a structured review of a PR:```bash
 /review-pr 45
 ```
 
-### `/write-tests <arquivo>`
-
-Gera testes para um arquivo existente:
-
-```bash
+### `/write-tests <arquivo>`Generates tests for an existing file:```bash
 /write-tests app/services/task_service.py
-```
+```---
 
----
+### How to create new skills
 
-### Como criar novas skills
+A skill is a simple Markdown file with structured instructions. To create a new one:
 
-Uma skill é um simples arquivo Markdown com instruções estruturadas. Para criar uma nova:
-
-**1. Criar o diretório e o arquivo:**
-
-```bash
+**1. Create the directory and file:**```bash
 mkdir -p .claude/skills/minha-skill
 touch .claude/skills/minha-skill/SKILL.md
-```
-
-**2. Estrutura do `SKILL.md`:**
+```**2. Structure of`SKILL.md`:**
 
 ```markdown
 # Skill: minha-skill
@@ -329,46 +237,30 @@ O que esta skill faz em 2-3 frases.
 
 ## Saída Esperada
 O que o Claude deve apresentar ao final.
-```
-
-**3. Usar a skill:**
-
-```bash
+```**3. Use the skill:**```bash
 # No Claude Code
 /minha-skill argumento
-```
-
-O Claude vai ler o `SKILL.md` correspondente e seguir as instruções definidas.
+```Claude will read the`SKILL.md`corresponding and follow the defined instructions.
 
 ---
 
-## Dicas avançadas de uso
+## Advanced usage tips
 
-### Modo não-interativo para CI/CD
-
-```bash
+### Non-interactive mode for CI/CD```bash
 # Executar um comando sem abrir o chat interativo
 claude --print "Rode os testes e mostre o resultado"
 
 # Usar em pipelines
 echo "Analise os erros de lint" | claude --print
-```
-
-### Configuração por projeto vs global
-
-```bash
+```### Configuration per project vs global```bash
 # Configuração global (afeta todos os projetos)
 ~/.claude/settings.json
 
 # Configuração por projeto (sobrescreve a global)
 .claude/settings.json
-```
+```### Hooks for automation
 
-### Hooks para automação
-
-Use hooks para executar ações automaticamente. Exemplos práticos:
-
-```json
+Use hooks to automatically perform actions. Practical examples:```json
 {
   "hooks": {
     "PostToolUse": [
@@ -382,48 +274,35 @@ Use hooks para executar ações automaticamente. Exemplos práticos:
     ]
   }
 }
-```
+```### Multiple contexts with hierarchical CLAUDE.md
 
-### Múltiplos contextos com CLAUDE.md hierárquico
-
-Você pode ter `CLAUDE.md` em subdiretórios para adicionar contexto específico:
-
-```
+You may have`CLAUDE.md`in subdirectories to add specific context:```
 projeto/
 ├── CLAUDE.md              # Contexto geral do projeto
 ├── frontend/
 │   └── CLAUDE.md          # Contexto específico do frontend (React, etc.)
 └── backend/
     └── CLAUDE.md          # Contexto específico do backend
-```
+```### Safe environment variables
 
-### Variáveis de ambiente seguras
-
-Nunca coloque chaves diretamente no `settings.json`. Use referências a variáveis de ambiente:
-
-```json
+Never place keys directly into`settings.json`. Use references to environment variables:```json
 {
   "env": {
     "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
     "DATABASE_URL": "${DATABASE_URL}"
   }
 }
-```
+```### Debug Claude's behavior
 
-### Debugar o comportamento do Claude
+If Claude is not following expected instructions:
 
-Se o Claude não estiver seguindo as instruções esperadas:
+1. Check that the`CLAUDE.md`is in the project root directory
+2. Check if the`settings.json`is valid JSON:`python3 -m json.tool .claude/settings.json`3. Use command`/config`inside Claude Code to see the active settings
+4. Make instructions more specific and explicit in the`CLAUDE.md`---
 
-1. Verifique se o `CLAUDE.md` está no diretório raiz do projeto
-2. Confira se o `settings.json` é um JSON válido: `python3 -m json.tool .claude/settings.json`
-3. Use o comando `/config` dentro do Claude Code para ver as configurações ativas
-4. Torne as instruções mais específicas e explícitas no `CLAUDE.md`
+## Additional features
 
----
-
-## Recursos adicionais
-
-- [Documentacao oficial do Claude Code](https://docs.anthropic.com/claude-code)
+- [Official Claude Code documentation](https://docs.anthropic.com/claude-code)
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io)
 - [GitHub CLI (gh)](https://cli.github.com/manual)
-- [ROTEIRO.md](./ROTEIRO.md) — guia de estudo passo a passo incluído neste projeto
+- [ROTEIRO.md](./ROTEIRO.md) — step-by-step study guide included in this project
