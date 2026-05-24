@@ -1,24 +1,22 @@
-# Roteiro de Estudo — Projeto 1: Agente do Zero
+# Study Guide — Project 1: Agent from Zero
 
-Este roteiro guia você do zero até a criação de um agente de pesquisa completo. Siga os passos em ordem — cada etapa constrói sobre a anterior.
+This roadmap guides you from scratch to creating a complete search agent. Follow the steps in order — each step builds on the previous one.
 
-**Tempo total estimado: ~3h30min**
+**Estimated total time: ~3h30min**
 
 ---
 
-## Passo 1 — Entender o que é um loop agentic
+## Step 1 — Understand what an agentic loop is
 
-**Tempo estimado: 5 minutos de leitura**
+**Estimated time: 5 minutes of reading**
 
-Antes de tocar em código, entenda o conceito fundamental.
+Before touching code, understand the fundamental concept.
 
-### O que é um agente de IA?
+### What is an AI agent?
 
-Um agente é um programa que usa um modelo de linguagem (LLM) para **tomar decisões e executar ações** de forma autônoma, repetindo o ciclo até completar uma tarefa.
+An agent is a program that uses a language model (LLM) to autonomously make decisions and execute actions, repeating the cycle until it completes a task.
 
-### O loop agentic (Pensar → Agir → Observar)
-
-```
+### The agentic loop (Think → Act → Observe)```
 ┌─────────────────────────────────────────────────────┐
 │                   LOOP AGENTIC                      │
 │                                                     │
@@ -34,30 +32,26 @@ Um agente é um programa que usa um modelo de linguagem (LLM) para **tomar decis
 │         ↓                                           │
 │   Volta para PENSA (com o novo contexto)            │
 └─────────────────────────────────────────────────────┘
-```
+```### Why does this matter?
 
-### Por que isso importa?
+Without the agentic loop, the LLM can only use what is in its training. With it, the LLM can:
+- Make calculations in real time
+- Search for updated information
+- Save and retrieve data
+- Interact with external systems (APIs, databases, files)
 
-Sem o loop agentic, o LLM só pode usar o que está em seu treinamento. Com ele, o LLM pode:
-- Fazer cálculos em tempo real
-- Buscar informações atualizadas
-- Salvar e recuperar dados
-- Interagir com sistemas externos (APIs, bancos de dados, arquivos)
+### Further reading (optional)
 
-### Leitura complementar (opcional)
-
-- [Documentação oficial da Anthropic — Tool Use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (artigo original do conceito)
+- [Official Anthropic Documentation — Tool Use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use)
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (original concept article)
 
 ---
 
-## Passo 2 — Instalar dependências e configurar o ambiente
+## Step 2 — Install dependencies and configure the environment
 
-**Tempo estimado: 10 minutos**
+**Estimated time: 10 minutes**
 
-### 2.1 — Crie e ative um ambiente virtual
-
-```bash
+### 2.1 — Create and activate a virtual environment```bash
 cd projetos/projeto-1-agente-zero
 
 # Criar o ambiente virtual
@@ -68,185 +62,130 @@ source .venv/bin/activate
 
 # Ativar (Windows)
 .venv\Scripts\activate
-```
+```You'll know it worked when the terminal prompt shows`(.venv)`at the beginning.
 
-Você saberá que deu certo quando o prompt do terminal mostrar `(.venv)` no início.
-
-### 2.2 — Instale as dependências
-
-```bash
+### 2.2 — Install dependencies```bash
 pip install -r requirements.txt
-```
+```You should install only two packages:`anthropic` e `python-dotenv`.
 
-Deve instalar apenas dois pacotes: `anthropic` e `python-dotenv`.
-
-### 2.3 — Configure o arquivo .env
-
-```bash
+### 2.3 — Configure the .env file```bash
 cp .env.example .env
-```
-
-Abra o arquivo `.env` em qualquer editor de texto e preencha:
-
-```
+```Open the file`.env`in any text editor and fill in:```
 ANTHROPIC_API_KEY=sk-ant-api03-...
-```
+```> How to get your key: go to [console.anthropic.com](https://console.anthropic.com) → API Keys → Create Key.
 
-> Como obter sua chave: acesse [console.anthropic.com](https://console.anthropic.com) → API Keys → Create Key.
-
-### 2.4 — Verifique a instalação
-
-```bash
+### 2.4 — Check installation```bash
 python -c "import anthropic; print('Tudo certo!')"
-```
+```---
+
+## Step 3 — Read the complete agent.py and understand each function
+
+**Estimated time: 20 minutes**
+
+Open the`agent.py`and read **each section** paying attention to the comments.
+
+### What to look for in each section
+
+**Section`tools`(lines ~20–61):**
+- Each tool is a dictionary with`name`, `description` e `input_schema`- The`input_schema`follows the JSON Schema standard
+- The`description`is read by the model to decide when to use the tool
+
+**Section`executar_ferramenta`(lines ~67–86):**
+- It is the dispatcher: receives the name and inputs, executes the right function
+-`eval()`is used to calculate mathematical expressions (be careful in production!)
+-`notas`is a global dictionary — simple memory in RAM
+
+**Section`executar_agente`(lines ~90–146):**
+- Maintains the list`mensagens`which grows with each iteration
+-`stop_reason == "end_turn"`means the model is finished
+-`stop_reason == "tool_use"`means the model wants to use a tool
+- Tool results are added back to history
+
+### Questions for reflection
+
+1. What happens if the model calls a tool that does not exist in the dispatcher?
+2. Why`mensagens`does it need to grow with each iteration and not just the last response is sent?
+3. What does the property`tool_use_id`represents and why is it necessary?
 
 ---
 
-## Passo 3 — Ler o agent.py completo e entender cada função
+## Step 4 — Run the agent and ask 3 different questions
 
-**Tempo estimado: 20 minutos**
-
-Abra o `agent.py` e leia **cada seção** prestando atenção nos comentários.
-
-### O que observar em cada seção
-
-**Seção `tools` (linhas ~20–61):**
-- Cada ferramenta é um dicionário com `name`, `description` e `input_schema`
-- O `input_schema` segue o padrão JSON Schema
-- O `description` é lido pelo modelo para decidir quando usar a ferramenta
-
-**Seção `executar_ferramenta` (linhas ~67–86):**
-- É o dispatcher: recebe o nome e os inputs, executa a função certa
-- `eval()` é usado para calcular expressões matemáticas (cuidado em produção!)
-- `notas` é um dicionário global — memória simples em RAM
-
-**Seção `executar_agente` (linhas ~90–146):**
-- Mantém a lista `mensagens` que cresce a cada iteração
-- `stop_reason == "end_turn"` significa que o modelo terminou
-- `stop_reason == "tool_use"` significa que o modelo quer usar uma ferramenta
-- Os resultados das ferramentas são adicionados de volta ao histórico
-
-### Perguntas para reflexão
-
-1. O que acontece se o modelo chamar uma ferramenta que não existe no dispatcher?
-2. Por que `mensagens` precisa crescer a cada iteração e não apenas a última resposta é enviada?
-3. O que a propriedade `tool_use_id` representa e por que ela é necessária?
-
----
-
-## Passo 4 — Executar o agente e fazer 3 perguntas diferentes
-
-**Tempo estimado: 15 minutos**
-
-```bash
+**Estimated time: 15 minutes**```bash
 python agent.py
-```
+```### Suggested questions to test each tool
 
-### Perguntas sugeridas para testar cada ferramenta
-
-**Testando `calcular`:**
+**Testing`calcular`:**
 ```
 Você: Qual é o resultado de 1234 * 5678?
-```
-
-**Testando `salvar_nota` e `buscar_na_web`:**
+```**Testing`salvar_nota` e `buscar_na_web`:**
 ```
 Você: Busque informações sobre Python e salve um resumo como nota chamada "python"
-```
-
-**Testando raciocínio multi-passo:**
-```
+```**Testing multi-step reasoning:**```
 Você: Calcule quanto é 15% de 4800 e salve o resultado como "desconto"
-```
+```### What to watch out for while running
 
-### O que observar durante a execução
-
-- Quantas iterações o agente usou para responder cada pergunta?
-- O modelo sempre escolheu a ferramenta certa?
-- O que aparece entre `[Iteração N]` e `RESPOSTA FINAL`?
+- How many iterations did the agent use to answer each question?
+- Did the model always choose the right tool?
+- What appears between`[Iteração N]` e `RESPOSTA FINAL`?
 
 ---
 
-## Passo 5 — Adicionar a ferramenta `get_weather`
+## Step 5 — Add the tool`get_weather`**Estimated time: 30 minutes**
 
-**Tempo estimado: 30 minutos**
+The tool`get_weather`is already implemented in`tools/weather_tool.py`. Your task is to integrate it with the main agent.
 
-A ferramenta `get_weather` já está implementada em `tools/weather_tool.py`. Sua tarefa é integrá-la ao agente principal.
-
-### 5.1 — Examine a ferramenta existente
-
-```bash
+### 5.1 — Examine the existing tool```bash
 cat tools/weather_tool.py
-```
+```Understand:
+- What`get_weather_tool_schema()`returns?
+- What`get_weather(cidade)`do when there is no API key?
 
-Entenda:
-- O que `get_weather_tool_schema()` retorna?
-- O que `get_weather(cidade)` faz quando não há API key?
+### 5.2 — Integrate with agent.py
 
-### 5.2 — Integre ao agent.py
+Abra`agent.py`and make the following changes:
 
-Abra `agent.py` e faça as seguintes alterações:
-
-**No início do arquivo, adicione o import:**
-```python
+**At the beginning of the file, add import:**```python
 from tools import get_weather_tool_schema, get_weather
-```
-
-**Na lista `tools`, adicione o schema:**
-```python
+```**On the list`tools`, add schema:**```python
 tools = [
     # ... ferramentas existentes ...
     get_weather_tool_schema(),
 ]
-```
-
-**No dispatcher `executar_ferramenta`, adicione o case:**
-```python
+```**No dispatcher`executar_ferramenta`, add case:**```python
 elif nome == "consultar_clima":
     return get_weather(inputs["cidade"])
-```
-
-### 5.3 — Teste a nova ferramenta
-
-```bash
+```### 5.3 — Test the new tool```bash
 python agent.py
 ```
 
 ```
 Você: Como está o clima em São Paulo hoje?
 Você: Compara o clima de Curitiba com o de Manaus
-```
+```### 5.4 — (Optional) Configure the actual API
 
-### 5.4 — (Opcional) Configure a API real
-
-Crie uma conta grátis no [OpenWeatherMap](https://openweathermap.org/api) e adicione ao `.env`:
+Create a free account on [OpenWeatherMap](https://openweathermap.org/api) and add to`.env`:
 
 ```
 OPENWEATHER_API_KEY=sua_chave_aqui
-```
-
-Também instale o `requests`:
+```Also install the`requests`:
 ```bash
 pip install requests
-```
+```---
 
----
+## Step 6 — Add persistent memory with JSON file
 
-## Passo 6 — Adicionar memória persistente com arquivo JSON
+**Estimated time: 45 minutes**
 
-**Tempo estimado: 45 minutos**
+Currently, the agent's notes are lost when the program closes (they are in a dictionary in RAM). In this step, you will persist the notes into a JSON file.
 
-Atualmente, as notas do agente são perdidas quando o programa fecha (estão em um dicionário na memória RAM). Neste passo, você vai persistir as notas em um arquivo JSON.
+### 6.1 — Understand the problem
 
-### 6.1 — Entenda o problema
+Run the agent, save a note, close with Ctrl+C, and open again. The note is gone. Why?
 
-Execute o agente, salve uma nota, feche com Ctrl+C, e abra novamente. A nota sumiu. Por quê?
+### 6.2 — Implement persistence
 
-### 6.2 — Implemente a persistência
-
-Substitua o dicionário `notas = {}` por funções que leem e escrevem em disco:
-
-```python
+Replace the dictionary`notas = {}`by functions that read and write to disk:```python
 import pathlib
 
 ARQUIVO_NOTAS = pathlib.Path("notas.json")
@@ -268,22 +207,14 @@ def salvar_notas_em_disco(notas: dict) -> None:
 
 # Inicializa carregando do disco
 notas = carregar_notas()
-```
+```### 6.3 — Update the dispatcher
 
-### 6.3 — Atualize o dispatcher
-
-Modifique o case `salvar_nota` para persistir em disco:
-
-```python
+Modify the case`salvar_nota`to persist to disk:```python
 elif nome == "salvar_nota":
     notas[inputs["titulo"]] = inputs["conteudo"]
     salvar_notas_em_disco(notas)
     return f"Nota '{inputs['titulo']}' salva com sucesso."
-```
-
-### 6.4 — Adicione a ferramenta `listar_notas`
-
-Adicione ao `tools`:
+```### 6.4 — Add the tool`listar_notas`Add to`tools`:
 
 ```python
 {
@@ -295,46 +226,35 @@ Adicione ao `tools`:
         "required": []
     }
 }
-```
-
-E ao dispatcher:
-
-```python
+```And to the dispatcher:```python
 elif nome == "listar_notas":
     if not notas:
         return "Nenhuma nota salva ainda."
     return "\n".join(f"- {titulo}: {conteudo}" for titulo, conteudo in notas.items())
-```
-
-### 6.5 — Teste a persistência
-
-```bash
+```### 6.5 — Test persistence```bash
 python agent.py
 # Salve uma nota, feche com Ctrl+C
 python agent.py
 # Pergunte: "Quais notas eu tenho salvas?"
-```
+```---
 
----
+## Step 7 — Final Challenge: Create a Complete Search Agent
 
-## Passo 7 — Desafio final: criar um agente de pesquisa completo
+**Estimated time: 2 hours**
 
-**Tempo estimado: 2 horas**
+This is the final challenge. You will build an agent capable of searching, synthesizing and reporting information on any topic.
 
-Este é o desafio final. Você vai construir um agente capaz de pesquisar, sintetizar e reportar informações sobre qualquer tema.
+### Objective
 
-### Objetivo
+Create an agent that, given a research topic, is capable of:
+1. Break the topic into subtopics
+2. Search for information for each subtopic
+3. Make relevant calculations (e.g. statistics)
+4. Save the final report as a Markdown file
 
-Criar um agente que, dado um tema de pesquisa, seja capaz de:
-1. Quebrar o tema em subtópicos
-2. Buscar informações para cada subtópico
-3. Fazer cálculos relevantes (ex: estatísticas)
-4. Salvar o relatório final em arquivo Markdown
+### Tools to implement
 
-### Ferramentas a implementar
-
-**`buscar_wikipedia(termo)` — busca real na Wikipedia:**
-```python
+**`buscar_wikipedia(termo)`— real search on Wikipedia:**```python
 # Instale: pip install wikipedia-api
 import wikipediaapi
 
@@ -350,8 +270,7 @@ def buscar_wikipedia(termo: str, idioma: str = "pt") -> str:
     return pagina.summary[:1000]
 ```
 
-**`salvar_relatorio(nome_arquivo, conteudo)` — salva arquivo Markdown:**
-```python
+**`salvar_relatorio(nome_arquivo, conteudo)`— saves Markdown file:**```python
 def salvar_relatorio(nome_arquivo: str, conteudo: str) -> str:
     import pathlib
     caminho = pathlib.Path(nome_arquivo)
@@ -359,13 +278,9 @@ def salvar_relatorio(nome_arquivo: str, conteudo: str) -> str:
         caminho = pathlib.Path(nome_arquivo + ".md")
     caminho.write_text(conteudo, encoding="utf-8")
     return f"Relatório salvo em '{caminho}'."
-```
+```### Specialized system prompt
 
-### System prompt especializado
-
-Substitua o `system` do `client.messages.create` por:
-
-```python
+Replace the`system` do `client.messages.create`put:```python
 system = """Você é um agente de pesquisa especializado. Quando receber um tema:
 1. Identifique 3-5 subtópicos relevantes
 2. Use buscar_wikipedia para pesquisar cada subtópico
@@ -373,41 +288,33 @@ system = """Você é um agente de pesquisa especializado. Quando receber um tema
 4. Sintetize as informações em um relatório estruturado
 5. Salve o relatório final com salvar_relatorio
 Seja metódico, cite as fontes e organize o relatório com títulos Markdown."""
-```
-
-### Exemplo de uso esperado
-
-```
+```### Example of expected usage```
 Você: Pesquise sobre energia solar no Brasil e gere um relatório
-```
+```The agent must:
+- Search for "solar energy Brazil", "energy matrix Brazil", "solar installed capacity"
+- Calculate comparisons (e.g. percentage growth)
+- Generate and save a file`relatorio-energia-solar.md`### Success criteria
 
-O agente deve:
-- Buscar "energia solar Brasil", "matriz energética Brasil", "capacidade instalada solar"
-- Calcular comparações (ex: crescimento percentual)
-- Gerar e salvar um arquivo `relatorio-energia-solar.md`
+- [ ] The agent completes the search without human intervention
+- [ ] The saved report has at least 3 sections with actual content
+- [ ] The agent used at least 3 different tool calls
+- [ ] The generated Markdown file is readable and well formatted
 
-### Critérios de sucesso
+### Tips
 
-- [ ] O agente completa a pesquisa sem intervenção humana
-- [ ] O relatório salvo tem pelo menos 3 seções com conteúdo real
-- [ ] O agente usou pelo menos 3 chamadas de ferramentas diferentes
-- [ ] O arquivo Markdown gerado é legível e bem formatado
-
-### Dicas
-
-- Aumente `max_iteracoes` para 20 neste desafio
-- Adicione `print` extras para entender o raciocínio do agente
-- Se a pesquisa travar, tente um tema mais específico
+- Increase`max_iteracoes`for 20 in this challenge
+- Add`print`extras to understand the agent's reasoning
+- If the search gets stuck, try a more specific topic
 
 ---
 
-## Parabéns!
+## Congratulations!
 
-Se você chegou até aqui, você:
+If you made it this far, you:
 
-- Entendeu o funcionamento interno de um loop agentic
-- Implementou e integrou novas ferramentas
-- Adicionou persistência de dados
-- Construiu um agente de pesquisa funcional
+- Understood the inner workings of an agentic loop
+- Implemented and integrated new tools
+- Added data persistence
+- Built a functional search agent
 
-**Próximo projeto:** Projeto 2 — Agente com LangChain, onde veremos como frameworks de alto nível abstraem exatamente o que você acabou de construir na mão.
+**Next project:** Project 2 — Agent with LangChain, where we will see how high-level frameworks abstract exactly what you just built by hand.
