@@ -1,42 +1,40 @@
-# Projeto 1 — Agente do Zero
+# Project 1 — Agent of Zero
 
-![Status](https://img.shields.io/badge/status-estável-brightgreen)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/licença-MIT-lightgrey)
 ![Anthropic](https://img.shields.io/badge/Anthropic-API-orange)
 
-> **Agente Python sem frameworks — demonstração do loop agentic puro**
+> **Python agent without frameworks — pure agentic loop demonstration**
 
-Implementação do zero de um agente de IA utilizando diretamente a API da Anthropic, sem nenhum framework de alto nível como LangChain ou LlamaIndex. O objetivo é entender o mecanismo fundamental por trás de qualquer agente: o loop **Pensar → Agir → Observar**.
-
----
-
-## Sumário
-
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Como usar](#como-usar)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Como adicionar novas ferramentas](#como-adicionar-novas-ferramentas)
-- [Testes](#testes)
-- [Licença](#licença)
+Implementation of an AI agent from scratch using Anthropic's API directly, without any high-level framework like LangChain or LlamaIndex. The objective is to understand the fundamental mechanism behind any agent: the **Think → Act → Observe** loop.
 
 ---
 
-## Pré-requisitos
+## Summary
 
-- **Python 3.11 ou superior** — o projeto usa recursos de tipagem e sintaxe disponíveis a partir desta versão
-- **Conta Anthropic** com acesso à API — crie sua conta em [console.anthropic.com](https://console.anthropic.com)
-- **Chave de API Anthropic** (`ANTHROPIC_API_KEY`) — gerada no painel da sua conta
-- `pip` atualizado (`pip install --upgrade pip`)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+- [Project structure](#project-structure)
+- [How to add new tools](#how-to-add-new-tools)
+- [Tests](#tests)
+- [License](#license)
 
 ---
 
-## Instalação
+## Prerequisites
 
-Siga os passos abaixo na ordem apresentada:
+- **Python 3.11 or higher** — the project uses typing and syntax features available from this version
+- **Anthropic Account** with API access — create your account at [console.anthropic.com](https://console.anthropic.com)
+- **Anthropic API Key** (`ANTHROPIC_API_KEY`) — generated in your account dashboard
+-`pip`updated (`pip install --upgrade pip`)
 
-```bash
+---
+
+## Installation
+
+Follow the steps below in the order presented:```bash
 # 1. Clone o repositório principal
 git clone https://github.com/seu-usuario/agentic-masterclass.git
 
@@ -56,24 +54,16 @@ cp .env.example .env
 
 # 6. Abra o arquivo .env e preencha sua chave de API
 # ANTHROPIC_API_KEY=sk-ant-...
-```
-
-> **Atenção:** nunca commite o arquivo `.env` com sua chave real. Ele já está listado no `.gitignore`.
+```> **Attention:** never commits the file`.env`with your real key. It is already listed on`.gitignore`.
 
 ---
 
-## Como usar
+## How to use
 
-### Modo interativo
-
-```bash
+### Interactive mode```bash
 python agent.py
-```
-
-O agente iniciará no modo de conversa interativa. Digite sua mensagem e pressione Enter:
-
-```
-Agente do Zero — INEMA.CLUB
+```The agent will start in interactive conversation mode. Type your message and press Enter:```
+Agente do Zero — duclub
 Pressione Ctrl+C para sair
 
 Você: Quanto é 15% de 2400?
@@ -89,36 +79,28 @@ AGENTE INICIADO
 RESPOSTA FINAL:
 ============================================================
 15% de 2400 é igual a 360.
-```
+```### Examples of prompts to test
 
-### Exemplos de prompts para testar
-
-| Categoria | Exemplo de prompt |
+| Category | Example prompt |
 |-----------|------------------|
-| Matemática | `"Calcule a raiz quadrada de 144"` |
-| Matemática | `"Qual é o resultado de (500 * 1.1) ** 2?"` |
-| Memória | `"Salve uma nota chamada 'reunião' com o conteúdo 'dia 10 às 14h'"` |
-| Busca | `"Busque informações sobre inteligência artificial generativa"` |
-| Combinado | `"Calcule 12 * 8 e salve o resultado como nota 'multiplicação'"` |
+| Mathematics |`"Calcule a raiz quadrada de 144"`|
+| Mathematics |`"Qual é o resultado de (500 * 1.1) ** 2?"`|
+| Memory |`"Salve uma nota chamada 'reunião' com o conteúdo 'dia 10 às 14h'"`|
+| Search |`"Busque informações sobre inteligência artificial generativa"`|
+| Combined |`"Calcule 12 * 8 e salve o resultado como nota 'multiplicação'"`|
 
-### Saindo do agente
+### Leaving the agent
 
-Digite `sair`, `exit` ou `quit`, ou pressione `Ctrl+C`.
+Enter`sair`, `exit` ou `quit`, or press`Ctrl+C`.
 
-### Usando via código
-
-```python
+### Using via code```python
 from agent import executar_agente
 
 resultado = executar_agente("Quanto é 2 + 2?")
 print(resultado)  # "2 + 2 é igual a 4."
-```
+```---
 
----
-
-## Estrutura do projeto
-
-```
+## Project structure```
 projeto-1-agente-zero/
 │
 ├── agent.py               # Código principal — loop agentic completo
@@ -137,22 +119,20 @@ projeto-1-agente-zero/
 ├── README.md              # Este arquivo
 ├── CONTRIBUTING.md        # Guia de contribuição
 └── ROTEIRO.md             # Roteiro de estudo passo a passo
-```
+```### Description of each file
 
-### Descrição de cada arquivo
-
-- **`agent.py`** — coração do projeto. Define as ferramentas (`tools`), o dispatcher (`executar_ferramenta`) e o loop agentic (`executar_agente`). Leia este arquivo para entender tudo.
-- **`requirements.txt`** — apenas duas dependências: `anthropic` (SDK oficial) e `python-dotenv` (carrega o `.env`).
-- **`tools/weather_tool.py`** — ferramenta de exemplo que demonstra como estender o agente com novas capacidades sem alterar o `agent.py`.
-- **`tests/test_agent.py`** — testes unitários que validam o dispatcher e o loop agentic com mocks, sem consumir sua cota da API.
+- **`agent.py`** — heart of the project. Defines the tools (`tools`), the dispatcher (`executar_ferramenta`) and the agentic loop (`executar_agente`). Read this file to understand everything.
+- **`requirements.txt`** — only two dependencies:`anthropic`(official SDK) and`python-dotenv`(load the`.env`).
+- **`tools/weather_tool.py`** — sample tool that demonstrates how to extend the agent with new capabilities without changing the`agent.py`.
+- **`tests/test_agent.py`** — unit tests that validate the dispatcher and the agentic loop with mocks, without consuming your API quota.
 
 ---
 
-## Como adicionar novas ferramentas
+## How to add new tools
 
-O agente foi projetado para ser facilmente extensível. Siga os 4 passos abaixo:
+The agent is designed to be easily extensible. Follow the 4 steps below:
 
-### Passo 1 — Crie o módulo da ferramenta em `tools/`
+### Step 1 — Create the tool module in`tools/`
 
 ```python
 # tools/minha_ferramenta.py
@@ -177,16 +157,12 @@ def get_minha_ferramenta_schema() -> dict:
 def minha_ferramenta(parametro: str) -> str:
     """Implementação da ferramenta."""
     return f"Resultado para: {parametro}"
-```
-
-### Passo 2 — Exporte em `tools/__init__.py`
+```### Step 2 — Export to`tools/__init__.py`
 
 ```python
 from .minha_ferramenta import get_minha_ferramenta_schema, minha_ferramenta
 __all__ = [..., "get_minha_ferramenta_schema", "minha_ferramenta"]
-```
-
-### Passo 3 — Registre a ferramenta em `agent.py`
+```### Step 3 — Register the tool in`agent.py`
 
 ```python
 from tools import get_minha_ferramenta_schema, minha_ferramenta
@@ -195,43 +171,31 @@ tools = [
     # ... ferramentas existentes ...
     get_minha_ferramenta_schema(),  # adicione aqui
 ]
-```
-
-### Passo 4 — Adicione o case no dispatcher
-
-```python
+```### Step 4 — Add the case to the dispatcher```python
 def executar_ferramenta(nome: str, inputs: dict) -> str:
     # ... cases existentes ...
     elif nome == "minha_ferramenta":
         return minha_ferramenta(inputs["parametro"])
-```
-
-Pronto. O agente já saberá usar a nova ferramenta automaticamente.
+```Ready. The agent will automatically know how to use the new tool.
 
 ---
 
-## Testes
-
-```bash
+## Tests```bash
 # Rodar todos os testes
 python -m unittest tests/test_agent.py -v
 
 # Ou via Makefile
 make test
-```
-
-Os testes **não consomem sua cota da API** — o cliente Anthropic é mockado com `unittest.mock`.
+```Tests **do not consume your API quota** — the Anthropic client is mocked with`unittest.mock`.
 
 ---
 
-## Licença
+## License
 
-Este projeto está licenciado sob a **Licença MIT**.
-
-```
+This project is licensed under the **MIT License**.```
 MIT License
 
-Copyright (c) 2025 INEMA.CLUB
+Copyright (c) 2025 duclub
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
