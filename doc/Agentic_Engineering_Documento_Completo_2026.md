@@ -1,194 +1,194 @@
-# Agentic Engineering --- Documento Consolidado Completo (2026)
+# Agentic Engineering --- Complete Consolidated Document (2026)
 
-## 1. Introdução
+## 1. Introduction
 
-Agentic Engineering é a evolução do uso de IA na engenharia de software
-e automação. Enquanto o Vibe Coding representa a fase inicial de geração
-de código via linguagem natural, Agentic Engineering representa a fase
-madura: construção de sistemas onde agentes de IA planejam, executam,
-testam, corrigem e iteram sob supervisão humana estruturada.
+Agentic Engineering is the evolution of the use of AI in software engineering
+and automation. While Vibe Coding represents the initial generation phase
+of code via natural language, Agentic Engineering represents the phase
+mature: building systems where AI agents plan, execute,
+test, fix, and iterate under structured human supervision.
 
-O conceito foi popularizado por Andrej Karpathy como evolução natural do
+The concept was popularized by Andrej Karpathy as a natural evolution of
 Vibe Coding.
 
-## 2. Definição Clara
+## 2. Clear Definition
 
-Agentic Engineering é a prática de projetar, orquestrar e supervisionar
-agentes de IA capazes de:
+Agentic Engineering is the practice of designing, orchestrating, and supervising
+AI agents capable of:
 
--   Receber objetivos
--   Planejar etapas
--   Executar ações
--   Usar ferramentas externas
--   Avaliar resultados
--   Corrigir erros
--   Iterar até atingir um resultado confiável
+- Receive objectives
+- Plan steps
+- Perform actions
+- Use external tools
+- Evaluate results
+- Fix errors
+- Iterate until you reach a reliable result
 
-Não é apenas geração de código. É engenharia baseada em agentes
-autônomos controlados.
+It's not just code generation. It's agent-based engineering
+controlled autonomous.
 
-## 3. Diferença entre Vibe Coding e Agentic Engineering
+## 3. Difference between Vibe Coding and Agentic Engineering
 
-  Vibe Coding                    Agentic Engineering
-  ------------------------------ -----------------------------------
-  Geração de código por prompt   Orquestração de agentes autônomos
-  Foco em rapidez                Foco em sistema completo
-  Iteração manual                Loop automatizado
-  Uso pontual de IA              Uso estrutural de IA
-  Baixa governança               Governança e controle
+  Vibe Coding Agentic Engineering
+  ------------------------------ ----------------------------------
+  Prompted code generation Autonomous agent orchestration
+  Focus on speed Focus on complete system
+  Manual iteration Automated loop
+  Specific use of AI Structural use of AI
+  Low governance Governance and control
 
-## 4. Componentes Fundamentais
+## 4. Fundamental Components
 
-### LLM (Modelo de Linguagem)
+### LLM (Language Model)
 
-O cérebro do agente.
+The agent's brain.
 
-### Memória
+### Memory
 
--   Curto prazo (contexto atual)
--   Longo prazo (persistente, vetorial)
+- Short term (current context)
+- Long term (persistent, vector)
 
-### Tools (Ferramentas)
+### Tools
 
--   APIs
--   Banco de dados
--   Navegador
--   Sistemas internos
--   Execução de código
+- APIs
+- Database
+- Browser
+- Internal systems
+- Code execution
 
-### Loop Agentic
+### Agentic Loop
 
-Pensar → Agir → Observar → Avaliar → Ajustar
+Think → Act → Observe → Evaluate → Adjust
 
-### Governança
+### Governance
 
--   Logs
--   Limites de ação
--   Controle de custo
--   Auditoria
+- Logs
+- Action limits
+- Cost control
+- Audit
 
-## 5. Arquitetura Moderna Agentic
+## 5. Agentic Modern Architecture
 
-Agente Principal → Planejamento (BMad) → Delegação para Skills →
-Execução via MCP → Memória + Logs → Iteração
+Main Agent → Planning (BMad) → Delegation to Skills →
+Execution via MCP → Memory + Logs → Iteration
 
 ## 6. MCP (Model Context Protocol)
 
-Permite que agentes descubram e utilizem ferramentas de forma
-estruturada e segura.
+Enables agents to discover and use tools
+structured and safe.
 
 ## 7. Skills
 
-Módulos especializados que expandem capacidades.
+Specialized modules that expand capabilities.
 
-Exemplos: - Skill SQL - Skill PDF - Skill Código - Skill Workflow
+Examples: - Skill SQL - Skill PDF - Skill Code - Skill Workflow
 
 ## 8. BMad (Breakdown -- Manage -- Delegate)
 
-1.  Breakdown (quebrar problema)
-2.  Manage (organizar subtarefas)
-3.  Delegate (delegar execução)
+1. Breakdown
+2. Manage (organize subtasks)
+3. Delegate (delegate execution)
 
-## 9. Multi-Agentes
+## 9. Multi-Agents
 
-Sistema com agentes especializados:
+System with specialized agents:
 
--   Planejador
--   Executor
--   Revisor
--   Auditor
+- Planner
+- Executor
+- Reviewer
+- Auditor
 
-## 10. Produtos de Mercado Relevantes (2026)
+## 10. Market Relevant Products (2026)
 
-### Desenvolvimento
+### Development
 
--   Claude Code
--   Codex CLI
--   GitHub Copilot Workspace
--   Cursor AI
--   Devin
+-Claude Code
+- Codex CLI
+- GitHub Copilot Workspace
+- AI Cursor
+- Devin
 
-### Automação
+### Automation
 
--   n8n
--   Zapier AI
--   Make + AI
--   UiPath AI Agents
+- n8n
+- Zapier AI
+- Make + AI
+- UiPath AI Agents
 
-### Orquestração
+### Orchestration
 
--   CrewAI
--   AutoGen
--   LangGraph
--   SuperAGI
+- CrewAI
+- AutoGen
+-LangGraph
+- SuperAGI
 
-### Enterprise
+###Enterprise
 
--   Azure AI Studio
--   OpenAI Enterprise Controls
--   Databricks AI Governance
--   Claude Enterprise Guardrails
+- Azure AI Studio
+- OpenAI Enterprise Controls
+- Databricks AI Governance
+-Claude Enterprise Guardrails
 
-## 11. Aplicações Práticas
+## 11. Practical Applications
 
--   Agente Desenvolvedor
--   Agente Financeiro
--   Agente Jurídico
--   Agente RH
--   Agente Comercial
--   Agente de Automação Interna
+- Developer Agent
+- Financial Agent
+- Legal Agent
+- HR Agent
+- Commercial Agent
+- Internal Automation Agent
 
-## 12. Curso Prático Ideal
+## 12. Ideal Practical Course
 
-1.  Mentalidade Agentic
-2.  Construção de agente simples
-3.  Uso de ferramentas
-4.  Agente desenvolvedor
-5.  Memória persistente
-6.  Multi-agentes
-7.  Governança
-8.  Aplicações empresariais
-9.  Produto Agentic (SaaS)
+1. Agentic Mindset
+2. Simple agent construction
+3. Use of tools
+4. Developer Agent
+5. Persistent memory
+6. Multi-agents
+7. Governance
+8. Business applications
+9. Agentic Product (SaaS)
 
-## 13. Para Leigos
+## 13. For Dummies
 
--   Criar automações úteis
--   Construir micro-SaaS
--   Empreender com IA
--   Automatizar tarefas pessoais ou pequenos negócios
+- Create useful automations
+- Build micro-SaaS
+- Entrepreneurship with AI
+- Automate personal or small business tasks
 
-## 14. Para Executivos
+## 14. For Executives
 
--   Redução de custo operacional
--   Aumento de produtividade
--   Estratégia de adoção IA
--   Governança e controle
--   Criação de vantagem competitiva
+- Reduction of operational costs
+- Increased productivity
+- AI adoption strategy
+- Governance and control
+- Creation of competitive advantage
 
-## 15. Riscos e Limitações
+## 15. Risks and Limitations
 
--   Autonomia excessiva
--   Falhas de segurança
--   Custos não monitorados
--   Falta de auditoria
--   Dependência excessiva de modelo
+- Excessive autonomy
+- Security flaws
+- Unmonitored costs
+- Lack of audit
+- Excessive model dependence
 
-## 16. Análise Final
+## 16. Final Analysis
 
-Agentic Engineering representa a profissionalização do uso de IA.
+Agentic Engineering represents the professionalization of the use of AI.
 
-Vibe Coding foi a fase experimental focada em rapidez e geração. Agentic
-Engineering é a fase estrutural focada em sistemas, disciplina e
-escalabilidade.
+Vibe Coding was the experimental phase focused on speed and generation. Agentic
+Engineering is the structural phase focused on systems, discipline and
+scalability.
 
-Para leigos, é uma oportunidade de entrada no mercado e empreendedorismo
-digital. Para executivos, é uma alavanca estratégica de transformação
-organizacional.
+For laymen, it is an opportunity to enter the market and entrepreneurship
+digital. For executives, it is a strategic lever for transformation
+organizational.
 
-A diferença crítica está na governança e na arquitetura. Sem estrutura,
-vira automação frágil. Com arquitetura adequada, torna-se multiplicador
-exponencial de produtividade.
+The critical difference is in governance and architecture. Without structure,
+becomes fragile automation. With appropriate architecture, it becomes a multiplier
+exponential productivity.
 
-O futuro da engenharia não é substituir humanos por IA, mas criar
-sistemas híbridos onde humanos dirigem agentes com responsabilidade
-técnica e visão estratégica.
+The future of engineering is not about replacing humans with AI, but about creating
+hybrid systems where humans direct agents responsibly
+technique and strategic vision.
