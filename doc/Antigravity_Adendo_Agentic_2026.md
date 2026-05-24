@@ -1,78 +1,78 @@
-# Adendo 2026 --- Google Antigravity no Contexto de Agentic Engineering
+# Addendum 2026 --- Google Antigravity in the Context of Agentic Engineering
 
-## 1. O que é o Antigravity
+## 1. What is Antigravity
 
-Google Antigravity é uma plataforma/IDE "agent-first", projetada para
-permitir que agentes de IA planejem, executem e verifiquem tarefas
-atravessando:
+Google Antigravity is an "agent-first" platform/IDE designed to
+enable AI agents to plan, execute and verify tasks
+crossing:
 
--   Editor de código
--   Terminal
--   Navegador
--   Ferramentas externas
+- Code editor
+- Terminal
+- Browser
+- External tools
 
-Diferente de um simples assistente de código, o Antigravity opera como
-um ambiente de execução agentic completo.
-
-------------------------------------------------------------------------
-
-## 2. Por que o Antigravity é relevante para Agentic Engineering
-
-Ele reúne múltiplos componentes discutidos na arquitetura agentic:
-
--   Agentes que executam tarefas end-to-end
--   Interface de coordenação (controle de missão)
--   Suporte a MCP (Model Context Protocol)
--   Integração com ferramentas externas
--   Uso de skills e workflows especializados
-
-Isso o posiciona como exemplo real de engenharia orientada a agentes.
+Unlike a simple code wizard, Antigravity operates as a
+a complete agentic execution environment.
 
 ------------------------------------------------------------------------
 
-## 3. Onde o Antigravity entra no Curso
+## 2. Why Antigravity is relevant to Agentic Engineering
 
-### Módulo 2 --- Loop Agentic
+It brings together multiple components discussed in agentic architecture:
 
-Exemplo prático de ciclo: Planejar → Executar → Verificar → Corrigir
+- Agents that perform end-to-end tasks
+- Coordination interface (mission control)
+- MCP (Model Context Protocol) support
+- Integration with external tools
+- Use of specialized skills and workflows
 
-### Módulo 3 --- Ferramentas e MCP
-
-Uso de MCP para conectar bancos de dados, APIs e automações externas.
-
-### Módulo 4 --- Agente Desenvolvedor
-
-Agentes operando em editor + terminal + navegador de forma coordenada.
-
-### Módulo 7 --- Governança e Segurança
-
-Discussão sobre: - Limites de permissão - Controle de ações
-destrutivas - Logs e auditoria - Fail-safe
+This positions it as a real example of agent-oriented engineering.
 
 ------------------------------------------------------------------------
 
-## 4. Pontos Críticos e Riscos
+## 3. Where Antigravity comes into the Course
 
-Ferramentas agentic com acesso ao sistema podem:
+### Module 2 --- Agentic Loop
 
--   Executar comandos perigosos
--   Alterar arquivos críticos
--   Gerar custos inesperados
--   Criar riscos de segurança
+Practical example of a cycle: Plan → Execute → Check → Fix
 
-Por isso, governança é parte essencial da engenharia agentic.
+### Module 3 --- Tools and MCP
+
+Use of MCP to connect databases, APIs and external automations.
+
+### Module 4 --- Developer Agent
+
+Agents operating in editor + terminal + browser in a coordinated way.
+
+### Module 7 --- Governance and Security
+
+Discussion about: - Permission limits - Action control
+destructive - Logs and auditing - Fail-safe
 
 ------------------------------------------------------------------------
 
-## 5. Conclusão
+## 4. Critical Points and Risks
 
-Antigravity representa um exemplo concreto da transição de:
+Agentic tools with system access can:
 
-Assistente de Código → Sistema Agentic Integrado
+- Execute dangerous commands
+- Change critical files
+- Generate unexpected costs
+- Create security risks
 
-Ele deve ser tratado no curso não apenas como ferramenta, mas como
-estudo de caso sobre:
+Therefore, governance is an essential part of agentic engineering.
 
--   Arquitetura agentic moderna
--   Potencial de produtividade
--   Necessidade de controle e supervisão
+------------------------------------------------------------------------
+
+## 5. Conclusion
+
+Antigravity represents a concrete example of the transition from:
+
+Code Assistant → Integrated Agentic System
+
+It should be treated in the course not just as a tool, but as a
+case study on:
+
+- Modern agentic architecture
+- Productivity potential
+- Need for control and supervision
